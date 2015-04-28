@@ -25,7 +25,7 @@ public class Pessoa  implements java.io.Serializable {
 
     }
    
-    public String getNom() {
+    public String getNome() {
         return this.nome;
     }
     
