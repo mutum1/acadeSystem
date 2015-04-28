@@ -9,6 +9,6 @@ package br.ufes.ceunes.poo.model.dao;
  *
  * @author paulo
  */
-public class Pessoa {
+public class Pessoa {teste
     
 }
