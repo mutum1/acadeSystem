@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package br.ufes.ceunes.poo.model.pojo;
 
 /**
  *
  * @author paulo
  */
-public class AlunoDao {
+public class Aluno extends Pessoa {
     
 }
