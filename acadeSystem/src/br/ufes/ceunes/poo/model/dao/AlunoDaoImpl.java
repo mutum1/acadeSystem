@@ -4,11 +4,26 @@
  * and open the template in the editor.
  */
 package br.ufes.ceunes.poo.model.dao;
+import br.ufes.ceunes.poo.model.pojo.Aluno;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author paulo
  */
-public class AlunoDaoImpl {
+
+public class AlunoDaoImpl implements AlunoDao {
     
+    private List<Aluno> listaAlunos;
+    
+    public AlunoDaoImpl(){
+        this.listaAlunos =new ArrayList<>();
+    }
+    
+    @Override
+    public void adicionar(Aluno aluno){
+        listaAlunos.add(aluno);
+    }
+
 }

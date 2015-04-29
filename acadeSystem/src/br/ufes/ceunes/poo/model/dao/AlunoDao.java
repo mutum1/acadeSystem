@@ -5,10 +5,14 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 
+import br.ufes.ceunes.poo.model.pojo.Aluno;
+
 /**
  *
  * @author paulo
  */
-public class AlunoDao {
-    
+public interface AlunoDao {
+
+    public void adicionar(Aluno aluno);
+   
 }
