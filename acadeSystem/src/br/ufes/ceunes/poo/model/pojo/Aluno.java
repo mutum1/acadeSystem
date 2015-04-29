@@ -11,5 +11,9 @@ package br.ufes.ceunes.poo.model.pojo;
  * @author paulo
  */
 public class Aluno extends Pessoa {
+
+    public Aluno(String nome, String cpf) {
+        super(nome, cpf);
+    }
     
 }
