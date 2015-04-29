@@ -16,6 +16,8 @@ public class Pessoa  implements java.io.Serializable {
      private String cpf;
 
 
+
+
     public Pessoa(String nome, String cpf) {
        this.nome = nome;
        this.cpf = cpf;
