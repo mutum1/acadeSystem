@@ -6,6 +6,7 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,8 @@ import br.ufes.ceunes.poo.model.pojo.Aluno;
 public interface AlunoDao {
 
     public void adicionar(Aluno aluno);
+    public List getAll();
+    public void carregar();
+    public void salvar();
    
 }
