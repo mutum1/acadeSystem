@@ -44,6 +44,14 @@ public class Disciplina {
     public void addDiscilina(String cpf){
         this.cpf.add(cpf);
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public List<String> getCpf() {
+        return cpf;
+    }
     
 
 }
