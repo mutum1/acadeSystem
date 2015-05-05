@@ -5,10 +5,45 @@
  */
 package br.ufes.ceunes.poo.model.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Rhaister
  */
 public class Disciplina {
     
+    private String nome;
+    private String ementa;
+    private String cargaHoraria;
+    private String codigo;
+    private List<String> cpf;
+
+    public Disciplina(String nome, String ementa, String cargaHoraria,String codigo ) {
+        this.cpf = new ArrayList<>();
+        this.nome = nome;
+        this.ementa = ementa;
+        this.cargaHoraria = cargaHoraria;
+        this.codigo = codigo;
+    }
+    
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmenta() {
+        return ementa;
+    }
+
+    public String getCargaHoraria() {
+        return cargaHoraria;
+    }
+    
+    public void addDiscilina(String cpf){
+        this.cpf.add(cpf);
+    }
+    
+
 }
