@@ -7,6 +7,7 @@ package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -51,9 +52,18 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
-                String cpf = ler.readLine();//Pega cpf
-                String departamento = ler.readLine();            
-                Disciplina novo = new Disciplina(nome,cpf,departamento);
+                String ementa = ler.readLine();//Pega cpf
+                String cargaHoraria = ler.readLine(); 
+                String codigo = ler.readLine(); 
+                int ncpf; 
+                ncpf = Integer.parseInt(ler.readLine());
+                Disciplina novo = new Disciplina(nome,ementa,cargaHoraria,codigo);
+                int i;
+                for(i=0;i<=ncpf;i++){
+                    String cpf= ler.readLine();
+                    novo.addDiscilina(cpf);
+                }
+                
                 adicionar(novo);//Adiciona na lista
             }
             file.close();//Fecho o arquivo
