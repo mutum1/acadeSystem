@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 public class DisciplinaDaoImpl implements DisciplinaDao {
     private List<Disciplina> listaDisciplina;
 
-    public DisciplinaDaoImpl(List<Disciplina> listaDsiciplina) {
+    public DisciplinaDaoImpl() {
         this.listaDisciplina = new ArrayList<>();
     }
     
