@@ -18,6 +18,17 @@ public class Turma {
     private Professor professor;
     private Disciplina disciplina;
 
+    public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina) {
+        this.ano = ano;
+        this.periodo = periodo;
+        this.local = local;
+        this.horario = horario;
+        this.nVagas = nVagas;
+        this.professor = professor;
+        this.disciplina = disciplina;
+    }
+    
+
     public String getAno() {
         return ano;
     }
