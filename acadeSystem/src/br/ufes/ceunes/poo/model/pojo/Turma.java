@@ -5,6 +5,9 @@
  */
 package br.ufes.ceunes.poo.model.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Rhaister
@@ -17,8 +20,10 @@ public class Turma {
     private int nVagas;
     private Professor professor;
     private Disciplina disciplina;
+    private List<String> listAlunos;
 
     public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina) {
+        this.listAlunos = new ArrayList<>();
         this.ano = ano;
         this.periodo = periodo;
         this.local = local;
@@ -68,5 +73,20 @@ public class Turma {
     public void setnVagas(int nVagas) {
         this.nVagas = nVagas;
     }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
     
+    public List<String> getListaAlunos(){
+        return listAlunos;
+    }
+    
+    public void addAluno(Aluno aluno){
+        listAlunos.add(aluno.getCpf());
+    }
 }

@@ -18,10 +18,10 @@ public class Disciplina {
     private String ementa;
     private String cargaHoraria;
     private String codigo;
-    private List<String> cpf;
+    private List<String> listaCpf;
 
     public Disciplina(String nome, String ementa, String cargaHoraria,String codigo ) {
-        this.cpf = new ArrayList<>();
+        this.listaCpf = new ArrayList<>();
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
@@ -42,15 +42,15 @@ public class Disciplina {
     }
     
     public void addDiscilina(String cpf){
-        this.cpf.add(cpf);
+        this.listaCpf.add(cpf);
     }
 
     public String getCodigo() {
         return codigo;
     }
 
-    public List<String> getCpf() {
-        return cpf;
+    public List<String> listaCpf() {
+        return listaCpf;
     }
     
 
