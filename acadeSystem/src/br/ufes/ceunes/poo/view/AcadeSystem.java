@@ -38,6 +38,24 @@ public class AcadeSystem {
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
         turmaDao.carregar();    // Carregado lista de turmas do arquivo
     
+        Menu menuPrincipal = new Menu();
+        menuPrincipal.adicionarItem("Cadastros");
+        
+        Menu menuCadastros = new Menu();
+        menuCadastros.adicionarItem("Cadastrar Aluno");
+        menuCadastros.adicionarItem("Cadastrar Profesor");
+        menuCadastros.adicionarItem("Cadastrar Disciplina");
+        menuCadastros.adicionarItem("Cadastrar Turma");
+        menuCadastros.adicionarItem("Cadastrar Aluno");
+        
+        
+        
+        
+        menuPrincipal.MostrarItens();
+        int opcao = menuPrincipal.getOption();
+        
+
+        
         
         
     }

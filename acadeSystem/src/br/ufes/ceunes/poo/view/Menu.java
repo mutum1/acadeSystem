@@ -21,11 +21,15 @@ public class Menu {
         this.listaItens = new ArrayList<>();
     }
     
+    public Menu(List<String> listaItens){
+        this.listaItens = listaItens;
+    }
+    
     public void adicionarItem(String item){
         listaItens.add(item);
     }
     
-    public void listarItens(){
+    public void MostrarItens(){
         for(int i =0;i<listaItens.size();i++){
             System.out.println(i+1 +" - " + listaItens.get(i));
         }
