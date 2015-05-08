@@ -88,4 +88,15 @@ public class ProfessorDaoImpl implements ProfessorDao {
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+
+    @Override
+    public Professor buscaProf(Professor professor) {
+        for(Professor prof : listaProfessor){
+            if(prof.getCpf().equals(professor.getCpf())){
+                return prof;
+            }
+        }
+        return professor;
+    }
+    
 }

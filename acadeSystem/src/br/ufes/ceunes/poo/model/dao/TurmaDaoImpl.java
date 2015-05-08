@@ -7,6 +7,7 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
+import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -26,8 +27,13 @@ import java.util.logging.Logger;
 public class TurmaDaoImpl implements TurmaDao {
     
     private List<Turma> listaTurma;
-
+    private ProfessorDaoImpl professorAcoes;
+    private DisciplinaDaoImpl disciplinaAcoes;
+            
+    
     public TurmaDaoImpl() {
+        this.disciplinaAcoes = new DisciplinaDaoImpl();
+        this.professorAcoes = new ProfessorDaoImpl();
         this.listaTurma = new ArrayList<>();
     }
     
@@ -51,20 +57,32 @@ public class TurmaDaoImpl implements TurmaDao {
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            int i;
+            int nVagas;
+            int nAlunos;
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
-                String nome = ler.readLine();//Pega nome
-                String ementa = ler.readLine();//Pega cpf
-                String cargaHoraria = ler.readLine(); 
-                String codigo = ler.readLine(); 
-                int ncpf; 
-                ncpf = Integer.parseInt(ler.readLine());
-                Turma novo = new Turma(nome,ementa,cargaHoraria,codigo);
-                int i;
-                for(i=0;i<=ncpf;i++){
-                    String cpf= ler.readLine();
-                    novo.addDiscilina(cpf);
-                }
+                String ano = ler.readLine();//Pega nome
+                String periodo = ler.readLine();//Pega periodo
+                String local = ler.readLine(); //pega o local
+                String horario = ler.readLine(); //pega o horario
+                String SnVagas= ler.readLine(); //pega o numero de strig
+                nVagas= Integer.parseInt(SnVagas); //converte a string para inteiro
+                String cpfProfessor = ler.readLine(); //pega o cpf do professor
+                String codigoCpf = ler.readLine(); //pega pega o codigo daquela diciplina
                 
+                Professor professor = new Professor(null,cpfProfessor,null);
+                professor = professorAcoes.buscaProf(professor);
+                
+                Disciplina disciplina = new Disciplina(null,null,null,codigoCpf);
+                disciplina = disciplinaAcoes.buscaDisciplina(disciplina);
+                Turma novo = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina);
+                
+                nAlunos = Integer.parseInt(ler.readLine());
+                
+                for(i=0; i<nAlunos; i++){
+                    String cpf= ler.readLine();
+                    novo.
+                }
                 adicionar(novo);//Adiciona na lista
             }
             file.close();//Fecho o arquivo
@@ -82,19 +100,29 @@ public class TurmaDaoImpl implements TurmaDao {
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            int size;
             for(Turma Turma : listaTurma){//percorre a lista
                 salvar.write(Turma.getAno());//salva ano
                 salvar.newLine();
-                salvar.write(Turma.getHorario());//salva horario
+                salvar.write(Turma.getPeriodo());//salva perido
                 salvar.newLine();
                 salvar.write(Turma.getLocal());//salva local
                 salvar.newLine();
+                salvar.write(Turma.getHorario());//salva o local
+                salvar.newLine();
                 salvar.write(Turma.getnVagas());//salva nº de vagas
                 salvar.newLine();
-                salvar.write(Turma.professor.getCpf());//salva o cpf do professor q da aula naquela turma
+                salvar.write(Turma.getProfessor().getCpf());//salva o cpf do professor q da aula naquela turma
                 salvar.newLine();
-                salvar.write(Turma.disciplina.getCodigo());//salva o codigo da disciplina naquela turma
-                
+                salvar.write(Turma.getDisciplina().getCodigo());//salva o codigo da disciplina naquela turma
+                salvar.newLine();
+                size=Turma.getListaAlunos().size();
+                salvar.write(size);//salva a quantidade de alunos na turma
+                salvar.newLine();
+                for(String alunos : Turma.getListaAlunos()){
+                    salvar.write(alunos);//salva um por um o q esta na lista de cpfs
+                    salvar.newLine();
+                }
             }
             salvar.close();
             file.close();            

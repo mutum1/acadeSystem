@@ -17,5 +17,6 @@ public interface ProfessorDao {
     public List getAll();
     public void carregar();
     public void salvar();
+    public Professor buscaProf(Professor professor);
     
 }

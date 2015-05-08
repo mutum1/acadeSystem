@@ -6,7 +6,7 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
-import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -90,9 +90,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 salvar.newLine();
                 salvar.write(disciplina.getCodigo());//salva carga horaria
                 salvar.newLine();
-                salvar.write(disciplina.getCpf().size());//quantos cpfs tem na lista de cpfs
+                salvar.write(disciplina.listaCpf().size());//quantos cpfs tem na lista de cpfs
                 salvar.newLine();
-                for(String cpf : disciplina.getCpf()){ 
+                for(String cpf : disciplina.listaCpf()){ 
                     salvar.write(cpf);//salva um por um o q esta na lista de cpfs
                     salvar.newLine();
                 }
@@ -106,5 +106,15 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+    @Override
+    public Disciplina buscaDisciplina(Disciplina disciplina) {
+        for(Disciplina diciplinaTemp : listaDisciplina){
+            if(disciplina.getCodigo().equals(diciplinaTemp.getCodigo())){
+                return disciplina;
+            }
+        }
+        return disciplina;
+    }
+
 }
 
