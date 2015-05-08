@@ -5,7 +5,11 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
+import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.pojo.Turma;
+import java.util.List;
 
 /**
  *
@@ -13,8 +17,10 @@ import br.ufes.ceunes.poo.model.dao.TurmaDao;
  */
 class TurmaView {
 
+    private final TurmaDao turma;//Extanciei o objeto da classe "main" para usar os metodos do impl
+    private List<Turma> listaTurma;
+               
     TurmaView(TurmaDao turmaDao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turma = turmaDao;
     }
-    
 }
