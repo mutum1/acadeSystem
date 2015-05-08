@@ -15,23 +15,37 @@ import java.util.Scanner;
  * @author Rui
  */
 public class Menu {
-    private List<String> listaItens;
+    private List<String> optionsList;
+    private String title;
     
     public Menu(){
-        this.listaItens = new ArrayList<>();
+        this(new ArrayList<String>());
     }
     
-    public Menu(List<String> listaItens){
-        this.listaItens = listaItens;
+    public Menu(List<String> optionsList){
+        this.optionsList = optionsList;
+        this.title = "AcadeSystem";
     }
     
-    public void addItem(String item){
-        listaItens.add(item);
+    public Menu(List<String> optionsList, String title){
+        this(optionsList);
+        this.title = title;
+    }
+    public void addOption(String item){
+        optionsList.add(item);
     }
     
-    public void showItem(){
-        for(int i =0;i<listaItens.size();i++){
-            System.out.println(i+1 +" - " + listaItens.get(i));
+    public void setTitle(String title){
+        this.title = title;
+    }
+    
+    public String getTitle(){
+        return this.title;
+    }
+    
+    public void showOptions(){
+        for(int i =0;i<optionsList.size();i++){
+            System.out.println(i+1 +" - " + optionsList.get(i));
         }
     }
     
@@ -39,10 +53,10 @@ public class Menu {
          Scanner input = new Scanner(System.in);
          int opcao = 0;
          
-         while (opcao < 1 || opcao >= listaItens.size()){
+         while (opcao < 1 || opcao >= optionsList.size()){
             opcao =  input.nextInt();
                 
-            if(opcao < 1 || opcao >= listaItens.size())
+            if(opcao < 1 || opcao >= optionsList.size())
                 System.out.println("Opcao invalida");
          }
          return opcao;
