@@ -25,11 +25,11 @@ public class Menu {
         this.listaItens = listaItens;
     }
     
-    public void adicionarItem(String item){
+    public void addItem(String item){
         listaItens.add(item);
     }
     
-    public void MostrarItens(){
+    public void showItem(){
         for(int i =0;i<listaItens.size();i++){
             System.out.println(i+1 +" - " + listaItens.get(i));
         }
@@ -47,4 +47,5 @@ public class Menu {
          }
          return opcao;
     }
+    
 }
