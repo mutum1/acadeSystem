@@ -18,7 +18,7 @@ import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
  *
  * @author paulo
  */
-public class AcadeSystemExe {
+public class AcadeSystem {
     public static void main(String[] args){
         
         AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
@@ -27,11 +27,17 @@ public class AcadeSystemExe {
         ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
         
-        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl();
-        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao);
+        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(); // Objeto Disciplina Criado
+        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
         
-        TurmaDao turmaDao = new TurmaDaoImpl();
-        TurmaView turmaView = new TurmaView(turmaDao);
+        TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
+        TurmaView turmaView = new TurmaView(turmaDao); // Enviado uma turmaDao para uma turmaView
+        
+        alunoDao.carregar(); // Carregado lista de alunos do arquivo
+        professorDao.carregar(); // Carregado lista de professores do arquivo
+        disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
+        turmaDao.carregar();    // Carregado lista de turmas do arquivo
+    
         
         
     }
