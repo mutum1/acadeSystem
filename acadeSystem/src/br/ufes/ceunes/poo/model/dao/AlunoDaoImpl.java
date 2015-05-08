@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -83,5 +84,16 @@ public class AlunoDaoImpl implements AlunoDao {
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(AlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
+    }
+
+    @Override
+    public Aluno buscaAluno(Aluno alunoTemp) {
+        
+        for(Aluno aluno : listaAlunos){
+            if(alunoTemp.getCpf().equals(aluno.getCpf())){
+                return aluno;
+            }
+        }
+        return alunoTemp;
     }
 }

@@ -6,6 +6,7 @@
 
 package br.ufes.ceunes.poo.model.dao;
 
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
@@ -29,11 +30,13 @@ public class TurmaDaoImpl implements TurmaDao {
     private List<Turma> listaTurma;
     private ProfessorDaoImpl professorAcoes;
     private DisciplinaDaoImpl disciplinaAcoes;
+    private AlunoDaoImpl alunoAcoes;
             
     
     public TurmaDaoImpl() {
         this.disciplinaAcoes = new DisciplinaDaoImpl();
         this.professorAcoes = new ProfessorDaoImpl();
+        this.alunoAcoes = new AlunoDaoImpl();
         this.listaTurma = new ArrayList<>();
     }
     
@@ -81,7 +84,9 @@ public class TurmaDaoImpl implements TurmaDao {
                 
                 for(i=0; i<nAlunos; i++){
                     String cpf= ler.readLine();
-                    novo.
+                    Aluno aluno =new Aluno(null,cpf);
+                    aluno = alunoAcoes.buscaAluno(aluno);
+                    novo.addAluno(aluno);
                 }
                 adicionar(novo);//Adiciona na lista
             }
