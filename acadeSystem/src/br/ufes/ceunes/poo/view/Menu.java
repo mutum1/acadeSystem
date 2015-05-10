@@ -53,10 +53,10 @@ public class Menu {
          Scanner input = new Scanner(System.in);
          int opcao = 0;
          
-         while (opcao < 1 || opcao >= optionsList.size()){
+         while (opcao < 1 || opcao > optionsList.size()){
             opcao =  input.nextInt();
                 
-            if(opcao < 1 || opcao >= optionsList.size())
+            if(opcao < 1 || opcao > optionsList.size())
                 System.out.println("Opcao invalida");
          }
          return opcao;

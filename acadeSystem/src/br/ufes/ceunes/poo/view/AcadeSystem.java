@@ -52,8 +52,7 @@ public class AcadeSystem {
         
         
         menuPrincipal.showOptions();
-        //int opcao = menuPrincipal.getOption();
-        int opcao = 0;
+        int opcao = menuPrincipal.getOption();
         switch(opcao){
             case 1: cadastrar();
             break;  
@@ -65,9 +64,22 @@ public class AcadeSystem {
     }
     
     public static void cadastrar(){
+        menuCadastros.showOptions();
+        int opcao = menuCadastros.getOption();
         
-        
-    
-    
+        switch(opcao){
+            case 1:
+                //cadastra aluno
+                break;
+            case 2:
+                //cadastro professor
+                break;
+            case 3:
+                //cadastro disciplina
+                break;
+            case 4:
+                //cadastro turma
+                break;
+        }
     }
 }
