@@ -25,26 +25,27 @@ class DisciplinaView {
         String nome = "";
         String codigo = "";
         String ementa = "";
-        System.out.println("Digite o nome do disciplina");
+        String cargaHoraria="";
+        
+        System.out.println("Digite o nome da disciplina");
         nome = input.nextLine();
         
-        System.out.println("Digite o departamento do disciplina");
-        departamento = input.nextLine();
+        System.out.println("Digite o codigo da disciplina");
+        codigo = input.nextLine();
         
-        System.out.println("Digite o cpf do disciplina");
-        cpf = input.nextLine();
+        System.out.println("Digite a ementa");
+        ementa = input.nextLine();
         
-        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify ==1){
-            System.out.println("CPF inválido, digite novamente");
-            cpf = input.nextLine();   
-        }
+        System.out.println("Digite a caraca horaria");
+        ementa = input.nextLine();
+      
         
         
-        return new Disciplina(nome,cpf,departamento);
+        return new Disciplina(nome,ementa,cargaHoraria,codigo);
     }    
     
     public boolean existeDisciplina(Disciplina disciplina, DisciplinaDao disciplinaDao){
-        Disciplina disciplinaTemp = disciplinaDao.buscaDisciplina(new Disciplina(null,disciplina.getCpf(),null));
+        Disciplina disciplinaTemp = disciplinaDao.buscaDisciplina(new Disciplina(null,null,null,disciplina.getCodigo()));
         if(disciplinaTemp.getNome() == null){
             return false;
         }
