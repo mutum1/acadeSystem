@@ -19,5 +19,5 @@ public interface TurmaDao {
     public List getAll();
     public void carregar();
     public void salvar();
-    public Turma buscaTurmabusca(Turma turma);
+    public Turma buscaTurma(Turma turma);
 }

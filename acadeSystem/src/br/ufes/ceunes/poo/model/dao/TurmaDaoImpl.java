@@ -139,7 +139,7 @@ public class TurmaDaoImpl implements TurmaDao {
     }
 
     @Override
-    public Turma buscaTurmabusca(Turma turma) {
+    public Turma buscaTurma(Turma turma) {
         for(Turma turmaTemp : listaTurma){
             if(turmaTemp.getHorario().equals(turma.getLocal()) && turmaTemp.getHorario().equals(turma.getLocal())){
                 return turmaTemp;
