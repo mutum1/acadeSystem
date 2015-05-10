@@ -8,6 +8,7 @@ package br.ufes.ceunes.poo.view;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
+import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.List;
@@ -53,14 +54,16 @@ class TurmaView {
         
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
+        Disciplina disciplina = new Disciplina(null,null,null,codigoDisciplina);
         
         
         
-        return new Turma(ano,periodo,local,horario,numeroVagas,professor,codigoDisciplina);
+        
+        return new Turma(ano,periodo,local,horario,numeroVagas,professor,disciplina);
     }    
     
     public boolean existeTurma(Turma turma, TurmaDao turmaDao){
-        Turma turmaTemp = turmaDao.buscaTurma(new Turma(null,null,null,turma.getCodigo()));
+        Turma turmaTemp = turmaDao.buscaTurma(new Turma(null,null,turma.getLocal(),turma.getHorario(),null,null,null));
         if(turmaTemp.getLocal() == null){
             return false;
         }

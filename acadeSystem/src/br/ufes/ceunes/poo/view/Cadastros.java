@@ -46,10 +46,10 @@ public class Cadastros {
             disciplinaDao.adicionar(disciplina);
         }
     }
-    public void cadastrarTurma(TurmaDao turmaDao){
+    public void cadastrarTurma(TurmaDao turmaDao, DisciplinaDao disciplinaDao,ProfessorDao professorDao){
         TurmaView turmaView = new TurmaView();
         
-        Turma turma = turmaView.getInfo();
+        Turma turma = turmaView.getInfo(disciplinaDao, professorDao);
         if(!turmaView.existeTurma(turma, turmaDao)){
             turmaDao.adicionar(turma);
         }

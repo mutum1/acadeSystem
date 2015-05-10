@@ -96,7 +96,7 @@ public class AcadeSystem {
                 //cadastro disciplina
                 break;
             case 4:
-                Turma turma = turmaView.getInfo();
+                Turma turma = turmaView.getInfo(disciplinaDao,professorDao);
                 
                 //cadastro turma
                 break;
