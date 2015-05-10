@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class Menu {
     private List<String> optionsList;
     private String title;
+    private int size;
     
     public Menu(){
         this(new ArrayList<String>());
@@ -25,6 +26,7 @@ public class Menu {
     public Menu(List<String> optionsList){
         this.optionsList = optionsList;
         this.title = "AcadeSystem";
+        this.size = 0;
     }
     
     public Menu(List<String> optionsList, String title){
@@ -41,6 +43,10 @@ public class Menu {
     
     public String getTitle(){
         return this.title;
+    }
+    
+    public int getSize(){
+        return this.size;
     }
     
     public void showOptions(){

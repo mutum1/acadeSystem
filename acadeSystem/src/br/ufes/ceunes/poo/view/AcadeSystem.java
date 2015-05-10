@@ -14,6 +14,7 @@ import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Professor;
 
 /**
  *
@@ -25,10 +26,10 @@ public class AcadeSystem {
     private static AlunoView alunoView = new AlunoView(); // Enviado um alunoDoa para um alunoView
         
     private static ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
-    private static ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
+    private static ProfessorView professorView = new ProfessorView(); // Enviado um professorDao para professorView
         
     private static DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(); // Objeto Disciplina Criado
-    private static DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
+    private static DisciplinaView disciplinaView = new DisciplinaView(); // Enviado uma disciplinaDao para disciplinaView
         
     private static TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
     private static TurmaView turmaView = new TurmaView(turmaDao); // Enviado uma turmaDao para uma turmaView
@@ -38,7 +39,7 @@ public class AcadeSystem {
     static int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
     
     public static void main(String[] args){
-        
+        int opcao = 0;
         alunoDao.carregar(); // Carregado lista de alunos do arquivo
         professorDao.carregar(); // Carregado lista de professores do arquivo
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
@@ -53,22 +54,25 @@ public class AcadeSystem {
         menuCadastros.addOption("Cadastrar Aluno");
         
         
-        menuPrincipal.showOptions();
-        int opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
-        switch(opcao){
-            case 1: 
-                menuCadastros.showOptions();
-                cadastrar(alunoDao);
-                
-                break;  
-    
-        }
         
+        while(opcao != menuPrincipal.getSize()){
+            menuPrincipal.showOptions();
+            opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
+            switch(opcao){
+                case 1: 
+                    menuCadastros.showOptions();
+                    cadastrar(alunoDao,professorDao,disciplinaDao,turmaDao);
+                    break;  
+                case 2:
+                    //cadastrar professor
+                    break;
+            }
+        }
         return;
         
     }
     
-    public static void cadastrar(AlunoDao alunoDao){
+    public static void cadastrar(AlunoDao alunoDao,ProfessorDao professorDao,DisciplinaDao disciplinaDao,TurmaDao turmaDao){
         int opcao = menuCadastros.getOption();
         
         switch(opcao){
@@ -79,7 +83,10 @@ public class AcadeSystem {
                 }
                 break;
             case 2:
-                
+                Professor professor = professorView.getInfo();
+                if(!professorView.existeProfessor(professor, professorDao)){
+                    professorDao.adicionar(professor);
+                }
                 //cadastro professor
                 break;
             case 3:
