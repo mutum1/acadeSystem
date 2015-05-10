@@ -19,7 +19,7 @@ import java.util.Scanner;
  * @author Rhaister
  */
 class TurmaView {
-
+    ProfessorDao professorAcoes = new ProfessorDao();
     public Turma getInfo(){
         Scanner input = new Scanner(System.in);
         String ano = "";
@@ -48,15 +48,19 @@ class TurmaView {
         System.out.println("Digite o CPF do professor (Somente numeros)");
         cpfProfessor = input.nextLine();
         
+        
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
         
-        return new Turma(nome,ementa,cargaHoraria,codigo);
+        return new Turma(ano,periodo,local,horario,numeroVagas,cpfProfessor,codigoDisciplina);
     }    
     
     public boolean existeTurma(Turma turma, TurmaDao turmaDao){
         Turma turmaTemp = turmaDao.buscaTurma(new Turma(null,null,null,turma.getCodigo()));
-        if(turmaTemp.getNome() == null){
+        if(turmaTemp.getLocal() == null){
+            return false;
+        }
+        else if (turmaTemp.getHorario() == null){
             return false;
         }
         return true;
