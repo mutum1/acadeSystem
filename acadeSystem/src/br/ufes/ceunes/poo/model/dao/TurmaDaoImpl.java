@@ -74,7 +74,7 @@ public class TurmaDaoImpl implements TurmaDao {
                 String codigo = ler.readLine(); //pega pega o codigo daquela diciplina
                 
                 Professor professor = new Professor(null,cpfProfessor,null);//cria um objeto do tipo professor
-                professor = professorAcoes.buscaProf(professor);//procura o professor na lista de professores e adiciona e ele na turma
+                professor = professorAcoes.buscaProfessor(professor);//procura o professor na lista de professores e adiciona e ele na turma
                 
                 Disciplina disciplina = new Disciplina(null,null,null,codigo);// cria um objeto do tipo disciplina e coloca so o codigo no objeto
                 disciplina = disciplinaAcoes.buscaDisciplina(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
