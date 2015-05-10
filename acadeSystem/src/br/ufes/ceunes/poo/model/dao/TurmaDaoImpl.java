@@ -137,6 +137,17 @@ public class TurmaDaoImpl implements TurmaDao {
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+
+    @Override
+    public Turma buscaTurmabusca(Turma turma) {
+        for(Turma turmaTemp : listaTurma){
+            if(turmaTemp.getHorario().equals(turma.getLocal()) && turmaTemp.getHorario().equals(turma.getLocal())){
+                return turmaTemp;
+            }
+        }
+        return turma;
+    }
+    
 }
     
 
