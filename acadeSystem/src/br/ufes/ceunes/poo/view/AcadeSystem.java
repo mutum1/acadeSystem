@@ -34,6 +34,7 @@ public class AcadeSystem {
        
     private static Menu menuPrincipal = new Menu();
     private static Menu menuCadastros = new Menu();
+    static int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
     
     public static void main(String[] args){
         

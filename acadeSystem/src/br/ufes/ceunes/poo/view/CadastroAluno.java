@@ -35,9 +35,14 @@ public class CadastroAluno {
         System.out.println("Digite o nome do aluno");
         nome = input.nextLine();
         
-        System.out.println("Digite o cpf do aluno");
-        nome = input.nextLine();
         
+        
+        System.out.println("Digite o cpf do aluno");
+        cpf = input.nextLine();
+        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify ==1){
+            System.out.println("CPF inválido, digite novamente");
+            cpf = input.nextLine();   
+        }
         aluno = new Aluno(nome,cpf);
     }
     
