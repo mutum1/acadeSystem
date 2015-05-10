@@ -8,6 +8,7 @@ package br.ufes.ceunes.poo.view;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -15,11 +16,40 @@ import java.util.List;
  */
 class ProfessorView {
     
-    private final ProfessorDao professor;//Extanciei o objeto da classe "main" para usar os metodos do impl
-    private List<Professor> listaProfessor;
-               
-    ProfessorView(ProfessorDao professorDao) {
-        this.professor = professorDao;
+    
+    
+    
+  
+    public Professor getInfo(){
+        Scanner input = new Scanner(System.in);
+        String nome = "";
+        String cpf = "";
+        String departamento = "";
+        System.out.println("Digite o nome do professor");
+        nome = input.nextLine();
+        
+        System.out.println("Digite o departamento do professor");
+        departamento = input.nextLine();
+        
+        System.out.println("Digite o cpf do professor");
+        cpf = input.nextLine();
+        
+        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify ==1){
+            System.out.println("CPF inválido, digite novamente");
+            cpf = input.nextLine();   
+        }
+        
+        
+        return new Professor(nome,cpf,departamento);
+    }    
+    
+    public boolean existeProfessor(Professor professor, ProfessorDao professorDao){
+        Professor professorTemp = professorDao.buscaProfessor(new Professor(null,professor.getCpf(),null));
+        if(professorTemp.getNome() == null){
+            return false;
+        }
+        return true;
     }
+    
     
 }

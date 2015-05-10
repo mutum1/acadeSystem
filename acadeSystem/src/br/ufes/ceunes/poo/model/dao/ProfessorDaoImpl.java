@@ -90,7 +90,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
 
     @Override
-    public Professor buscaProf(Professor professor) {
+    public Professor buscaProfessor(Professor professor) {
         for(Professor prof : listaProfessor){
             if(prof.getCpf().equals(professor.getCpf())){
                 return prof;

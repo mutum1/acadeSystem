@@ -56,8 +56,11 @@ public class AcadeSystem {
         menuPrincipal.showOptions();
         int opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
         switch(opcao){
-            case 1: cadastrar(alunoDao);
-            break;  
+            case 1: 
+                menuCadastros.showOptions();
+                cadastrar(alunoDao);
+                
+                break;  
     
         }
         
@@ -66,7 +69,6 @@ public class AcadeSystem {
     }
     
     public static void cadastrar(AlunoDao alunoDao){
-        menuCadastros.showOptions();
         int opcao = menuCadastros.getOption();
         
         switch(opcao){
