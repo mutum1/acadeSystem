@@ -5,10 +5,9 @@
  */
 package br.ufes.ceunes.poo.view;
 
-import br.ufes.ceunes.poo.model.dao.TurmaDao;
+import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
-import br.ufes.ceunes.poo.model.pojo.Turma;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.List;
@@ -20,7 +19,7 @@ import java.util.Scanner;
  */
 class TurmaView {
     
-    public Turma getInfo(){
+    public Turma getInfo(DisciplinaDao disciplinaDao, ProfessorDao professorDao){
         
         Scanner input = new Scanner(System.in);
         String ano = "";
@@ -50,11 +49,14 @@ class TurmaView {
         cpfProfessor = input.nextLine();
         Professor professor = new Professor(null,cpfProfessor,null);
         
+        professor = professorDao.buscaProfessor(professor);
         
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
         
-        return new Turma(ano,periodo,local,horario,numeroVagas,cpfProfessor,codigoDisciplina);
+        
+        
+        return new Turma(ano,periodo,local,horario,numeroVagas,professor,codigoDisciplina);
     }    
     
     public boolean existeTurma(Turma turma, TurmaDao turmaDao){
