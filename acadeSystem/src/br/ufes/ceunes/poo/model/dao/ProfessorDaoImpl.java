@@ -45,7 +45,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     
     @Override
     public void carregar(){
-        String nomeArquivo = "Professors.txt";//nome do arquivo
+        String nomeArquivo = "Professores.txt";//nome do arquivo
         FileReader file;
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo

@@ -44,8 +44,9 @@ public class AlunoDaoImpl implements AlunoDao {
     
     @Override
     public void carregar(){
-        String nomeArquivo = "Alunos.txt";//nome do arquivo
+        String nomeArquivo = "Alunos.txt";//nome do arquivox    
         FileReader file;
+        
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura

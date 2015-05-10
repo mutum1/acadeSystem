@@ -52,12 +52,15 @@ public class AcadeSystem {
         
         
         menuPrincipal.showOptions();
-        int opcao = menuPrincipal.getOption();
+        //int opcao = menuPrincipal.getOption();
+        int opcao = 0;
         switch(opcao){
             case 1: cadastrar();
             break;  
     
         }
+        
+        return;
         
     }
     
