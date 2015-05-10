@@ -14,7 +14,9 @@ import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.pojo.Turma;
 
 /**
  *
@@ -89,9 +91,13 @@ public class AcadeSystem {
                 }
                 break;
             case 3:
+                Disciplina disciplina = disciplinaView.getInfo();
+                
                 //cadastro disciplina
                 break;
             case 4:
+                Turma turma = turmaView.getInfo();
+                
                 //cadastro turma
                 break;
         }

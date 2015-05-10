@@ -19,8 +19,9 @@ import java.util.Scanner;
  * @author Rhaister
  */
 class TurmaView {
-    ProfessorDao professorAcoes = new ProfessorDao();
+    
     public Turma getInfo(){
+        
         Scanner input = new Scanner(System.in);
         String ano = "";
         String periodo = "";
@@ -47,6 +48,7 @@ class TurmaView {
         
         System.out.println("Digite o CPF do professor (Somente numeros)");
         cpfProfessor = input.nextLine();
+        Professor professor = new Professor(null,cpfProfessor,null);
         
         
         System.out.println("Digite o codigo da disciplina");
