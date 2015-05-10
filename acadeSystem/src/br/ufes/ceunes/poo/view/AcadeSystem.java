@@ -13,6 +13,7 @@ import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 
 /**
  *
@@ -21,7 +22,7 @@ import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
 public class AcadeSystem {
     
     private static AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
-    private static AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
+    private static AlunoView alunoView = new AlunoView(); // Enviado um alunoDoa para um alunoView
         
     private static ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
     private static ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
@@ -43,7 +44,7 @@ public class AcadeSystem {
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
         turmaDao.carregar();    // Carregado lista de turmas do arquivo
     
-        menuPrincipal.addOption("Cadastros");
+        menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
         
         menuCadastros.addOption("Cadastrar Aluno");
         menuCadastros.addOption("Cadastrar Profesor");
@@ -53,7 +54,7 @@ public class AcadeSystem {
         
         
         menuPrincipal.showOptions();
-        int opcao = menuPrincipal.getOption();
+        int opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
         switch(opcao){
             case 1: cadastrar(alunoDao);
             break;  
@@ -67,14 +68,16 @@ public class AcadeSystem {
     public static void cadastrar(AlunoDao alunoDao){
         menuCadastros.showOptions();
         int opcao = menuCadastros.getOption();
-        CadastroAluno cadastroAluno = new CadastroAluno();
         
         switch(opcao){
             case 1:
-                cadastroAluno.getData();
-                cadastroAluno.endRegister(alunoDao);
+                Aluno aluno = alunoView.getInfo();
+                if(!alunoView.existeAluno(aluno, alunoDao)){
+                    alunoDao.adicionar(aluno);
+                }
                 break;
             case 2:
+                
                 //cadastro professor
                 break;
             case 3:

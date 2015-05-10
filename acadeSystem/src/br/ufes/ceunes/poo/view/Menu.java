@@ -49,7 +49,7 @@ public class Menu {
         }
     }
     
-    public int getOption(){
+    public int getOption(){//pega opçao do usuario e verifica se a opçao é valida
          Scanner input = new Scanner(System.in);
          int opcao = 0;
          

@@ -71,18 +71,18 @@ public class TurmaDaoImpl implements TurmaDao {
                 String SnVagas= ler.readLine(); //pega o numero de strig
                 nVagas= Integer.parseInt(SnVagas); //converte a string para inteiro
                 String cpfProfessor = ler.readLine(); //pega o cpf do professor
-                String codigoCpf = ler.readLine(); //pega pega o codigo daquela diciplina
+                String codigo = ler.readLine(); //pega pega o codigo daquela diciplina
                 
-                Professor professor = new Professor(null,cpfProfessor,null);
-                professor = professorAcoes.buscaProf(professor);
+                Professor professor = new Professor(null,cpfProfessor,null);//cria um objeto do tipo professor
+                professor = professorAcoes.buscaProf(professor);//procura o professor na lista de professores e adiciona e ele na turma
                 
-                Disciplina disciplina = new Disciplina(null,null,null,codigoCpf);
-                disciplina = disciplinaAcoes.buscaDisciplina(disciplina);
-                Turma novo = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina);
+                Disciplina disciplina = new Disciplina(null,null,null,codigo);// cria um objeto do tipo disciplina e coloca so o codigo no objeto
+                disciplina = disciplinaAcoes.buscaDisciplina(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
+                Turma novo = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina);//cria a turma e salva as informaçoes no objeto
                 
-                nAlunos = Integer.parseInt(ler.readLine());
+                nAlunos = Integer.parseInt(ler.readLine());// pega a quantidade de alunos naquela turma
                 
-                for(i=0; i<nAlunos; i++){
+                for(i=0; i<nAlunos; i++){//pega no arquivo os alunos daquela turma so o cpf busca as outras informaçoes completas elas e add na lista da turma
                     String cpf= ler.readLine();
                     Aluno aluno =new Aluno(null,cpf);
                     aluno = alunoAcoes.buscaAluno(aluno);
