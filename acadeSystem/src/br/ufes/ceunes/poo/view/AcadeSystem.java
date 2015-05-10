@@ -87,7 +87,6 @@ public class AcadeSystem {
                 if(!professorView.existeProfessor(professor, professorDao)){
                     professorDao.adicionar(professor);
                 }
-                //cadastro professor
                 break;
             case 3:
                 //cadastro disciplina
