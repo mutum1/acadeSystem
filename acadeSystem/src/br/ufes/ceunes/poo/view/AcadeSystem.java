@@ -23,7 +23,7 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  * @author paulo
  */
 public class AcadeSystem {
-    
+    //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
     private static AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
     private static AlunoView alunoView = new AlunoView(); // Enviado um alunoDoa para um alunoView
         
@@ -90,10 +90,15 @@ public class AcadeSystem {
         }
         
     }
+
     
     public static void cadastrar(){
         int opcao = menuCadastros.getOption();
-        
+        /*
+            Todos os casos pegam todas as informações digitadas pelo usuario e
+            verificam se ela existe e esta correta, depois adiciona na lista o
+            respectivo cadastro e no final salva no arquivo.
+        */
         switch(opcao){
             case 1:
                 Aluno aluno = alunoView.getInfo();
