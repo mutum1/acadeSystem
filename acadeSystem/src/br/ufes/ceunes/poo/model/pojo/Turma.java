@@ -13,6 +13,7 @@ import java.util.List;
  * @author Rhaister
  */
 public class Turma {
+    // ATRIBUTOS
     private String ano;
     private String periodo;
     private String local;
@@ -22,6 +23,7 @@ public class Turma {
     private Disciplina disciplina;
     private List<Aluno> listAlunos;
 
+    // Construtor com 7 parametros exceto lista de alunos
     public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina) {
         this.listAlunos = new ArrayList<>();
         this.ano = ano;
@@ -33,59 +35,72 @@ public class Turma {
         this.disciplina = disciplina;
     }
     
-
+    // Retorna o ano da turma
     public String getAno() {
         return ano;
     }
 
+    // Modifica o ano da turma
     public void setAno(String ano) {
         this.ano = ano;
     }
 
+    // Retorna o periodo da turma
     public String getPeriodo() {
         return periodo;
     }
-
+    
+    // Modifica o periodo da turma
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
 
+    // Retorna o local
     public String getLocal() {
         return local;
     }
 
+    // Modifica o local da turma
     public void setLocal(String local) {
         this.local = local;
     }
 
+    // Retorna o horario da turma
     public String getHorario() {
         return horario;
     }
 
+    // Modifica o horario da turma
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
+    // Retorna numero de vagas
     public int getnVagas() {
         return nVagas;
     }
 
+    // Modofica o numero de vagas
     public void setnVagas(int nVagas) {
         this.nVagas = nVagas;
     }
 
+    // Retorna os dados do professor da turma
     public Professor getProfessor() {
         return professor;
     }
 
+    // Retorna a disciplina da turma
     public Disciplina getDisciplina() {
         return disciplina;
     }
     
+    // retorna a lista de alunos da turma
     public List<Aluno> getListaAlunos(){
         return listAlunos;
     }
     
+    // Adiciona um aluno na turma
     public void addAluno(Aluno aluno){
         listAlunos.add(aluno);
     }

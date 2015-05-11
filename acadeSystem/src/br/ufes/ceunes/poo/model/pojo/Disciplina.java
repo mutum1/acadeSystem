@@ -48,11 +48,11 @@ public class Disciplina {
     public void addProfessor(Professor professor){
         this.listaProfessor.add(professor);
     }
-
+    // Retorna o codigo da disciplina
     public String getCodigo() {
         return codigo;
     }
-
+    // Retorna a lista de professores
     public List<Professor> listaProfessor() {
         return listaProfessor;
     }
