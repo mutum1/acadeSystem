@@ -68,7 +68,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     
     @Override
     public void salvar(){
-        String nomeArquivo = "Professor.txt";//Nome do arquivo
+        String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
