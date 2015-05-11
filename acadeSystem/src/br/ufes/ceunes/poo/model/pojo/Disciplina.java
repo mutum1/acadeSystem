@@ -18,11 +18,11 @@ public class Disciplina {
     private String ementa;
     private String cargaHoraria;
     private String codigo;
-    private List<String> listaCpf;
+    private List<Professor> listaProfessor;
 
     // Construtor (4 parametros)
     public Disciplina(String nome, String ementa, String cargaHoraria,String codigo ) {
-        this.listaCpf = new ArrayList<>();
+        this.listaProfessor = new ArrayList<>();
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
@@ -45,16 +45,16 @@ public class Disciplina {
     }
     
     // Adiciona uma disciplina 
-    public void addDisciplina(String cpf){
-        this.listaCpf.add(cpf);
+    public void addProfessor(Professor professor){
+        this.listaProfessor.add(professor);
     }
 
     public String getCodigo() {
         return codigo;
     }
 
-    public List<String> listaCpf() {
-        return listaCpf;
+    public List<Professor> listaProfessor() {
+        return listaProfessor;
     }
     
 

@@ -6,7 +6,8 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
-import br.ufes.ceunes.poo.model.pojo.Disciplina;
+import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,6 +26,7 @@ import java.util.logging.Logger;
  */
 public class DisciplinaDaoImpl implements DisciplinaDao {
     private List<Disciplina> listaDisciplina;
+    
 
     public DisciplinaDaoImpl() {
         this.listaDisciplina = new ArrayList<>();
@@ -61,7 +63,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 int i;
                 for(i=0;i<=ncpf;i++){
                     String cpf= ler.readLine();
-                    novo.addDiscilina(cpf);
+                    Professor professor=new Professor(null,cpf,null);
+                    
+                    novo.addProfessor(professor);
                 }
                 
                 adicionar(novo);//Adiciona na lista
@@ -90,10 +94,10 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 salvar.newLine();
                 salvar.write(disciplina.getCodigo());//salva carga horaria
                 salvar.newLine();
-                salvar.write(disciplina.listaCpf().size());//quantos cpfs tem na lista de cpfs
+                salvar.write(disciplina.listaProfessor().size());//quantos cpfs tem na lista de cpfs
                 salvar.newLine();
-                for(String cpf : disciplina.listaCpf()){ 
-                    salvar.write(cpf);//salva um por um o q esta na lista de cpfs
+                for(Professor professor : disciplina.listaProfessor() ){ 
+                    salvar.write(professor.getCpf());//salva um por um o q esta na lista de cpfs
                     salvar.newLine();
                 }
                 
