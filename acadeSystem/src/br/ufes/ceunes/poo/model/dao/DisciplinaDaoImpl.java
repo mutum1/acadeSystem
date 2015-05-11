@@ -94,7 +94,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 salvar.newLine();
                 salvar.write(disciplina.getCodigo());//salva carga horaria
                 salvar.newLine();
-                salvar.write(disciplina.listaProfessor().size());//quantos cpfs tem na lista de cpfs
+                String numerosDeCpdfs=""+disciplina.listaProfessor().size();
+                
+                salvar.write(numerosDeCpdfs);//quantos cpfs tem na lista de cpfs
                 salvar.newLine();
                 for(Professor professor : disciplina.listaProfessor() ){ 
                     salvar.write(professor.getCpf());//salva um por um o q esta na lista de cpfs
