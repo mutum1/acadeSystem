@@ -63,7 +63,8 @@ class TurmaView {
     }    
     
     public boolean existeTurma(Turma turma, TurmaDao turmaDao){
-        Turma turmaTemp = turmaDao.buscaTurma(new Turma(null,null,turma.getLocal(),turma.getHorario(),null,null,null));
+        Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null);
+        turmaTemp = turmaDao.buscaTurma(turmaTemp);
         if(turmaTemp.getLocal() == null){
             return false;
         }

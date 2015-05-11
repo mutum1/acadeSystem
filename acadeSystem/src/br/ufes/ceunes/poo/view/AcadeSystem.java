@@ -34,7 +34,7 @@ public class AcadeSystem {
     private static DisciplinaView disciplinaView = new DisciplinaView(); // Enviado uma disciplinaDao para disciplinaView
         
     private static TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
-    private static TurmaView turmaView = new TurmaView(turmaDao); // Enviado uma turmaDao para uma turmaView
+    private static TurmaView turmaView = new TurmaView(); // Enviado uma turmaDao para uma turmaView
        
     private static Menu menuPrincipal = new Menu();
     private static Menu menuCadastros = new Menu();
