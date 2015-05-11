@@ -68,7 +68,7 @@ public class AlunoDaoImpl implements AlunoDao {
     
     @Override
     public void salvar(){
-        String nomeArquivo = "Aluno.txt";//Nome do arquivo
+        String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar

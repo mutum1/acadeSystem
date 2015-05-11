@@ -47,30 +47,37 @@ public class AcadeSystem {
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
         turmaDao.carregar();    // Carregado lista de turmas do arquivo
     
+        menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
         menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
+        //outras opcoes
+        menuPrincipal.addOption("Sair");
         
+        menuCadastros.setTitle("Menu Cadastros");
         menuCadastros.addOption("Cadastrar Aluno");
         menuCadastros.addOption("Cadastrar Profesor");
         menuCadastros.addOption("Cadastrar Disciplina");
         menuCadastros.addOption("Cadastrar Turma");
         menuCadastros.addOption("Cadastrar Aluno");
+        menuCadastros.addOption("Voltar");
         
         
-        
+        menuPrincipal.showOptions();
+        opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
         while(opcao != menuPrincipal.getSize()){
-            menuPrincipal.showOptions();
-            opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
+          
             switch(opcao){
                 case 1: 
                     menuCadastros.showOptions();
                     cadastrar(alunoDao,professorDao,disciplinaDao,turmaDao);
                     break;  
                 case 2:
-                    //cadastrar professor
+                    //opcao 2 do menu principal
                     break;
             }
+            menuPrincipal.showOptions();
+            opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
+            
         }
-        return;
         
     }
     
@@ -82,28 +89,29 @@ public class AcadeSystem {
                 Aluno aluno = alunoView.getInfo();
                 if(!alunoView.existeAluno(aluno, alunoDao)){
                     alunoDao.adicionar(aluno);
+                    alunoDao.salvar();
                 }
                 break;
             case 2:
                 Professor professor = professorView.getInfo();
                 if(!professorView.existeProfessor(professor, professorDao)){
                     professorDao.adicionar(professor);
+                    professorDao.salvar();
                 }
                 break;
             case 3:
                 Disciplina disciplina = disciplinaView.getInfo();
                 if(!disciplinaView.existeDisciplina(disciplina, disciplinaDao)){
                     disciplinaDao.adicionar(disciplina);
+                    disciplinaDao.salvar();
                 }
-                //cadastro disciplina
                 break;
             case 4:
                 Turma turma = turmaView.getInfo(disciplinaDao,professorDao);
                 if(!turmaView.existeTurma(turma, turmaDao)){
                     turmaDao.adicionar(turma);
+                    turmaDao.salvar();                    
                 }
-                
-                //cadastro turma
                 break;
         }
     }

@@ -6,9 +6,12 @@
 package br.ufes.ceunes.poo.view;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,6 +38,7 @@ public class Menu {
     }
     public void addOption(String item){
         optionsList.add(item);
+        this.size = optionsList.size();
     }
     
     public void setTitle(String title){
@@ -50,6 +54,9 @@ public class Menu {
     }
     
     public void showOptions(){
+
+        System.out.println(this.title);
+        System.out.println("");
         for(int i =0;i<optionsList.size();i++){
             System.out.println(i+1 +" - " + optionsList.get(i));
         }
