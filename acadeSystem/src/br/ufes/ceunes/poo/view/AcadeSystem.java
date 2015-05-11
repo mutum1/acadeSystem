@@ -92,11 +92,16 @@ public class AcadeSystem {
                 break;
             case 3:
                 Disciplina disciplina = disciplinaView.getInfo();
-                
+                if(!disciplinaView.existeDisciplina(disciplina, disciplinaDao)){
+                    disciplinaDao.adicionar(disciplina);
+                }
                 //cadastro disciplina
                 break;
             case 4:
                 Turma turma = turmaView.getInfo(disciplinaDao,professorDao);
+                if(!turmaView.existeTurma(turma, turmaDao)){
+                    turmaDao.adicionar(turma);
+                }
                 
                 //cadastro turma
                 break;
