@@ -36,8 +36,8 @@ class DisciplinaView {
         System.out.println("Digite a ementa");
         ementa = input.nextLine();
         
-        System.out.println("Digite a caraca horaria");
-        ementa = input.nextLine();
+        System.out.println("Digite a carga horaria");
+        cargaHoraria = input.nextLine();
       
         
         
