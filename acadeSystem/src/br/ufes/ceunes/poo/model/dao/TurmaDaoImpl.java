@@ -124,8 +124,9 @@ public class TurmaDaoImpl implements TurmaDao {
                 size=Turma.getListaAlunos().size();
                 salvar.write(size);//salva a quantidade de alunos na turma
                 salvar.newLine();
-                for(String alunos : Turma.getListaAlunos()){
-                    salvar.write(alunos);//salva um por um o q esta na lista de cpfs
+                for(Aluno alunos : Turma.getListaAlunos()){
+                    
+                    salvar.write(alunos.getCpf());//salva um por um o q esta na lista de cpfs
                     salvar.newLine();
                 }
             }

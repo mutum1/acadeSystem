@@ -20,7 +20,7 @@ public class Turma {
     private int nVagas;
     private Professor professor;
     private Disciplina disciplina;
-    private List<String> listAlunos;
+    private List<Aluno> listAlunos;
 
     public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina) {
         this.listAlunos = new ArrayList<>();
@@ -82,11 +82,11 @@ public class Turma {
         return disciplina;
     }
     
-    public List<String> getListaAlunos(){
+    public List<Aluno> getListaAlunos(){
         return listAlunos;
     }
     
     public void addAluno(Aluno aluno){
-        listAlunos.add(aluno.getCpf());
+        listAlunos.add(aluno);
     }
 }
