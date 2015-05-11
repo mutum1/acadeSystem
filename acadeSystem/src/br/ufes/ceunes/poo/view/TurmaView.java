@@ -27,7 +27,7 @@ class TurmaView {
         String periodo = "";
         String local = "";
         String horario="";
-        int numeroVagas = 0;
+        String numeroVagas = "";
         String cpfProfessor = "";
         String codigoDisciplina = "";
         
@@ -44,7 +44,7 @@ class TurmaView {
         horario = input.nextLine();
       
         System.out.println("Digite o número de vagas");
-        numeroVagas = input.nextInt();
+        numeroVagas = input.nextLine();
         
         System.out.println("Digite o CPF do professor (Somente numeros)");
         cpfProfessor = input.nextLine();
@@ -59,7 +59,7 @@ class TurmaView {
         
         
         
-        return new Turma(ano,periodo,local,horario,numeroVagas,professor,disciplina);
+        return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina);
     }    
     
     public boolean existeTurma(Turma turma, TurmaDao turmaDao){
