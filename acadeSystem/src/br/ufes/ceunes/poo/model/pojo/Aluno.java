@@ -12,10 +12,7 @@ package br.ufes.ceunes.poo.model.pojo;
  */
 public class Aluno extends Pessoa {
 
-    public Aluno(){
-        super();
-    }    
-    public Aluno(String nome, String cpf) {
+    public Aluno(String nome, String cpf) { // Chama o construtor da classe de cima.
         super(nome, cpf);
     }
     
