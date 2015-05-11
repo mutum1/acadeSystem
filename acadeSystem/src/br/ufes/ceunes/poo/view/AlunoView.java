@@ -46,5 +46,14 @@ class AlunoView {
     }  
     
     
-    
+    public void listarAlunos(AlunoDao alunoDao){
+        List<Aluno> listaAlunos = alunoDao.getAll();
+         for(Aluno aluno : listaAlunos){
+             System.out.println(aluno.getNome());
+             System.out.println(aluno.getCpf());
+             System.out.println();
+        }
+    }
 }
+    
+    

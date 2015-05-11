@@ -38,6 +38,7 @@ public class AcadeSystem {
        
     private static Menu menuPrincipal = new Menu();
     private static Menu menuCadastros = new Menu();
+    private static Menu menuListagens = new Menu();
     static int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
     
     public static void main(String[] args){
@@ -49,6 +50,7 @@ public class AcadeSystem {
     
         menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
         menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
+        menuPrincipal.addOption("Listagens");
         //outras opcoes
         menuPrincipal.addOption("Sair");
         
@@ -60,6 +62,13 @@ public class AcadeSystem {
         menuCadastros.addOption("Cadastrar Aluno");
         menuCadastros.addOption("Voltar");
         
+        menuListagens.setTitle("Menu Listagens");
+        menuListagens.addOption("Listar alunos");
+        menuListagens.addOption("Listar professores");
+        menuListagens.addOption("Listar disciplinas");
+        menuListagens.addOption("Listar turmas");
+        menuListagens.addOption("Voltar");
+        
         
         menuPrincipal.showOptions();
         opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
@@ -68,10 +77,11 @@ public class AcadeSystem {
             switch(opcao){
                 case 1: 
                     menuCadastros.showOptions();
-                    cadastrar(alunoDao,professorDao,disciplinaDao,turmaDao);
+                    cadastrar();
                     break;  
                 case 2:
-                    //opcao 2 do menu principal
+                    menuListagens.showOptions();
+                    listagens();
                     break;
             }
             menuPrincipal.showOptions();
@@ -80,8 +90,9 @@ public class AcadeSystem {
         }
         
     }
-    // Menu para cadastras TODO MUNDO.
-    public static void cadastrar(AlunoDao alunoDao,ProfessorDao professorDao,DisciplinaDao disciplinaDao,TurmaDao turmaDao){
+
+    
+    public static void cadastrar(){
         int opcao = menuCadastros.getOption();
         /*
             Todos os casos pegam todas as informações digitadas pelo usuario e
@@ -118,5 +129,24 @@ public class AcadeSystem {
                 }
                 break;
         }
+    }
+    
+    public static void listagens(){
+        int opcao = menuListagens.getOption();
+        switch(opcao){
+            case 1:
+                alunoView.listarAlunos(alunoDao);
+                break;
+            case 2:
+                //professorView.listarProfessores(professorDao)
+                break;
+            case 3:
+               
+                break;
+            case 4:
+                
+                break;
+        }
+        
     }
 }
