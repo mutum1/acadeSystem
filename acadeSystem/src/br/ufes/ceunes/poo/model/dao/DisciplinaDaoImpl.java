@@ -57,11 +57,12 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 String ementa = ler.readLine();//Pega cpf
                 String cargaHoraria = ler.readLine(); 
                 String codigo = ler.readLine(); 
-                int ncpf; 
-                ncpf = Integer.parseInt(ler.readLine());
+                Integer ncpf;
+                String ncpfTemp = ler.readLine();
+                ncpf = Integer.parseInt(ncpfTemp);
                 Disciplina novo = new Disciplina(nome,ementa,cargaHoraria,codigo);
                 int i;
-                for(i=0;i<=ncpf;i++){
+                for(i=0;i<ncpf;i++){
                     String cpf= ler.readLine();
                     Professor professor=new Professor(null,cpf,null);
                     
