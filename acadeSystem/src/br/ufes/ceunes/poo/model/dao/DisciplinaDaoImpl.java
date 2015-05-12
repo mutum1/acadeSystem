@@ -8,7 +8,6 @@ package br.ufes.ceunes.poo.model.dao;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -64,6 +63,15 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 int i;
                 for(i=0;i<ncpf;i++){
                     String cpf= ler.readLine();
+                    /***
+                     * 
+                     * TA ERRADO
+                     * 
+                     * 
+                     * 
+                     * 
+                     **/
+                    //TEM QUE BUSCAR O PROFESSOR NO PROFDAO E ADIONAR A REFERENCIA DE LÁ
                     Professor professor=new Professor(null,cpf,null);
                     
                     novo.addProfessor(professor);
