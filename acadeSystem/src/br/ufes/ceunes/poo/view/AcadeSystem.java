@@ -23,26 +23,30 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  * @author paulo
  */
 public class AcadeSystem {
-    //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
-    private static AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
-    private static AlunoView alunoView = new AlunoView(); // Enviado um alunoDoa para um alunoView
-        
-    private static ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
-    private static ProfessorView professorView = new ProfessorView(); // Enviado um professorDao para professorView
-        
-    private static DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(); // Objeto Disciplina Criado
-    private static DisciplinaView disciplinaView = new DisciplinaView(); // Enviado uma disciplinaDao para disciplinaView
-        
-    private static TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
-    private static TurmaView turmaView = new TurmaView(); // Enviado uma turmaDao para uma turmaView
-       
-    private static Menu menuPrincipal = new Menu();
-    private static Menu menuCadastros = new Menu();
-    private static Menu menuListagens = new Menu();
-    static int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
+    
     
     public static void main(String[] args){
+        
+        //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
+        AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
+        AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
+
+        ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
+        ProfessorView professorView = new ProfessorView(); // Enviado um professorDao para professorView
+
+        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(); // Objeto Disciplina Criado
+        DisciplinaView disciplinaView = new DisciplinaView(); // Enviado uma disciplinaDao para disciplinaView
+
+        TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
+        TurmaView turmaView = new TurmaView(); // Enviado uma turmaDao para uma turmaView
+
+        Menu menuPrincipal = new Menu();
+        Menu menuCadastros = new Menu();
+        Menu menuListagens = new Menu();
+        int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
         int opcao = 0;
+        
+        
         alunoDao.carregar(); // Carregado lista de alunos do arquivo
         professorDao.carregar(); // Carregado lista de professores do arquivo
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo

@@ -16,8 +16,10 @@ import java.util.Scanner;
  */
 class AlunoView {
     
+    AlunoDao alunoDao;
     
-    public AlunoView(){
+    public AlunoView(AlunoDao aluno){
+        this.alunoDao = aluno;
     }
     
   
