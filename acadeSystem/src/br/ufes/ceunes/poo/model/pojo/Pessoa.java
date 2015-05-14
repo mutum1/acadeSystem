@@ -14,6 +14,7 @@ public class Pessoa  implements java.io.Serializable {
     //ATRIBUTOS
      private String nome;
      private String cpf;
+     private int id;
      
      
     // Construtor com os dados
@@ -42,6 +43,17 @@ public class Pessoa  implements java.io.Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    
+    // Retorna o ID da Pessoa
+    public int getId() {
+        return id;
+    }
+
+    // Modifica o ID da Pessoa
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
  
 

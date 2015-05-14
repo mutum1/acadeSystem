@@ -22,13 +22,12 @@ public class Disciplina {
     private int id;
 
     // Construtor (4 parametros)
-    public Disciplina(String nome, String ementa, String cargaHoraria, String codigo, List<Professor> listaProfessor, int id) {
+    public Disciplina(String nome, String ementa, String cargaHoraria, String codigo) {
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
         this.codigo = codigo;
-        this.listaProfessor = listaProfessor;
-        this.id = id;
+        this.listaProfessor = new ArrayList<>();
     }
     
     
@@ -60,5 +59,13 @@ public class Disciplina {
         return listaProfessor;
     }
     
+        // Retorna o ID da Disciplina
+    public int getId() {
+        return id;
+    }
 
+    // Modifica o ID da Disciplina
+    public void setId(int id) {
+        this.id = id;
+    }
 }

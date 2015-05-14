@@ -22,6 +22,7 @@ class AlunoView {
         this.alunoDao = aluno;
     }
     
+    
   
     public Aluno getInfo(){
         Scanner input = new Scanner(System.in);
@@ -32,14 +33,14 @@ class AlunoView {
         
         System.out.println("Digite o cpf do aluno");
         cpf = input.nextLine();
-        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify ==1){
+        if(!Cpf.isValidCpf(cpf)){
             System.out.println("CPF inválido, digite novamente");
             cpf = input.nextLine();   
         }
         return new Aluno(nome,cpf);
     }    
     
-    public boolean existeAluno(Aluno aluno, AlunoDao alunoDao){
+    public boolean existeAluno(Aluno aluno){
         Aluno alunoTemp = alunoDao.buscaAluno(new Aluno(null,aluno.getCpf()));
         if(alunoTemp.getNome() == null){
             return false;
@@ -48,7 +49,7 @@ class AlunoView {
     }  
     
     
-    public void listarAlunos(AlunoDao alunoDao){
+    public void listarAlunos(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){
              System.out.println(aluno.getNome());

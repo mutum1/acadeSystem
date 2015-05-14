@@ -17,16 +17,13 @@ public class Professor extends Pessoa {
     // ATRIBUTOS
     private String departamento;
     private List<Disciplina> discliplinas;
-    private int id;
    
     // Construtor do professor sem disciplina
-    public Professor(String departamento, List<Disciplina> discliplinas, int id, String nome, String cpf) {
+    public Professor(String departamento, String nome, String cpf) {
         super(nome, cpf);
         this.departamento = departamento;
-        this.discliplinas = discliplinas;
-        this.id = id;
+        this.discliplinas = new ArrayList<>();
     }
-    
     
     // Retorna o departamento do professor
     public String getDepartamento(){
@@ -42,4 +39,5 @@ public class Professor extends Pessoa {
     public void addDiscilina(Disciplina diciplina){
         this.discliplinas.add(diciplina);
     }
+    
 }
