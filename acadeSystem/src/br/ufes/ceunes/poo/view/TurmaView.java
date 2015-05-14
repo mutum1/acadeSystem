@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
@@ -19,6 +20,12 @@ import java.util.Scanner;
  * @author Rhaister
  */
 class TurmaView {
+    
+    TurmaDao turmaDao;
+    
+    public TurmaView(TurmaDao turma){
+        this.turmaDao = turma;
+    }
     
     public Turma getInfo(DisciplinaDao disciplinaDao, ProfessorDao professorDao){
         
