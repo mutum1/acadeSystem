@@ -21,10 +21,10 @@ public class SituacaoAluno {
     private int id;
 
     // Construtor com lista de atividades, o aluno e suas presencas
-    public SituacaoAluno(float presenca, Aluno aluno, List<Atividade> atividade, int id) {
+    public SituacaoAluno(float presenca, Aluno aluno, int id) {
         this.presenca = presenca;
         this.aluno = aluno;
-        this.atividade = atividade;
+        this.atividade = new ArrayList<>();
         this.id = id;
     }
     

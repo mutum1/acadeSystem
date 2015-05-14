@@ -22,12 +22,12 @@ public class Disciplina {
     private int id;
 
     // Construtor (4 parametros)
-    public Disciplina(String nome, String ementa, String cargaHoraria, String codigo, List<Professor> listaProfessor, int id) {
+    public Disciplina(String nome, String ementa, String cargaHoraria, String codigo, int id) {
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
         this.codigo = codigo;
-        this.listaProfessor = listaProfessor;
+        this.listaProfessor = new ArrayList<>();
         this.id = id;
     }
     
