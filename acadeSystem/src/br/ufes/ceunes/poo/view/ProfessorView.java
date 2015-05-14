@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.util.List;
@@ -16,7 +17,11 @@ import java.util.Scanner;
  */
 class ProfessorView {
     
+    ProfessorDao professorDao;
     
+    public ProfessorView(ProfessorDao professor){
+        this.professorDao = professor;
+    }
     
     
   
