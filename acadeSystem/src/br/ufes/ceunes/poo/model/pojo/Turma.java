@@ -22,10 +22,11 @@ public class Turma {
     private Professor professor;
     private Disciplina disciplina;
     private List<Aluno> listAlunos;
+    private List<Atividade> listAtividades;
+    private int id;
 
     // Construtor com 7 parametros exceto lista de alunos
-    public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina) {
-        this.listAlunos = new ArrayList<>();
+    public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina, List<Aluno> listAlunos, int id) {
         this.ano = ano;
         this.periodo = periodo;
         this.local = local;
@@ -33,7 +34,10 @@ public class Turma {
         this.nVagas = nVagas;
         this.professor = professor;
         this.disciplina = disciplina;
+        this.listAlunos = listAlunos;
+        this.id = id;
     }
+    
     
     // Retorna o ano da turma
     public String getAno() {
