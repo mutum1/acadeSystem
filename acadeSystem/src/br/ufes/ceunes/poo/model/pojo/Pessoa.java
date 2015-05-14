@@ -14,12 +14,7 @@ public class Pessoa  implements java.io.Serializable {
     //ATRIBUTOS
      private String nome;
      private String cpf;
-
-    // Construtor 1
-    public Pessoa(){
-        this.nome = "";
-        this.cpf = "";
-    } 
+     
      
     // Construtor com os dados
     public Pessoa(String nome, String cpf) {

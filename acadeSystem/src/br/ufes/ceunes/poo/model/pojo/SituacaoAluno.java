@@ -18,13 +18,16 @@ public class SituacaoAluno {
     private float presenca;
     private Aluno aluno;
     private List<Atividade> atividade;
+    private int id;
 
     // Construtor com lista de atividades, o aluno e suas presencas
-    public SituacaoAluno(Aluno aluno) {
-        this.atividade=new ArrayList<>();
-        this.aluno=aluno;
-        presenca=0;
+    public SituacaoAluno(float presenca, Aluno aluno, List<Atividade> atividade, int id) {
+        this.presenca = presenca;
+        this.aluno = aluno;
+        this.atividade = atividade;
+        this.id = id;
     }
+    
     
     // Retorna a taxa de presenca do aluno
     public float getPresenca() {
