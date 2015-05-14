@@ -39,7 +39,7 @@ class ProfessorView {
         System.out.println("Digite o cpf do professor");
         cpf = input.nextLine();
         
-        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify ==1){
+        if(!Cpf.isValidCpf(cpf)){
             System.out.println("CPF inválido, digite novamente");
             cpf = input.nextLine();   
         }
