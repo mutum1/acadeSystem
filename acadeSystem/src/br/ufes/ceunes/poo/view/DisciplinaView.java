@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import java.util.List;
@@ -16,7 +17,11 @@ import java.util.Scanner;
  */
 class DisciplinaView {
     
+    DisciplinaDao disciplinaDao;
     
+    public DisciplinaView(DisciplinaDao disciplina){
+        this.disciplinaDao = disciplina;
+    }
     
     
   
