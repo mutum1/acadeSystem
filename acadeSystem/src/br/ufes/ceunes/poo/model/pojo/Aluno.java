@@ -11,10 +11,8 @@ package br.ufes.ceunes.poo.model.pojo;
  * @author paulo
  */
 public class Aluno extends Pessoa {
-    private int id;
-    public Aluno(String nome, String cpf,int id) { // Chama o construtor da classe de cima.
-        super(nome, cpf);
-        this.id=id;   
+    public Aluno(String nome, String cpf) { // Chama o construtor da classe de cima.
+        super(nome, cpf);   
     }
     
 }

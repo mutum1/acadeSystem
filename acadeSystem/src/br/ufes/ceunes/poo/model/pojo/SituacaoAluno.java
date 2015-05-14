@@ -21,11 +21,10 @@ public class SituacaoAluno {
     private int id;
 
     // Construtor com lista de atividades, o aluno e suas presencas
-    public SituacaoAluno(float presenca, Aluno aluno, int id) {
+    public SituacaoAluno(float presenca, Aluno aluno) {
         this.presenca = presenca;
         this.aluno = aluno;
         this.atividade = new ArrayList<>();
-        this.id = id;
     }
     
     
@@ -53,6 +52,16 @@ public class SituacaoAluno {
     public void addAtividade (Atividade atividade) {
         this.atividade.add(atividade);
         
+    }
+    
+        // Retorna o ID da Situação Aluno
+    public int getId() {
+        return id;
+    }
+
+    // Modifica o ID da Situação Aluno
+    public void setId(int id) {
+        this.id = id;
     }
     
     
