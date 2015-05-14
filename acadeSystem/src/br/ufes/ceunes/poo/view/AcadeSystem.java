@@ -79,13 +79,12 @@ public class AcadeSystem {
         while(opcao != menuPrincipal.getSize()){
           
             switch(opcao){
-                case 1: 
-                    menuCadastros.showOptions();
-                    cadastrar();
+                case 1:
+                    cadastrar(alunoView,professorView,disciplinaView,turmaView,menuCadastros);
                     break;  
                 case 2:
-                    menuListagens.showOptions();
-                    listagens();
+                    
+                    listagens(alunoView,professorView,disciplinaView,turmaView,menuListagens);
                     break;
             }
             menuPrincipal.showOptions();
@@ -96,7 +95,8 @@ public class AcadeSystem {
     }
 
     
-    public static void cadastrar(){
+    public static void cadastrar(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,Menu menuCadastros){
+        menuCadastros.showOptions();
         int opcao = menuCadastros.getOption();
         /*
             Todos os casos pegam todas as informações digitadas pelo usuario e
@@ -135,11 +135,12 @@ public class AcadeSystem {
         }
     }
     
-    public static void listagens(){
+    public static void listagens(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,Menu menuListagens){
+        menuListagens.showOptions();
         int opcao = menuListagens.getOption();
         switch(opcao){
             case 1:
-                alunoView.listarAlunos(alunoDao);
+                alunoView.listarAlunos();
                 break;
             case 2:
                 //professorView.listarProfessores(professorDao)
