@@ -22,6 +22,7 @@ public class Turma {
     private Professor professor;
     private Disciplina disciplina;
     private List<Aluno> listAlunos;
+    private List<Atividade> listAtividades;
     private int id;
 
     // Construtor com 7 parametros exceto lista de alunos
