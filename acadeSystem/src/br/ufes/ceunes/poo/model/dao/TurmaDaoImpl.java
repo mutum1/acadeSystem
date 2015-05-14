@@ -148,6 +148,10 @@ public class TurmaDaoImpl implements TurmaDao {
         }
         return turma;
     }
+
+    @Override
+    public void adicionarAtividade() {
+       }
     
 }
     
