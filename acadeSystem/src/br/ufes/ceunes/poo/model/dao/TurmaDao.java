@@ -20,4 +20,5 @@ public interface TurmaDao {
     public void carregar();
     public void salvar();
     public Turma buscaTurma(Turma turma);
+    public void adicionarAtividade();
 }
