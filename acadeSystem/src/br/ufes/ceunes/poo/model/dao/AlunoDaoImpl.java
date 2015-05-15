@@ -29,6 +29,7 @@ public class AlunoDaoImpl implements AlunoDao {
     
     public AlunoDaoImpl(){
         this.listaAlunos =new ArrayList<>();
+        id=1;
         carregar();
     }
     

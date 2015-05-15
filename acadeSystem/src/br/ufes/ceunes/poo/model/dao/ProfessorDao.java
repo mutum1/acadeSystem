@@ -13,10 +13,9 @@ import java.util.List;
  * @author paulo
  */
 public interface ProfessorDao {
-    public void adicionar(Professor professor);
     public List getAll();
     public void carregar();
-    public void salvar();
+    public void salvar(Professor professor);
     public Professor buscaProfessor(Professor professor);
     
 }
