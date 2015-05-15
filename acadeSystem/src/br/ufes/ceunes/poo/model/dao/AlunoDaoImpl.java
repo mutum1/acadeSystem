@@ -52,14 +52,17 @@ public class AlunoDaoImpl implements AlunoDao {
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            
             int idUser=0;
             String idTemp = ler.readLine();
             id = Integer.parseInt(idTemp)+1;
+            
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
                 String cpf = ler.readLine();//Pega cpf
                 idTemp = ler.readLine();
                 idUser = Integer.parseInt(idTemp);
+                
                 Aluno novo = new Aluno(nome,cpf,idUser);
                 adicionar(novo);//Adiciona na lista
             }
@@ -84,6 +87,7 @@ public class AlunoDaoImpl implements AlunoDao {
     public void salvar(Aluno alunoTemp){
         adicionar(alunoTemp);
         id++;
+        
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar

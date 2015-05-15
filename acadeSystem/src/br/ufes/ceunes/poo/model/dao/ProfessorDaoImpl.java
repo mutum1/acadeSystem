@@ -88,6 +88,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     public void salvar(Professor professorTemp){
         adicionar(professorTemp);
         id++;
+        
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
