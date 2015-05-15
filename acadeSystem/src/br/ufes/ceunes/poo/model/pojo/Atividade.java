@@ -20,11 +20,12 @@ public class Atividade {
     private int id;
 
     // Construtor de atividades (4 parametros)
-    public Atividade(String nome, String tipo, String data, int valor) {
+    public Atividade(String nome, String tipo, String data, int valor, int id) {
         this.nome = nome;
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
+        this.id = id;
     }
 
     // Retorna valor
@@ -40,11 +41,5 @@ public class Atividade {
         // Retorna o ID da Atividade
     public int getId() {
         return id;
-    }
-
-    // Modifica o ID da Atividade
-    public void setId(int id) {
-        this.id = id;
-    }
-        
+    }        
 }

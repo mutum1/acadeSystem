@@ -18,9 +18,10 @@ public class Pessoa  implements java.io.Serializable {
      
      
     // Construtor com os dados
-    public Pessoa(String nome, String cpf) {
+    public Pessoa(String nome, String cpf, int id) {
        this.nome = nome;
        this.cpf = cpf;
+       this.id = id;
 
     }
    
@@ -49,12 +50,4 @@ public class Pessoa  implements java.io.Serializable {
         return id;
     }
 
-    // Modifica o ID da Pessoa
-    public void setId(int id) {
-        this.id = id;
-    }
-    
-    
- 
-
-}
+  }

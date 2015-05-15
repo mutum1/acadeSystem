@@ -19,8 +19,8 @@ public class Professor extends Pessoa {
     private List<Disciplina> discliplinas;
    
     // Construtor do professor sem disciplina
-    public Professor(String departamento, String nome, String cpf) {
-        super(nome, cpf);
+    public Professor(String departamento, String nome, String cpf, int id) {
+        super(nome, cpf, id);
         this.departamento = departamento;
         this.discliplinas = new ArrayList<>();
     }

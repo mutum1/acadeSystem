@@ -25,19 +25,20 @@ import java.util.logging.Logger;
 public class AlunoDaoImpl implements AlunoDao {
     
     private List<Aluno> listaAlunos;
+    private int id;
     
     public AlunoDaoImpl(){
         this.listaAlunos =new ArrayList<>();
+        carregar();
     }
     
-    @Override
-    public void adicionar(Aluno aluno){
+    private void adicionar(Aluno aluno){
         listaAlunos.add(aluno);
     }
     @Override
     public List getAll(){//retorna a lista de alunos
         if(listaAlunos == null){
-            carregar();
+            
         }
         return listaAlunos;   
     }
@@ -50,13 +51,25 @@ public class AlunoDaoImpl implements AlunoDao {
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            int idUser=0;
+            String idTemp = ler.readLine();
+            id = Integer.parseInt(idTemp)+1;
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
                 String cpf = ler.readLine();//Pega cpf
-            
-                Aluno novo = new Aluno(nome,cpf);
+                idTemp = ler.readLine();
+                idUser = Integer.parseInt(idTemp);
+                Aluno novo = new Aluno(nome,cpf,idUser);
                 adicionar(novo);//Adiciona na lista
             }
+            
+            if((id-1)== (idUser)){//verifica se os ids estao certos
+                System.out.println("\n ID'S CERTOS\n");
+            }
+            else
+                System.out.println("\n ID'S errados\n id usuario:"+idUser+"\n id set:"+id);
+            
+            
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
@@ -67,15 +80,20 @@ public class AlunoDaoImpl implements AlunoDao {
     }
     
     @Override
-    public void salvar(){
+    public void salvar(Aluno alunoTemp){
+        adicionar(alunoTemp);
+        id++;
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            salvar.write(id);
             for(Aluno aluno : listaAlunos){//percorre a lista
                 salvar.write(aluno.getNome());//salva nome
                 salvar.newLine();
                 salvar.write(aluno.getCpf());//salva cpf
+                salvar.newLine();
+                salvar.write(aluno.getId());//salva id
                 salvar.newLine();
             }
             salvar.close();
@@ -85,6 +103,7 @@ public class AlunoDaoImpl implements AlunoDao {
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(AlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
+        carregar();
     }
 
     @Override
