@@ -17,6 +17,6 @@ public interface AlunoDao {
     public List getAll();
     public void carregar();
     public void salvar(Aluno aluno);
-    public Aluno buscaAluno(Aluno aluno);
+    public Aluno buscar(Aluno aluno);
    
 }

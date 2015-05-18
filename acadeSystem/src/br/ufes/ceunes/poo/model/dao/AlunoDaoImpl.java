@@ -112,7 +112,7 @@ public class AlunoDaoImpl implements AlunoDao {
     }
 
     @Override
-    public Aluno buscaAluno(Aluno alunoTemp) {
+    public Aluno buscar(Aluno alunoTemp) {
         
         for(Aluno aluno : listaAlunos){
             if(alunoTemp.getCpf().equals(aluno.getCpf())){
