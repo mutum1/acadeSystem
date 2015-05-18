@@ -10,6 +10,7 @@ import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -28,20 +29,21 @@ import java.util.logging.Logger;
 public class TurmaDaoImpl implements TurmaDao {
     
     private List<Turma> listaTurma;
-    private ProfessorDaoImpl professorAcoes;
-    private DisciplinaDaoImpl disciplinaAcoes;
-    private AlunoDaoImpl alunoAcoes;
-            
-    
-    public TurmaDaoImpl() {
-        this.disciplinaAcoes = new DisciplinaDaoImpl();
-        this.professorAcoes = new ProfessorDaoImpl();
-        this.alunoAcoes = new AlunoDaoImpl();
+    private ProfessorDao professorAcoes;
+    private DisciplinaDao disciplinaAcoes;
+    private AlunoDao alunoAcoes;
+
+    public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes) {
         this.listaTurma = new ArrayList<>();
+        this.professorAcoes = professorAcoes;
+        this.disciplinaAcoes = disciplinaAcoes;
+        this.alunoAcoes = alunoAcoes;
     }
+
+         
     
-    @Override
-    public void adicionar(Turma Turma){
+
+    private void adicionar(Turma Turma){
         listaTurma.add(Turma);
     }
     
@@ -64,11 +66,11 @@ public class TurmaDaoImpl implements TurmaDao {
             int nVagas;
             int nAlunos;
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
-                String ano = ler.readLine();//Pega nome
+                String ano = ler.readLine();//Pega ano
                 String periodo = ler.readLine();//Pega periodo
                 String local = ler.readLine(); //pega o local
                 String horario = ler.readLine(); //pega o horario
-                String SnVagas= ler.readLine(); //pega o numero de strig
+                String SnVagas= ler.readLine(); //pega o numero de vagas
                 nVagas= Integer.parseInt(SnVagas); //converte a string para inteiro
                 String cpfProfessor = ler.readLine(); //pega o cpf do professor
                 String codigo = ler.readLine(); //pega pega o codigo daquela diciplina
@@ -100,7 +102,9 @@ public class TurmaDaoImpl implements TurmaDao {
     }
     
     @Override
-    public void salvar(){
+    public void salvar(Turma turmaTemp){
+        
+        
         String nomeArquivo = "Turmas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
@@ -117,9 +121,9 @@ public class TurmaDaoImpl implements TurmaDao {
                 salvar.newLine();
                 salvar.write(Turma.getnVagas());//salva nº de vagas
                 salvar.newLine();
-                salvar.write(Turma.getProfessor().getCpf());//salva o cpf do professor q da aula naquela turma
+                salvar.write(Turma.getProfessor().getId());//salva o cpf do professor q da aula naquela turma
                 salvar.newLine();
-                salvar.write(Turma.getDisciplina().getCodigo());//salva o codigo da disciplina naquela turma
+                salvar.write(Turma.getDisciplina().getId());//salva o codigo da disciplina naquela turma
                 salvar.newLine();
                 size=Turma.getListaAlunos().size();
                 salvar.write(size);//salva a quantidade de alunos na turma

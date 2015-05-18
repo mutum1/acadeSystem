@@ -14,9 +14,8 @@ import java.util.List;
  * @author paulo
  */
 public interface DisciplinaDao {
-    public void adicionar(Disciplina disciplina);
     public List getAll();
     public void carregar();
-    public void salvar();
+    public void salvar(Disciplina disciplina);
     public Disciplina buscaDisciplina(Disciplina disciplina);
 }

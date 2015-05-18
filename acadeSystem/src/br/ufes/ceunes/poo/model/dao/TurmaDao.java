@@ -15,10 +15,9 @@ import java.util.List;
  * @author paulo
  */
 public interface TurmaDao {
-    public void adicionar(Turma turma);
     public List getAll();
     public void carregar();
-    public void salvar();
+    public void salvar(Turma turma);
     public Turma buscaTurma(Turma turma);
     public void adicionarAtividade();
 }

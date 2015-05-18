@@ -25,14 +25,17 @@ import java.util.logging.Logger;
  */
 public class DisciplinaDaoImpl implements DisciplinaDao {
     private List<Disciplina> listaDisciplina;
-    
+    private ProfessorDao professorDao;
+    int id;
 
-    public DisciplinaDaoImpl() {
+    public DisciplinaDaoImpl(ProfessorDao professorDao) {
+        id=1;
         this.listaDisciplina = new ArrayList<>();
+        this.professorDao = professorDao;
+        carregar();
     }
     
-    @Override
-    public void adicionar(Disciplina disciplina){
+    private void adicionar(Disciplina disciplina){
         listaDisciplina.add(disciplina);
     }
     
@@ -53,31 +56,24 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
-                String ementa = ler.readLine();//Pega cpf
-                String cargaHoraria = ler.readLine(); 
-                String codigo = ler.readLine(); 
-                Integer ncpf;
-                String ncpfTemp = ler.readLine();
-                ncpf = Integer.parseInt(ncpfTemp);
-                Disciplina novo = new Disciplina(nome,ementa,cargaHoraria,codigo);
+                String ementa = ler.readLine();//Pega ementa
+                String cargaHoraria = ler.readLine(); //cargaHoraria
+                String id = ler.readLine(); 
+                Integer nIds;
+                String nIdTemp = ler.readLine();
+                nIds = Integer.parseInt(nIdTemp);
+                Disciplina novaDisciplina = new Disciplina(nome,ementa,cargaHoraria,Integer.parseInt(id));
                 int i;
-                for(i=0;i<ncpf;i++){
-                    String cpf= ler.readLine();
-                    /***
-                     * 
-                     * TA ERRADO
-                     * 
-                     * 
-                     * 
-                     * 
-                     **/
-                    //TEM QUE BUSCAR O PROFESSOR NO PROFDAO E ADIONAR A REFERENCIA DE LÁ
-                    Professor professor=new Professor(null,cpf,null);
-                    
-                    novo.addProfessor(professor);
+                for(i=0;i<nIds;i++){
+                    nIdTemp = ler.readLine();
+                    int idsTemp= Integer.parseInt(nIdTemp);
+                    Professor professor=new Professor(null,null,null,idsTemp);
+                    professor = professorDao.buscaId(professor);
+                    novaDisciplina.addProfessor(professor);
+                    professor.addDiscilina(novaDisciplina);
                 }
                 
-                adicionar(novo);//Adiciona na lista
+                adicionar(novaDisciplina);//Adiciona na lista
             }
             file.close();//Fecho o arquivo
             ler.close();           
@@ -89,7 +85,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     }
     
     @Override
-    public void salvar(){
+    public void salvar(Disciplina disciplinaTemp){
+        adicionar(disciplinaTemp);
+        id++;
         String nomeArquivo = "Disciplinas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
@@ -101,14 +99,15 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 salvar.newLine();
                 salvar.write(disciplina.getCargaHoraria());//salva carga horaria
                 salvar.newLine();
-                salvar.write(disciplina.getCodigo());//salva carga horaria
+                salvar.write(disciplina.getId());//salva o id da disciplina
                 salvar.newLine();
                 String numerosDeCpdfs=""+disciplina.listaProfessor().size();
                 
                 salvar.write(numerosDeCpdfs);//quantos cpfs tem na lista de cpfs
+                
                 salvar.newLine();
                 for(Professor professor : disciplina.listaProfessor() ){ 
-                    salvar.write(professor.getCpf());//salva um por um o q esta na lista de cpfs
+                    salvar.write(professor.getId());//salva um por um o q esta na lista de professores
                     salvar.newLine();
                 }
                 
@@ -123,9 +122,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     }
     @Override
     public Disciplina buscaDisciplina(Disciplina disciplina) {
-        for(Disciplina diciplinaTemp : listaDisciplina){
-            if(disciplina.getCodigo().equals(diciplinaTemp.getCodigo())){
-                return disciplina;
+        for(Disciplina disciplinaTemp : listaDisciplina){
+            if(disciplina.getId() == disciplinaTemp.getId()){
+                return disciplinaTemp;
             }
         }
         return disciplina;

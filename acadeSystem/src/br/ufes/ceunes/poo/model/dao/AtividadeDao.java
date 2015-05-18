@@ -5,18 +5,16 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 
-import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import java.util.List;
 
 /**
  *
  * @author paulo
  */
-public interface ProfessorDao {
+public interface AtividadeDao {
     public List getAll();
     public void carregar();
-    public void salvar(Professor professor);
-    public Professor buscaCpf(Professor professor);
-    public Professor buscaId(Professor professor);
+    public void salvar(Atividade atividade);
     
 }

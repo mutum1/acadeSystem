@@ -17,16 +17,14 @@ public class Disciplina {
     private String nome;
     private String ementa;
     private String cargaHoraria;
-    private String codigo;
     private List<Professor> listaProfessor;
     private int id;
 
     // Construtor (4 parametros)
-    public Disciplina(String nome, String ementa, String cargaHoraria, String codigo, int id) {
+    public Disciplina(String nome, String ementa, String cargaHoraria, int id) {
         this.nome = nome;
         this.ementa = ementa;
         this.cargaHoraria = cargaHoraria;
-        this.codigo = codigo;
         this.listaProfessor = new ArrayList<>();
         this.id= id;
     }
@@ -50,11 +48,9 @@ public class Disciplina {
     // Adiciona uma disciplina 
     public void addProfessor(Professor professor){
         this.listaProfessor.add(professor);
+
     }
-    // Retorna o codigo da disciplina
-    public String getCodigo() {
-        return codigo;
-    }
+    
     // Retorna a lista de professores
     public List<Professor> listaProfessor() {
         return listaProfessor;

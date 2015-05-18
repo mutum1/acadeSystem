@@ -115,13 +115,25 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
 
     @Override
-    public Professor buscaProfessor(Professor professor) {
+    public Professor buscaCpf(Professor professor) {
         for(Professor prof : listaProfessor){
             if(prof.getCpf().equals(professor.getCpf())){
                 return prof;
             }
         }
         return professor;
+    }
+
+    @Override
+    public Professor buscaId(Professor professor) {
+        
+        for(Professor prof : listaProfessor){
+            if(prof.getId() == professor.getId()){
+                return prof;
+            }
+        }
+        return professor;
+        
     }
     
 }
