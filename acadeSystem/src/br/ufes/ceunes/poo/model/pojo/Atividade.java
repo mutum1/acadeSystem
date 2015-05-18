@@ -15,12 +15,14 @@ public class Atividade {
     private String nome;
     private String tipo;
     private String data;
+    private Turma turma;
     private int valor;
     private int nota;
     private int id;
 
     // Construtor de atividades (4 parametros)
-    public Atividade(String nome, String tipo, String data, int valor, int id) {
+    public Atividade(String nome, String tipo, String data,Turma turma ,int valor, int id) {
+        this.turma =turma;
         this.nome = nome;
         this.tipo = tipo;
         this.data = data;
@@ -37,6 +39,11 @@ public class Atividade {
     public void setValor(int valor) {
         this.valor = valor;
     }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
     
         // Retorna o ID da Atividade
     public int getId() {
