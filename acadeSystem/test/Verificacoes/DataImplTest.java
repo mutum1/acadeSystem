@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AcadeSystemTeste;
+package Verificacoes;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Rhaister
  */
-public class TurmaTeste {
+public class DataImplTest {
     
-    public TurmaTeste() {
+    public DataImplTest() {
     }
     
     @BeforeClass
@@ -37,9 +37,19 @@ public class TurmaTeste {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    /**
+     * Test of verificaData method, of class DataImpl.
+     */
+    @Test
+    public void testVerificaData() {
+        System.out.println("verificaData");
+        String data = "";
+        DataImpl instance = new DataImpl();
+        boolean expResult = false;
+        boolean result = instance.verificaData(data);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
 }
