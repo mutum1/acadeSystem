@@ -121,7 +121,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }  
     }
     @Override
-    public Disciplina buscaDisciplina(Disciplina disciplina) {
+    public Disciplina busca(Disciplina disciplina) {
         for(Disciplina disciplinaTemp : listaDisciplina){
             if(disciplina.getId() == disciplinaTemp.getId()){
                 return disciplinaTemp;

@@ -15,17 +15,13 @@ import java.util.List;
  */
 public class AtividadeDaoImpl implements AtividadeDao {
     List<Atividade> listAtividades;
+    private DisciplinaDao disciplinaAcoes;
     int id;
 
-    public AtividadeDaoImpl() {
+    public AtividadeDaoImpl(DisciplinaDao disciplinaAcoes) {
         listAtividades = new ArrayList<>();
+        this.disciplinaAcoes = disciplinaAcoes;
         id=0;
-    }
-    
-    
-    @Override
-    public List getAll() {
-        return listAtividades;
     }
 
     @Override
@@ -36,6 +32,12 @@ public class AtividadeDaoImpl implements AtividadeDao {
     @Override
     public void salvar(Atividade atividade) {
         
+        
+    }
+
+    @Override
+    public void buscar(Atividade atividade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

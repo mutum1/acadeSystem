@@ -7,6 +7,7 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
@@ -32,23 +33,25 @@ public class TurmaDaoImpl implements TurmaDao {
     private ProfessorDao professorAcoes;
     private DisciplinaDao disciplinaAcoes;
     private AlunoDao alunoAcoes;
+    private AtividadeDao atividadeAcoes;
 
-    public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes) {
+    public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes,AtividadeDao atividadeAcoes) {
         this.listaTurma = new ArrayList<>();
         this.professorAcoes = professorAcoes;
         this.disciplinaAcoes = disciplinaAcoes;
         this.alunoAcoes = alunoAcoes;
+        this.atividadeAcoes =atividadeAcoes;
     }
 
          
     
 
-    private void adicionar(Turma Turma){
-        listaTurma.add(Turma);
+    private void adicionar(Turma turma){
+        listaTurma.add(turma);
     }
     
     @Override
-    public List getAll(){//retorna a lista de Turma
+    public List getAll(){//retorna a lista de turma
         if(listaTurma == null){
             carregar();
         }
@@ -110,27 +113,38 @@ public class TurmaDaoImpl implements TurmaDao {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             int size;
-            for(Turma Turma : listaTurma){//percorre a lista
-                salvar.write(Turma.getAno());//salva ano
+            for(Turma turma : listaTurma){//percorre a lista
+                salvar.write(turma.getAno());//salva ano
                 salvar.newLine();
-                salvar.write(Turma.getPeriodo());//salva perido
+                salvar.write(turma.getPeriodo());//salva perido
                 salvar.newLine();
-                salvar.write(Turma.getLocal());//salva local
+                salvar.write(turma.getLocal());//salva local
                 salvar.newLine();
-                salvar.write(Turma.getHorario());//salva o local
+                salvar.write(turma.getHorario());//salva o horario
                 salvar.newLine();
-                salvar.write(Turma.getnVagas());//salva nº de vagas
+                salvar.write(turma.getnVagas());//salva nº de vagas
                 salvar.newLine();
-                salvar.write(Turma.getProfessor().getId());//salva o cpf do professor q da aula naquela turma
+                salvar.write(turma.getProfessor().getId());//salva o id do professor q da aula naquela turma
                 salvar.newLine();
-                salvar.write(Turma.getDisciplina().getId());//salva o codigo da disciplina naquela turma
+                salvar.write(turma.getDisciplina().getId());//salva o codigo da disciplina naquela turma
                 salvar.newLine();
-                size=Turma.getListaAlunos().size();
+                size=turma.getListaAlunos().size();
                 salvar.write(size);//salva a quantidade de alunos na turma
                 salvar.newLine();
-                for(Aluno alunos : Turma.getListaAlunos()){
+                
+                for(Aluno alunos : turma.getListaAlunos()){
                     
-                    salvar.write(alunos.getCpf());//salva um por um o q esta na lista de cpfs
+                    salvar.write(alunos.getId());//salva um por um o q esta na lista de cpfs
+                    salvar.newLine();
+                }
+                
+                size=turma.getListAtividades().size();
+                salvar.write(size);//salva a quantidade de alunos na turma
+                salvar.newLine();
+                
+                for(Atividade atividade : turma.getListAtividades()){
+                    
+                    salvar.write(atividade.getId());//salva um por um o q esta na lista de atividades
                     salvar.newLine();
                 }
             }
