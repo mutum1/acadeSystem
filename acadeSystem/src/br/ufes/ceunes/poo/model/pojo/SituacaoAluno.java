@@ -18,6 +18,7 @@ public class SituacaoAluno {
     private float presenca;
     private Aluno aluno;
     private List<Atividade> atividade;
+    private Turma turma;
     private int id;
 
     // Construtor com lista de atividades, o aluno e suas presencas
