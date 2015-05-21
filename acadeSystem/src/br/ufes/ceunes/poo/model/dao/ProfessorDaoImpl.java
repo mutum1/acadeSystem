@@ -55,7 +55,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
             
             int idUser=0;
             String idTemp = ler.readLine();
-            id = Integer.parseInt(idTemp)+1;
+            this.id = Integer.parseInt(idTemp)+1;
             
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
@@ -69,7 +69,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
             }
             
             
-            if((id-1)== (idUser)){//verifica se os ids estao certos
+            if((this.id-1)== (idUser)){//verifica se os ids estao certos
                 System.out.println("\n ID'S CERTOS\n");
             }
             else
@@ -87,13 +87,13 @@ public class ProfessorDaoImpl implements ProfessorDao {
     @Override
     public void salvar(Professor professorTemp){
         adicionar(professorTemp);
-        id++;
+        this.id++;
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            salvar.write(id);
+            salvar.write(this.id);
             salvar.newLine();
             for(Professor professor : listaProfessor){//percorre a lista
                 salvar.write(professor.getNome());//salva nome
@@ -116,7 +116,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
 
     @Override
-    public Professor buscaCpf(Professor professor) {
+    public Professor buscarPorCpf(Professor professor) {
         for(Professor prof : listaProfessor){
             if(prof.getCpf().equals(professor.getCpf())){
                 return prof;
@@ -126,14 +126,25 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
 
     @Override
-    public Professor buscaId(Professor professor) {
-        
+    public Professor buscarPorId(Professor professor) {
         for(Professor prof : listaProfessor){
             if(prof.getId() == professor.getId()){
                 return prof;
             }
         }
         return professor;
+        
+    }
+    
+   @Override
+    public List buscarPorNome(Professor professor) {
+        List<Professor> tempList = new ArrayList<>();
+        for(Professor prof : listaProfessor){
+            if(prof.getNome().contains(professor.getNome())){
+                tempList.add(prof);
+            }
+        }
+        return tempList;
         
     }
     
