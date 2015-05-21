@@ -11,7 +11,6 @@ import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

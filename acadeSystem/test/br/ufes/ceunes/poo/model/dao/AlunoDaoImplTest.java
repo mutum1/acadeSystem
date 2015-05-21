@@ -7,10 +7,6 @@ package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,22 +17,6 @@ import static org.junit.Assert.*;
 public class AlunoDaoImplTest {
     
     public AlunoDaoImplTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -74,6 +54,36 @@ public class AlunoDaoImplTest {
         Aluno alunoTemp = null;
         AlunoDaoImpl instance = new AlunoDaoImpl();
         instance.salvar(alunoTemp);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscarPorCpf method, of class AlunoDaoImpl.
+     */
+    @Test
+    public void testBuscarPorCpf() {
+        System.out.println("buscarPorCpf");
+        Aluno alunoTemp = null;
+        AlunoDaoImpl instance = new AlunoDaoImpl();
+        Aluno expResult = null;
+        Aluno result = instance.buscarPorCpf(alunoTemp);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscarPorNome method, of class AlunoDaoImpl.
+     */
+    @Test
+    public void testBuscarPorNome() {
+        System.out.println("buscarPorNome");
+        Aluno alunoTemp = null;
+        AlunoDaoImpl instance = new AlunoDaoImpl();
+        Aluno expResult = null;
+        Aluno result = instance.buscarPorNome(alunoTemp);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
