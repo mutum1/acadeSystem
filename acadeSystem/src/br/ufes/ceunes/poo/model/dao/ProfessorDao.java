@@ -17,6 +17,6 @@ public interface ProfessorDao {
     void carregar();
     void salvar(Professor professor);
     Professor buscarPorCpf(Professor professor);
-    Professor buscarPorId(Professor professor);
+    Professor buscar(Professor professor);
     List buscarPorNome(Professor professor);
 }
