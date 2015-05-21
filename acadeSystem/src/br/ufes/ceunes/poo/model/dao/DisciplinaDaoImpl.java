@@ -72,7 +72,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                     nIdTemp = ler.readLine();
                     int idsTemp= Integer.parseInt(nIdTemp);
                     Professor professor=new Professor(null,null,null,idsTemp);
-                    professor = professorDao.buscaId(professor);
+                    professor = professorDao.buscar(professor);
                     novaDisciplina.addProfessor(professor);
                     professor.addDiscilina(novaDisciplina);
                 }
@@ -128,7 +128,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }  
     }
     @Override
-    public Disciplina busca(Disciplina disciplina) {
+    public Disciplina buscar(Disciplina disciplina) {
         for(Disciplina disciplinaTemp : listaDisciplina){
             if(disciplina.getId() == disciplinaTemp.getId()){
                 return disciplinaTemp;

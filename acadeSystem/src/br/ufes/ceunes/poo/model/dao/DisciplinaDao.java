@@ -17,5 +17,5 @@ public interface DisciplinaDao {
     public List getAll();
     public void carregar();
     public void salvar(Disciplina disciplina);
-    public Disciplina busca(Disciplina disciplina);
+    public Disciplina buscar(Disciplina disciplina);
 }
