@@ -5,7 +5,6 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
-import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -113,7 +112,7 @@ public class AlunoDaoImpl implements AlunoDao {
     }
 
     @Override
-    public Aluno buscar(Aluno alunoTemp) {
+    public Aluno buscarPorCpf(Aluno alunoTemp) {
         
         for(Aluno aluno : listaAlunos){
             if(alunoTemp.getCpf().equals(aluno.getCpf())){
@@ -121,6 +120,27 @@ public class AlunoDaoImpl implements AlunoDao {
             }
         }
         return alunoTemp;
-        //confere isso aqui MUTUM
+    }
+    
+    @Override
+    public Aluno buscarPorNome(Aluno alunoTemp) {
+        
+        for(Aluno aluno : listaAlunos){
+            if(alunoTemp.getNome().equals(aluno.getNome())){
+                return aluno;
+            }
+        }
+        return alunoTemp;
+    }
+    
+    @Override
+    public Aluno buscar(Aluno alunoTemp) {
+        
+        for(Aluno aluno : listaAlunos){
+            if(alunoTemp.getId() == aluno.getId()){
+                return aluno;
+            }
+        }
+        return alunoTemp;
     }
 }

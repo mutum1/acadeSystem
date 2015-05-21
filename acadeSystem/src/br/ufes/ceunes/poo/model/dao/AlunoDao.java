@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface AlunoDao {
 
-    public List getAll();
-    public void carregar();
-    public void salvar(Aluno aluno);
-    public Aluno buscar(Aluno aluno);
+    List getAll();
+    void carregar();
+    void salvar(Aluno aluno);
+    Aluno buscar(Aluno aluno);
+    Aluno buscarPorNome(Aluno aluno);
+    Aluno buscarPorCpf(Aluno aluno);
    
 }
