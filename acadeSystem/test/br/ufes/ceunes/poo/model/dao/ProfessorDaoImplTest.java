@@ -7,10 +7,6 @@ package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,22 +17,6 @@ import static org.junit.Assert.*;
 public class ProfessorDaoImplTest {
     
     public ProfessorDaoImplTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -79,30 +59,45 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of buscaCpf method, of class ProfessorDaoImpl.
+     * Test of buscarPorCpf method, of class ProfessorDaoImpl.
      */
     @Test
-    public void testBuscaCpf() {
-        System.out.println("buscaCpf");
+    public void testBuscarPorCpf() {
+        System.out.println("buscarPorCpf");
         Professor professor = null;
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         Professor expResult = null;
-        Professor result = instance.buscaCpf(professor);
+        Professor result = instance.buscarPorCpf(professor);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of buscaId method, of class ProfessorDaoImpl.
+     * Test of buscar method, of class ProfessorDaoImpl.
      */
     @Test
-    public void testBuscaId() {
-        System.out.println("buscaId");
+    public void testBuscar() {
+        System.out.println("buscar");
         Professor professor = null;
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         Professor expResult = null;
-        Professor result = instance.buscaId(professor);
+        Professor result = instance.buscar(professor);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of buscarPorNome method, of class ProfessorDaoImpl.
+     */
+    @Test
+    public void testBuscarPorNome() {
+        System.out.println("buscarPorNome");
+        Professor professor = null;
+        ProfessorDaoImpl instance = new ProfessorDaoImpl();
+        List expResult = null;
+        List result = instance.buscarPorNome(professor);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

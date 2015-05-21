@@ -7,10 +7,6 @@ package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,22 +17,6 @@ import static org.junit.Assert.*;
 public class TurmaDaoImplTest {
     
     public TurmaDaoImplTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -79,28 +59,31 @@ public class TurmaDaoImplTest {
     }
 
     /**
-     * Test of buscaTurma method, of class TurmaDaoImpl.
+     * Test of buscar method, of class TurmaDaoImpl.
      */
     @Test
-    public void testBuscaTurma() {
-        System.out.println("buscaTurma");
+    public void testBuscar() {
+        System.out.println("buscar");
         Turma turma = null;
         TurmaDaoImpl instance = null;
         Turma expResult = null;
-        Turma result = instance.buscaTurma(turma);
+        Turma result = instance.buscar(turma);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of adicionarAtividade method, of class TurmaDaoImpl.
+     * Test of disponibilidadeLocal method, of class TurmaDaoImpl.
      */
     @Test
-    public void testAdicionarAtividade() {
-        System.out.println("adicionarAtividade");
+    public void testDisponibilidadeLocal() {
+        System.out.println("disponibilidadeLocal");
+        Turma turma = null;
         TurmaDaoImpl instance = null;
-        instance.adicionarAtividade();
+        Turma expResult = null;
+        Turma result = instance.disponibilidadeLocal(turma);
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

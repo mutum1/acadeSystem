@@ -7,10 +7,6 @@ package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,22 +17,6 @@ import static org.junit.Assert.*;
 public class DisciplinaDaoImplTest {
     
     public DisciplinaDaoImplTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**
@@ -79,15 +59,15 @@ public class DisciplinaDaoImplTest {
     }
 
     /**
-     * Test of buscaDisciplina method, of class DisciplinaDaoImpl.
+     * Test of buscar method, of class DisciplinaDaoImpl.
      */
     @Test
-    public void testBuscaDisciplina() {
-        System.out.println("buscaDisciplina");
+    public void testBuscar() {
+        System.out.println("buscar");
         Disciplina disciplina = null;
         DisciplinaDaoImpl instance = null;
         Disciplina expResult = null;
-        Disciplina result = instance.buscaDisciplina(disciplina);
+        Disciplina result = instance.buscar(disciplina);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
