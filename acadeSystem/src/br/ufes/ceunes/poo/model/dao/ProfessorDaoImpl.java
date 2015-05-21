@@ -126,7 +126,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
 
     @Override
-    public Professor buscarPorId(Professor professor) {
+    public Professor buscar(Professor professor) {
         for(Professor prof : listaProfessor){
             if(prof.getId() == professor.getId()){
                 return prof;
