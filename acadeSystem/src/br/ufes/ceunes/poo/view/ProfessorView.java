@@ -15,6 +15,8 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
+
+/*
 class ProfessorView {
     
     ProfessorDao professorDao;
@@ -58,3 +60,4 @@ class ProfessorView {
     
     
 }
+*/

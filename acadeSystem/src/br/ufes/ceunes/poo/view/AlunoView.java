@@ -23,7 +23,7 @@ class AlunoView {
     }
     
     
-  
+  /*
     public Aluno getInfo(){
         Scanner input = new Scanner(System.in);
         String nome = "";
@@ -48,7 +48,7 @@ class AlunoView {
         return true;
     }  
     
-    
+    */
     public void listarAlunos(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){

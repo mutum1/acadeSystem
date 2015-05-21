@@ -19,6 +19,7 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  *
  * @author paulo
  */
+/*
 public class Cadastros {
     
     public void cadastrarAluno(AlunoDao alunoDao){
@@ -55,5 +56,4 @@ public class Cadastros {
         }
     }    
 }
-
-
+*/

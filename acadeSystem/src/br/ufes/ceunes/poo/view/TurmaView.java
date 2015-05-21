@@ -19,6 +19,8 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
+
+/*
 class TurmaView {
     
     TurmaDao turmaDao;
@@ -81,3 +83,4 @@ class TurmaView {
         return true;
     }
 }
+*/

@@ -24,6 +24,8 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  *
  * @author paulo
  */
+
+/*
 public class AcadeSystem {
     
     
@@ -108,6 +110,9 @@ public class AcadeSystem {
             verificam se ela existe e esta correta, depois adiciona na lista o
             respectivo cadastro e no final salva no arquivo.
         */
+
+
+/*
         switch(opcao){
             case 1:
                 Aluno aluno = alunoView.getInfo();
@@ -160,3 +165,4 @@ public class AcadeSystem {
         
     }
 }
+*/

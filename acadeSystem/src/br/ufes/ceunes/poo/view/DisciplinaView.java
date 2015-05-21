@@ -15,6 +15,9 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
+
+  /*
+  
 class DisciplinaView {
     
     DisciplinaDao disciplinaDao;
@@ -22,7 +25,6 @@ class DisciplinaView {
     public DisciplinaView(DisciplinaDao disciplina){
         this.disciplinaDao = disciplina;
     }
-    
     
   
     public Disciplina getInfo(){
@@ -45,7 +47,7 @@ class DisciplinaView {
         cargaHoraria = input.nextLine();
       
         
-        
+       
         return new Disciplina(nome,ementa,cargaHoraria,codigo);
     }    
     
@@ -59,3 +61,4 @@ class DisciplinaView {
     
     
 }
+*/
