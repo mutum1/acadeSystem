@@ -75,25 +75,26 @@ public class TurmaDaoImpl implements TurmaDao {
                 String horario = ler.readLine(); //pega o horario
                 String SnVagas= ler.readLine(); //pega o numero de vagas
                 nVagas= Integer.parseInt(SnVagas); //converte a string para inteiro
-                String cpfProfessor = ler.readLine(); //pega o cpf do professor
-                String codigo = ler.readLine(); //pega pega o codigo daquela diciplina
+                String idProfessor = ler.readLine(); //pega o cpf do professor
+                String idDisciplina = ler.readLine(); //pega pega o codigo daquela diciplina
+                String idTemp = ler.readLine(); //pega pega o codigo daquela diciplina
                 
-                Professor professor = new Professor(null,cpfProfessor,null);//cria um objeto do tipo professor
-                professor = professorAcoes.buscaProfessor(professor);//procura o professor na lista de professores e adiciona e ele na turma
+                Professor professor = new Professor(null,null,null,Integer.parseInt(idProfessor));//cria um objeto do tipo professor
+                professor = professorAcoes.buscar(professor);//procura o professor na lista de professores e adiciona e ele na turma
                 
-                Disciplina disciplina = new Disciplina(null,null,null,codigo);// cria um objeto do tipo disciplina e coloca so o codigo no objeto
-                disciplina = disciplinaAcoes.buscaDisciplina(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
-                Turma novo = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina);//cria a turma e salva as informaçoes no objeto
+                Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(idDisciplina));// cria um objeto do tipo disciplina e coloca so o codigo no objeto
+                disciplina = disciplinaAcoes.buscar(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
+                Turma novaTurma = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina,Integer.parseInt(idTemp));//cria a turma e salva as informaçoes no objeto
                 
                 nAlunos = Integer.parseInt(ler.readLine());// pega a quantidade de alunos naquela turma
                 
                 for(i=0; i<nAlunos; i++){//pega no arquivo os alunos daquela turma so o cpf busca as outras informaçoes completas elas e add na lista da turma
-                    String cpf= ler.readLine();
-                    Aluno aluno =new Aluno(null,cpf);
-                    aluno = alunoAcoes.buscaAluno(aluno);
-                    novo.addAluno(aluno);
+                    idTemp= ler.readLine();
+                    Aluno aluno =new Aluno(null,null,Integer.parseInt(idTemp));
+                    aluno = alunoAcoes.buscar(aluno);
+                    novaTurma.addAluno(aluno);
                 }
-                adicionar(novo);//Adiciona na lista
+                adicionar(novaTurma);//Adiciona na lista
             }
             file.close();//Fecho o arquivo
             ler.close();           
@@ -131,6 +132,8 @@ public class TurmaDaoImpl implements TurmaDao {
                 size=turma.getListaAlunos().size();
                 salvar.write(size);//salva a quantidade de alunos na turma
                 salvar.newLine();
+                salvar.write(turma.getId());//salva o codigo da disciplina naquela turma
+                salvar.newLine();
                 
                 for(Aluno alunos : turma.getListaAlunos()){
                     
@@ -147,6 +150,7 @@ public class TurmaDaoImpl implements TurmaDao {
                     salvar.write(atividade.getId());//salva um por um o q esta na lista de atividades
                     salvar.newLine();
                 }
+                
             }
             salvar.close();
             file.close();            
