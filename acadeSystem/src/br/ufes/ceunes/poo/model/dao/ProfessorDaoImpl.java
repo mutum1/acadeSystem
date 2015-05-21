@@ -94,6 +94,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             salvar.write(id);
+            salvar.newLine();
             for(Professor professor : listaProfessor){//percorre a lista
                 salvar.write(professor.getNome());//salva nome
                 salvar.newLine();

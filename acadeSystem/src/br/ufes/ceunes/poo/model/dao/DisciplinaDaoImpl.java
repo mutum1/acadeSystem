@@ -54,6 +54,10 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            
+            String idTemp = ler.readLine();
+            id = Integer.parseInt(idTemp)+1;
+            
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
                 String ementa = ler.readLine();//Pega ementa
@@ -86,12 +90,15 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     
     @Override
     public void salvar(Disciplina disciplinaTemp){
+        
         adicionar(disciplinaTemp);
         id++;
         String nomeArquivo = "Disciplinas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            salvar.write(id);
+            salvar.newLine();
             for(Disciplina disciplina : listaDisciplina){//percorre a lista
                 salvar.write(disciplina.getNome());//salva nome
                 salvar.newLine();

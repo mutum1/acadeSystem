@@ -19,15 +19,42 @@ public class Atividade {
     private int valor;
     private int nota;
     private int id;
-
-    // Construtor de atividades (4 parametros)
+    
+    
+    public Atividade(String nome, String tipo, String data,Turma turma ,int valor,int nota, int id) {
+        this.turma =turma;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.data = data;
+        this.valor = valor;
+        this.nota=nota;
+        this.id = id;
+    }
+    // Construtor de atividades (6 parametros)
     public Atividade(String nome, String tipo, String data,Turma turma ,int valor, int id) {
         this.turma =turma;
         this.nome = nome;
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
+        this.nota=0;
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public int getNota() {
+        return nota;
     }
 
     // Retorna valor
@@ -48,5 +75,10 @@ public class Atividade {
         // Retorna o ID da Atividade
     public int getId() {
         return id;
-    }        
+    } 
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+    
 }

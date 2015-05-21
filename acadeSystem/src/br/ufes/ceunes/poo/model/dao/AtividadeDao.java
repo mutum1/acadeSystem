@@ -15,6 +15,6 @@ import java.util.List;
 public interface AtividadeDao {
     public void carregar();
     public void salvar(Atividade atividade);
-    public void buscar(Atividade atividade);
+    public Atividade buscar(Atividade atividade);
     
 }

@@ -18,6 +18,7 @@ public interface TurmaDao {
     public List getAll();
     public void carregar();
     public void salvar(Turma turma);
-    public Turma buscaTurma(Turma turma);
+    public Turma local(Turma turma);
+    public Turma buscar(Turma turma);
     public void adicionarAtividade();
 }

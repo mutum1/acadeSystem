@@ -25,6 +25,7 @@ public class Turma {
     private List<Atividade> listAtividades;
     private int id;
 
+    
     // Construtor com 7 parametros exceto lista de alunos
     public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina, int id) {
         this.ano = ano;
@@ -108,6 +109,11 @@ public class Turma {
     public void addAluno(Aluno aluno){
         listAlunos.add(aluno);
     }
+
+    public List<Atividade> getListAtividades() {
+        return listAtividades;
+    }
+    
     
         // Retorna o ID da Turma
     public int getId() {

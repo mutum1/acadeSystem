@@ -93,6 +93,7 @@ public class AlunoDaoImpl implements AlunoDao {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             salvar.write(id);
+            salvar.newLine();
             for(Aluno aluno : listaAlunos){//percorre a lista
                 salvar.write(aluno.getNome());//salva nome
                 salvar.newLine();
