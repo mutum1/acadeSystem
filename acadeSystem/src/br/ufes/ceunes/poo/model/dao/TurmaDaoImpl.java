@@ -164,7 +164,7 @@ public class TurmaDaoImpl implements TurmaDao {
     @Override
     public Turma buscar(Turma turma) {
         for(Turma turmaTemp : listaTurma){
-            if(turmaTemp.getHorario().equals(turma.getLocal()) && turmaTemp.getHorario().equals(turma.getLocal())){
+            if(turmaTemp.getId() == turma.getId()){
                 return turmaTemp;
             }
         }
@@ -172,8 +172,14 @@ public class TurmaDaoImpl implements TurmaDao {
     }
 
     @Override
-    public void adicionarAtividade() {
-       }
+    public Turma disponibilidadeLocal(Turma turma) {
+         for(Turma turmaTemp : listaTurma){
+            if(turmaTemp.getHorario().equals(turma.getLocal()) && turmaTemp.getHorario().equals(turma.getLocal())){
+                return turmaTemp;
+            }
+        }
+        return turma;
+    }
     
 }
     
