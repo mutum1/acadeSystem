@@ -28,10 +28,10 @@ public class Cadastros {
      * @param alunoDao 
      */
     public void cadastrarAluno(AlunoDao alunoDao){
-        AlunoView alunoView = new AlunoView();
+        AlunoView alunoView = new AlunoView(alunoDao);
         
         Aluno aluno = alunoView.getInfo();
-        if(!alunoView.existeAluno(aluno, alunoDao)){
+        if(!alunoView.existe(aluno)){
             alunoDao.adicionar(aluno);
         }
     }
@@ -42,10 +42,10 @@ public class Cadastros {
      */
     
     public void cadastrarProfessor(ProfessorDao professorDao){
-        ProfessorView professorView = new ProfessorView();
+        ProfessorView professorView = new ProfessorView(professorDao);
         
         Professor professor = professorView.getInfo();
-        if(!professorView.existeProfessor(professor, professorDao)){
+        if(!professorView.existe(professor)){
             professorDao.adicionar(professor);
         }
     }
@@ -57,10 +57,10 @@ public class Cadastros {
      */
     
     public void cadastrarDisciplina(DisciplinaDao disciplinaDao){
-        DisciplinaView disciplinaView = new DisciplinaView();
+        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao);
         
         Disciplina disciplina = disciplinaView.getInfo();
-        if(!disciplinaView.existeDisciplina(disciplina, disciplinaDao)){
+        if(!disciplinaView.existe(disciplina)){
             disciplinaDao.adicionar(disciplina);
         }
     }
@@ -74,10 +74,10 @@ public class Cadastros {
      */
     
     public void cadastrarTurma(TurmaDao turmaDao, DisciplinaDao disciplinaDao,ProfessorDao professorDao){
-        TurmaView turmaView = new TurmaView();
+        TurmaView turmaView = new TurmaView(turmaDao, professorDao, disciplinaDao);
         
-        Turma turma = turmaView.getInfo(disciplinaDao, professorDao);
-        if(!turmaView.existeTurma(turma, turmaDao)){
+        Turma turma = turmaView.getInfo();
+        if(!turmaView.existe(turma)){
             turmaDao.adicionar(turma);
         }
     }    

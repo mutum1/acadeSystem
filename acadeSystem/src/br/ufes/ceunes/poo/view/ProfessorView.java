@@ -7,6 +7,7 @@ package br.ufes.ceunes.poo.view;
 
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.util.List;
 import java.util.Scanner;
@@ -49,7 +50,7 @@ class ProfessorView {
         }
         
         
-        return new Professor(nome,cpf,departamento);
+        return new Professor(nome,cpf,departamento,professorDao.gerarProximoId());
     }    
     /**
      * Método responsavel por verifica se o professor já existe na lista.
@@ -58,12 +59,28 @@ class ProfessorView {
      * @return True se existe na lista/ False caso não exista.
      */
     
-    public boolean existeProfessor(Professor professor, ProfessorDao professorDao){
-        Professor professorTemp = professorDao.buscaProfessor(new Professor(null,professor.getCpf(),null));
+    public boolean existe(Professor professor){
+        Professor professorTemp = professorDao.buscar(new Professor(null,null,null,professor.getId()));
         if(professorTemp.getNome() == null){
             return false;
         }
         return true;
+    }
+    
+    public void salvar(Professor professor){
+        professorDao.adicionar(professor);
+        professorDao.salvar();
+    }
+    
+    public void listar(){
+        List<Professor> listaProfessor = professorDao.getAll();
+         for(Professor professor : listaProfessor){
+             System.out.println(professor.getNome());
+             System.out.println(professor.getCpf());
+             System.out.println(professor.getDepartamento());
+             System.out.println(professor.getId());
+             System.out.println();
+        }
     }
     
     

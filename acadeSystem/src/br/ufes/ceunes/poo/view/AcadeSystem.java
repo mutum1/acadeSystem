@@ -25,7 +25,6 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  * @author paulo
  */
 
-/*
 public class AcadeSystem {
     
     
@@ -41,8 +40,8 @@ public class AcadeSystem {
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
         DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
 
-        TurmaDao turmaDao = new TurmaDaoImpl(); // Objeto Turma Criado
-        TurmaView turmaView = new TurmaView(turmaDao); // Enviado uma turmaDao para uma turmaView
+        TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao, null); // Objeto Turma Criado
+        TurmaView turmaView = new TurmaView(turmaDao,professorDao,disciplinaDao); // Enviado uma turmaDao para uma turmaView
 
         //AtividadeDao atividadeDao = new AtividadeDaoImpl();
         //AtividadeView atividadeView = new AtividadeView();
@@ -110,36 +109,29 @@ public class AcadeSystem {
             verificam se ela existe e esta correta, depois adiciona na lista o
             respectivo cadastro e no final salva no arquivo.
         */
-
-
-/*
         switch(opcao){
             case 1:
                 Aluno aluno = alunoView.getInfo();
-                if(!alunoView.existeAluno(aluno, alunoDao)){
-                    alunoDao.adicionar(aluno);
-                    alunoDao.salvar();
+                if(!alunoView.existe(aluno)){
+                    alunoView.salvar(aluno);
                 }
                 break;
             case 2:
                 Professor professor = professorView.getInfo();
-                if(!professorView.existeProfessor(professor, professorDao)){
-                    professorDao.adicionar(professor);
-                    professorDao.salvar();
+                if(!professorView.existe(professor)){
+                    professorView.salvar(professor);
                 }
                 break;
             case 3:
                 Disciplina disciplina = disciplinaView.getInfo();
-                if(!disciplinaView.existeDisciplina(disciplina, disciplinaDao)){
-                    disciplinaDao.adicionar(disciplina);
-                    disciplinaDao.salvar();
+                if(!disciplinaView.existe(disciplina)){
+                    disciplinaView.salvar(disciplina);
                 }
                 break;
             case 4:
-                Turma turma = turmaView.getInfo(disciplinaDao,professorDao);
-                if(!turmaView.existeTurma(turma, turmaDao)){
-                    turmaDao.adicionar(turma);
-                    turmaDao.salvar();                    
+                Turma turma = turmaView.getInfo();
+                if(!turmaView.existe(turma)){
+                    turmaView.salvar(turma);                    
                 }
                 break;
         }
@@ -150,10 +142,10 @@ public class AcadeSystem {
         int opcao = menuListagens.getOption();
         switch(opcao){
             case 1:
-                alunoView.listarAlunos();
+                alunoView.listar();
                 break;
             case 2:
-                //professorView.listarProfessores(professorDao)
+                professorView.listar();
                 break;
             case 3:
                
@@ -165,4 +157,3 @@ public class AcadeSystem {
         
     }
 }
-*/

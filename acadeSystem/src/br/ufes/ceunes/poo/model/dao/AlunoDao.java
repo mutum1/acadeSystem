@@ -14,9 +14,12 @@ import java.util.List;
  */
 public interface AlunoDao {
 
+    
     List getAll();
+    int gerarProximoId();
+    void adicionar(Aluno aluno);
     void carregar();
-    void salvar(Aluno aluno);
+    void salvar();
     Aluno buscar(Aluno aluno);
     Aluno buscarPorNome(Aluno aluno);
     Aluno buscarPorCpf(Aluno aluno);

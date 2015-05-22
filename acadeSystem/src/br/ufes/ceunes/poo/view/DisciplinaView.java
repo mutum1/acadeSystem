@@ -54,7 +54,7 @@ class DisciplinaView {
       
         
         
-        return new Disciplina(nome,ementa,cargaHoraria,codigo);
+        return new Disciplina(nome,ementa,cargaHoraria,Integer.parseInt(codigo));
     }    
     
     /**
@@ -64,12 +64,17 @@ class DisciplinaView {
      * @return True se existe na alista/ False caso não exista.
      */
     
-    public boolean existeDisciplina(Disciplina disciplina, DisciplinaDao disciplinaDao){
-        Disciplina disciplinaTemp = disciplinaDao.buscaDisciplina(new Disciplina(null,null,null,disciplina.getCodigo()));
+    public boolean existe(Disciplina disciplina){
+        Disciplina disciplinaTemp = disciplinaDao.buscar(new Disciplina(null,null,null,disciplina.getId()));
         if(disciplinaTemp.getNome() == null){
             return false;
         }
         return true;
+    }
+    
+    public void salvar(Disciplina disciplina){
+        disciplinaDao.adicionar(disciplina);
+        disciplinaDao.salvar();
     }
     
     

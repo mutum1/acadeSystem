@@ -33,6 +33,7 @@ public class TurmaDaoImpl implements TurmaDao {
     private DisciplinaDao disciplinaAcoes;
     private AlunoDao alunoAcoes;
     private AtividadeDao atividadeAcoes;
+    private int id;
 
     public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes,AtividadeDao atividadeAcoes) {
         this.listaTurma = new ArrayList<>();
@@ -40,12 +41,15 @@ public class TurmaDaoImpl implements TurmaDao {
         this.disciplinaAcoes = disciplinaAcoes;
         this.alunoAcoes = alunoAcoes;
         this.atividadeAcoes =atividadeAcoes;
+        this.id = 1;
     }
 
-         
-    
+    @Override
+    public int gerarProximoId(){
+        return this.id;
+    }
 
-    private void adicionar(Turma turma){
+    public void adicionar(Turma turma){
         listaTurma.add(turma);
     }
     /**
@@ -114,9 +118,13 @@ public class TurmaDaoImpl implements TurmaDao {
      * @param turmaTemp 
      */
     @Override
-    public void salvar(Turma turmaTemp){
-        
-        
+    public void salvar(){
+        this.id++;
+        /*
+        *
+        *TEM QUE SALVAR O ID!!!!!!!!!!!!!!!!!!!
+        *
+        */
         String nomeArquivo = "Turmas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar

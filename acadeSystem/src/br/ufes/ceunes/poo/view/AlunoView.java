@@ -25,10 +25,11 @@ class AlunoView {
     }
     
     /**
-     * Método para preencher as informações dos alunos (nome,cpf)
-     * @return Aluno com cpf e nome 
+     * Método para preencher as informações dos alunos (nome,cpf,id)
+     * @return Aluno com cpf, nome e id 
      */
   
+    
     public Aluno getInfo(){
         Scanner input = new Scanner(System.in);
         String nome = "";
@@ -42,18 +43,23 @@ class AlunoView {
             System.out.println("CPF inválido, digite novamente");
             cpf = input.nextLine();   
         }
-        return new Aluno(nome,cpf);
+        return new Aluno(nome,cpf,alunoDao.gerarProximoId());
     }    
     
+    public void salvar(Aluno aluno){
+        alunoDao.adicionar(aluno);
+        alunoDao.salvar();        
+    }
+    
     /**
-     * Método que verifica se um aluno com determinado cpf existe.
+     * Método que verifica se um aluno com determinado id existe.
      * @param aluno
      * @return True/False
      */
     
-    
-    public boolean existeAluno(Aluno aluno){
-        Aluno alunoTemp = alunoDao.buscaAluno(new Aluno(null,aluno.getCpf()));
+ 
+    public boolean existe(Aluno aluno){
+        Aluno alunoTemp = alunoDao.buscar(new Aluno(null,null,aluno.getId()));
         if(alunoTemp.getNome() == null){
             return false;
         }
@@ -65,11 +71,12 @@ class AlunoView {
      */
     
     
-    public void listarAlunos(){
+    public void listar(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){
              System.out.println(aluno.getNome());
              System.out.println(aluno.getCpf());
+             System.out.println(aluno.getId());
              System.out.println();
         }
     }

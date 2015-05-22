@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 public class AlunoDaoImpl implements AlunoDao {
     
     private List<Aluno> listaAlunos;
-    private int id;
+    private Integer id;
     
     public AlunoDaoImpl(){
         this.listaAlunos =new ArrayList<>();
@@ -35,7 +35,9 @@ public class AlunoDaoImpl implements AlunoDao {
      * Adiciona um aluno na lista de alunos.
      * @param aluno 
      */
-    private void adicionar(Aluno aluno){
+    
+    @Override
+    public void adicionar(Aluno aluno){
         listaAlunos.add(aluno);
     }
     /**
@@ -48,6 +50,11 @@ public class AlunoDaoImpl implements AlunoDao {
             
         }
         return listaAlunos;   
+    }
+    
+    @Override
+    public int gerarProximoId(){
+        return this.id;
     }
     /**
      * Métodos responsavel por carregar o arquivo nas listas.
@@ -96,22 +103,22 @@ public class AlunoDaoImpl implements AlunoDao {
      */
     
     @Override
-    public void salvar(Aluno alunoTemp){
-        adicionar(alunoTemp);
+    public void salvar(){
         id++;
         
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            salvar.write(id);
+            salvar.write(id.toString());
             salvar.newLine();
             for(Aluno aluno : listaAlunos){//percorre a lista
                 salvar.write(aluno.getNome());//salva nome
                 salvar.newLine();
                 salvar.write(aluno.getCpf());//salva cpf
                 salvar.newLine();
-                salvar.write(aluno.getId());//salva id
+                Integer idTemp = aluno.getId();
+                salvar.write(idTemp.toString());//salva id
                 salvar.newLine();
             }
             salvar.close();

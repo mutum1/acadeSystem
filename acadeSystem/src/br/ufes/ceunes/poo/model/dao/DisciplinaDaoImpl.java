@@ -38,7 +38,8 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      * Adiciona uma disciplina a lista de disciplinas
      * @param disciplina 
      */ 
-    private void adicionar(Disciplina disciplina){
+    @Override
+    public void adicionar(Disciplina disciplina){
         listaDisciplina.add(disciplina);
     }
     /*
@@ -99,10 +100,8 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      * @param disciplinaTemp 
      */
     @Override
-    public void salvar(Disciplina disciplinaTemp){
-        
-        adicionar(disciplinaTemp);
-        id++;
+    public void salvar(){
+        this.id++;
         String nomeArquivo = "Disciplinas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar

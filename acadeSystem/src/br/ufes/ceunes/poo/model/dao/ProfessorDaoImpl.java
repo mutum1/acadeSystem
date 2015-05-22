@@ -36,8 +36,13 @@ public class ProfessorDaoImpl implements ProfessorDao {
      * Adiciona um professor na lista de professores.
      * @param professor 
      */
-    private void adicionar(Professor professor){
+    public void adicionar(Professor professor){
         listaProfessor.add(professor);
+    }
+    
+    @Override
+    public int gerarProximoId(){
+        return this.id;
     }
     /**
      * retorna a lista com todos os professores.
@@ -96,8 +101,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
      * @param professorTemp 
      */
     @Override
-    public void salvar(Professor professorTemp){
-        adicionar(professorTemp);
+    public void salvar(){
         this.id++;
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo

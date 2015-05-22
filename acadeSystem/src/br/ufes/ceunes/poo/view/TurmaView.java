@@ -22,21 +22,25 @@ import java.util.Scanner;
 class TurmaView {
     
     TurmaDao turmaDao;
+    ProfessorDao professorDao;
+    DisciplinaDao disciplinaDao;
     
-    public TurmaView(TurmaDao turma){
+    public TurmaView(TurmaDao turma,ProfessorDao professor,DisciplinaDao disciplina){
         this.turmaDao = turma;
+        this.professorDao = professor;
+        this.disciplinaDao = disciplina;
     }
     
-    public Turma getInfo(DisciplinaDao disciplinaDao, ProfessorDao professorDao){
+    public Turma getInfo(){
         
         Scanner input = new Scanner(System.in);
-        String ano = "";
-        String periodo = "";
-        String local = "";
-        String horario="";
-        String numeroVagas = "";
-        String cpfProfessor = "";
-        String codigoDisciplina = "";
+        String ano;
+        String periodo;
+        String local;
+        String horario;
+        String numeroVagas;
+        String cpfProfessor;
+        String codigoDisciplina;
         
         System.out.println("Digite o ano da turma");
         ano = input.nextLine();
@@ -47,7 +51,7 @@ class TurmaView {
         System.out.println("Digite a ementa");
         local = input.nextLine();
         
-        System.out.println("Digite a caraca horaria");
+        System.out.println("Digite a carga horaria");
         horario = input.nextLine();
       
         System.out.println("Digite o número de vagas");
@@ -55,23 +59,24 @@ class TurmaView {
         
         System.out.println("Digite o CPF do professor (Somente numeros)");
         cpfProfessor = input.nextLine();
-        Professor professor = new Professor(null,cpfProfessor,null);
+        Professor professor = new Professor(null,cpfProfessor,null,0);
         
-        professor = professorDao.buscaProfessor(professor);
+        professor = professorDao.buscarPorCpf(professor);
         
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
-        Disciplina disciplina = new Disciplina(null,null,null,codigoDisciplina);
+        Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(codigoDisciplina));
+        disciplina = disciplinaDao.buscar(disciplina);
         
         
         
         
-        return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina);
+        return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina,turmaDao.gerarProximoId());
     }    
     
-    public boolean existeTurma(Turma turma, TurmaDao turmaDao){
-        Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null);
-        turmaTemp = turmaDao.buscaTurma(turmaTemp);
+    public boolean existe(Turma turma){
+        Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null,turma.getId());
+        turmaTemp = turmaDao.buscar(turmaTemp);
         if(turmaTemp.getLocal() == null){
             return false;
         }
@@ -79,5 +84,10 @@ class TurmaView {
             return false;
         }
         return true;
+    }
+    
+    public void salvar(Turma turma){
+        turmaDao.adicionar(turma);
+        turmaDao.salvar();
     }
 }
