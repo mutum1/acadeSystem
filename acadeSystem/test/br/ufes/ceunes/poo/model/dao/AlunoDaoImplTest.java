@@ -29,8 +29,6 @@ public class AlunoDaoImplTest {
         List expResult = null;
         List result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("SATANÁS WINS");
     }
 
     /**
@@ -41,8 +39,6 @@ public class AlunoDaoImplTest {
         System.out.println("carregar");
         AlunoDaoImpl instance = new AlunoDaoImpl();
         instance.carregar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -51,11 +47,8 @@ public class AlunoDaoImplTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
-        Aluno alunoTemp = null;
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        instance.salvar(alunoTemp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.salvar();
     }
 
     /**
@@ -69,8 +62,6 @@ public class AlunoDaoImplTest {
         Aluno expResult = null;
         Aluno result = instance.buscarPorCpf(alunoTemp);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,8 +75,6 @@ public class AlunoDaoImplTest {
         Aluno expResult = null;
         Aluno result = instance.buscarPorNome(alunoTemp);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,8 +88,6 @@ public class AlunoDaoImplTest {
         Aluno expResult = null;
         Aluno result = instance.buscar(alunoTemp);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

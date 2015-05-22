@@ -53,7 +53,7 @@ public class ProfessorDaoImplTest {
         System.out.println("salvar");
         Professor professorTemp = null;
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        instance.salvar(professorTemp);
+      //  instance.salvar(professorTemp);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

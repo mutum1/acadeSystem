@@ -53,7 +53,7 @@ public class TurmaDaoImplTest {
         System.out.println("salvar");
         Turma turmaTemp = null;
         TurmaDaoImpl instance = null;
-        instance.salvar(turmaTemp);
+      //  instance.salvar(turmaTemp);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
