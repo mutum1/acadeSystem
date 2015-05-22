@@ -5,10 +5,6 @@
  */
 package Verificacoes;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,38 +14,18 @@ import static org.junit.Assert.*;
  */
 public class DataImplTest {
     
-    public DataImplTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+  
     /**
-     * Test of verificaData method, of class DataImpl.
+     * Verifica se a data é valida dentro co contexto real.
      */
     @Test
     public void testVerificaData() {
         System.out.println("verificaData");
-        String data = "";
+        String data = "29/02/2015";
         DataImpl instance = new DataImpl();
         boolean expResult = false;
         boolean result = instance.verificaData(data);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

@@ -5,10 +5,6 @@
  */
 package Verificacoes;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +18,7 @@ public class CpfImplTest {
     }
 
     /**
-     * Test of isValidCpf method, of class CpfImpl.
+     * Verifica se o CPF é valido.
      */
     @Test
     public void testIsValidCpf() {
@@ -32,66 +28,58 @@ public class CpfImplTest {
         boolean expResult = true;
         boolean result = instance.isValidCpf(cpf);
         assertEquals(expResult, result);
-        fail("O Cpf não é válido");
     }
 
     /**
-     * Test of removeInvalidsCharacters method, of class CpfImpl.
+     *Remove os caracteres invalidos que não seja numeros.
      */
     @Test
     public void testRemoveInvalidsCharacters() {
-        System.out.println("removeInvalidsCharacters");
-        String cpf = "";
+        System.out.println("131.700.947-93");
+        String cpf = "13170094793";
         CpfImpl instance = new CpfImpl();
-        String expResult = "";
+        String expResult = "13170094793";
         String result = instance.removeInvalidsCharacters(cpf);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of isValidSize method, of class CpfImpl.
+     * Verifica se o tamanho é valido.
      */
     @Test
     public void testIsValidSize() {
-        System.out.println("isValidSize");
-        String cpf = "";
+        System.out.println("Verifica o Tamanho");
+        String cpf = "OnzeNumeros";
         CpfImpl instance = new CpfImpl();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.isValidSize(cpf);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of isValidDigits method, of class CpfImpl.
+     * Verifica se o usuario nao digitou tudo zero.
      */
     @Test
     public void testIsValidDigits() {
-        System.out.println("isValidDigits");
-        String cpf = "";
+        System.out.println("Verifica se a entrada n e Zero");
+        String cpf = "00000000000";
         CpfImpl instance = new CpfImpl();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.isValidDigits(cpf);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of calculoComCpf method, of class CpfImpl.
+     * Realiza io calculo do Cpf.
      */
     @Test
     public void testCalculoComCpf() {
         System.out.println("calculoComCpf");
-        String cpf = "123.123.123-34";
+        String cpf = "782.249.187-34";
         CpfImpl instance = new CpfImpl();
-        String expResult = "4";
+        String expResult = "0";
         String result = instance.calculoComCpf(cpf);
         assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
     
 }
