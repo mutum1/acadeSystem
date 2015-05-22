@@ -32,11 +32,17 @@ public class ProfessorDaoImpl implements ProfessorDao {
         id=1;
         carregar();
     }
-    
+    /**
+     * Adiciona um professor na lista de professores.
+     * @param professor 
+     */
     private void adicionar(Professor professor){
         listaProfessor.add(professor);
     }
-    
+    /**
+     * retorna a lista com todos os professores.
+     * @return lista.
+     */
     @Override
     public List getAll(){//retorna a lista de professor
         if(listaProfessor == null){
@@ -44,7 +50,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
         }
         return listaProfessor;   
     }
-    
+    /**
+     * Carrega todos os professores do arquivo em uma lista.
+     */
     @Override
     public void carregar(){
         String nomeArquivo = "Professores.txt";//nome do arquivo
@@ -83,7 +91,10 @@ public class ProfessorDaoImpl implements ProfessorDao {
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    
+    /**
+     * Pega todos os professores na lista e salva em um arquivo.
+     * @param professorTemp 
+     */
     @Override
     public void salvar(Professor professorTemp){
         adicionar(professorTemp);
@@ -114,7 +125,11 @@ public class ProfessorDaoImpl implements ProfessorDao {
         }
         carregar();
     }
-
+    /**
+     * Busca na lista professores, utilizando como chave o cpf
+     * @param professor
+     * @return professor
+     */
     @Override
     public Professor buscarPorCpf(Professor professor) {
         for(Professor prof : listaProfessor){
@@ -124,7 +139,11 @@ public class ProfessorDaoImpl implements ProfessorDao {
         }
         return professor;
     }
-
+    /**
+     * Busca na lista professores, utilizando como chave o id
+     * @param professor
+     * @return professor
+     */
     @Override
     public Professor buscar(Professor professor) {
         for(Professor prof : listaProfessor){
@@ -135,7 +154,11 @@ public class ProfessorDaoImpl implements ProfessorDao {
         return professor;
         
     }
-    
+    /**
+     * Busca na lista professores, utilizando como chave o nome
+     * @param professor
+     * @return professor
+     */
    @Override
     public List buscarPorNome(Professor professor) {
         List<Professor> tempList = new ArrayList<>();

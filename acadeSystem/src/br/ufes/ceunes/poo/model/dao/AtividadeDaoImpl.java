@@ -32,7 +32,9 @@ public class AtividadeDaoImpl implements AtividadeDao {
         this.turmaAcoes = turmaAcoes;
         id=0;
     }
-
+    /**
+     * Carregas todos as atividades do arquivo na lista de atividades
+     */
     @Override
     public void carregar() {
         String nomeArquivo = "Atividades.txt";//nome do arquivo
@@ -64,7 +66,10 @@ public class AtividadeDaoImpl implements AtividadeDao {
         } 
         
     }
-
+    /**
+     * Pega todas as atividades na lista e salva dentro de um arquivo.
+     * @param atividadeTemp 
+     */
     @Override
     public void salvar(Atividade atividadeTemp) {
         
@@ -98,7 +103,11 @@ public class AtividadeDaoImpl implements AtividadeDao {
             Logger.getLogger(AtividadeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
-
+    /**
+     * Busca a atividade utilizando como chave o id.
+     * @param atividade
+     * @return a atividade de interesse, ou um atividade com campos vazios
+     */
     @Override
     public Atividade buscar(Atividade atividade) {
         for(Atividade atividadeTemp : listaAtividades){

@@ -31,18 +31,27 @@ public class AlunoDaoImpl implements AlunoDao {
         id=1;
         carregar();
     }
-    
+    /**
+     * Adiciona um aluno na lista de alunos.
+     * @param aluno 
+     */
     private void adicionar(Aluno aluno){
         listaAlunos.add(aluno);
     }
+    /**
+     * retorna a lista dos alunos
+     * @return 
+     */
     @Override
-    public List getAll(){//retorna a lista de alunos
+    public List getAll(){
         if(listaAlunos == null){
             
         }
         return listaAlunos;   
     }
-    
+    /**
+     * Métodos responsavel por carregar o arquivo nas listas.
+     */
     @Override
     public void carregar(){
         String nomeArquivo = "Alunos.txt";//nome do arquivox    
@@ -81,6 +90,10 @@ public class AlunoDaoImpl implements AlunoDao {
             Logger.getLogger(AlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
+    /**
+     * Salva a lista de alunos em um arquivo.
+     * @param alunoTemp 
+     */
     
     @Override
     public void salvar(Aluno alunoTemp){
@@ -110,7 +123,11 @@ public class AlunoDaoImpl implements AlunoDao {
         }  
         carregar();
     }
-
+    /**
+     * Procura um aluno na lista, utilizando CPF como chave.
+     * @param alunoTemp
+     * @return aluno se encontrar, ou retorna um aluno com campos vazios
+     */
     @Override
     public Aluno buscarPorCpf(Aluno alunoTemp) {
         
@@ -121,7 +138,11 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return alunoTemp;
     }
-    
+    /**
+     * Busca o aluno na lista, utilizando o nome como chave.
+     * @param alunoTemp
+     * @return retorna aluno caso exista ou retorna um aluno com campos vazios
+     */
     @Override
     public Aluno buscarPorNome(Aluno alunoTemp) {
         
@@ -132,7 +153,11 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return alunoTemp;
     }
-    
+    /**
+     * Busca aluno na lista, utilizando como chave o id
+     * @param alunoTemp
+     * @return aluno se existe ... aluno com cambos vazios caso contrario.
+     */
     @Override
     public Aluno buscar(Aluno alunoTemp) {
         

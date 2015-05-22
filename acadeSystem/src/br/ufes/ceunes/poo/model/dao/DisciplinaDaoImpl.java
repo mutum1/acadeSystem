@@ -34,11 +34,16 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         this.professorDao = professorDao;
         carregar();
     }
-    
+    /**
+     * Adiciona uma disciplina a lista de disciplinas
+     * @param disciplina 
+     */ 
     private void adicionar(Disciplina disciplina){
         listaDisciplina.add(disciplina);
     }
-    
+    /*
+    retorna a lista de disciplinas
+    */
     @Override
     public List getAll(){//retorna a lista de disciplina
         if(listaDisciplina == null){
@@ -46,7 +51,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }
         return listaDisciplina;   
     }
-    
+    /**
+     * Carrega do arquivo todas as disciplinas e coloca em uma lista.
+     */
     @Override
     public void carregar(){
         String nomeArquivo = "Disciplinas.txt";//nome do arquivo
@@ -87,7 +94,10 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    
+    /**
+     * Salva todas as disciplinas de uma lista em um arquivo.
+     * @param disciplinaTemp 
+     */
     @Override
     public void salvar(Disciplina disciplinaTemp){
         
@@ -127,6 +137,11 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
+    /**
+     * Busca uma disciplina na lista utilizando como chave o id.
+     * @param disciplina
+     * @return lista buscada, caso contrario lista com campos vazios.
+     */
     @Override
     public Disciplina buscar(Disciplina disciplina) {
         for(Disciplina disciplinaTemp : listaDisciplina){

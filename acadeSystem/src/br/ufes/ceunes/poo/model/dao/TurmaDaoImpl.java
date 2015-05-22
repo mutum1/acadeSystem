@@ -48,7 +48,10 @@ public class TurmaDaoImpl implements TurmaDao {
     private void adicionar(Turma turma){
         listaTurma.add(turma);
     }
-    
+    /**
+     * Retorna a lista de todas as turmas.
+     * @return 
+     */
     @Override
     public List getAll(){//retorna a lista de turma
         if(listaTurma == null){
@@ -56,7 +59,10 @@ public class TurmaDaoImpl implements TurmaDao {
         }
         return listaTurma;   
     }
-    
+    /**
+     * Carrega todas as turmas que estão no arquivo em uma lista.
+     */
+   
     @Override
     public void carregar(){
         String nomeArquivo = "Turmas.txt";//nome do arquivo
@@ -103,7 +109,10 @@ public class TurmaDaoImpl implements TurmaDao {
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
-    
+    /**
+     * Salva todas as turmas que estão numa lista em um arquivo.
+     * @param turmaTemp 
+     */
     @Override
     public void salvar(Turma turmaTemp){
         
@@ -159,7 +168,11 @@ public class TurmaDaoImpl implements TurmaDao {
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
     }
-
+    /**
+     * Busca na lista turmas, utilizando como chave o id
+     * @param turma
+     * @return uma turma, caso contrario retorna uma turma com campos vazios.
+     */
     @Override
     public Turma buscar(Turma turma) {
         for(Turma turmaTemp : listaTurma){
@@ -170,6 +183,12 @@ public class TurmaDaoImpl implements TurmaDao {
         return turma;
     }
 
+    /**
+     * Verifica se há alguma outra turma no mesmo local e horario, para que não
+     * de comflito na geração das turmas.
+     * @param turma
+     * @return turma.
+     */
     @Override
     public Turma disponibilidadeLocal(Turma turma) {
          for(Turma turmaTemp : listaTurma){
