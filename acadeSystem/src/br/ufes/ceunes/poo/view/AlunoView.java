@@ -12,8 +12,10 @@ import java.util.Scanner;
 
 /**
  *
- * @author Rhaister
+ * @author Rhaister  
  */
+
+
 class AlunoView {
     
     AlunoDao alunoDao;
@@ -22,8 +24,11 @@ class AlunoView {
         this.alunoDao = aluno;
     }
     
-    
-  /*
+    /**
+     * Método para preencher as informações dos alunos (nome,cpf)
+     * @return Aluno com cpf e nome 
+     */
+  
     public Aluno getInfo(){
         Scanner input = new Scanner(System.in);
         String nome = "";
@@ -40,6 +45,13 @@ class AlunoView {
         return new Aluno(nome,cpf);
     }    
     
+    /**
+     * Método que verifica se um aluno com determinado cpf existe.
+     * @param aluno
+     * @return True/False
+     */
+    
+    
     public boolean existeAluno(Aluno aluno){
         Aluno alunoTemp = alunoDao.buscaAluno(new Aluno(null,aluno.getCpf()));
         if(alunoTemp.getNome() == null){
@@ -48,7 +60,11 @@ class AlunoView {
         return true;
     }  
     
-    */
+    /**
+     * Imprime todos os alunos por nome e cpf.
+     */
+    
+    
     public void listarAlunos(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){

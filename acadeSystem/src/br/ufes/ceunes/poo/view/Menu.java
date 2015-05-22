@@ -21,7 +21,7 @@ public class Menu {
     private List<String> optionsList;
     private String title;
     private int size;
-    
+   
     public Menu(){
         this(new ArrayList<String>());
     }
@@ -36,6 +36,7 @@ public class Menu {
         this(optionsList);
         this.title = title;
     }
+
     public void addOption(String item){
         optionsList.add(item);
         this.size = optionsList.size();

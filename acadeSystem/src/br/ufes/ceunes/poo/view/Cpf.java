@@ -13,6 +13,13 @@ public abstract class Cpf {
 
     private static String tempCpf = "";
     
+    /**
+     * Método responsavel pela parte final da validação utilizando os outros
+     * metodos da classe.
+     * @param cpf
+     * @return True /False
+     */
+    
     static boolean isValidCpf(String cpf){
         
         if(cpf == null) return false;
@@ -28,14 +35,32 @@ public abstract class Cpf {
         return true;
     }
 
+    /**
+     * Método utilizado para remover caracter que não são validos para um cpf
+     * @param cpf
+     * @return 
+     */
+    
     private static String removeInvalidsCharacters(String cpf){   
         return cpf.replaceAll( "\\D*", "" );
     } 
+    
+    /**
+     * Método responsavel para verificar se o Cpf está com tamanho correto.
+     * @param cpf
+     * @return 
+     */
     private static boolean isValidSize(String cpf){  
         if ( cpf.length() == 11 )
             return true;   
         return false;
     } 
+    /**
+     * Método que verifica se os digitos satisfazem a condição para que sejam
+     * de fato um cpf.
+     * @param cpf
+     * @return 
+     */
     private static boolean isValidDigits(String cpf){   
         char primDig = '0';
         char [] charCpf = cpf.toCharArray();  
@@ -46,7 +71,12 @@ public abstract class Cpf {
             }    
         return true;
     } 
-
+    /**
+     * Método responsavel por fazer as demais verificações para que seja um cpf.
+     * @param cpf
+     * @return 
+     */
+    
     private static String calculoComCpf(String cpf){   
         int digGerado = 0;
         int mult = cpf.length()+1;

@@ -19,9 +19,14 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  *
  * @author paulo
  */
-/*
+
 public class Cadastros {
-    
+
+    /**
+     * Método responsavel por cadastrar um aluno em uma lista
+     * sem duplicatas.
+     * @param alunoDao 
+     */
     public void cadastrarAluno(AlunoDao alunoDao){
         AlunoView alunoView = new AlunoView();
         
@@ -30,6 +35,11 @@ public class Cadastros {
             alunoDao.adicionar(aluno);
         }
     }
+    /**
+     * Método responsavel por cadastrar um professor em uma lista
+     * sem duplicatas.
+     * @param professorDao 
+     */
     
     public void cadastrarProfessor(ProfessorDao professorDao){
         ProfessorView professorView = new ProfessorView();
@@ -39,6 +49,13 @@ public class Cadastros {
             professorDao.adicionar(professor);
         }
     }
+    
+    /**
+     * Método responsavel por cadastrar uma disciplina em uma lista
+     * sem duplicatas.
+     * @param disciplinaDao 
+     */
+    
     public void cadastrarDisciplina(DisciplinaDao disciplinaDao){
         DisciplinaView disciplinaView = new DisciplinaView();
         
@@ -47,6 +64,15 @@ public class Cadastros {
             disciplinaDao.adicionar(disciplina);
         }
     }
+    
+    /**
+     * Método responsavel por cadastrar uma turma em uma lista
+     * sem duplicatas.
+     * @param turmaDao
+     * @param disciplinaDao
+     * @param professorDao 
+     */
+    
     public void cadastrarTurma(TurmaDao turmaDao, DisciplinaDao disciplinaDao,ProfessorDao professorDao){
         TurmaView turmaView = new TurmaView();
         
@@ -56,4 +82,5 @@ public class Cadastros {
         }
     }    
 }
-*/
+
+

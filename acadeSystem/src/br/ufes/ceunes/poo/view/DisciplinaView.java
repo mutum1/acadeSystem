@@ -15,17 +15,23 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
-
-  /*
-  
 class DisciplinaView {
     
     DisciplinaDao disciplinaDao;
+   /**
+    * Construtor da Disciplina.
+    * @param disciplina 
+    */
     
     public DisciplinaView(DisciplinaDao disciplina){
         this.disciplinaDao = disciplina;
     }
     
+    /**
+     * Método responsavel por preencher todos os dados da Disciplina
+     * nome,ementa,cargaHoraria e codigo já preenchidos.
+     * @return disciplina com dados já cadastrados
+     */
   
     public Disciplina getInfo(){
         Scanner input = new Scanner(System.in);
@@ -47,9 +53,16 @@ class DisciplinaView {
         cargaHoraria = input.nextLine();
       
         
-       
+        
         return new Disciplina(nome,ementa,cargaHoraria,codigo);
     }    
+    
+    /**
+     * Métodos responsavel por não permitir duplicatas de disciplina na lista.
+     * @param disciplina
+     * @param disciplinaDao
+     * @return True se existe na alista/ False caso não exista.
+     */
     
     public boolean existeDisciplina(Disciplina disciplina, DisciplinaDao disciplinaDao){
         Disciplina disciplinaTemp = disciplinaDao.buscaDisciplina(new Disciplina(null,null,null,disciplina.getCodigo()));
@@ -61,4 +74,3 @@ class DisciplinaView {
     
     
 }
-*/

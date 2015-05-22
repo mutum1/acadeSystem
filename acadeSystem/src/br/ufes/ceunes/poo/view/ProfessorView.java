@@ -15,8 +15,6 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
-
-/*
 class ProfessorView {
     
     ProfessorDao professorDao;
@@ -25,7 +23,11 @@ class ProfessorView {
         this.professorDao = professor;
     }
     
-    
+    /**
+     * Método responsavel por preencher todas as caracteristicas do professor
+     * e chama o metodo para fazer a verificação do cpf.
+     * @return professor preenchido.(nome cpf e departamento)
+     */
   
     public Professor getInfo(){
         Scanner input = new Scanner(System.in);
@@ -49,6 +51,12 @@ class ProfessorView {
         
         return new Professor(nome,cpf,departamento);
     }    
+    /**
+     * Método responsavel por verifica se o professor já existe na lista.
+     * @param professor
+     * @param professorDao
+     * @return True se existe na lista/ False caso não exista.
+     */
     
     public boolean existeProfessor(Professor professor, ProfessorDao professorDao){
         Professor professorTemp = professorDao.buscaProfessor(new Professor(null,professor.getCpf(),null));
@@ -60,4 +68,3 @@ class ProfessorView {
     
     
 }
-*/
