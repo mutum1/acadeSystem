@@ -29,8 +29,6 @@ public class ProfessorDaoImplTest {
         List expResult = null;
         List result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -41,8 +39,6 @@ public class ProfessorDaoImplTest {
         System.out.println("carregar");
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         instance.carregar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -53,9 +49,7 @@ public class ProfessorDaoImplTest {
         System.out.println("salvar");
         Professor professorTemp = null;
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-      //  instance.salvar(professorTemp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.salvar();
     }
 
     /**
@@ -69,8 +63,6 @@ public class ProfessorDaoImplTest {
         Professor expResult = null;
         Professor result = instance.buscarPorCpf(professor);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,8 +76,6 @@ public class ProfessorDaoImplTest {
         Professor expResult = null;
         Professor result = instance.buscar(professor);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -99,8 +89,6 @@ public class ProfessorDaoImplTest {
         List expResult = null;
         List result = instance.buscarPorNome(professor);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

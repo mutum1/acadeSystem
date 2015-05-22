@@ -29,8 +29,6 @@ public class TurmaDaoImplTest {
         List expResult = null;
         List result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -41,8 +39,6 @@ public class TurmaDaoImplTest {
         System.out.println("carregar");
         TurmaDaoImpl instance = null;
         instance.carregar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -53,9 +49,7 @@ public class TurmaDaoImplTest {
         System.out.println("salvar");
         Turma turmaTemp = null;
         TurmaDaoImpl instance = null;
-      //  instance.salvar(turmaTemp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.salvar();
     }
 
     /**
@@ -69,8 +63,6 @@ public class TurmaDaoImplTest {
         Turma expResult = null;
         Turma result = instance.buscar(turma);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -84,8 +76,6 @@ public class TurmaDaoImplTest {
         Turma expResult = null;
         Turma result = instance.disponibilidadeLocal(turma);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

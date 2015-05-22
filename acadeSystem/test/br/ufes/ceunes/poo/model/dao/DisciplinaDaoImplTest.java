@@ -29,8 +29,6 @@ public class DisciplinaDaoImplTest {
         List expResult = null;
         List result = instance.getAll();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -41,8 +39,6 @@ public class DisciplinaDaoImplTest {
         System.out.println("carregar");
         DisciplinaDaoImpl instance = null;
         instance.carregar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -53,9 +49,7 @@ public class DisciplinaDaoImplTest {
         System.out.println("salvar");
         Disciplina disciplinaTemp = null;
         DisciplinaDaoImpl instance = null;
-      //  instance.salvar(disciplinaTemp);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.salvar();
     }
 
     /**
@@ -69,8 +63,6 @@ public class DisciplinaDaoImplTest {
         Disciplina expResult = null;
         Disciplina result = instance.buscar(disciplina);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
