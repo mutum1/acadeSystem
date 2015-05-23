@@ -18,8 +18,7 @@ public interface TurmaDao {
     List getAll();
     void carregar();
     public int gerarProximoId();
-    void adicionar(Turma turma);
-    void salvar();
+    void salvar(Turma turma);
     Turma disponibilidadeLocal(Turma turma);
     Turma buscar(Turma turma);
 }

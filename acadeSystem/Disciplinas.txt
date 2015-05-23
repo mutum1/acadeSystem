@@ -1,4 +1,4 @@
-5
+6
 grsdsgf
 gfdsgf
 1000
@@ -23,4 +23,9 @@ iiiiiii
 yuuuuuuu
 777
 5
+0
+poo
+tudo
+8000Plus
+6
 0

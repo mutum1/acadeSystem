@@ -50,7 +50,7 @@ public class TurmaDaoImpl implements TurmaDao {
         return this.id;
     }
 
-    public void adicionar(Turma turma){
+    private void adicionar(Turma turma){
         listaTurma.add(turma);
     }
     /**
@@ -126,8 +126,9 @@ public class TurmaDaoImpl implements TurmaDao {
      * @param turmaTemp 
      */
     @Override
-    public void salvar(){
+    public void salvar(Turma turmaAdd){
         
+        adicionar(turmaAdd);
         String nomeArquivo = "Turmas.txt";//Nome do arquivo
         
         try {
