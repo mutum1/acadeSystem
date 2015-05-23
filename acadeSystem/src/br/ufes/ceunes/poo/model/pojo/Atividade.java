@@ -19,7 +19,7 @@ public class Atividade {
     private int valor;
     private int nota;
     private int id;
-    
+      
     @Override
     public String toString(){
         return "Atividade "+nome+":"+
@@ -31,14 +31,8 @@ public class Atividade {
                
     }
     
-    public Atividade(String nome, String tipo, String data,Turma turma ,int valor,int nota, int id) {
-        this.turma =turma;
-        this.nome = nome;
-        this.tipo = tipo;
-        this.data = data;
-        this.valor = valor;
-        this.nota=nota;
-        this.id = id;
+    public Atividade copiaComNota(int nota){
+        return new Atividade(this.nome, this.tipo, this.data, this.turma, this.valor, this.id);
     }
     // Construtor de atividades (6 parametros)
     public Atividade(String nome, String tipo, String data,Turma turma ,int valor, int id) {
@@ -47,7 +41,7 @@ public class Atividade {
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
-        this.nota=0;
+        this.nota = -1;
         this.id = id;
     }
 
