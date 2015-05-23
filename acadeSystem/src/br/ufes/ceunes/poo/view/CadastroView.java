@@ -65,6 +65,8 @@ public class CadastroView {
                     turmaView.cadastrar();
                     break;
                 case 5:
+                    atividadeView.cadastrar();
+                    break;
                     
             }
             this.menu.showOptions();

@@ -66,7 +66,7 @@ public class AcadeSystem {
                     (new CadastroView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;  
                 case 2:
-                    (new ListagemView(alunoView,professorView,disciplinaView,turmaView)).abrir();
+                    (new ListagemView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;
             }
             menuPrincipal.showOptions();
