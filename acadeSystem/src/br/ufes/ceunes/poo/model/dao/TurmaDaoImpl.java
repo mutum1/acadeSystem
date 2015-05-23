@@ -70,7 +70,7 @@ public class TurmaDaoImpl implements TurmaDao {
         listaTurma = new ArrayList<>();
         String nomeArquivo = "Turmas.txt";//nome do arquivo
         FileReader file;
-        System.out.println("DJKBVSKBVSDSVHB");
+        
         try {
                  
             file = new FileReader(nomeArquivo); //abre o arquivo
