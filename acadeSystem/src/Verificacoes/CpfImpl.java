@@ -16,9 +16,13 @@ public class CpfImpl implements Cpf {
 
     private static String tempCpf = "";
     
-    
+    /**
+     * Método principal para verificar se o cpf esta valido (faz a chamada das
+     * outras funções)
+     * @param cpf
+     * @return true caso seja valido, false no caso contrario.
+     */
     @Override
-    // Função principal para verificar se o cpf esta valido (faz a chama das outras funções)
     public boolean isValidCpf(String cpf){
         
         if(cpf == null) return false;
@@ -34,22 +38,34 @@ public class CpfImpl implements Cpf {
         return true;
     }
 
+    /**
+     * Remove os caracteres invalidos para que possa ser efetuado as operações com cpf.
+     * @param cpf
+     * @return o cpf sem os caracteres invalidos.
+     */
     @Override
-    // Remove os caracteres invalidos para que possa ser efetuado as operações com cpf
     public String removeInvalidsCharacters(String cpf){   
         return cpf.replaceAll( "\\D*", "" );
     } 
     
+    /**
+     * Verifica se o tamanho do cpf é valido (11).
+     * @param cpf
+     * @return True se for valido/False em caso contrario.
+     */
     @Override
-    // Verifica se o tamanho do cpf é valido (11)
     public boolean isValidSize(String cpf){  
         if ( cpf.length() == 11 )
             return true;   
         return false;
     } 
-    
+    /**
+     * Verifica se os digitos do cpf sao validos.
+     * @param cpf
+     * @return True caso os digitos satisfazem a condição de cpf/ False no caso
+     * contrario.
+     */
     @Override
-    // Verifica se os digitos do cpf sao validos
     public boolean isValidDigits(String cpf){   
         char primDig = '0';
         char [] charCpf = cpf.toCharArray();  
@@ -61,8 +77,12 @@ public class CpfImpl implements Cpf {
         return true;
     } 
 
+    /**
+     * Faz o calculo efetivo do cpf (algoritmo).
+     * @param cpf
+     * @return digito verificador.
+     */
     @Override
-    // Faz o calculo efetivo do cpf (algoritmo)
     public String calculoComCpf(String cpf){   
         int digGerado = 0;
         int mult = cpf.length()+1;

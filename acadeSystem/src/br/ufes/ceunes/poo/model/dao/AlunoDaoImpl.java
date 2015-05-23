@@ -42,7 +42,7 @@ public class AlunoDaoImpl implements AlunoDao {
     }
     /**
      * retorna a lista dos alunos
-     * @return 
+     * @return uma lista de alunos.
      */
     @Override
     public List getAll(){
@@ -51,7 +51,10 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return listaAlunos;   
     }
-    
+    /**
+     * Método responsavel por gerar o proximo id.
+     * @return um id.
+     */
     @Override
     public int gerarProximoId(){
         return this.id;

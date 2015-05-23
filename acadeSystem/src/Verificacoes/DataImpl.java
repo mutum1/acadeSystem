@@ -15,8 +15,12 @@ import java.util.Date;
  */
 public class DataImpl implements Data {
     
+    /**
+     * Método para verificar se a data esta no formato correto para ser gravada
+     * @param data
+     * @return True para data válida /False para data inválida.
+     */
     @Override
-    // Função para verificar se a data esta no formato correto para ser gravada
     public boolean verificaData(String data) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
