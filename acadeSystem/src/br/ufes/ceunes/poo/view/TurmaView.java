@@ -18,7 +18,7 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
-class TurmaView {
+public class TurmaView {
     
     TurmaDao turmaDao;
     ProfessorDao professorDao;
@@ -29,6 +29,20 @@ class TurmaView {
         this.professorDao = professor;
         this.disciplinaDao = disciplina;
     }
+    
+    /**
+     * Método responsavel por cadastrar uma turma em uma lista
+     * sem duplicatas.
+     * @param turmaDao
+     * @param disciplinaDao
+     * @param professorDao 
+     */
+    public void cadastrarTurma(){    
+        Turma turma = getInfo();
+        if(localDisponivel(turma)){
+            turmaDao.salvar(turma);
+        }
+    } 
     
     public Turma getInfo(){
         

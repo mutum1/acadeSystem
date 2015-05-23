@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
-class ProfessorView {
+public class ProfessorView {
     
     ProfessorDao professorDao;
     
@@ -25,11 +25,22 @@ class ProfessorView {
     }
     
     /**
+     * Método responsavel por cadastrar um professor em uma lista
+     * sem duplicatas.
+     * @param professorDao 
+     */
+    public void cadastrarProfessor(){    
+        Professor professor = getInfo();
+        if(!existe(professor)){
+            professorDao.salvar(professor);
+        }
+    }
+    
+    /**
      * Método responsavel por preencher todas as caracteristicas do professor
      * e chama o metodo para fazer a verificação do cpf.
      * @return professor preenchido.(nome cpf e departamento)
      */
-  
     public Professor getInfo(){
         Scanner input = new Scanner(System.in);
         String nome = "";
@@ -66,6 +77,7 @@ class ProfessorView {
         }
         return true;
     }
+    
     
     public void salvar(Professor professor){
         professorDao.adicionar(professor);

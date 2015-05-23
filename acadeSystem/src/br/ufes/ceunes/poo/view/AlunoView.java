@@ -14,9 +14,7 @@ import java.util.Scanner;
  *
  * @author Rhaister  
  */
-
-
-class AlunoView {
+public class AlunoView {
     
     AlunoDao alunoDao;
     
@@ -25,11 +23,20 @@ class AlunoView {
     }
     
     /**
+     * Método responsavel por cadastrar um aluno em uma lista
+     * sem duplicatas.
+     */
+    public void cadastrarAluno(){    
+        Aluno aluno = getInfo();
+        if(!existe(aluno)){
+            this.alunoDao.salvar(aluno);
+        }
+    }
+    
+    /**
      * Método para preencher as informações dos alunos (nome,cpf,id)
      * @return Aluno com cpf, nome e id 
      */
-  
-    
     public Aluno getInfo(){
         Scanner input = new Scanner(System.in);
         String nome = "";
@@ -56,8 +63,6 @@ class AlunoView {
      * @param aluno
      * @return True/False
      */
-    
- 
     public boolean existe(Aluno aluno){
         Aluno alunoTemp = alunoDao.buscar(new Aluno(null,null,aluno.getId()));
         if(alunoTemp.getNome() == null){
@@ -69,8 +74,6 @@ class AlunoView {
     /**
      * Imprime todos os alunos por nome e cpf.
      */
-    
-    
     public void listar(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){

@@ -15,7 +15,7 @@ import java.util.Scanner;
  *
  * @author Rhaister
  */
-class DisciplinaView {
+public class DisciplinaView {
     
     DisciplinaDao disciplinaDao;
    /**
@@ -25,6 +25,18 @@ class DisciplinaView {
     
     public DisciplinaView(DisciplinaDao disciplina){
         this.disciplinaDao = disciplina;
+    }
+    
+    /**
+     * Método responsavel por cadastrar uma disciplina em uma lista
+     * sem duplicatas.
+     * @param disciplinaDao 
+     */
+    public void cadastrarDisciplina(){        
+        Disciplina disciplina = getInfo();
+        if(!existe(disciplina)){
+            alunoDao.salvar(disciplina);
+        }
     }
     
     /**
@@ -69,10 +81,6 @@ class DisciplinaView {
         return true;
     }
     
-    public void salvar(Disciplina disciplina){
-        disciplinaDao.adicionar(disciplina);
-        disciplinaDao.salvar();
-    }
     
     public void Listar(){
         List<Disciplina> listaDisciplina = disciplinaDao.getAll();

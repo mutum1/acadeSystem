@@ -27,9 +27,7 @@ public class CadastroView {
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
     private Menu menu;
-    
-    
-    
+
     public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -45,82 +43,27 @@ public class CadastroView {
         this.menu.addOption("Cadastrar Profesor");
         this.menu.addOption("Cadastrar Disciplina");
         this.menu.addOption("Cadastrar Turma");
-        this.menu.addOption("Cadastrar Aluno");
         this.menu.addOption("Voltar");
-        
         
         this.menu.showOptions();
         int opcao = menu.getOption();
         while(opcao != menu.getSize()){
             switch(opcao){
                 case 1:
-                    cadastrarAluno();
+                    alunoView.cadastrarAluno();
                     break;
                 case 2:
-                    cadastrarProfessor();
+                    professorView.cadastrarProfessor();
                     break;
                 case 3:
-                    cadastrarDisciplina();
+                    disciplinaView.cadastrarDisciplina();
                     break;
                 case 4:
-                    cadastrarTurma();
+                    turmaView.cadastrarTurma();
                     break;
             }
             this.menu.showOptions();
             opcao = menu.getOption();
         }
-    }
-    /**
-     * Método responsavel por cadastrar um aluno em uma lista
-     * sem duplicatas.
-     * @param alunoDao 
-     */
-    private void cadastrarAluno(){    
-        Aluno aluno = alunoView.getInfo();
-        if(!alunoView.existe(aluno)){
-            alunoView.salvar(aluno);
-        }
-    }
-    /**
-     * Método responsavel por cadastrar um professor em uma lista
-     * sem duplicatas.
-     * @param professorDao 
-     */
-    
-    private void cadastrarProfessor(){    
-        Professor professor = professorView.getInfo();
-        if(!professorView.existe(professor)){
-            professorView.salvar(professor);
-        }
-    }
-    
-    /**
-     * Método responsavel por cadastrar uma disciplina em uma lista
-     * sem duplicatas.
-     * @param disciplinaDao 
-     */
-    
-    private void cadastrarDisciplina(){        
-        Disciplina disciplina = disciplinaView.getInfo();
-        if(!disciplinaView.existe(disciplina)){
-            disciplinaView.salvar(disciplina);
-        }
-    }
-    
-    /**
-     * Método responsavel por cadastrar uma turma em uma lista
-     * sem duplicatas.
-     * @param turmaDao
-     * @param disciplinaDao
-     * @param professorDao 
-     */
-    
-    private void cadastrarTurma(){    
-        Turma turma = turmaView.getInfo();
-        if(turmaView.localDisponivel(turma)){
-            turmaView.salvar(turma);
-        }
-    }    
+    }   
 }
-
-
