@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.io.BufferedReader;
@@ -33,6 +34,11 @@ public class AtividadeDaoImpl implements AtividadeDao {
         id=0;
         carregar();
         
+    }
+    private void aplicaAtividade(Atividade atividade, Turma turma){
+        for(Aluno aluno : turma.getListaAlunos()){
+            
+        }
     }
     /**
      * Carregas todos as atividades do arquivo na lista de atividades

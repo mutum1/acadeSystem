@@ -20,5 +20,13 @@ public class Aluno extends Pessoa {
         super(nome, cpf, id);
         situacao = new ArrayList<>();
     }
-    
+    public SituacaoAluno buscaSituacao(Turma turma){
+        for(SituacaoAluno situacaoAluno : this.situacao){
+            if(situacaoAluno.getTurma().equals(turma)){
+                return situacaoAluno;
+            }
+                
+        }
+        
+    }
 }

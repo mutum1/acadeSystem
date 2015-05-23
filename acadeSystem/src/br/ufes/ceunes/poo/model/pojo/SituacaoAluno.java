@@ -60,5 +60,9 @@ public class SituacaoAluno {
     public int getId() {
         return id;
     }
+
+    public Turma getTurma() {
+        return turma;
+    }
    
 }

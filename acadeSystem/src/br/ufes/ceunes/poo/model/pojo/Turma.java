@@ -135,6 +135,12 @@ public class Turma {
                "\nLocal:     "+local+
                "\nQuantidade de vagas: "+nVagas;        
     }
+
+    public void aplicarAtividade(Atividade novaAtividade) {
+        for(Aluno aluno : listAlunos){
+            if(.)
+        }
+    }
     
     
 }

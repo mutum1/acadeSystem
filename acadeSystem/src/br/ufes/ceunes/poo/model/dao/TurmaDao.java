@@ -22,4 +22,5 @@ public interface TurmaDao {
     void salvar(Turma turma);
     Turma disponibilidadeLocal(Turma turma);
     Turma buscar(Turma turma);
+    
 }
