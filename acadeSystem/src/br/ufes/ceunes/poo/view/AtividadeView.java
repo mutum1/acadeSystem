@@ -47,6 +47,7 @@ public class AtividadeView {
         codigoTurma = input.nextLine();
         Turma turma = new Turma(null, null, null,null, 0, null, null, Integer.parseInt(codigoTurma));
         turma = turmaDao.buscar(turma);
+        System.out.println(turma);
         
         System.out.println("Digite o tipo da atividade");
         tipo = input.nextLine();
@@ -57,7 +58,8 @@ public class AtividadeView {
         System.out.println("Digite a data da atividade");
         data = input.nextLine();
 
-        return new Atividade(nome,tipo,data,turma,Integer.parseInt(valor),atividadeDao.gerarProximoId());
+        Atividade atividade1 = new Atividade(nome,tipo,data,turma,Float.parseFloat(valor),atividadeDao.gerarProximoId());
+        return atividade1;
     }    
     
     /**
