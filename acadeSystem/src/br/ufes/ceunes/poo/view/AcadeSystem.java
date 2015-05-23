@@ -46,12 +46,8 @@ public class AcadeSystem {
         //AtividadeDao atividadeDao = new AtividadeDaoImpl();
         //AtividadeView atividadeView = new AtividadeView();
         
-        Menu menuPrincipal = new Menu();
-        Menu menuCadastros = new Menu();
-        Menu menuListagens = new Menu();
-        
+        Menu menuPrincipal = new Menu();        
         int opcao = 0;
-        
         
         alunoDao.carregar(); // Carregado lista de alunos do arquivo
         professorDao.carregar(); // Carregado lista de professores do arquivo
@@ -61,98 +57,25 @@ public class AcadeSystem {
         menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
         menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
         menuPrincipal.addOption("Listagens");
-        //outras opcoes
-        menuPrincipal.addOption("Sair");
-        
-        menuCadastros.setTitle("Menu Cadastros");
-        menuCadastros.addOption("Cadastrar Aluno");
-        menuCadastros.addOption("Cadastrar Profesor");
-        menuCadastros.addOption("Cadastrar Disciplina");
-        menuCadastros.addOption("Cadastrar Turma");
-        menuCadastros.addOption("Cadastrar Aluno");
-        menuCadastros.addOption("Voltar");
-        
-        menuListagens.setTitle("Menu Listagens");
-        menuListagens.addOption("Listar alunos");
-        menuListagens.addOption("Listar professores");
-        menuListagens.addOption("Listar disciplinas");
-        menuListagens.addOption("Listar turmas");
-        menuListagens.addOption("Voltar");
-        
+        //colocar aqui outras opcoes
+        menuPrincipal.addOption("Sair");  
         
         menuPrincipal.showOptions();
+        
         opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
         while(opcao != menuPrincipal.getSize()){
           
             switch(opcao){
                 case 1:
-                    (new CadastroView(menuCadastros, alunoDao, professorDao, disciplinaDao, turmaDao)).abrir();
+                    (new CadastroView(alunoView,professorView,disciplinaView,turmaView)).abrir();
                     break;  
                 case 2:
-                    
-                    listagens(alunoView,professorView,disciplinaView,turmaView,menuListagens);
+                    (new ListagemView(alunoView,professorView,disciplinaView,turmaView)).abrir();
                     break;
             }
             menuPrincipal.showOptions();
             opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
             
-        }
-        
-    }
-
-    
-    public static void cadastrar(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,Menu menuCadastros){
-        menuCadastros.showOptions();
-        int opcao = menuCadastros.getOption();
-        /*
-            Todos os casos pegam todas as informações digitadas pelo usuario e
-            verificam se ela existe e esta correta, depois adiciona na lista o
-            respectivo cadastro e no final salva no arquivo.
-        */
-        switch(opcao){
-            case 1:
-                Aluno aluno = alunoView.getInfo();
-                if(!alunoView.existe(aluno)){
-                    alunoView.salvar(aluno);
-                }
-                break;
-            case 2:
-                Professor professor = professorView.getInfo();
-                if(!professorView.existe(professor)){
-                    professorView.salvar(professor);
-                }
-                break;
-            case 3:
-                Disciplina disciplina = disciplinaView.getInfo();
-                if(!disciplinaView.existe(disciplina)){
-                    disciplinaView.salvar(disciplina);
-                }
-                break;
-            case 4:
-                Turma turma = turmaView.getInfo();
-                if(!turmaView.existe(turma)){
-                    turmaView.salvar(turma);                    
-                }
-                break;
-        }
-    }
-    
-    public static void listagens(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,Menu menuListagens){
-        menuListagens.showOptions();
-        int opcao = menuListagens.getOption();
-        switch(opcao){
-            case 1:
-                alunoView.listar();
-                break;
-            case 2:
-                professorView.listar();
-                break;
-            case 3:
-               
-                break;
-            case 4:
-                
-                break;
         }
         
     }

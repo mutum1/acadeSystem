@@ -22,36 +22,46 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
 
 public class CadastroView {
 
-    private AlunoDao alunoDao;
-    private ProfessorDao professorDao;
-    private DisciplinaDao disciplinaDao;
-    private TurmaDao turmaDao;
+    private AlunoView alunoView;
+    private ProfessorView professorView;
+    private DisciplinaView disciplinaView;
+    private TurmaView turmaView;
     private Menu menu;
     
     
     
-    public CadastroView(Menu menu,AlunoDao alunoDao,ProfessorDao professorDao,DisciplinaDao disciplinaDao,TurmaDao turmaDao ){
-        this.alunoDao = alunoDao;
-        this.professorDao = professorDao;
-        this.disciplinaDao = disciplinaDao;
-        this.turmaDao = turmaDao;
-        this.menu = menu;
+    public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView){
+        this.alunoView = alunoView;
+        this.professorView = professorView;
+        this.disciplinaView = disciplinaView;
+        this.turmaView = turmaView;
+        this.menu = new Menu();
     }
     
     public void abrir(){
-        menu.showOptions();
+        
+        this.menu.setTitle("Menu Cadastros");
+        this.menu.addOption("Cadastrar Aluno");
+        this.menu.addOption("Cadastrar Profesor");
+        this.menu.addOption("Cadastrar Disciplina");
+        this.menu.addOption("Cadastrar Turma");
+        this.menu.addOption("Cadastrar Aluno");
+        this.menu.addOption("Voltar");
+        
+        this.menu.showOptions();
+        
         int opcao = menu.getOption();
         switch(opcao){
             case 1:
-                cadastrarAluno(alunoDao);
+                cadastrarAluno();
                 break;
             case 2:
-                cadastrarProfessor(professorDao);
+                cadastrarProfessor();
                 break;
             case 3:
-                cadastrarDisciplina(disciplinaDao);
+                cadastrarDisciplina();
             case 4:
-                cadastrarTurma(turmaDao, disciplinaDao, professorDao);
+                cadastrarTurma();
         }
     }
     /**
@@ -59,9 +69,7 @@ public class CadastroView {
      * sem duplicatas.
      * @param alunoDao 
      */
-    public void cadastrarAluno(AlunoDao alunoDao){
-        AlunoView alunoView = new AlunoView(alunoDao);
-        
+    private void cadastrarAluno(){    
         Aluno aluno = alunoView.getInfo();
         if(!alunoView.existe(aluno)){
             alunoView.salvar(aluno);
@@ -73,9 +81,7 @@ public class CadastroView {
      * @param professorDao 
      */
     
-    public void cadastrarProfessor(ProfessorDao professorDao){
-        ProfessorView professorView = new ProfessorView(professorDao);
-        
+    private void cadastrarProfessor(){    
         Professor professor = professorView.getInfo();
         if(!professorView.existe(professor)){
             professorView.salvar(professor);
@@ -88,9 +94,7 @@ public class CadastroView {
      * @param disciplinaDao 
      */
     
-    public void cadastrarDisciplina(DisciplinaDao disciplinaDao){
-        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao);
-        
+    public void cadastrarDisciplina(){        
         Disciplina disciplina = disciplinaView.getInfo();
         if(!disciplinaView.existe(disciplina)){
             disciplinaView.salvar(disciplina);
@@ -105,9 +109,7 @@ public class CadastroView {
      * @param professorDao 
      */
     
-    public void cadastrarTurma(TurmaDao turmaDao, DisciplinaDao disciplinaDao,ProfessorDao professorDao){
-        TurmaView turmaView = new TurmaView(turmaDao, professorDao, disciplinaDao);
-        
+    public void cadastrarTurma(){    
         Turma turma = turmaView.getInfo();
         if(!turmaView.existe(turma)){
             turmaView.salvar(turma);
