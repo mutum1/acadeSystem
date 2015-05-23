@@ -62,7 +62,7 @@ class TurmaView {
         Professor professor = new Professor(null,cpfProfessor,null,0);
         
         professor = professorDao.buscarPorCpf(professor);
-        
+        System.out.println(professor);
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
         Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(codigoDisciplina));
@@ -94,7 +94,8 @@ class TurmaView {
     public void listar(){
         List<Turma> listaTurma = turmaDao.getAll();
          for(Turma turma : listaTurma){
-             System.out.println(turma.toString());
+             System.out.println(turma);
+             System.out.println();
         }
     
     

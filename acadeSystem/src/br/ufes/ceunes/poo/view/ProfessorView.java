@@ -75,7 +75,8 @@ class ProfessorView {
     public void listar(){
         List<Professor> listaProfessor = professorDao.getAll();
          for(Professor professor : listaProfessor){
-             System.out.println(professor.toString());
+             System.out.println(professor);
+             System.out.println();
         }
     }
     

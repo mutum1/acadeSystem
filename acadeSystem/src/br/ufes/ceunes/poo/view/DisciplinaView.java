@@ -77,7 +77,8 @@ class DisciplinaView {
     public void Listar(){
         List<Disciplina> listaDisciplina = disciplinaDao.getAll();
          for(Disciplina disciplina : listaDisciplina){
-             System.out.println(disciplina.toString());
+             System.out.println(disciplina);
+             System.out.println();
         }
     
     }

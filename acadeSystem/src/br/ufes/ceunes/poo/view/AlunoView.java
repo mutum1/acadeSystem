@@ -74,7 +74,8 @@ class AlunoView {
     public void listar(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){
-             System.out.println(aluno.toString());
+             System.out.println(aluno);
+             System.out.println();
         }
     }
 }
