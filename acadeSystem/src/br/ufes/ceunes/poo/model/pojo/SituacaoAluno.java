@@ -15,16 +15,16 @@ import java.util.List;
  */
 public class SituacaoAluno {
     // ATRIBUTOS
-    private float presenca;
+    private int faltas;
     private Aluno aluno;
     private List<Atividade> atividade;
     private Turma turma;
     private int id;
 
     // Construtor com lista de atividades, o aluno e suas presencas
-    public SituacaoAluno(float presenca, Aluno aluno, int id) {
-        this.presenca = presenca;
+    public SituacaoAluno(Aluno aluno, Turma turma, int id) {
         this.aluno = aluno;
+        this.turma = turma;
         this.atividade = new ArrayList<>();
         this.id = id;
     }
@@ -32,12 +32,12 @@ public class SituacaoAluno {
     
     // Retorna a taxa de presenca do aluno
     public float getPresenca() {
-        return presenca;
+        return faltas;
     }
 
     // Modifica a taxa de presenta do aluno
     public void setPresenca(float presenca) {
-        this.presenca = presenca;
+        this.faltas = faltas;
     }
 
     // Retorna todas as caracteristicas do aluno

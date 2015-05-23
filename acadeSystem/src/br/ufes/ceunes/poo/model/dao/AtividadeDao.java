@@ -13,8 +13,11 @@ import java.util.List;
  * @author paulo
  */
 public interface AtividadeDao {
-    public void carregar();
-    public void salvar(Atividade atividade);
-    public Atividade buscar(Atividade atividade);
+    
+    void carregar();
+    void salvar(Atividade atividade);
+    Atividade buscar(Atividade atividade);
+    int gerarProximoId();
+    List getAll();
     
 }

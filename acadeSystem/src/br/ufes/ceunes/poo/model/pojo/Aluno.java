@@ -6,13 +6,19 @@
 
 package br.ufes.ceunes.poo.model.pojo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author paulo
  */
 public class Aluno extends Pessoa {
+    List<SituacaoAluno> situacao;
+    
     public Aluno(String nome, String cpf, int id) { // Chama o construtor da classe de cima.
-        super(nome, cpf, id);   
+        super(nome, cpf, id);
+        situacao = new ArrayList<>();
     }
     
 }

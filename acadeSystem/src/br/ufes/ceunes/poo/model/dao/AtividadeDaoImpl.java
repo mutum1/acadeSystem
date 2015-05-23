@@ -125,6 +125,16 @@ public class AtividadeDaoImpl implements AtividadeDao {
         }
         return atividade;
     }
+
+    @Override
+    public int gerarProximoId() {
+        return this.id;
+    }
+
+    @Override
+    public List getAll() {
+        return listaAtividades;
+    }
  
 
       
