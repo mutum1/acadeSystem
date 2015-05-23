@@ -19,7 +19,7 @@ public class Professor extends Pessoa {
     private List<Disciplina> discliplinas;
    
     // Construtor do professor sem disciplina
-    public Professor(String departamento, String nome, String cpf, int id) {
+    public Professor(String nome, String cpf, String departamento, int id) {
         super(nome, cpf, id);
         this.departamento = departamento;
         this.discliplinas = new ArrayList<>();
@@ -38,6 +38,14 @@ public class Professor extends Pessoa {
     // Adiciona uma disciplina ao professor.
     public void addDiscilina(Disciplina diciplina){
         this.discliplinas.add(diciplina);
+    }
+    
+    @Override
+    public String toString(){
+        return "\nNome:         "+super.getNome()+
+               "\nCPF:          "+super.getCpf()+
+               "\nDepartamento: "+this.departamento+
+               "\nID:           "+super.getId();                
     }
     
 }

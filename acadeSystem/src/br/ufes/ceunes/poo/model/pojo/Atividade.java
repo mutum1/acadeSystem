@@ -20,6 +20,16 @@ public class Atividade {
     private int nota;
     private int id;
     
+    @Override
+    public String toString(){
+        return "Atividade "+nome+":"+
+               "\nTurma: "+this.turma.getNomeTurma()+
+               "\nTipo:  "+this.tipo+
+               "\nData:  "+this.data+
+               "\nValor  "+this.valor+
+               "\nID:    "+this.id; 
+               
+    }
     
     public Atividade(String nome, String tipo, String data,Turma turma ,int valor,int nota, int id) {
         this.turma =turma;

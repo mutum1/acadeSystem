@@ -40,6 +40,9 @@ public class Turma {
         this.id = id;
     }
     
+    public String getNomeTurma(){
+        return disciplina.getNome()+" "+this.ano+"/"+this.periodo;
+    }
     // Retorna o ano da turma
     public String getAno() {
         return ano;
@@ -119,4 +122,16 @@ public class Turma {
     public int getId() {
         return id;
     }
+    
+    @Override
+    public String toString(){
+        return "Turma de : "+disciplina.getNome()+
+               "\nProfessor: "+ professor.getNome()+
+               "\nPeríodo:   "+ano+"/"+periodo+
+               "\nHorário:   "+horario+
+               "\nLocal:     "+local+
+               "\nQuantidade de vagas: "+nVagas;        
+    }
+    
+    
 }

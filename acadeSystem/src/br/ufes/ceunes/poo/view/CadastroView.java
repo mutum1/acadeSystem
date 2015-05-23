@@ -48,20 +48,26 @@ public class CadastroView {
         this.menu.addOption("Cadastrar Aluno");
         this.menu.addOption("Voltar");
         
-        this.menu.showOptions();
         
+        this.menu.showOptions();
         int opcao = menu.getOption();
-        switch(opcao){
-            case 1:
-                cadastrarAluno();
-                break;
-            case 2:
-                cadastrarProfessor();
-                break;
-            case 3:
-                cadastrarDisciplina();
-            case 4:
-                cadastrarTurma();
+        while(opcao != menu.getSize()){
+            switch(opcao){
+                case 1:
+                    cadastrarAluno();
+                    break;
+                case 2:
+                    cadastrarProfessor();
+                    break;
+                case 3:
+                    cadastrarDisciplina();
+                    break;
+                case 4:
+                    cadastrarTurma();
+                    break;
+            }
+            this.menu.showOptions();
+            opcao = menu.getOption();
         }
     }
     /**
@@ -94,7 +100,7 @@ public class CadastroView {
      * @param disciplinaDao 
      */
     
-    public void cadastrarDisciplina(){        
+    private void cadastrarDisciplina(){        
         Disciplina disciplina = disciplinaView.getInfo();
         if(!disciplinaView.existe(disciplina)){
             disciplinaView.salvar(disciplina);
@@ -109,7 +115,7 @@ public class CadastroView {
      * @param professorDao 
      */
     
-    public void cadastrarTurma(){    
+    private void cadastrarTurma(){    
         Turma turma = turmaView.getInfo();
         if(!turmaView.existe(turma)){
             turmaView.salvar(turma);

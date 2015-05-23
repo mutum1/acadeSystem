@@ -35,10 +35,10 @@ class DisciplinaView {
   
     public Disciplina getInfo(){
         Scanner input = new Scanner(System.in);
-        String nome = "";
-        String codigo = "";
-        String ementa = "";
-        String cargaHoraria="";
+        String nome;
+        String codigo;
+        String ementa;
+        String cargaHoraria;
         
         System.out.println("Digite o nome da disciplina");
         nome = input.nextLine();
@@ -77,5 +77,12 @@ class DisciplinaView {
         disciplinaDao.salvar();
     }
     
+    public void Listar(){
+        List<Disciplina> listaDisciplina = disciplinaDao.getAll();
+         for(Disciplina disciplina : listaDisciplina){
+             System.out.println(disciplina.toString());
+        }
+    
+    }
     
 }

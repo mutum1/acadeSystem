@@ -74,10 +74,7 @@ class AlunoView {
     public void listar(){
         List<Aluno> listaAlunos = alunoDao.getAll();
          for(Aluno aluno : listaAlunos){
-             System.out.println(aluno.getNome());
-             System.out.println(aluno.getCpf());
-             System.out.println(aluno.getId());
-             System.out.println();
+             System.out.println(aluno.toString());
         }
     }
 }

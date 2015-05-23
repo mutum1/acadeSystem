@@ -20,6 +20,15 @@ public class Disciplina {
     private List<Professor> listaProfessor;
     private int id;
 
+    
+    @Override
+    public String toString(){
+        return "Nome:          "+this.nome+
+               "\nEmenta:        "+this.ementa+
+               "\nCarga Horária: "+this.cargaHoraria+
+               "\nID:            "+this.id;
+    }
+    
     // Construtor (4 parametros)
     public Disciplina(String nome, String ementa, String cargaHoraria, int id) {
         this.nome = nome;

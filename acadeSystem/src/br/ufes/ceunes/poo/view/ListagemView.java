@@ -46,10 +46,10 @@ public class ListagemView {
                 professorView.listar();
                 break;
             case 3:
-               
+                disciplinaView.Listar();
                 break;
             case 4:
-                
+                turmaView.listar();
                 break;
         }
     }

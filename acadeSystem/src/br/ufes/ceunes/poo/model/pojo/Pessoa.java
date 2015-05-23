@@ -50,4 +50,10 @@ public class Pessoa  implements java.io.Serializable {
         return id;
     }
 
+    @Override
+    public String toString(){
+        return "Nome: "+this.nome+
+               "\nCPF:  "+this.cpf+
+               "\nID:   "+this.id;                
+    }
   }

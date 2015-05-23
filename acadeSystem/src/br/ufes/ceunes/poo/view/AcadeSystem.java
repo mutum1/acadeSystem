@@ -53,7 +53,7 @@ public class AcadeSystem {
         professorDao.carregar(); // Carregado lista de professores do arquivo
         disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
         turmaDao.carregar();    // Carregado lista de turmas do arquivo
-    
+        
         menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
         menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
         menuPrincipal.addOption("Listagens");

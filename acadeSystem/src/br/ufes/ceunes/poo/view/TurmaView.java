@@ -48,10 +48,10 @@ class TurmaView {
         System.out.println("Digite o periodo da turma");
         periodo = input.nextLine();
         
-        System.out.println("Digite a ementa");
+        System.out.println("Digite o local"); 
         local = input.nextLine();
         
-        System.out.println("Digite a carga horaria");
+        System.out.println("Digite o horário");
         horario = input.nextLine();
       
         System.out.println("Digite o número de vagas");
@@ -89,5 +89,14 @@ class TurmaView {
     public void salvar(Turma turma){
         turmaDao.adicionar(turma);
         turmaDao.salvar();
+    }
+    
+    public void listar(){
+        List<Turma> listaTurma = turmaDao.getAll();
+         for(Turma turma : listaTurma){
+             System.out.println(turma.toString());
+        }
+    
+    
     }
 }

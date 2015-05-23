@@ -108,7 +108,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            salvar.write(this.id);
+            salvar.write(Integer.toString(this.id));
             salvar.newLine();
             for(Professor professor : listaProfessor){//percorre a lista
                 salvar.write(professor.getNome());//salva nome
@@ -117,7 +117,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
                 salvar.newLine();
                 salvar.write(professor.getDepartamento());//salva departamento
                 salvar.newLine();
-                salvar.write(professor.getId());//salva id
+                salvar.write(Integer.toString(professor.getId()));//salva id
                 salvar.newLine();
             }
             salvar.close();

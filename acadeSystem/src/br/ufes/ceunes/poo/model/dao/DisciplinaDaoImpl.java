@@ -106,7 +106,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            salvar.write(id);
+            salvar.write(Integer.toString(id));
             salvar.newLine();
             for(Disciplina disciplina : listaDisciplina){//percorre a lista
                 salvar.write(disciplina.getNome());//salva nome
@@ -115,7 +115,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
                 salvar.newLine();
                 salvar.write(disciplina.getCargaHoraria());//salva carga horaria
                 salvar.newLine();
-                salvar.write(disciplina.getId());//salva o id da disciplina
+                salvar.write(Integer.toString(disciplina.getId()));//salva o id da disciplina
                 salvar.newLine();
                 String numerosDeCpdfs=""+disciplina.listaProfessor().size();
                 
