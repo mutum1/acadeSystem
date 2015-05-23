@@ -6,6 +6,7 @@
 
 package br.ufes.ceunes.poo.model.dao;
 
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.List;

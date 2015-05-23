@@ -16,8 +16,8 @@ public class Atividade {
     private String tipo;
     private String data;
     private Turma turma;
-    private int valor;
-    private int nota;
+    private float valor;
+    private float nota;
     private int id;
       
     @Override
@@ -35,7 +35,7 @@ public class Atividade {
         return new Atividade(this.nome, this.tipo, this.data, this.turma, this.valor, this.id);
     }
     // Construtor de atividades (6 parametros)
-    public Atividade(String nome, String tipo, String data,Turma turma ,int valor, int id) {
+    public Atividade(String nome, String tipo, String data,Turma turma ,float valor, int id) {
         this.turma =turma;
         this.nome = nome;
         this.tipo = tipo;
@@ -57,12 +57,12 @@ public class Atividade {
         return data;
     }
 
-    public int getNota() {
+    public float getNota() {
         return nota;
     }
 
     // Retorna valor
-    public int getValor() {
+    public float getValor() {
         return valor;
     }
 
@@ -81,7 +81,7 @@ public class Atividade {
         return id;
     } 
 
-    public void setNota(int nota) {
+    public void setNota(float nota) {
         this.nota = nota;
     }
     

@@ -60,8 +60,8 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 String valor = ler.readLine(); 
                 idTemp = ler.readLine(); 
                 
-                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Integer.parseInt(valor), Integer.parseInt(idTemp));  
-                listaAtividades.add(novaAtividade);
+                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Integer.parseInt(valor), Integer.parseInt(idTemp));
+                turma.addAtividade(novaAtividade);
             }
             
             file.close();//Fecho o arquivo
@@ -97,7 +97,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 salvar.newLine();
                 salvar.write(atividade.getTurma().getId());//salva id da turma
                 salvar.newLine();
-                salvar.write(atividade.getValor());//valor
+                salvar.write(Float.toString(atividade.getValor()));//valor
                 salvar.newLine();
                 salvar.write(atividade.getId());//id
                 salvar.newLine();

@@ -6,6 +6,7 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
@@ -26,11 +27,13 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     
     List<SituacaoAluno> listaSituacoes;
     AlunoDao alunoAcoes;
+    AtividadeDao atividadeAcoes;
     int id;
     
-    public SituacaoAlunoDaoImpl(AlunoDao alunoDao){
+    public SituacaoAlunoDaoImpl(AlunoDao alunoDao, AtividadeDao atividadeDao){
         listaSituacoes = new ArrayList<>();
-        this.alunoAcoes = alunoDao;       
+        this.alunoAcoes = alunoDao;
+        this.atividadeAcoes=atividadeDao;
         id=0;
     }
     /**
@@ -58,24 +61,22 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 idUser = Integer.parseInt(sIdAluno);
                 Aluno aluno = alunoAcoes.buscar(new Aluno(null,null,idUser));
                 
-                
-                String cargaHoraria = ler.readLine(); //cargaHoraria
-                String id = ler.readLine(); 
                 Integer nIds;
                 String nIdTemp = ler.readLine();
                 nIds = Integer.parseInt(nIdTemp);
-                Disciplina novaDisciplina = new Disciplina(nome,ementa,cargaHoraria,Integer.parseInt(id));
+               
                 int i;
                 for(i=0;i<nIds;i++){
                     nIdTemp = ler.readLine();
                     int idsTemp= Integer.parseInt(nIdTemp);
-                    Professor professor=new Professor(null,null,null,idsTemp);
-                    professor = professorDao.buscar(professor);
-                    novaDisciplina.addProfessor(professor);
-                    professor.addDiscilina(novaDisciplina);
+                    Atividade atividade =atividadeAcoes.buscar(new Atividade(null, null, null, null, 0, idsTemp));
+                    
+                    String notaTemp = ler.readLine();
+                    float nota= Float.parseFloat(notaTemp);
+                    atividade.setNota(nota);
                 }
             }
-                adicionar(novaDisciplina);//Adiciona na lista
+            
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans

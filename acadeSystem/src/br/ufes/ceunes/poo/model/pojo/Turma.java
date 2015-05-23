@@ -122,6 +122,9 @@ public class Turma {
     public int getId() {
         return id;
     }
+    public void addAtividade(Atividade atividade){
+        this.listAtividades.add(atividade);
+    }
     
     @Override
     public String toString(){

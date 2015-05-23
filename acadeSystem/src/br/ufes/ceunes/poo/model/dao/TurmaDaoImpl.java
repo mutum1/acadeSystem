@@ -32,15 +32,13 @@ public class TurmaDaoImpl implements TurmaDao {
     private ProfessorDao professorAcoes;
     private DisciplinaDao disciplinaAcoes;
     private AlunoDao alunoAcoes;
-    private AtividadeDao atividadeAcoes;
     private int id;
 
-    public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes,AtividadeDao atividadeAcoes) {
+    public TurmaDaoImpl(ProfessorDao professorAcoes, DisciplinaDao disciplinaAcoes, AlunoDao alunoAcoes) {
         this.listaTurma = new ArrayList<>();
         this.professorAcoes = professorAcoes;
         this.disciplinaAcoes = disciplinaAcoes;
         this.alunoAcoes = alunoAcoes;
-        this.atividadeAcoes =atividadeAcoes;
         this.id = 1;
         carregar();
     }
@@ -215,6 +213,10 @@ public class TurmaDaoImpl implements TurmaDao {
         }
         return turma;
     }
+
+
+        
+
     
 }
     
