@@ -31,38 +31,48 @@ public class AtividadeDaoImpl implements AtividadeDao {
         listaAtividades = new ArrayList<>();
         this.turmaAcoes = turmaAcoes;
         id=0;
+        carregar();
+        
     }
     /**
      * Carregas todos as atividades do arquivo na lista de atividades
      */
     @Override
     public void carregar() {
+        listaAtividades = new ArrayList<>();
         String nomeArquivo = "Atividades.txt";//nome do arquivo
         FileReader file;
+        
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+                        
+            String idTemp = ler.readLine();
+            id = Integer.parseInt(idTemp)+1;
+            
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
                 String tipo = ler.readLine();//Pega ementa
                 String data = ler.readLine(); //cargaHoraria
-                String idTemp = ler.readLine(); 
+                idTemp = ler.readLine(); 
                 int idInt = Integer.parseInt(idTemp);
                 Turma turma = turmaAcoes.buscar(new Turma(null,null,null,null,0,null,null,idInt));
                 String valor = ler.readLine(); 
-                String nota = ler.readLine(); 
                 idTemp = ler.readLine(); 
                 
-                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Integer.parseInt(valor), Integer.parseInt(nota), Integer.parseInt(idTemp));  
+                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Integer.parseInt(valor), Integer.parseInt(idTemp));  
                 listaAtividades.add(novaAtividade);
             }
             
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(AtividadeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            id=1;          
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(AtividadeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex){
+            id=1;
+            return;
         } 
         
     }
@@ -74,7 +84,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
     public void salvar(Atividade atividadeTemp) {
         
         listaAtividades.add(atividadeTemp);
-        id++;
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
@@ -90,8 +99,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 salvar.newLine();
                 salvar.write(atividade.getValor());//valor
                 salvar.newLine();
-                salvar.write(atividade.getNota());//nota
-                salvar.newLine();
                 salvar.write(atividade.getId());//id
                 salvar.newLine();
             }
@@ -101,7 +108,8 @@ public class AtividadeDaoImpl implements AtividadeDao {
             Logger.getLogger(AtividadeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(AtividadeDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        }
+        carregar();
     }
     /**
      * Busca a atividade utilizando como chave o id.

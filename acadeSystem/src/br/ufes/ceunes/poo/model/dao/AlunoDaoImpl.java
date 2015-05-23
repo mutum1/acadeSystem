@@ -36,8 +36,7 @@ public class AlunoDaoImpl implements AlunoDao {
      * @param aluno 
      */
     
-    @Override
-    public void adicionar(Aluno aluno){
+    private void adicionar(Aluno aluno){
         listaAlunos.add(aluno);
     }
     /**
@@ -108,7 +107,9 @@ public class AlunoDaoImpl implements AlunoDao {
      */
     
     @Override
-    public void salvar(){
+    public void salvar(Aluno alunoAdd){
+        
+        adicionar(alunoAdd);
         
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {

@@ -37,7 +37,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
      * Adiciona um professor na lista de professores.
      * @param professor 
      */
-    public void adicionar(Professor professor){
+    private void adicionar(Professor professor){
         listaProfessor.add(professor);
     }
     
@@ -107,7 +107,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
      * @param professorTemp 
      */
     @Override
-    public void salvar(){
+    public void salvar(Professor professorAdd){
+        
+        adicionar(professorAdd);
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
