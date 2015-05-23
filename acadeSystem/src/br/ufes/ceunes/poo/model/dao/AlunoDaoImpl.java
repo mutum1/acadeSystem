@@ -93,10 +93,14 @@ public class AlunoDaoImpl implements AlunoDao {
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(AlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            id=1;          
+            
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(AlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex){
+            id=1;
+            return;
+        }    
     }
     /**
      * Salva a lista de alunos em um arquivo.

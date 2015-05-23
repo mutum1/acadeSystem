@@ -9,6 +9,7 @@ import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -92,10 +93,14 @@ public class ProfessorDaoImpl implements ProfessorDao {
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            id=1;          
+            
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+        } catch (NumberFormatException ex){
+            id=1;
+            return;
+        }  
     }
     /**
      * Pega todos os professores na lista e salva em um arquivo.
@@ -106,7 +111,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
-            FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
+            FileWriter file = new FileWriter(nomeArquivo);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             salvar.write(Integer.toString(this.id));
             salvar.newLine();

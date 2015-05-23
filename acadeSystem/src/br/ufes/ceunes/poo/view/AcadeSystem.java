@@ -49,10 +49,7 @@ public class AcadeSystem {
         Menu menuPrincipal = new Menu();        
         int opcao = 0;
         
-        alunoDao.carregar(); // Carregado lista de alunos do arquivo
-        professorDao.carregar(); // Carregado lista de professores do arquivo
-        disciplinaDao.carregar(); // Carregado lista de disciplinas do arquivo
-        turmaDao.carregar();    // Carregado lista de turmas do arquivo
+       // Carregado lista de turmas do arquivo
         
         menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
         menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu

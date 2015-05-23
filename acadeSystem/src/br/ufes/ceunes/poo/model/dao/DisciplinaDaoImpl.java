@@ -47,9 +47,6 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     */
     @Override
     public List getAll(){//retorna a lista de disciplina
-        if(listaDisciplina == null){
-            carregar();
-        }
         return listaDisciplina;   
     }
     @Override
@@ -94,10 +91,14 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            id=1;          
+            
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex){
+            id=1;
+            return;
+        }     
     }
     /**
      * Salva todas as disciplinas de uma lista em um arquivo.
@@ -138,6 +139,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(DisciplinaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
+        carregar();
     }
     /**
      * Busca uma disciplina na lista utilizando como chave o id.
