@@ -24,9 +24,10 @@ public class AlunoDaoImplTest {
      */
     @Test
     public void testGetAll() {
-        System.out.println("SATANÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁÁS");
+        System.out.println("Captura toda a Lista");
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        List expResult = null;
+        AlunoDaoImpl compara = instance;
+        List expResult = compara.getAll();
         List result = instance.getAll();
         assertEquals(expResult, result);
     }
@@ -57,10 +58,11 @@ public class AlunoDaoImplTest {
     @Test
     public void testBuscarPorCpf() {
         System.out.println("buscarPorCpf");
-        Aluno alunoTemp = null;
+        Aluno alunoTemp = new Aluno("Diego", "131.700.947-93", 9);
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        Aluno expResult = null;
+        AlunoDaoImpl compara = instance;
         Aluno result = instance.buscarPorCpf(alunoTemp);
+        Aluno expResult = compara.buscarPorCpf(alunoTemp);
         assertEquals(expResult, result);
     }
 
@@ -70,10 +72,11 @@ public class AlunoDaoImplTest {
     @Test
     public void testBuscarPorNome() {
         System.out.println("buscarPorNome");
-        Aluno alunoTemp = null;
+        Aluno alunoTemp = new Aluno("Rhaister", null, 1);
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        Aluno expResult = null;
+        AlunoDaoImpl compara = instance;
         Aluno result = instance.buscarPorNome(alunoTemp);
+        Aluno expResult = compara.buscarPorNome(alunoTemp);
         assertEquals(expResult, result);
     }
 
@@ -83,10 +86,11 @@ public class AlunoDaoImplTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        Aluno alunoTemp = null;
+        Aluno alunoTemp = new Aluno(null, null, 2);
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        Aluno expResult = null;
+        AlunoDaoImpl compara = instance;
         Aluno result = instance.buscar(alunoTemp);
+        Aluno expResult = compara.buscar(alunoTemp);
         assertEquals(expResult, result);
     }
     
