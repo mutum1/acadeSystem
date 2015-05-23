@@ -29,7 +29,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     int id;
 
     public DisciplinaDaoImpl(ProfessorDao professorDao) {
-        id=1;
+        id=0;
         this.listaDisciplina = new ArrayList<>();
         this.professorDao = professorDao;
         carregar();
@@ -52,11 +52,16 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }
         return listaDisciplina;   
     }
+    @Override
+    public int gerarProximoId(){
+        return this.id;
+    }
     /**
      * Carrega do arquivo todas as disciplinas e coloca em uma lista.
      */
     @Override
     public void carregar(){
+        listaDisciplina = new ArrayList<>();
         String nomeArquivo = "Disciplinas.txt";//nome do arquivo
         FileReader file;
         try {
@@ -65,7 +70,6 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
             
             String idTemp = ler.readLine();
             id = Integer.parseInt(idTemp)+1;
-            
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
                 String ementa = ler.readLine();//Pega ementa
@@ -101,7 +105,6 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      */
     @Override
     public void salvar(){
-        this.id++;
         String nomeArquivo = "Disciplinas.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar

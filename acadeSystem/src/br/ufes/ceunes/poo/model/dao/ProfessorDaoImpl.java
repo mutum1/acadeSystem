@@ -60,6 +60,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
      */
     @Override
     public void carregar(){
+        listaProfessor = new ArrayList<>();
         String nomeArquivo = "Professores.txt";//nome do arquivo
         FileReader file;
         try {
@@ -102,7 +103,6 @@ public class ProfessorDaoImpl implements ProfessorDao {
      */
     @Override
     public void salvar(){
-        this.id++;
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {

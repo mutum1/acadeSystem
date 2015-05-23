@@ -43,9 +43,6 @@ class DisciplinaView {
         System.out.println("Digite o nome da disciplina");
         nome = input.nextLine();
         
-        System.out.println("Digite o codigo da disciplina");
-        codigo = input.nextLine();
-        
         System.out.println("Digite a ementa");
         ementa = input.nextLine();
         
@@ -54,7 +51,7 @@ class DisciplinaView {
       
         
         
-        return new Disciplina(nome,ementa,cargaHoraria,Integer.parseInt(codigo));
+        return new Disciplina(nome,ementa,cargaHoraria,disciplinaDao.gerarProximoId());
     }    
     
     /**

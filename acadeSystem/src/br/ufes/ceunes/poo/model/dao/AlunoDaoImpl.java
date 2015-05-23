@@ -105,7 +105,6 @@ public class AlunoDaoImpl implements AlunoDao {
     
     @Override
     public void salvar(){
-        id++;
         
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
