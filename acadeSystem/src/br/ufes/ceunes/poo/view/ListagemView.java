@@ -15,14 +15,16 @@ public class ListagemView {
     private ProfessorView professorView;
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
+    private AtividadeView atividadeView;
     private Menu menu;
     
     
-    public ListagemView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView){
+    public ListagemView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
+        this.atividadeView = atividadeView;
         this.menu = new Menu();
     
     }
@@ -33,6 +35,7 @@ public class ListagemView {
         this.menu.addOption("Listar professores");
         this.menu.addOption("Listar disciplinas");
         this.menu.addOption("Listar turmas");
+        this.menu.addOption("Listar Atividades");
         this.menu.addOption("Voltar");
         
         this.menu.showOptions();
@@ -50,6 +53,9 @@ public class ListagemView {
                 break;
             case 4:
                 turmaView.listar();
+                break;
+            case 5:
+                atividadeView.listar();
                 break;
         }
     }

@@ -37,7 +37,7 @@ public class TurmaView {
      * @param disciplinaDao
      * @param professorDao 
      */
-    public void cadastrarTurma(){    
+    public void cadastrar(){    
         Turma turma = getInfo();
         if(localDisponivel(turma)){
             turmaDao.salvar(turma);

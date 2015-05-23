@@ -26,13 +26,15 @@ public class CadastroView {
     private ProfessorView professorView;
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
+    private AtividadeView atividadeView;
     private Menu menu;
 
-    public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView){
+    public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
+        this.atividadeView = atividadeView;
         this.menu = new Menu();
     }
     
@@ -43,6 +45,7 @@ public class CadastroView {
         this.menu.addOption("Cadastrar Profesor");
         this.menu.addOption("Cadastrar Disciplina");
         this.menu.addOption("Cadastrar Turma");
+        this.menu.addOption("Cadastrar Atividade");
         this.menu.addOption("Voltar");
         
         this.menu.showOptions();
@@ -50,17 +53,19 @@ public class CadastroView {
         while(opcao != menu.getSize()){
             switch(opcao){
                 case 1:
-                    alunoView.cadastrarAluno();
+                    alunoView.cadastrar();
                     break;
                 case 2:
-                    professorView.cadastrarProfessor();
+                    professorView.cadastrar();
                     break;
                 case 3:
-                    disciplinaView.cadastrarDisciplina();
+                    disciplinaView.cadastrar();
                     break;
                 case 4:
-                    turmaView.cadastrarTurma();
+                    turmaView.cadastrar();
                     break;
+                case 5:
+                    
             }
             this.menu.showOptions();
             opcao = menu.getOption();
