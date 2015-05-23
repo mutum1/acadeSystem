@@ -5,7 +5,6 @@
  */
 package br.ufes.ceunes.poo.view;
 
-import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
@@ -68,22 +67,17 @@ class TurmaView {
         Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(codigoDisciplina));
         disciplina = disciplinaDao.buscar(disciplina);
         
-        
-        
-        
         return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina,turmaDao.gerarProximoId());
     }    
     
-    public boolean existe(Turma turma){
-        Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null,turma.getId());
-        turmaTemp = turmaDao.buscar(turmaTemp);
-        if(turmaTemp.getLocal() == null){
-            return false;
+    public boolean localDisponivel(Turma turma){
+        Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null,0);
+        turmaTemp = turmaDao.disponibilidadeLocal(turmaTemp);
+        if(turmaTemp.getAno() == null){
+            return true;
         }
-        else if (turmaTemp.getHorario() == null){
-            return false;
-        }
-        return true;
+
+        return false;
     }
     
     public void salvar(Turma turma){

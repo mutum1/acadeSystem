@@ -42,6 +42,7 @@ public class TurmaDaoImpl implements TurmaDao {
         this.alunoAcoes = alunoAcoes;
         this.atividadeAcoes =atividadeAcoes;
         this.id = 1;
+        carregar();
     }
 
     @Override
@@ -58,9 +59,6 @@ public class TurmaDaoImpl implements TurmaDao {
      */
     @Override
     public List getAll(){//retorna a lista de turma
-        if(listaTurma == null){
-            carregar();
-        }
         return listaTurma;   
     }
     /**
@@ -69,11 +67,18 @@ public class TurmaDaoImpl implements TurmaDao {
    
     @Override
     public void carregar(){
+        listaTurma = new ArrayList<>();
         String nomeArquivo = "Turmas.txt";//nome do arquivo
         FileReader file;
+        System.out.println("DJKBVSKBVSDSVHB");
         try {
+                 
             file = new FileReader(nomeArquivo); //abre o arquivo
             BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            
+            String idTemp = ler.readLine();
+            id = Integer.parseInt(idTemp)+1;
+            
             int i;
             int nVagas;
             int nAlunos;
@@ -86,7 +91,7 @@ public class TurmaDaoImpl implements TurmaDao {
                 nVagas= Integer.parseInt(SnVagas); //converte a string para inteiro
                 String idProfessor = ler.readLine(); //pega o cpf do professor
                 String idDisciplina = ler.readLine(); //pega pega o codigo daquela diciplina
-                String idTemp = ler.readLine(); //pega pega o codigo daquela diciplina
+                idTemp = ler.readLine(); //pega pega o codigo daquela diciplina
                 
                 Professor professor = new Professor(null,null,null,Integer.parseInt(idProfessor));//cria um objeto do tipo professor
                 professor = professorAcoes.buscar(professor);//procura o professor na lista de professores e adiciona e ele na turma
@@ -108,10 +113,13 @@ public class TurmaDaoImpl implements TurmaDao {
             file.close();//Fecho o arquivo
             ler.close();           
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            id=1;          
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }   
+            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException ex){
+            id=1;
+            return;
+        } 
     }
     /**
      * Salva todas as turmas que estão numa lista em um arquivo.
@@ -119,17 +127,15 @@ public class TurmaDaoImpl implements TurmaDao {
      */
     @Override
     public void salvar(){
-        this.id++;
-        /*
-        *
-        *TEM QUE SALVAR O ID!!!!!!!!!!!!!!!!!!!
-        *
-        */
+        
         String nomeArquivo = "Turmas.txt";//Nome do arquivo
+        
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             String size;
+            salvar.write(Integer.toString(id));
+            salvar.newLine();
             
             for(Turma turma : listaTurma){//percorre a lista
                 salvar.write(turma.getAno());//salva ano
@@ -175,7 +181,8 @@ public class TurmaDaoImpl implements TurmaDao {
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }  
+        }
+        carregar();
     }
     /**
      * Busca na lista turmas, utilizando como chave o id
@@ -201,7 +208,7 @@ public class TurmaDaoImpl implements TurmaDao {
     @Override
     public Turma disponibilidadeLocal(Turma turma) {
          for(Turma turmaTemp : listaTurma){
-            if(turmaTemp.getHorario().equals(turma.getLocal()) && turmaTemp.getHorario().equals(turma.getLocal())){
+            if(turmaTemp.getHorario().equals(turma.getHorario()) && turmaTemp.getLocal().equals(turma.getLocal())){
                 return turmaTemp;
             }
         }

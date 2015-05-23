@@ -117,7 +117,7 @@ public class CadastroView {
     
     private void cadastrarTurma(){    
         Turma turma = turmaView.getInfo();
-        if(!turmaView.existe(turma)){
+        if(turmaView.localDisponivel(turma)){
             turmaView.salvar(turma);
         }
     }    
