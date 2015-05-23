@@ -35,7 +35,7 @@ public class DisciplinaView {
     public void cadastrarDisciplina(){        
         Disciplina disciplina = getInfo();
         if(!existe(disciplina)){
-            alunoDao.salvar(disciplina);
+            disciplinaDao.salvar(disciplina);
         }
     }
     

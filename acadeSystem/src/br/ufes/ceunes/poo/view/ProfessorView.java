@@ -78,12 +78,6 @@ public class ProfessorView {
         return true;
     }
     
-    
-    public void salvar(Professor professor){
-        professorDao.adicionar(professor);
-        professorDao.salvar();
-    }
-    
     public void listar(){
         List<Professor> listaProfessor = professorDao.getAll();
          for(Professor professor : listaProfessor){

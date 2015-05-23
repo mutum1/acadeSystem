@@ -93,12 +93,7 @@ public class TurmaView {
 
         return false;
     }
-    
-    public void salvar(Turma turma){
-        turmaDao.adicionar(turma);
-        turmaDao.salvar();
-    }
-    
+
     public void listar(){
         List<Turma> listaTurma = turmaDao.getAll();
          for(Turma turma : listaTurma){

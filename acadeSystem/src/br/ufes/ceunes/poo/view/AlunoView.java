@@ -53,11 +53,6 @@ public class AlunoView {
         return new Aluno(nome,cpf,alunoDao.gerarProximoId());
     }    
     
-    public void salvar(Aluno aluno){
-        alunoDao.adicionar(aluno);
-        alunoDao.salvar();        
-    }
-    
     /**
      * Método que verifica se um aluno com determinado id existe.
      * @param aluno
