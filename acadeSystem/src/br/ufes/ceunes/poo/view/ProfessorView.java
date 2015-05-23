@@ -29,7 +29,7 @@ public class ProfessorView {
      * sem duplicatas.
      * @param professorDao 
      */
-    public void cadastrarProfessor(){    
+    public void cadastrar(){    
         Professor professor = getInfo();
         if(!existe(professor)){
             professorDao.salvar(professor);

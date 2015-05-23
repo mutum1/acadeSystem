@@ -22,6 +22,11 @@ public class AtividadeView {
     AtividadeDao atividadeDao;
     TurmaDao turmaDao;
     
+    public void cadastrar(){    
+        Atividade atividade = getInfo();
+            atividadeDao.salvar(atividade);
+    } 
+    
     public AtividadeView(AtividadeDao atividade,TurmaDao turmaDao){
         this.atividadeDao = atividadeDao;
         this.turmaDao = turmaDao;
@@ -52,28 +57,13 @@ public class AtividadeView {
         System.out.println("Digite a data da atividade");
         data = input.nextLine();
 
-        return new Atividade(nome,tipo,data,atividadeDao.gerarProximoId());
+        return new Atividade(nome,tipo,data,turma,Integer.parseInt(valor),atividadeDao.gerarProximoId());
     }    
     
-    
     /**
-     * Método que verifica se um atividade com determinado id existe.
-     * @param atividade
-     * @return True/False
+     * Imprime todos os atividades
      */
-    public boolean existe(Atividade atividade){
-        Atividade atividadeTemp = atividadeDao.buscar(new Atividade(null,null,atividade.getId()));
-        if(atividadeTemp.getNome() == null){
-            return false;
-        }
-        return true;
-    }  
-    
-    /**
-     * Imprime todos os atividades por nome e cpf.
-     */
-    
-    
+
     public void listar(){
         List<Atividade> listaAtividades = atividadeDao.getAll();
          for(Atividade atividade : listaAtividades){

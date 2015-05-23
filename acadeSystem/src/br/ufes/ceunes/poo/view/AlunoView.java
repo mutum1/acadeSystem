@@ -26,7 +26,7 @@ public class AlunoView {
      * Método responsavel por cadastrar um aluno em uma lista
      * sem duplicatas.
      */
-    public void cadastrarAluno(){    
+    public void cadastrar(){    
         Aluno aluno = getInfo();
         if(!existe(aluno)){
             this.alunoDao.salvar(aluno);

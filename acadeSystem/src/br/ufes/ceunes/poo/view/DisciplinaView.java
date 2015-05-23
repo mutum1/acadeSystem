@@ -32,7 +32,7 @@ public class DisciplinaView {
      * sem duplicatas.
      * @param disciplinaDao 
      */
-    public void cadastrarDisciplina(){        
+    public void cadastrar(){        
         Disciplina disciplina = getInfo();
         if(!existe(disciplina)){
             disciplinaDao.salvar(disciplina);

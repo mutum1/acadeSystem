@@ -32,19 +32,18 @@ public class AcadeSystem {
         
         //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
         AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
-        AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
-
         ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
-        ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
-
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
+        TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
+        AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
+        
+        AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
+        ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
         DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
-
-        TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao, null); // Objeto Turma Criado
         TurmaView turmaView = new TurmaView(turmaDao,professorDao,disciplinaDao); // Enviado uma turmaDao para uma turmaView
 
-        //AtividadeDao atividadeDao = new AtividadeDaoImpl();
-        //AtividadeView atividadeView = new AtividadeView();
+        
+        AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
         
         Menu menuPrincipal = new Menu();        
         int opcao = 0;
@@ -64,7 +63,7 @@ public class AcadeSystem {
           
             switch(opcao){
                 case 1:
-                    (new CadastroView(alunoView,professorView,disciplinaView,turmaView)).abrir();
+                    (new CadastroView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;  
                 case 2:
                     (new ListagemView(alunoView,professorView,disciplinaView,turmaView)).abrir();
