@@ -26,7 +26,7 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  */
 
 public class AcadeSystem {
-    
+    public static final int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
     
     public static void main(String[] args){
         
@@ -49,7 +49,7 @@ public class AcadeSystem {
         Menu menuPrincipal = new Menu();
         Menu menuCadastros = new Menu();
         Menu menuListagens = new Menu();
-        int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
+        
         int opcao = 0;
         
         

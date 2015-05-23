@@ -39,7 +39,7 @@ class AlunoView {
         
         System.out.println("Digite o cpf do aluno");
         cpf = input.nextLine();
-        if(!Cpf.isValidCpf(cpf)){
+        if(!Cpf.isValidCpf(cpf) && AcadeSystem.flagCpfVerify == 1){
             System.out.println("CPF inválido, digite novamente");
             cpf = input.nextLine();   
         }
