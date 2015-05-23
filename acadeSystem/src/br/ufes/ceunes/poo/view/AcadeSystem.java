@@ -86,7 +86,7 @@ public class AcadeSystem {
           
             switch(opcao){
                 case 1:
-                    cadastrar(alunoView,professorView,disciplinaView,turmaView,menuCadastros);
+                    (new CadastroView(menuCadastros, alunoDao, professorDao, disciplinaDao, turmaDao)).abrir();
                     break;  
                 case 2:
                     

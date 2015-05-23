@@ -20,8 +20,40 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  * @author paulo
  */
 
-public class Cadastros {
+public class CadastroView {
 
+    private AlunoDao alunoDao;
+    private ProfessorDao professorDao;
+    private DisciplinaDao disciplinaDao;
+    private TurmaDao turmaDao;
+    private Menu menu;
+    
+    
+    
+    public CadastroView(Menu menu,AlunoDao alunoDao,ProfessorDao professorDao,DisciplinaDao disciplinaDao,TurmaDao turmaDao ){
+        this.alunoDao = alunoDao;
+        this.professorDao = professorDao;
+        this.disciplinaDao = disciplinaDao;
+        this.turmaDao = turmaDao;
+        this.menu = menu;
+    }
+    
+    public void abrir(){
+        menu.showOptions();
+        int opcao = menu.getOption();
+        switch(opcao){
+            case 1:
+                cadastrarAluno(alunoDao);
+                break;
+            case 2:
+                cadastrarProfessor(professorDao);
+                break;
+            case 3:
+                cadastrarDisciplina(disciplinaDao);
+            case 4:
+                cadastrarTurma(turmaDao, disciplinaDao, professorDao);
+        }
+    }
     /**
      * Método responsavel por cadastrar um aluno em uma lista
      * sem duplicatas.
@@ -32,7 +64,7 @@ public class Cadastros {
         
         Aluno aluno = alunoView.getInfo();
         if(!alunoView.existe(aluno)){
-            alunoDao.adicionar(aluno);
+            alunoView.salvar(aluno);
         }
     }
     /**
@@ -46,7 +78,7 @@ public class Cadastros {
         
         Professor professor = professorView.getInfo();
         if(!professorView.existe(professor)){
-            professorDao.adicionar(professor);
+            professorView.salvar(professor);
         }
     }
     
@@ -61,7 +93,7 @@ public class Cadastros {
         
         Disciplina disciplina = disciplinaView.getInfo();
         if(!disciplinaView.existe(disciplina)){
-            disciplinaDao.adicionar(disciplina);
+            disciplinaView.salvar(disciplina);
         }
     }
     
@@ -78,7 +110,7 @@ public class Cadastros {
         
         Turma turma = turmaView.getInfo();
         if(!turmaView.existe(turma)){
-            turmaDao.adicionar(turma);
+            turmaView.salvar(turma);
         }
     }    
 }

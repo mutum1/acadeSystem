@@ -46,10 +46,7 @@ public class AlunoDaoImpl implements AlunoDao {
      */
     @Override
     public List getAll(){
-        if(listaAlunos == null){
-            
-        }
-        return listaAlunos;   
+         return listaAlunos;   
     }
     /**
      * Método responsavel por gerar o proximo id.
@@ -66,6 +63,7 @@ public class AlunoDaoImpl implements AlunoDao {
     public void carregar(){
         String nomeArquivo = "Alunos.txt";//nome do arquivox    
         FileReader file;
+        listaAlunos = new ArrayList<>();
         
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
