@@ -73,13 +73,14 @@ public class TurmaView {
         System.out.println("Digite o CPF do professor (Somente numeros)");
         cpfProfessor = input.nextLine();
         Professor professor = new Professor(null,cpfProfessor,null,0);
-        
         professor = professorDao.buscarPorCpf(professor);
         System.out.println(professor);
+        
         System.out.println("Digite o codigo da disciplina");
         codigoDisciplina = input.nextLine();
         Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(codigoDisciplina));
         disciplina = disciplinaDao.buscar(disciplina);
+        System.out.println(disciplina);
         
         return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina,turmaDao.gerarProximoId());
     }    
@@ -100,7 +101,5 @@ public class TurmaView {
              System.out.println(turma);
              System.out.println();
         }
-    
-    
     }
 }
