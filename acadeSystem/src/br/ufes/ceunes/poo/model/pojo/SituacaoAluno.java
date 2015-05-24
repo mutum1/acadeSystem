@@ -17,6 +17,7 @@ public class SituacaoAluno {
     // ATRIBUTOS
     private int faltas;
     private Aluno aluno;
+    
     private List<Atividade> atividade;
     private Turma turma;
     private int id;
