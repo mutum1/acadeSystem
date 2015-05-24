@@ -80,11 +80,19 @@ public class ProfessorView {
     
     public void listar(){
         List<Professor> listaProfessor = professorDao.getAll();
-         for(Professor professor : listaProfessor){
+        for(Professor professor : listaProfessor){
              System.out.println(professor);
              System.out.println();
         }
     }
     
+    public void consultarPorNome(String nome){
+        Professor professor = new Professor(nome, null, null,0);
+        List<Professor> listaProfessor = professorDao.buscarPorNome(professor);
+        for(Professor professorTemp : listaProfessor){
+             System.out.println(professorTemp);
+             System.out.println();
+        }
+    }
     
 }

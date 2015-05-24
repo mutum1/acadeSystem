@@ -6,6 +6,8 @@
 
 package br.ufes.ceunes.poo.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author paulo
@@ -30,11 +32,11 @@ public class ConsultaView {
     public void abrir(){
         
         this.menu.setTitle("Menu Cadastros");
-        this.menu.addOption("Cadastrar Aluno");
-        this.menu.addOption("Cadastrar Profesor");
-        this.menu.addOption("Cadastrar Disciplina");
-        this.menu.addOption("Cadastrar Turma");
-        this.menu.addOption("Cadastrar Atividade");
+        this.menu.addOption("Consultar Aluno");
+        this.menu.addOption("Consultar Profesor");
+        this.menu.addOption("Consultar Disciplina");
+        this.menu.addOption("Consultar Turma");
+        this.menu.addOption("Consultar Atividade");
         this.menu.addOption("Voltar");
         
         this.menu.showOptions();
@@ -42,19 +44,21 @@ public class ConsultaView {
         while(opcao != menu.getSize()){
             switch(opcao){
                 case 1:
-                    alunoView.cadastrar();
+                    //alunoView.cadastrar();
                     break;
                 case 2:
-                    professorView.cadastrar();
+                    System.out.println("Digite o nome para a consult");
+                    String nome = (new Scanner(System.in)).nextLine();
+                    professorView.consultarPorNome(nome);
                     break;
                 case 3:
-                    disciplinaView.cadastrar();
+                    //disciplinaView.cadastrar();
                     break;
                 case 4:
-                    turmaView.cadastrar();
+                    //turmaView.cadastrar();
                     break;
                 case 5:
-                    atividadeView.cadastrar();
+                   // atividadeView.cadastrar();
                     break;
                     
             }

@@ -76,6 +76,16 @@ public class AlunoView {
              System.out.println();
         }
     }
+    
+        public void consultarPorNome(String nome){
+        Aluno aluno = new Aluno(nome, null,0);
+        List<Aluno> listaAluno = alunoDao.buscarPorNome(aluno);
+        for(Aluno alunoTemp : listaAluno){
+             System.out.println(alunoTemp);
+             System.out.println();
+        }
+    }
+ 
 }
     
     

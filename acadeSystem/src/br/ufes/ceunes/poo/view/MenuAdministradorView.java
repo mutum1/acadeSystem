@@ -46,6 +46,10 @@ public class MenuAdministradorView {
                 case 2:
                     (new ListagemView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;
+                case 3:
+                    (new ConsultaView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
+                    break;
+                    
             }
             menu.showOptions();
             opcao = menu.getOption();//retorna a opçao digitada pelo usuario
