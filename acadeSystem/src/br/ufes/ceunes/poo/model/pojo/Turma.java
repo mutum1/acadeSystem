@@ -138,7 +138,7 @@ public class Turma {
 
     public void aplicarAtividade(Atividade novaAtividade) {
         for(Aluno aluno : listAlunos){
-            if(.)
+          // if(.) - Comentei para a realização de testes - desconsiderm-na
         }
     }
     
