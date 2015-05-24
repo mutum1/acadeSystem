@@ -46,6 +46,7 @@ public class CadastroAdministradorView {
         this.menu.addOption("Cadastrar Disciplina");
         this.menu.addOption("Cadastrar Turma");
         this.menu.addOption("Cadastrar Atividade");
+        this.menu.addOption("Cadastrar alunos em uma turma");
         this.menu.addOption("Voltar");
         
         this.menu.showOptions();
@@ -68,6 +69,9 @@ public class CadastroAdministradorView {
                     atividadeView.cadastrar();
                     break;
                     
+                case 6:
+                    
+                    break;
             }
             this.menu.showOptions();
             opcao = menu.getOption();

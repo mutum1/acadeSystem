@@ -8,7 +8,9 @@ package br.ufes.ceunes.poo.view;
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
+import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
@@ -46,6 +48,8 @@ public class TurmaView {
             turmaDao.salvar(turma);
         }
     } 
+    
+    
     
     public Turma getInfo(){
         
@@ -105,4 +109,29 @@ public class TurmaView {
              System.out.println();
         }
     }
+    
+    
+    public void cadastrarAlunos(Turma turma){
+        Scanner input = new Scanner(System.in);
+        String cpf;
+        Aluno aluno;
+        System.out.println("Cadastros de alunos na turma "+
+                            turma.getDisciplina().getNome()+
+                            " "+turma.getAno()+"/"+turma.getPeriodo());
+        System.out.println("Digite o cpf do aluno,(Digite '0' para sair)");
+        cpf = input.nextLine();
+        aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
+        if(aluno.getNome() == null) System.out.println("Não existe aluno");
+        while(!cpf.equals("0") && aluno.getNome() != null){
+            turma.addAluno(aluno,SituacaoAlunoDao.gerarProximoId());
+            
+        System.out.println("Digite o cpf do aluno,(Digite '0' para sair)");
+        cpf = input.nextLine();
+        aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
+                
+        }
+    
+    }
+    
+    
 }
