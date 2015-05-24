@@ -87,6 +87,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                     situacaoAluno.addAtividade(atividade);
                 }
                 aluno.addSituacao(situacaoAluno);
+                listaSituacoes.add(situacaoAluno);
+                
             }
             
             file.close();//Fecho o arquivo
@@ -106,6 +108,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      */
     @Override
     public void salvar(SituacaoAluno situacao) {
+      
         
     }
     /**

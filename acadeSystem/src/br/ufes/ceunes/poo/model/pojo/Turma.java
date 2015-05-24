@@ -109,9 +109,9 @@ public class Turma {
     }
     
     // Adiciona um aluno na turma
-    public void addAluno(Aluno aluno, int id){
-        aluno.addSituacao(new SituacaoAluno(aluno, this, id));
-        listAlunos.add(aluno);
+    public void addAluno(SituacaoAluno situacaoAluno){ 
+        situacaoAluno.getAluno().addSituacao(situacaoAluno);
+        listAlunos.add(situacaoAluno.getAluno());
         
     }
 
