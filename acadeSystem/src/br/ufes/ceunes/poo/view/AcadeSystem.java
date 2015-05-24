@@ -57,6 +57,7 @@ public class AcadeSystem {
         
         
         MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
+        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
         
         
         menuPrincipal.showOptions();
@@ -64,7 +65,7 @@ public class AcadeSystem {
         while(opcao != menuPrincipal.getSize()){
             switch(opcao){
                 case 1:
-                    System.out.println("Seus programdores são uns bostas e seu programa não está pronto");
+                    menuProfessor.open();
                     return;
                 case 2:
                     
