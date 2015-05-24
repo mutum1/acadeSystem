@@ -135,18 +135,18 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 salvar.write(numerosDeAtividades);//quantos cpfs tem na lista de cpfs
                 
                 salvar.newLine();
-                for(Professor professor : disciplina.listaProfessor() ){ 
-                    salvar.write(professor.getId());//salva um por um o q esta na lista de professores
-                    salvar.newLine();
-                }
+                //for(Professor professor : disciplina.listaProfessor() ){ 
+                    //salvar.write(professor.getId());//salva um por um o q esta na lista de professores
+                    //salvar.newLine();
+                //}
                 
             }
             salvar.close();
             file.close();            
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
         carregar();
     }

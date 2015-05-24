@@ -23,6 +23,7 @@ import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import com.sun.org.apache.bcel.internal.generic.SIPUSH;
+import java.util.Scanner;
 
 /**
  *
@@ -66,7 +67,12 @@ public class AcadeSystem {
                     System.out.println("Seus programdores são uns bostas e seu programa não está pronto");
                     return;
                 case 2:
-                    menuAdministrador.open();
+                    
+                    System.out.println("Digite a senha");
+                    String senha = "admin";
+                    if(senha.equals(( new Scanner(System.in)).nextLine())){
+                        menuAdministrador.open();
+                    }
                     break;                    
             }
             menuPrincipal.showOptions();

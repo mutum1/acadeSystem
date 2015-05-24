@@ -10,7 +10,7 @@ package br.ufes.ceunes.poo.view;
  *
  * @author paulo
  */
-public class MenuAdministradorView {
+public class MenuProfessorView {
     private AlunoView alunoView;
     private ProfessorView professorView;
     private DisciplinaView disciplinaView;
@@ -19,7 +19,7 @@ public class MenuAdministradorView {
     private Menu menu;
     
     
-    public MenuAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public MenuProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
@@ -28,7 +28,7 @@ public class MenuAdministradorView {
         this.menu = new Menu();
     }
     public void open(){
-        menu.setTitle("ACADEsYSTEM - Menu principal (ADM)");
+        menu.setTitle("ACADEsYSTEM - Menu principal (PROF)");
         menu.addOption("Cadastros");//adiciona opçoes no menu
         menu.addOption("Listagens");
         menu.addOption("Consultas");
@@ -41,7 +41,7 @@ public class MenuAdministradorView {
           
             switch(opcao){
                 case 1:
-                    (new CadastroAdministradorView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
+                    (new CadastroProfessorView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;  
                 case 2:
                     (new ListagemView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
