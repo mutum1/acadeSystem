@@ -109,8 +109,10 @@ public class Turma {
     }
     
     // Adiciona um aluno na turma
-    public void addAluno(Aluno aluno){
-        listAlunos.add(aluno);
+    public void addAluno(SituacaoAluno situacaoAluno){ 
+        situacaoAluno.getAluno().addSituacao(situacaoAluno);
+        listAlunos.add(situacaoAluno.getAluno());
+        
     }
 
     public List<Atividade> getListAtividades() {
@@ -133,12 +135,13 @@ public class Turma {
                "\nPeríodo:   "+ano+"/"+periodo+
                "\nHorário:   "+horario+
                "\nLocal:     "+local+
+               "\nID:        "+id+
                "\nQuantidade de vagas: "+nVagas;        
     }
 
     public void aplicarAtividade(Atividade novaAtividade) {
         for(Aluno aluno : listAlunos){
-          // if(.) - Comentei para a realização de testes - desconsiderm-na
+        
         }
     }
     

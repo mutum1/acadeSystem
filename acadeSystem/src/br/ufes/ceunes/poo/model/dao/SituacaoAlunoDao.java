@@ -20,5 +20,6 @@ public interface SituacaoAlunoDao {
     void addPresenca(int idTruma,int idAluno,Float presenca);
     float getNotaFinal(int idTruma,int idAluno);
     float getPresenca(int idTruma,int idAluno);
+    int gerarProximoId();
     
 }

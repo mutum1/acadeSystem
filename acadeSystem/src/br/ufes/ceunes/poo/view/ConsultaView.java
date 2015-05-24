@@ -6,22 +6,11 @@
 
 package br.ufes.ceunes.poo.view;
 
-import br.ufes.ceunes.poo.model.dao.AlunoDao;
-import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
-import br.ufes.ceunes.poo.model.dao.ProfessorDao;
-import br.ufes.ceunes.poo.model.dao.TurmaDao;
-import br.ufes.ceunes.poo.model.pojo.Aluno;
-import br.ufes.ceunes.poo.model.pojo.Disciplina;
-import br.ufes.ceunes.poo.model.pojo.Professor;
-import br.ufes.ceunes.poo.model.pojo.Turma;
-
 /**
  *
  * @author paulo
  */
-
-public class CadastroView {
-
+public class ConsultaView {
     private AlunoView alunoView;
     private ProfessorView professorView;
     private DisciplinaView disciplinaView;
@@ -29,7 +18,7 @@ public class CadastroView {
     private AtividadeView atividadeView;
     private Menu menu;
 
-    public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public ConsultaView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;

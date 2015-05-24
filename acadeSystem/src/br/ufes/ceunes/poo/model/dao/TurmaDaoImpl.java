@@ -98,14 +98,6 @@ public class TurmaDaoImpl implements TurmaDao {
                 disciplina = disciplinaAcoes.buscar(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
                 Turma novaTurma = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina,Integer.parseInt(idTemp));//cria a turma e salva as informaçoes no objeto
                 
-                nAlunos = Integer.parseInt(ler.readLine());// pega a quantidade de alunos naquela turma
-                
-                for(i=0; i<nAlunos; i++){//pega no arquivo os alunos daquela turma so o cpf busca as outras informaçoes completas elas e add na lista da turma
-                    idTemp= ler.readLine();
-                    Aluno aluno =new Aluno(null,null,Integer.parseInt(idTemp));
-                    aluno = alunoAcoes.buscar(aluno);
-                    novaTurma.addAluno(aluno);
-                }
                 adicionar(novaTurma);//Adiciona na lista
             }
             file.close();//Fecho o arquivo
@@ -132,7 +124,6 @@ public class TurmaDaoImpl implements TurmaDao {
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            String size;
             salvar.write(Integer.toString(id));
             salvar.newLine();
             
@@ -151,28 +142,9 @@ public class TurmaDaoImpl implements TurmaDao {
                 salvar.newLine();
                 salvar.write(Integer.toString(turma.getDisciplina().getId()));//salva o codigo da disciplina naquela turma
                 salvar.newLine();
-                size=Integer.toString(turma.getListaAlunos().size());
-                salvar.write(size);//salva a quantidade de alunos na turma
-                salvar.newLine();
                 salvar.write(Integer.toString(turma.getId()));//salva o codigo da disciplina naquela turma
                 salvar.newLine();
-                
-                for(Aluno alunos : turma.getListaAlunos()){
-                    
-                    salvar.write(Integer.toString(alunos.getId()));//salva um por um o q esta na lista de cpfs
-                    salvar.newLine();
-                }
-                
-                size=Integer.toString(turma.getListAtividades().size());
-                salvar.write(size);//salva a quantidade de alunos na turma
-                salvar.newLine();
-                
-                for(Atividade atividade : turma.getListAtividades()){
-                    
-                    salvar.write(atividade.getId());//salva um por um o q esta na lista de atividades
-                    salvar.newLine();
-                }
-                
+                             
             }
             salvar.close();
             file.close();            

@@ -18,7 +18,7 @@ import java.util.List;
 public interface TurmaDao {
     List getAll();
     void carregar();
-    public int gerarProximoId();
+    int gerarProximoId();
     void salvar(Turma turma);
     Turma disponibilidadeLocal(Turma turma);
     Turma buscar(Turma turma);

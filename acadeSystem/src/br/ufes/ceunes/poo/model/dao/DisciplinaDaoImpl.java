@@ -160,6 +160,16 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }
         return disciplina;
     }
+    @Override
+    public Disciplina buscarPorNome(Disciplina disciplinaTemp) {
+        
+        for(Disciplina disciplina : listaDisciplina){
+            if(disciplinaTemp.getNome().equals(disciplina.getNome())){
+                return disciplina;
+            }
+        }
+        return disciplinaTemp;
+    }
 
 }
 
