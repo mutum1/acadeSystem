@@ -110,13 +110,18 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
             return;
         }  
     }
+    
+     public void salvar(SituacaoAluno situacao) {
+        listaSituacoes.add(situacao);
+        salvar();
+     }
     /**
      * Método responsavel por salvar as situação do aluno em uma determinada turma.
      * @throws UnsupportedOperationException, Operação não suportada ao salvar o arquivo.
      */
     @Override
-    public void salvar(SituacaoAluno situacao) {
-        listaSituacoes.add(situacao);
+    public void salvar() {
+   
       
         String nomeArquivo = "Situacoes.txt";//Nome do arquivo
         try {
