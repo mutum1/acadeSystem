@@ -49,7 +49,7 @@ public class AlunoDaoImplTest {
     public void testSalvar() {
         System.out.println("salvar");
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        instance.salvar();
+        instance.salvar(null);
     }
 
     /**

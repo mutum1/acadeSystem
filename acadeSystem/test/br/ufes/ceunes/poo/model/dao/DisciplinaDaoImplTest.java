@@ -49,7 +49,7 @@ public class DisciplinaDaoImplTest {
         System.out.println("salvar");
         Disciplina disciplinaTemp = null;
         DisciplinaDaoImpl instance = null;
-        instance.salvar();
+        instance.salvar(disciplinaTemp);
     }
 
     /**

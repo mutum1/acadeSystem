@@ -49,7 +49,7 @@ public class ProfessorDaoImplTest {
         System.out.println("salvar");
         Professor professorTemp = null;
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        instance.salvar();
+        instance.salvar(professorTemp);
     }
 
     /**

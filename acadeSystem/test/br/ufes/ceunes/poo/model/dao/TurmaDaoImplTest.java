@@ -49,7 +49,7 @@ public class TurmaDaoImplTest {
         System.out.println("salvar");
         Turma turmaTemp = null;
         TurmaDaoImpl instance = null;
-        instance.salvar();
+        instance.salvar(turmaTemp);
     }
 
     /**
