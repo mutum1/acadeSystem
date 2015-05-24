@@ -102,7 +102,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
             id=1;          
             
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException ex){
             id=1;
             return;
@@ -135,8 +135,10 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 salvar.write(numerosDeAtividades);//quantos cpfs tem na lista de cpfs
                 
                 salvar.newLine();
-                for(Professor professor : disciplina.listaProfessor() ){ 
-                    salvar.write(professor.getId());//salva um por um o q esta na lista de professores
+                for(Atividade atividade : situacoes.getAtividade()){ 
+                    salvar.write(Integer.toString(atividade.getId()));//salva um por um o q esta na lista de atividadees
+                    salvar.newLine();
+                    salvar.write(Float.toString(atividade.getNota()));//salva um por um o q esta na lista de atividadees
                     salvar.newLine();
                 }
                 
@@ -144,9 +146,9 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
             salvar.close();
             file.close();            
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {//Coisa do NetBeans
-            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  
         carregar();
     }
@@ -154,34 +156,67 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      * @throws Operação não suportada ao adicionar uma nota.
      */
     @Override
-    public void addNota(int idTruma, int idAtividade, int idAluno, int nota) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addNota(Turma turma, Aluno aluno, Atividade atividade, int nota) {
+        Atividade atividadeAdd = buscarAtividade(turma.getId(), aluno.getId(), atividade.getId());
+        atividadeAdd.setNota(nota);
     }
-    /**
-     * @throws Operação não suportada ao adicionar uma presença ao aluno.
-     */
+    
+    
     @Override
-    public void addPresenca(int idTruma, int idAluno, Float presenca) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addPresenca(Turma turma, Aluno aluno, int fatas) {
+        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
+        situacaoAluno.setFaltas(fatas);
     }
     /**
      * @throws Operação não suportada ao solicitar a nota final do aluno.
      */
     @Override
-    public float getNotaFinal(int idTruma, int idAluno) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public float getNotaFinal(Turma turma, Aluno aluno) {
+        float nota=0;
+        int numeroAtividades=0;
+        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
+        numeroAtividades=situacaoAluno.getAtividade().size();
+        for(Atividade atividade : situacaoAluno.getAtividade()){
+            nota = nota+atividade.getNota();
+        }
+        nota=nota/numeroAtividades;
+        return nota;
     }
     /**
      * @throws Operação não suportada ao solicitar as presenças do aluno.
      */
     @Override
-    public float getPresenca(int idTruma, int idAluno) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public float getPresenca(Turma turma, Aluno aluno) {
+        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
+        return situacaoAluno.getFaltas();
     }
 
     @Override
     public int gerarProximoId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id++;
+        return id-1;
     }
     
+    public Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade){
+        for(SituacaoAluno situacaoAluno : listaSituacoes){
+            if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
+                for(Atividade atividade : situacaoAluno.getAtividade()){
+                    if(atividade.getId()==idAtividade){
+                        return atividade;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    public SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno){
+        for(SituacaoAluno situacaoAluno : listaSituacoes){
+            if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
+                return situacaoAluno;
+            }
+        }
+        return null;
+        
+    }
 }

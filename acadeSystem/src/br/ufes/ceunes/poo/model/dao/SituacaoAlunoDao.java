@@ -6,7 +6,9 @@
 package br.ufes.ceunes.poo.model.dao;
 
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
+import br.ufes.ceunes.poo.model.pojo.Turma;
 
 /**
  *
@@ -16,10 +18,10 @@ public interface SituacaoAlunoDao {
     
     void carregar();
     void salvar(SituacaoAluno situacao);
-    void addNota(int idTruma, int idAtividade,int idAluno,int nota);
-    void addPresenca(int idTruma,int idAluno,Float presenca);
-    float getNotaFinal(int idTruma,int idAluno);
-    float getPresenca(int idTruma,int idAluno);
+    void addNota(Turma turma,Aluno aluno,Atividade atividade, int nota);
+    void addPresenca(Turma turma, Aluno aluno,int presenca);
+    float getNotaFinal(Turma turma, Aluno aluno);
+    float getPresenca(Turma turma, Aluno aluno);
     int gerarProximoId();
     
 }
