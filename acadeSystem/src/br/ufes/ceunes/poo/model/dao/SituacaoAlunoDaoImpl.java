@@ -42,7 +42,9 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         id=0;
     }
     /**
-     * @throws Operação não suportada ao carregar o arquivo.
+     * Método responsavel por carregar os dados do arquivo ("Situacoes.txt") para
+     * a lista.
+     * @throws FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar() {
@@ -109,7 +111,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }  
     }
     /**
-     * @throws Operação não suportada ao salvar o arquivo.
+     * Método responsavel por salvar as situação do aluno em uma determinada turma.
+     * @throws UnsupportedOperationException, Operação não suportada ao salvar o arquivo.
      */
     @Override
     public void salvar(SituacaoAluno situacao) {

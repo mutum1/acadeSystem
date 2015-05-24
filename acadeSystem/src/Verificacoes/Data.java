@@ -7,7 +7,7 @@ package Verificacoes;
 
 /**
  *
- * @author Usuario
+ * @author Diego
  */
 public interface Data {
 

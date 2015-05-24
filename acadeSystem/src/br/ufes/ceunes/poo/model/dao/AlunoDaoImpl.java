@@ -56,17 +56,20 @@ public class AlunoDaoImpl implements AlunoDao {
         return this.id;
     }
     /**
-     * Métodos responsavel por carregar o arquivo nas listas.
+     * Métodos responsavel por carregar o arquivo para as listas.
+     * Os dados estão salvos em um arquivo "Alunos.txt", percorrendo o arquivo
+     * @throws Ativa exeções quando o arquivo não é encontrado, e quando o
+     * id está fora do formato.
      */
     @Override
     public void carregar(){
-        String nomeArquivo = "Alunos.txt";//nome do arquivox    
+        String nomeArquivo = "Alunos.txt";//nome do arquivo
         FileReader file;
         listaAlunos = new ArrayList<>();
         
         try {
             file = new FileReader(nomeArquivo); //abre o arquivo
-            BufferedReader ler = new BufferedReader(file);//Estacio o arquivo para leitura
+            BufferedReader ler = new BufferedReader(file);//Estancio o arquivo para leitura
             
             int idUser=0;
             String idTemp = ler.readLine();
@@ -104,6 +107,8 @@ public class AlunoDaoImpl implements AlunoDao {
     /**
      * Salva a lista de alunos em um arquivo.
      * @param alunoTemp 
+     * Os dados são salvos em um arquivo "Alunos.txt", percorrendo a lista
+     * @throws Ativa as exeções FileNotFoundException e IOException.
      */
     
     @Override

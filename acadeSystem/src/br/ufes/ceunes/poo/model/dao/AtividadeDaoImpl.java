@@ -35,13 +35,20 @@ public class AtividadeDaoImpl implements AtividadeDao {
         carregar();
         
     }
+    /**
+     * 
+     * @param atividade
+     * @param turma 
+     */
     private void aplicaAtividade(Atividade atividade, Turma turma){
         for(Aluno aluno : turma.getListaAlunos()){
             
         }
     }
     /**
-     * Carregas todos as atividades do arquivo na lista de atividades
+     * Carrega todos as atividades do arquivo na lista de atividades
+     * os dados são pegos no arquivo "Atividades.txt".
+     * @throws FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar() {
@@ -83,8 +90,10 @@ public class AtividadeDaoImpl implements AtividadeDao {
         
     }
     /**
-     * Pega todas as atividades na lista e salva dentro de um arquivo.
-     * @param atividadeTemp 
+     * Pegar todas as atividades na lista e salva dentro de um arquivo 
+     * "Atividades.txt".
+     * @param atividadeTemp
+     * @throws FileNotFoundException, IOException.
      */
     @Override
     public void salvar(Atividade atividadeTemp) {
@@ -131,12 +140,17 @@ public class AtividadeDaoImpl implements AtividadeDao {
         }
         return atividade;
     }
-
+    /**
+     * Método que gera um id para o respectivo objeto.
+     * @return o id gerado.
+     */
     @Override
     public int gerarProximoId() {
         return this.id;
     }
-
+    /**
+     * @return retorna a lista de todas as atividades.
+     */
     @Override
     public List getAll() {
         return listaAtividades;
