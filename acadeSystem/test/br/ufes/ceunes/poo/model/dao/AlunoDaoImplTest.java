@@ -49,7 +49,8 @@ public class AlunoDaoImplTest {
     public void testSalvar() {
         System.out.println("salvar");
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        instance.salvar(null);
+        Aluno aluno = new Aluno("Ayer", "123.123.123-34", 3);
+        instance.salvar(aluno);
     }
 
     /**

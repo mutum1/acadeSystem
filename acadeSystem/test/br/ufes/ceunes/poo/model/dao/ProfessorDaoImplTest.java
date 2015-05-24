@@ -26,7 +26,8 @@ public class ProfessorDaoImplTest {
     public void testGetAll() {
         System.out.println("getAll");
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        List expResult = null;
+        ProfessorDaoImpl compara = instance;
+        List expResult = compara.getAll();
         List result = instance.getAll();
         assertEquals(expResult, result);
     }
@@ -47,7 +48,7 @@ public class ProfessorDaoImplTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
-        Professor professorTemp = null;
+        Professor professorTemp = new Professor("Joel", "123.321.231-34", "NASUS", 242);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         instance.salvar(professorTemp);
     }
@@ -58,9 +59,10 @@ public class ProfessorDaoImplTest {
     @Test
     public void testBuscarPorCpf() {
         System.out.println("buscarPorCpf");
-        Professor professor = null;
+        Professor professor = new Professor("Jesus", "777.777.777-77", "HEAVEN", 777);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        Professor expResult = null;
+        ProfessorDaoImpl compara = instance;
+        Professor expResult = compara.buscarPorCpf(professor);
         Professor result = instance.buscarPorCpf(professor);
         assertEquals(expResult, result);
     }
@@ -71,9 +73,10 @@ public class ProfessorDaoImplTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        Professor professor = null;
+        Professor professor = new Professor("Diego", "242.242.242.24", "DOTA2", 24);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        Professor expResult = null;
+        ProfessorDaoImpl compara = instance;
+        Professor expResult = compara.buscar(professor);
         Professor result = instance.buscar(professor);
         assertEquals(expResult, result);
     }
@@ -84,9 +87,10 @@ public class ProfessorDaoImplTest {
     @Test
     public void testBuscarPorNome() {
         System.out.println("buscarPorNome");
-        Professor professor = null;
+        Professor professor = new Professor("Juggernault", "145.234.543-32", "DotA", 66);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        List expResult = null;
+        ProfessorDaoImpl compara = instance;
+        List expResult = compara.buscarPorNome(professor);
         List result = instance.buscarPorNome(professor);
         assertEquals(expResult, result);
     }

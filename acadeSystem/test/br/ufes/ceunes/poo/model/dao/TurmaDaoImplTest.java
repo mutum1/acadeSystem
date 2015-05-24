@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.model.dao;
 
+import br.ufes.ceunes.poo.model.pojo.Disciplina;
+import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.List;
 import org.junit.Test;
@@ -15,18 +17,16 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class TurmaDaoImplTest {
-    
-    public TurmaDaoImplTest() {
-    }
-
-    /**
-     * Test of getAll method, of class TurmaDaoImpl.
-     */
+   
     @Test
     public void testGetAll() {
         System.out.println("getAll");
-        TurmaDaoImpl instance = null;
-        List expResult = null;
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
+        AlunoDaoImpl aluno = new AlunoDaoImpl();
+        TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
+        TurmaDaoImpl compara = instance;
+        List expResult = compara.getAll();
         List result = instance.getAll();
         assertEquals(expResult, result);
     }
@@ -37,7 +37,10 @@ public class TurmaDaoImplTest {
     @Test
     public void testCarregar() {
         System.out.println("carregar");
-        TurmaDaoImpl instance = null;
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
+        AlunoDaoImpl aluno = new AlunoDaoImpl();
+        TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
         instance.carregar();
     }
 
@@ -47,8 +50,13 @@ public class TurmaDaoImplTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
-        Turma turmaTemp = null;
-        TurmaDaoImpl instance = null;
+        Professor professorTemp = new Professor("Sand", "345.456.567.57", "Agua", 2);
+        Disciplina disciplinaTemp = new Disciplina("asd", "qwe", "123as", 3);
+        Turma turmaTemp = new Turma("2015", "1", "Sala 13", "integral", 50, professorTemp, disciplinaTemp, 1);
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
+        AlunoDaoImpl aluno = new AlunoDaoImpl();
+        TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
         instance.salvar(turmaTemp);
     }
 
@@ -58,9 +66,15 @@ public class TurmaDaoImplTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        Turma turma = null;
-        TurmaDaoImpl instance = null;
-        Turma expResult = null;
+        Professor professorTemp = new Professor("Sand", "345.456.567.57", "Agua", 2);
+        Disciplina disciplinaTemp = new Disciplina("asd", "qwe", "123as", 3);
+        Turma turma = new Turma("2015", "1", "Sala 13", "integral", 50, professorTemp, disciplinaTemp, 1);
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
+        AlunoDaoImpl aluno = new AlunoDaoImpl();
+        TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
+        TurmaDaoImpl compara = instance;
+        Turma expResult = compara.buscar(turma);
         Turma result = instance.buscar(turma);
         assertEquals(expResult, result);
     }
@@ -71,9 +85,15 @@ public class TurmaDaoImplTest {
     @Test
     public void testDisponibilidadeLocal() {
         System.out.println("disponibilidadeLocal");
-        Turma turma = null;
-        TurmaDaoImpl instance = null;
-        Turma expResult = null;
+        Professor professorTemp = new Professor("Sand", "345.456.567.57", "Agua", 2);
+        Disciplina disciplinaTemp = new Disciplina("asd", "qwe", "123as", 3);
+        Turma turma = new Turma("2015", "1", "Sala 13", "integral", 50, professorTemp, disciplinaTemp, 1);
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
+        AlunoDaoImpl aluno = new AlunoDaoImpl();
+        TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
+        TurmaDaoImpl compara = instance;
+        Turma expResult = compara.disponibilidadeLocal(turma);
         Turma result = instance.disponibilidadeLocal(turma);
         assertEquals(expResult, result);
     }

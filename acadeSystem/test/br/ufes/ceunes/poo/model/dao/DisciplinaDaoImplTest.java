@@ -25,8 +25,9 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testGetAll() {
         System.out.println("getAll");
-        DisciplinaDaoImpl instance = null;
-        List expResult = null;
+        DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
+        DisciplinaDaoImpl compara = instance;
+        List expResult = compara.getAll();
         List result = instance.getAll();
         assertEquals(expResult, result);
     }
@@ -37,7 +38,7 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testCarregar() {
         System.out.println("carregar");
-        DisciplinaDaoImpl instance = null;
+        DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
         instance.carregar();
     }
 
@@ -47,8 +48,8 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
-        Disciplina disciplinaTemp = null;
-        DisciplinaDaoImpl instance = null;
+        Disciplina disciplinaTemp = new Disciplina("Prog III", "Programacao POO", "75hrs", 3);
+        DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
         instance.salvar(disciplinaTemp);
     }
 
@@ -58,9 +59,10 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        Disciplina disciplina = null;
-        DisciplinaDaoImpl instance = null;
-        Disciplina expResult = null;
+        Disciplina disciplina = new Disciplina("Calculo 3", "morte", "90hrs", 4);
+        DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
+        DisciplinaDaoImpl compara = instance;
+        Disciplina expResult = compara.buscar(disciplina);
         Disciplina result = instance.buscar(disciplina);
         assertEquals(expResult, result);
     }
