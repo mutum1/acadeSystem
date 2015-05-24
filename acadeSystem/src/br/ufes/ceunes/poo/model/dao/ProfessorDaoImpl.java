@@ -86,7 +86,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
                 Professor novo = new Professor(nome,cpf,departamento,idUser);
                 adicionar(novo);//Adiciona na lista
             }
-                  
+           
+        } catch (FileNotFoundException ex) {//Coisa do NetBeans
+            id=1;          
             
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
