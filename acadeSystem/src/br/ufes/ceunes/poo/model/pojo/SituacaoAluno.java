@@ -16,11 +16,10 @@ import java.util.List;
 public class SituacaoAluno {
     // ATRIBUTOS
     private int faltas;
-    private Aluno aluno;
-    
-    private List<Atividade> atividade;
+    private Aluno aluno;   
     private Turma turma;
     private int id;
+    private List<Atividade> atividade;
 
     // Construtor com lista de atividades, o aluno e suas presencas
     public SituacaoAluno(Aluno aluno, Turma turma, int id) {
@@ -64,6 +63,14 @@ public class SituacaoAluno {
 
     public Turma getTurma() {
         return turma;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
+
+    public void setFaltas(int faltas) {
+        this.faltas = faltas;
     }
    
 }
