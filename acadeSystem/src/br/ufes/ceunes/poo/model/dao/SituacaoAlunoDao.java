@@ -23,5 +23,6 @@ public interface SituacaoAlunoDao {
     float getNotaFinal(Turma turma, Aluno aluno);
     float getPresenca(Turma turma, Aluno aluno);
     int gerarProximoId();
+    void salvar();
     
 }
