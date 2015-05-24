@@ -18,5 +18,6 @@ public interface DisciplinaDao {
     int gerarProximoId();
     void carregar();
     void salvar(Disciplina disciplina);
+    Disciplina buscarPorNome(Disciplina disciplinaTemp);
     Disciplina buscar(Disciplina disciplina);
 }

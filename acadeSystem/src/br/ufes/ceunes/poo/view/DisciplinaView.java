@@ -74,7 +74,7 @@ public class DisciplinaView {
      */
     
     public boolean existe(Disciplina disciplina){
-        Disciplina disciplinaTemp = disciplinaDao.buscar(new Disciplina(null,null,null,disciplina.getId()));
+        Disciplina disciplinaTemp = disciplinaDao.buscarPorNome(new Disciplina(disciplina.getNome(),null,null,0));
         if(disciplinaTemp.getNome() == null){
             return false;
         }

@@ -23,6 +23,7 @@ import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import com.sun.org.apache.bcel.internal.generic.SIPUSH;
+import java.util.Scanner;
 
 /**
  *
@@ -56,6 +57,7 @@ public class AcadeSystem {
         
         
         MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
+        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
         
         
         menuPrincipal.showOptions();
@@ -63,10 +65,15 @@ public class AcadeSystem {
         while(opcao != menuPrincipal.getSize()){
             switch(opcao){
                 case 1:
-                    System.out.println("Seus programdores são uns bostas e seu programa não está pronto");
+                    menuProfessor.open();
                     return;
                 case 2:
-                    menuAdministrador.open();
+                    
+                    System.out.println("Digite a senha");
+                    String senha = "admin";
+                    if(senha.equals(( new Scanner(System.in)).nextLine())){
+                        menuAdministrador.open();
+                    }
                     break;                    
             }
             menuPrincipal.showOptions();

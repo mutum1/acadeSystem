@@ -1,4 +1,4 @@
-/*
+/*m
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  *
- * @author Usuario
+ * @author Diego
  */
 public class DataImpl implements Data {
     
@@ -25,7 +25,7 @@ public class DataImpl implements Data {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         sdf.setLenient(false);  
-        String dataHoje = data; // 08/11/2014;
+        String dataHoje = data; // 02/12/2013;
 
         try {
             Date dataAuxiliar = sdf.parse(dataHoje);

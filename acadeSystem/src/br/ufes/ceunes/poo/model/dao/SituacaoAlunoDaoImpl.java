@@ -42,7 +42,9 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         id=0;
     }
     /**
-     * @throws Operação não suportada ao carregar o arquivo.
+     * Método responsavel por carregar os dados do arquivo ("Situacoes.txt") para
+     * a lista.
+     * @throws FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar() {
@@ -109,7 +111,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }  
     }
     /**
-     * @throws Operação não suportada ao salvar o arquivo.
+     * Método responsavel por salvar as situação do aluno em uma determinada turma.
+     * @throws UnsupportedOperationException, Operação não suportada ao salvar o arquivo.
      */
     @Override
     public void salvar(SituacaoAluno situacao) {
@@ -135,18 +138,18 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 salvar.write(numerosDeAtividades);//quantos cpfs tem na lista de cpfs
                 
                 salvar.newLine();
+
                 for(Atividade atividade : situacoes.getAtividade()){ 
                     salvar.write(Integer.toString(atividade.getId()));//salva um por um o q esta na lista de atividadees
                     salvar.newLine();
                     salvar.write(Float.toString(atividade.getNota()));//salva um por um o q esta na lista de atividadees
                     salvar.newLine();
                 }
-                
-            }
+            }         
             salvar.close();
             file.close();            
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
-            Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex); 
         } catch (IOException ex) {//Coisa do NetBeans
             Logger.getLogger(SituacaoAlunoDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }  

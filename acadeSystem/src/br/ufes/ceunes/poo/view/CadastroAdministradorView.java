@@ -68,9 +68,8 @@ public class CadastroAdministradorView {
                 case 5:
                     atividadeView.cadastrar();
                     break;
-                    
                 case 6:
-                    
+                    turmaView.cadastrarAlunos();
                     break;
             }
             this.menu.showOptions();

@@ -40,7 +40,10 @@ public class ProfessorDaoImpl implements ProfessorDao {
     private void adicionar(Professor professor){
         listaProfessor.add(professor);
     }
-    
+    /**
+     * Método responsavel por gerar o proximo id do professor.
+     * @return retorna o id do respectivo professor que chamou.
+     */
     @Override
     public int gerarProximoId(){
         return this.id;
@@ -57,7 +60,8 @@ public class ProfessorDaoImpl implements ProfessorDao {
         return listaProfessor;   
     }
     /**
-     * Carrega todos os professores do arquivo em uma lista.
+     * Carrega todos os professores do arquivo (Professores.txt) em uma lista.
+     * @throws FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar(){
@@ -139,7 +143,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Busca na lista professores, utilizando como chave o cpf
      * @param professor
-     * @return professor
+     * @return professor com seus dados preenchidos caso ele exista, caso contrário
+     * retorna o professor com dados pendentes, sendo assim possivel indentificar
+     * se ele existe ou não.
      */
     @Override
     public Professor buscarPorCpf(Professor professor) {
@@ -153,7 +159,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Busca na lista professores, utilizando como chave o id
      * @param professor
-     * @return professor
+     * @return professor com seus dados preenchidos caso ele exista, caso contrário
+     * retorna o professor com dados pendentes, sendo assim possivel indentificar
+     * se ele existe ou não.
      */
     @Override
     public Professor buscar(Professor professor) {
@@ -168,7 +176,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Busca na lista professores, utilizando como chave o nome
      * @param professor
-     * @return professor
+     * @return professor com seus dados preenchidos caso ele exista, caso contrário
+     * retorna o professor com dados pendentes, sendo assim possivel indentificar
+     * se ele existe ou não.
      */
    @Override
     public List buscarPorNome(Professor professor) {
