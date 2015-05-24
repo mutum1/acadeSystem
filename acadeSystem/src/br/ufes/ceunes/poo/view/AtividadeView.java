@@ -24,7 +24,8 @@ public class AtividadeView {
     
     public void cadastrar(){    
         Atividade atividade = getInfo();
-            atividadeDao.salvar(atividade);
+        if(atividade == null) System.out.println("gay");
+        atividadeDao.salvar(atividade);
     } 
     
     public AtividadeView(AtividadeDao atividade,TurmaDao turmaDao){
@@ -57,8 +58,8 @@ public class AtividadeView {
         
         System.out.println("Digite a data da atividade");
         data = input.nextLine();
-
-        Atividade atividade1 = new Atividade(nome,tipo,data,turma,Float.parseFloat(valor),atividadeDao.gerarProximoId());
+        float valorTemp = Float.parseFloat(valor);
+        Atividade atividade1 = new Atividade(nome,tipo,data,turma,valorTemp,02);
         return atividade1;
     }    
     

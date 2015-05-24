@@ -118,7 +118,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     public void salvar(SituacaoAluno situacao) {
         listaSituacoes.add(situacao);
       
-        String nomeArquivo = "Situacoess.txt";//Nome do arquivo
+        String nomeArquivo = "Situacoes.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
