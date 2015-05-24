@@ -12,8 +12,10 @@ import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,16 +66,19 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 idUser = Integer.parseInt(sId);
                 Aluno aluno = alunoAcoes.buscar(new Aluno(null,null,idUser));
                 
-                sId = ler.readLine();//Pega o aluno
+                sId = ler.readLine();//Pega a turma
                 idUser = Integer.parseInt(sId);
                 
                 Turma turma = turmaAcoes.buscar(new Turma(null, null, null, null, 0, null, null, idUser));
                 
+                sId = ler.readLine();//Pega id da situação
+                idUser = Integer.parseInt(sId);
+                                            
+                SituacaoAluno situacaoAluno = new SituacaoAluno(aluno, turma, idUser);
+                
                 Integer nIds;
                 String nIdTemp = ler.readLine();
                 nIds = Integer.parseInt(nIdTemp);
-               
-                SituacaoAluno situacaoAluno = new SituacaoAluno(aluno, turma, id);
                 
                 int i;
                 for(i=0;i<nIds;i++){
@@ -108,8 +113,42 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      */
     @Override
     public void salvar(SituacaoAluno situacao) {
+        listaSituacoes.add(situacao);
       
-        
+        String nomeArquivo = "Situacoess.txt";//Nome do arquivo
+        try {
+            FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
+            BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            salvar.write(Integer.toString(id));
+            salvar.newLine();
+            for(SituacaoAluno situacoes : listaSituacoes){//percorre a lista
+                salvar.write(Integer.toString(situacoes.getFaltas()));//salva nome
+                salvar.newLine();
+                salvar.write(Integer.toString(situacoes.getAluno().getId()));//salva a ementa
+                salvar.newLine();
+                salvar.write(Integer.toString(situacoes.getTurma().getId()));//salva carga horaria
+                salvar.newLine();
+                salvar.write(Integer.toString(situacoes.getId()));//salva o id da disciplina
+                salvar.newLine();
+                String numerosDeAtividades=""+situacoes.getAtividade().size();
+                
+                salvar.write(numerosDeAtividades);//quantos cpfs tem na lista de cpfs
+                
+                salvar.newLine();
+                for(Professor professor : disciplina.listaProfessor() ){ 
+                    salvar.write(professor.getId());//salva um por um o q esta na lista de professores
+                    salvar.newLine();
+                }
+                
+            }
+            salvar.close();
+            file.close();            
+        } catch (FileNotFoundException ex) {//Coisa do NetBeans
+            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {//Coisa do NetBeans
+            Logger.getLogger(SituacoesDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        carregar();
     }
     /**
      * @throws Operação não suportada ao adicionar uma nota.

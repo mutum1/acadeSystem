@@ -124,7 +124,6 @@ public class TurmaDaoImpl implements TurmaDao {
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
-            String size;
             salvar.write(Integer.toString(id));
             salvar.newLine();
             
@@ -142,7 +141,6 @@ public class TurmaDaoImpl implements TurmaDao {
                 salvar.write(Integer.toString(turma.getProfessor().getId()));//salva o id do professor q da aula naquela turma
                 salvar.newLine();
                 salvar.write(Integer.toString(turma.getDisciplina().getId()));//salva o codigo da disciplina naquela turma
-                salvar.newLine();
                 salvar.newLine();
                 salvar.write(Integer.toString(turma.getId()));//salva o codigo da disciplina naquela turma
                 salvar.newLine();
