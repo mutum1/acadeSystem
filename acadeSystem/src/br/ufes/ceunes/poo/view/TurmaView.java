@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
@@ -23,9 +24,11 @@ public class TurmaView {
     TurmaDao turmaDao;
     ProfessorDao professorDao;
     DisciplinaDao disciplinaDao;
+    AlunoDao alunoDao;
     
-    public TurmaView(TurmaDao turma,ProfessorDao professor,DisciplinaDao disciplina){
+    public TurmaView(TurmaDao turma,AlunoDao alunoDao,ProfessorDao professor,DisciplinaDao disciplina){
         this.turmaDao = turma;
+        this.alunoDao = alunoDao;
         this.professorDao = professor;
         this.disciplinaDao = disciplina;
     }
