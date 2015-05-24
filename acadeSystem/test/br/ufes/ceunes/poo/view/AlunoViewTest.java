@@ -15,32 +15,6 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class AlunoViewTest {
-   
-    /**
-     * Cadastra o aluno.
-     */
-    @Test
-    public void testCadastrar() {
-        System.out.println("cadastrar");
-        //Aluno aluno = new Aluno("Felipe", "024.024.024-24", 1);
-        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
-        AlunoView instance = new AlunoView(alunoTest);
-        instance.cadastrar();
-    }
-
-    /**
-     * Pega a informação do alunoView.
-     */
-    @Test
-    public void testGetInfo() {
-        System.out.println("get Info");
-        //Aluno aluno = new Aluno("Felipe", "024.024.024-24", 1);
-        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
-        AlunoView instance = new AlunoView(alunoTest);
-        Aluno expResult = null;
-        Aluno result = instance.getInfo();
-        assertEquals(expResult, result);
-    }
 
     /**
      * Verifica se o aluno existe.

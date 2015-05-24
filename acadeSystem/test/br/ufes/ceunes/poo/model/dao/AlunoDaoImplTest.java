@@ -73,8 +73,8 @@ public class AlunoDaoImplTest {
         Aluno alunoTemp = new Aluno("Rhaister", null, 1);
         AlunoDaoImpl instance = new AlunoDaoImpl();
         AlunoDaoImpl compara = instance;
-        Aluno result = instance.buscarPorNome(alunoTemp);
-        Aluno expResult = compara.buscarPorNome(alunoTemp);
+        List result = instance.buscarPorNome(alunoTemp);
+        List expResult = compara.buscarPorNome(alunoTemp);
         assertEquals(expResult, result);
     }
 
