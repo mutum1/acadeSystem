@@ -165,7 +165,13 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return alunoTemp;
     }
-    
+    /**
+     * Método que busca os aluno por nome na lista.
+     * @param aluno
+     * @return aluno com seus dados preenchidos caso ele exista, caso contrário
+     * retorna o aluno com dados pendentes, sendo assim possivel indentificar
+     * se ele existe ou não.
+     */
 
 
     @Override
