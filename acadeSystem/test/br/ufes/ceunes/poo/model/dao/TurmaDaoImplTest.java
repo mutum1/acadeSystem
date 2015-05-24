@@ -18,9 +18,13 @@ import static org.junit.Assert.*;
  */
 public class TurmaDaoImplTest {
    
+    /**
+     * Get ALL  da lista.
+     */
+    
     @Test
     public void testGetAll() {
-        System.out.println("getAll");
+        System.out.println("get All");
         ProfessorDaoImpl professor = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         AlunoDaoImpl aluno = new AlunoDaoImpl();
@@ -32,7 +36,7 @@ public class TurmaDaoImplTest {
     }
 
     /**
-     * Test of carregar method, of class TurmaDaoImpl.
+     * carrega do arquivo.
      */
     @Test
     public void testCarregar() {
@@ -45,7 +49,7 @@ public class TurmaDaoImplTest {
     }
 
     /**
-     * Test of salvar method, of class TurmaDaoImpl.
+     * Salva no arquivo.
      */
     @Test
     public void testSalvar() {
@@ -61,7 +65,7 @@ public class TurmaDaoImplTest {
     }
 
     /**
-     * Test of buscar method, of class TurmaDaoImpl.
+     * Realiza a Busca.
      */
     @Test
     public void testBuscar() {
@@ -80,11 +84,11 @@ public class TurmaDaoImplTest {
     }
 
     /**
-     * Test of disponibilidadeLocal method, of class TurmaDaoImpl.
+     * Verifica se o local é disponível.
      */
     @Test
     public void testDisponibilidadeLocal() {
-        System.out.println("disponibilidadeLocal");
+        System.out.println("disponibilidade do Local");
         Professor professorTemp = new Professor("Sand", "345.456.567.57", "Agua", 2);
         Disciplina disciplinaTemp = new Disciplina("asd", "qwe", "123as", 3);
         Turma turma = new Turma("2015", "1", "Sala 13", "integral", 50, professorTemp, disciplinaTemp, 1);

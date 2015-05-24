@@ -16,11 +16,8 @@ import static org.junit.Assert.*;
  */
 public class AlunoDaoImplTest {
     
-    public AlunoDaoImplTest() {
-    }
-
     /**
-     * Test of getAll method, of class AlunoDaoImpl.
+     * Instancia um aluno e captura a lista de Alunos.
      */
     @Test
     public void testGetAll() {
@@ -33,7 +30,7 @@ public class AlunoDaoImplTest {
     }
 
     /**
-     * Test of carregar method, of class AlunoDaoImpl.
+     * realiza o teste de carregamento de arquivo.
      */
     @Test
     public void testCarregar() {
@@ -43,7 +40,7 @@ public class AlunoDaoImplTest {
     }
 
     /**
-     * Test of salvar method, of class AlunoDaoImpl.
+     * Instancia um aluno e salva o arquivo - Aluno n pode ser Null.
      */
     @Test
     public void testSalvar() {
@@ -54,11 +51,11 @@ public class AlunoDaoImplTest {
     }
 
     /**
-     * Test of buscarPorCpf method, of class AlunoDaoImpl.
+     * Realiza a busca pelo CPF na lista de alunos - Aluno não pode ser null.
      */
     @Test
     public void testBuscarPorCpf() {
-        System.out.println("buscarPorCpf");
+        System.out.println("buscar Por Cpf");
         Aluno alunoTemp = new Aluno("Diego", "131.700.947-93", 9);
         AlunoDaoImpl instance = new AlunoDaoImpl();
         AlunoDaoImpl compara = instance;
@@ -68,11 +65,11 @@ public class AlunoDaoImplTest {
     }
 
     /**
-     * Test of buscarPorNome method, of class AlunoDaoImpl.
+     * Realiza a busca pelo nome na lista de alunos - Aluno não pode ser null
      */
     @Test
     public void testBuscarPorNome() {
-        System.out.println("buscarPorNome");
+        System.out.println("buscar Por Nome");
         Aluno alunoTemp = new Aluno("Rhaister", null, 1);
         AlunoDaoImpl instance = new AlunoDaoImpl();
         AlunoDaoImpl compara = instance;
@@ -82,7 +79,7 @@ public class AlunoDaoImplTest {
     }
 
     /**
-     * Test of buscar method, of class AlunoDaoImpl.
+     * Busca.
      */
     @Test
     public void testBuscar() {

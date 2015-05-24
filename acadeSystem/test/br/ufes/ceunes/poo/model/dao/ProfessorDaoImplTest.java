@@ -16,15 +16,12 @@ import static org.junit.Assert.*;
  */
 public class ProfessorDaoImplTest {
     
-    public ProfessorDaoImplTest() {
-    }
-
     /**
-     * Test of getAll method, of class ProfessorDaoImpl.
+     * Captura tudo.
      */
     @Test
     public void testGetAll() {
-        System.out.println("getAll");
+        System.out.println("get All");
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         ProfessorDaoImpl compara = instance;
         List expResult = compara.getAll();
@@ -33,7 +30,7 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of carregar method, of class ProfessorDaoImpl.
+     * Carrega do Arquivo.
      */
     @Test
     public void testCarregar() {
@@ -43,7 +40,7 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of salvar method, of class ProfessorDaoImpl.
+     * Salva no Arquivo.
      */
     @Test
     public void testSalvar() {
@@ -54,11 +51,11 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of buscarPorCpf method, of class ProfessorDaoImpl.
+     * Realiza a busca pelo CPF, instancia o professor, pois não pode ser NULL.
      */
     @Test
     public void testBuscarPorCpf() {
-        System.out.println("buscarPorCpf");
+        System.out.println("buscar Por Cpf");
         Professor professor = new Professor("Jesus", "777.777.777-77", "HEAVEN", 777);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
         ProfessorDaoImpl compara = instance;
@@ -68,7 +65,7 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of buscar method, of class ProfessorDaoImpl.
+     * Realiza a busca.
      */
     @Test
     public void testBuscar() {
@@ -82,7 +79,7 @@ public class ProfessorDaoImplTest {
     }
 
     /**
-     * Test of buscarPorNome method, of class ProfessorDaoImpl.
+     * Realiza a busca pelo nome, instancia o professor, pois não pode ser NULL.
      */
     @Test
     public void testBuscarPorNome() {

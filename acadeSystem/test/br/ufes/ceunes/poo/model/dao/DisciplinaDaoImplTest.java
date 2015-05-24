@@ -15,16 +15,13 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class DisciplinaDaoImplTest {
-    
-    public DisciplinaDaoImplTest() {
-    }
 
     /**
-     * Test of getAll method, of class DisciplinaDaoImpl.
+     * Pega todos os dados da Lista.
      */
     @Test
     public void testGetAll() {
-        System.out.println("getAll");
+        System.out.println("get All");
         DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
         DisciplinaDaoImpl compara = instance;
         List expResult = compara.getAll();
@@ -33,7 +30,7 @@ public class DisciplinaDaoImplTest {
     }
 
     /**
-     * Test of carregar method, of class DisciplinaDaoImpl.
+     * Carrega do Arquivo.
      */
     @Test
     public void testCarregar() {
@@ -43,7 +40,7 @@ public class DisciplinaDaoImplTest {
     }
 
     /**
-     * Test of salvar method, of class DisciplinaDaoImpl.
+     * Salva no Arquivo.
      */
     @Test
     public void testSalvar() {
@@ -54,7 +51,7 @@ public class DisciplinaDaoImplTest {
     }
 
     /**
-     * Test of buscar method, of class DisciplinaDaoImpl.
+     * Busca no arquivo.
      */
     @Test
     public void testBuscar() {
