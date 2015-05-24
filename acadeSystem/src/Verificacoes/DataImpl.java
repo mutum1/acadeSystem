@@ -17,7 +17,7 @@ public class DataImpl implements Data {
     
     /**
      * Método para verificar se a data esta no formato correto para ser gravada
-     * @param data
+     * @param data copia da data, para saber se a data é válida.
      * @return True para data válida /False para data inválida.
      */
     @Override

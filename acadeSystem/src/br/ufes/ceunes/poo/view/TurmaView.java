@@ -42,9 +42,6 @@ public class TurmaView {
     /**
      * Método responsavel por cadastrar uma turma em uma lista
      * sem duplicatas.
-     * @param turmaDao
-     * @param disciplinaDao
-     * @param professorDao 
      */
     public void cadastrar(){    
         Turma turma = getInfo();
@@ -53,7 +50,10 @@ public class TurmaView {
         }
     } 
     
-    
+    /**
+     * 
+     * @return 
+     */
     
     public Turma getInfo(){
         

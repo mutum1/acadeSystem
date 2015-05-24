@@ -56,7 +56,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     /**
      * Carrega do arquivo todas as disciplinas e coloca em uma lista 
      * "Disciplina.txt".
-     * @throws FileNotFoundException, IOException, NumberFormatException.
+     * Ativas as exceções FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar(){
@@ -104,8 +104,8 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     }
     /**
      * Salva todas as disciplinas de uma lista em um arquivo Disciplina.txt.
-     * @param disciplinaTemp
-     * @throws FileNotFoundException, IOException.
+     * @param disciplinaAdd lista de disciplinas.
+     * Ativda exceções FileNotFoundException, IOException.
      */
     @Override
     public void salvar(Disciplina disciplinaAdd){
@@ -148,7 +148,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     }
     /**
      * Busca uma disciplina na lista utilizando como chave o id.
-     * @param disciplina
+     * @param disciplina Uma cópia de disciplina apenas com o id.
      * @return lista buscada, caso contrario lista com campos vazios.
      */
     @Override
@@ -162,7 +162,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     }
     /**
      * Método que busca as disciplinas por nome na lista.
-     * @param aluno
+     * @param disciplinaTemp Uma cópia de disciplina apenas com o nome dela.
      * @return a disciplina com seus dados preenchidos caso ele exista, caso contrário
      * retorna a disciplina com dados pendentes, sendo assim possivel indentificar
      * se ele existe ou não.

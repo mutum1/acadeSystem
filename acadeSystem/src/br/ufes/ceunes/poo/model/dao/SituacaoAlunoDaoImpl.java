@@ -44,7 +44,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     /**
      * Método responsavel por carregar os dados do arquivo ("Situacoes.txt") para
      * a lista.
-     * @throws FileNotFoundException, IOException, NumberFormatException.
+     * Ativa as exceções FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar() {
@@ -112,7 +112,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     }
     /**
      * Método responsavel por salvar as situação do aluno em uma determinada turma.
-     * @throws UnsupportedOperationException, Operação não suportada ao salvar o arquivo.
+     * Ativa as exceções UnsupportedOperationException, Operação não suportada ao salvar o arquivo.
      */
     @Override
     public void salvar(SituacaoAluno situacao) {
@@ -158,7 +158,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         carregar();
     }
     /**
-     * @throws Operação não suportada ao adicionar uma nota.
+     * Ativa as exceções Operação não suportada ao adicionar uma nota.
      */
     @Override
     public void addNota(Turma turma, Aluno aluno, Atividade atividade, int nota) {
@@ -173,7 +173,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         situacaoAluno.setFaltas(fatas);
     }
     /**
-     * @throws Operação não suportada ao solicitar a nota final do aluno.
+     * exceção: Operação não suportada ao solicitar a nota final do aluno.
      */
     @Override
     public float getNotaFinal(Turma turma, Aluno aluno) {
@@ -189,7 +189,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     }
     /**
      * procura nas situações do aluno a relação de presenta do mesmo.
-     * @throws Operação não suportada ao solicitar as presenças do aluno.
+     * Exceção Operação não suportada ao solicitar as presenças do aluno.
      */
     @Override
     public float getPresenca(Turma turma, Aluno aluno) {
@@ -207,10 +207,10 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     }
     /**
      * 
-     * @param idTurma
-     * @param idAluno
-     * @param idAtividade
-     * @return 
+     * @param idTurma id da respectiva turma.
+     * @param idAluno id do respectivo aluno.
+     * @param idAtividade id da respectivda atividade.
+     * @return atividade do aluno da turma.
      */
     public Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade){
         for(SituacaoAluno situacaoAluno : listaSituacoes){

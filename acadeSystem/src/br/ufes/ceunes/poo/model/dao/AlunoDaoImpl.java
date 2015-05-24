@@ -58,7 +58,7 @@ public class AlunoDaoImpl implements AlunoDao {
     /**
      * Métodos responsavel por carregar o arquivo para as listas.
      * Os dados estão salvos em um arquivo "Alunos.txt", percorrendo o arquivo
-     * @throws Ativa exeções quando o arquivo não é encontrado, e quando o
+     * Ativa exeções quando o arquivo não é encontrado, e quando o
      * id está fora do formato.
      */
     @Override
@@ -100,9 +100,9 @@ public class AlunoDaoImpl implements AlunoDao {
     }
     /**
      * Salva a lista de alunos em um arquivo.
-     * @param alunoTemp 
+     * @param alunoAdd 
      * Os dados são salvos em um arquivo "Alunos.txt", percorrendo a lista
-     * @throws Ativa as exeções FileNotFoundException e IOException.
+     * Ativa as exeções FileNotFoundException e IOException.
      */
     
     @Override
@@ -136,7 +136,7 @@ public class AlunoDaoImpl implements AlunoDao {
     }
     /**
      * Procura um aluno na lista, utilizando CPF como chave.
-     * @param alunoTemp
+     * @param alunoTemp  uma cópia de aluno apenas com o Cpf.
      * @return aluno se encontrar, ou retorna um aluno com campos vazios
      */
     @Override
@@ -152,7 +152,7 @@ public class AlunoDaoImpl implements AlunoDao {
 
     /**
      * Busca aluno na lista, utilizando como chave o id
-     * @param alunoTemp
+     * @param alunoTemp Uma cópia de aluno apenas com o id.
      * @return aluno se existe ... aluno com cambos vazios caso contrario.
      */
     @Override
@@ -167,7 +167,7 @@ public class AlunoDaoImpl implements AlunoDao {
     }
     /**
      * Método que busca os aluno por nome na lista.
-     * @param aluno
+     * @param aluno Uma cópia de aluno apenas com o nome.
      * @return aluno com seus dados preenchidos caso ele exista, caso contrário
      * retorna o aluno com dados pendentes, sendo assim possivel indentificar
      * se ele existe ou não.

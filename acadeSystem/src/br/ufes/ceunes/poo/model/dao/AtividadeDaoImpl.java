@@ -39,7 +39,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
     /**
      * Carrega todos as atividades do arquivo na lista de atividades
      * os dados são pegos no arquivo "Atividades.txt".
-     * @throws FileNotFoundException, IOException, NumberFormatException.
+     * Ativa as exceções FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar() {
@@ -83,8 +83,8 @@ public class AtividadeDaoImpl implements AtividadeDao {
     /**
      * Pegar todas as atividades na lista e salva dentro de um arquivo 
      * "Atividades.txt".
-     * @param atividadeTemp
-     * @throws FileNotFoundException, IOException.
+     * @param atividadeTemp.
+     * Ativa as exceções FileNotFoundException, IOException.
      */
     @Override
     public void salvar(Atividade atividadeTemp) {
@@ -124,7 +124,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
     }
     /**
      * Busca a atividade utilizando como chave o id.
-     * @param atividade
+     * @param atividade Uma cópia da atividade apenas com o id.
      * @return a atividade de interesse, ou um atividade com campos vazios
      */
     @Override

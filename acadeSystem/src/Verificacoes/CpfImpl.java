@@ -19,7 +19,7 @@ public class CpfImpl implements Cpf {
     /**
      * Método principal para verificar se o cpf esta valido (faz a chamada das
      * outras funções)
-     * @param cpf
+     * @param cpf CPF digitado
      * @return true caso seja valido, false no caso contrario.
      */
     @Override
@@ -40,7 +40,7 @@ public class CpfImpl implements Cpf {
 
     /**
      * Remove os caracteres invalidos para que possa ser efetuado as operações com cpf.
-     * @param cpf
+     * @param cpf primeira chamada do cpf digitado para remover os char's invalidos.
      * @return o cpf sem os caracteres invalidos.
      */
     @Override
@@ -50,7 +50,7 @@ public class CpfImpl implements Cpf {
     
     /**
      * Verifica se o tamanho do cpf é valido (11).
-     * @param cpf
+     * @param cpf CPF sem os caracteres invalidos.
      * @return True se for valido/False em caso contrario.
      */
     @Override
@@ -61,7 +61,7 @@ public class CpfImpl implements Cpf {
     } 
     /**
      * Verifica se os digitos do cpf sao validos.
-     * @param cpf
+     * @param cpf cpf no formato correto, para que se verifique o digito verificador.
      * @return True caso os digitos satisfazem a condição de cpf/ False no caso
      * contrario.
      */
@@ -79,7 +79,7 @@ public class CpfImpl implements Cpf {
 
     /**
      * Faz o calculo efetivo do cpf (algoritmo).
-     * @param cpf
+     * @param cpf cpf para verificar o digito verificador.
      * @return digito verificador.
      */
     @Override

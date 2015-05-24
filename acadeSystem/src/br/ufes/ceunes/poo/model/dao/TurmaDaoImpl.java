@@ -53,7 +53,7 @@ public class TurmaDaoImpl implements TurmaDao {
     }
     /**
      * Retorna a lista de todas as turmas.
-     * @return 
+     * @return a lista de turmas.
      */
     @Override
     public List getAll(){//retorna a lista de turma
@@ -113,7 +113,7 @@ public class TurmaDaoImpl implements TurmaDao {
     }
     /**
      * Salva todas as turmas que estão numa lista em um arquivo.
-     * @param turmaTemp 
+     * @param turmaAdd lista de turmas para que seja salva no arquivo.
      */
     @Override
     public void salvar(Turma turmaAdd){
@@ -157,7 +157,7 @@ public class TurmaDaoImpl implements TurmaDao {
     }
     /**
      * Busca na lista turmas, utilizando como chave o id
-     * @param turma
+     * @param turma Uma cópia de turma apenas com o id.
      * @return uma turma, caso contrario retorna uma turma com campos vazios.
      */
     @Override
@@ -173,8 +173,8 @@ public class TurmaDaoImpl implements TurmaDao {
     /**
      * Verifica se há alguma outra turma no mesmo local e horario, para que não
      * de comflito na geração das turmas.
-     * @param turma
-     * @return turma.
+     * @param turma lista de turmas
+     * @return turma se for disponivel o horario.
      */
     @Override
     public Turma disponibilidadeLocal(Turma turma) {

@@ -55,7 +55,7 @@ public class AlunoView {
     
     /**
      * Método que verifica se um aluno com determinado id existe.
-     * @param aluno
+     * @param aluno o aluno ao qual quer saber se
      * @return True/False
      */
     public boolean existe(Aluno aluno){

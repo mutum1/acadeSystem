@@ -61,7 +61,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
     /**
      * Carrega todos os professores do arquivo (Professores.txt) em uma lista.
-     * @throws FileNotFoundException, IOException, NumberFormatException.
+     * Ativda exceções FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar(){
@@ -99,7 +99,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
     /**
      * Pega todos os professores na lista e salva em um arquivo.
-     * @param professorTemp 
+     * @param professorAdd lista de professores.
      */
     @Override
     public void salvar(Professor professorAdd){
@@ -133,7 +133,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
     /**
      * Busca na lista professores, utilizando como chave o cpf
-     * @param professor
+     * @param professor Uma cópia de professor apenas com o cpf.
      * @return professor com seus dados preenchidos caso ele exista, caso contrário
      * retorna o professor com dados pendentes, sendo assim possivel indentificar
      * se ele existe ou não.
@@ -149,7 +149,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
     /**
      * Busca na lista professores, utilizando como chave o id
-     * @param professor
+     * @param professor Uma cópia de professor apenas com o id.
      * @return professor com seus dados preenchidos caso ele exista, caso contrário
      * retorna o professor com dados pendentes, sendo assim possivel indentificar
      * se ele existe ou não.
@@ -166,7 +166,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     }
     /**
      * Busca na lista professores, utilizando como chave o nome
-     * @param professor
+     * @param professor Uma cópia de professor apenas com o nome.
      * @return professor com seus dados preenchidos caso ele exista, caso contrário
      * retorna o professor com dados pendentes, sendo assim possivel indentificar
      * se ele existe ou não.

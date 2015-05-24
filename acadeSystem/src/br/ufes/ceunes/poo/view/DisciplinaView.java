@@ -18,10 +18,6 @@ import java.util.Scanner;
 public class DisciplinaView {
     
     DisciplinaDao disciplinaDao;
-   /**
-    * Construtor da Disciplina.
-    * @param disciplina 
-    */
     
     public DisciplinaView(DisciplinaDao disciplina){
         this.disciplinaDao = disciplina;
@@ -30,7 +26,6 @@ public class DisciplinaView {
     /**
      * Método responsavel por cadastrar uma disciplina em uma lista
      * sem duplicatas.
-     * @param disciplinaDao 
      */
     public void cadastrar(){        
         Disciplina disciplina = getInfo();
@@ -69,7 +64,6 @@ public class DisciplinaView {
     /**
      * Métodos responsavel por não permitir duplicatas de disciplina na lista.
      * @param disciplina
-     * @param disciplinaDao
      * @return True se existe na alista/ False caso não exista.
      */
     

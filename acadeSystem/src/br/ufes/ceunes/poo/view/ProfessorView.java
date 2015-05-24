@@ -27,7 +27,6 @@ public class ProfessorView {
     /**
      * Método responsavel por cadastrar um professor em uma lista
      * sem duplicatas.
-     * @param professorDao 
      */
     public void cadastrar(){    
         Professor professor = getInfo();
@@ -66,7 +65,6 @@ public class ProfessorView {
     /**
      * Método responsavel por verifica se o professor já existe na lista.
      * @param professor
-     * @param professorDao
      * @return True se existe na lista/ False caso não exista.
      */
     
