@@ -31,6 +31,7 @@ public class MenuAdministradorView {
         menu.setTitle("ACADEsYSTEM - Menu principal");
         menu.addOption("Cadastros");//adiciona opçoes no menu
         menu.addOption("Listagens");
+        menu.addOption("Consultas");
         //colocar aqui outras opcoes
         menu.addOption("Sair");  
         
