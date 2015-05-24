@@ -84,13 +84,7 @@ public class AlunoDaoImpl implements AlunoDao {
                 Aluno novo = new Aluno(nome,cpf,idUser);
                 adicionar(novo);//Adiciona na lista
             }
-            
-            if((id-1)== (idUser)){//verifica se os ids estao certos
-                System.out.println("\n ID'S CERTOS\n");
-            }
-            else
-                System.out.println("\n ID'S errados\n id usuario:"+idUser+"\n id set:"+id);
-            
+                        
             
             file.close();//Fecho o arquivo
             ler.close();           
