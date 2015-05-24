@@ -40,12 +40,12 @@ public class AcadeSystem {
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
         TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
         AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
-        SituacaoAlunoDao situacaoAlunoDao = new SituacaoAlunoDaoImpl(alunoDao, atividadeDao);
+        SituacaoAlunoDao situacaoAlunoDao = new SituacaoAlunoDaoImpl(alunoDao, atividadeDao, turmaDao);
         
         AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
         DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
-        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao); // Enviado uma turmaDao para uma turmaView
+        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao);// Enviado uma turmaDao para uma turmaView
         AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
   
         Menu menuPrincipal = new Menu();
