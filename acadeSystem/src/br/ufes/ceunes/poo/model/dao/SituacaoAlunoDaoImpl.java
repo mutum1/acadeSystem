@@ -118,16 +118,18 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     public void salvar(SituacaoAluno situacao) {
         listaSituacoes.add(situacao);
       
-        String nomeArquivo = "Situacoess.txt";//Nome do arquivo
+        String nomeArquivo = "Situacoes.txt";//Nome do arquivo
         try {
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            
             salvar.write(Integer.toString(id));
             salvar.newLine();
+            
             for(SituacaoAluno situacoes : listaSituacoes){//percorre a lista
-                salvar.write(Integer.toString(situacoes.getFaltas()));//salva nome
+                salvar.write(Integer.toString(situacoes.getFaltas()));//salva faltas
                 salvar.newLine();
-                salvar.write(Integer.toString(situacoes.getAluno().getId()));//salva a ementa
+                salvar.write(Integer.toString(situacoes.getAluno().getId()));//salva id aluno
                 salvar.newLine();
                 salvar.write(Integer.toString(situacoes.getTurma().getId()));//salva carga horaria
                 salvar.newLine();
