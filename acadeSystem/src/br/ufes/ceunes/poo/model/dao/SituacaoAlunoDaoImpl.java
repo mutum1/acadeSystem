@@ -10,6 +10,7 @@ import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
+import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,12 +29,14 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     List<SituacaoAluno> listaSituacoes;
     AlunoDao alunoAcoes;
     AtividadeDao atividadeAcoes;
+    TurmaDao turmaAcoes;
     int id;
     
-    public SituacaoAlunoDaoImpl(AlunoDao alunoDao, AtividadeDao atividadeDao){
+    public SituacaoAlunoDaoImpl(AlunoDao alunoDao, AtividadeDao atividadeDao,TurmaDao turmaDao){
         listaSituacoes = new ArrayList<>();
         this.alunoAcoes = alunoDao;
         this.atividadeAcoes=atividadeDao;
+        turmaAcoes=turmaDao;
         id=0;
     }
     /**
@@ -57,14 +60,21 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 String sFalta = ler.readLine();//Pega falta
                 int falta = Integer.parseInt(sFalta);
                
-                String sIdAluno = ler.readLine();//Pega ementa
-                idUser = Integer.parseInt(sIdAluno);
+                String sId = ler.readLine();//Pega o aluno
+                idUser = Integer.parseInt(sId);
                 Aluno aluno = alunoAcoes.buscar(new Aluno(null,null,idUser));
+                
+                sId = ler.readLine();//Pega o aluno
+                idUser = Integer.parseInt(sId);
+                
+                Turma turma = turmaAcoes.buscar(new Turma(null, null, null, null, 0, null, null, idUser));
                 
                 Integer nIds;
                 String nIdTemp = ler.readLine();
                 nIds = Integer.parseInt(nIdTemp);
                
+                SituacaoAluno situacaoAluno = new SituacaoAluno(aluno, turma, id);
+                
                 int i;
                 for(i=0;i<nIds;i++){
                     nIdTemp = ler.readLine();
@@ -73,8 +83,10 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                     
                     String notaTemp = ler.readLine();
                     float nota= Float.parseFloat(notaTemp);
-                    atividade.setNota(nota);
+                    atividade = atividade.copiaComNota(nota);
+                    situacaoAluno.addAtividade(atividade);
                 }
+                aluno.addSituacao(situacaoAluno);
             }
             
             file.close();//Fecho o arquivo
@@ -94,7 +106,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      */
     @Override
     public void salvar(SituacaoAluno situacao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     /**
      * @throws Operação não suportada ao adicionar uma nota.
@@ -122,6 +134,11 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      */
     @Override
     public float getPresenca(int idTruma, int idAluno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int gerarProximoId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

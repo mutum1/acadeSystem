@@ -31,8 +31,10 @@ public class Atividade {
                
     }
     
-    public Atividade copiaComNota(int nota){
-        return new Atividade(this.nome, this.tipo, this.data, this.turma, this.valor, this.id);
+    public Atividade copiaComNota(float nota){
+        Atividade atividade = new Atividade(this.nome, this.tipo, this.data, this.turma, this.valor, this.id);
+        atividade.nota=nota;
+        return atividade;
     }
     // Construtor de atividades (6 parametros)
     public Atividade(String nome, String tipo, String data,Turma turma ,float valor, int id) {
@@ -41,7 +43,7 @@ public class Atividade {
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
-        this.nota = -1;
+        this.nota = 0;
         this.id = id;
     }
 

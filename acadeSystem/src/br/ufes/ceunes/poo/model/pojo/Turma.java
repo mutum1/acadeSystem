@@ -109,8 +109,10 @@ public class Turma {
     }
     
     // Adiciona um aluno na turma
-    public void addAluno(Aluno aluno){
+    public void addAluno(Aluno aluno, int id){
+        aluno.addSituacao(new SituacaoAluno(aluno, this, id));
         listAlunos.add(aluno);
+        
     }
 
     public List<Atividade> getListAtividades() {
@@ -138,7 +140,7 @@ public class Turma {
 
     public void aplicarAtividade(Atividade novaAtividade) {
         for(Aluno aluno : listAlunos){
-          // if(.) - Comentei para a realização de testes - desconsiderm-na
+        
         }
     }
     
