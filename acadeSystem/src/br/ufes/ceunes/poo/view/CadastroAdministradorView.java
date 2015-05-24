@@ -20,7 +20,7 @@ import br.ufes.ceunes.poo.model.pojo.Turma;
  * @author paulo
  */
 
-public class CadastroView {
+public class CadastroAdministradorView {
 
     private AlunoView alunoView;
     private ProfessorView professorView;
@@ -29,7 +29,7 @@ public class CadastroView {
     private AtividadeView atividadeView;
     private Menu menu;
 
-    public CadastroView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;

@@ -41,37 +41,30 @@ public class AcadeSystem {
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
         DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
         TurmaView turmaView = new TurmaView(turmaDao,professorDao,disciplinaDao); // Enviado uma turmaDao para uma turmaView
-
-        
         AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
+  
+        Menu menuPrincipal = new Menu();
+        menuPrincipal.setTitle("ACADEsYSTEM\n\nVocê é uma administrador ou um professor?");
+        menuPrincipal.addOption("Professor");
+        menuPrincipal.addOption("Administrador");
         
-        Menu menuPrincipal = new Menu();        
-        int opcao = 0;
         
-       // Carregado lista de turmas do arquivo
+        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
         
-        menuPrincipal.setTitle("ACADEsYSTEM - Menu principal");
-        menuPrincipal.addOption("Cadastros");//adiciona opçoes no menu
-        menuPrincipal.addOption("Listagens");
-        //colocar aqui outras opcoes
-        menuPrincipal.addOption("Sair");  
         
         menuPrincipal.showOptions();
-        
-        opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
+        int opcao = menuPrincipal.getOption();
         while(opcao != menuPrincipal.getSize()){
-          
             switch(opcao){
                 case 1:
-                    (new CadastroView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
-                    break;  
+                    System.out.println("Seus programdores são uns bostas e seu programa não está pronto");
+                    return;
                 case 2:
-                    (new ListagemView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
-                    break;
+                    menuAdministrador.open();
+                    break;                    
             }
             menuPrincipal.showOptions();
-            opcao = menuPrincipal.getOption();//retorna a opçao digitada pelo usuario
-            
+            opcao = menuPrincipal.getOption();
         }
         
     }
