@@ -29,7 +29,16 @@ public class SituacaoAluno {
         this.id = id;
     }
     
-
+    public float getNotaFinal() {
+        float nota=0;
+        int numeroAtividades=0;
+        numeroAtividades=atividade.size();
+        for(Atividade atividade : atividade){
+            nota = nota+atividade.getNota();
+        }
+        nota=nota/numeroAtividades;
+        return nota;
+    }
     // Retorna todas as caracteristicas do aluno
     public Aluno getAluno() {
         return aluno;
