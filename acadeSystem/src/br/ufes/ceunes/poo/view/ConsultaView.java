@@ -41,21 +41,24 @@ public class ConsultaView {
         
         this.menu.showOptions();
         int opcao = menu.getOption();
+        String nome;
         while(opcao != menu.getSize()){
             switch(opcao){
                 case 1:
-                    //alunoView.cadastrar();
+                    System.out.println("Digite o nome para a consulta");
+                    nome = (new Scanner(System.in)).nextLine();
+                    alunoView.consultarPorNome(nome);
                     break;
                 case 2:
-                    System.out.println("Digite o nome para a consult");
-                    String nome = (new Scanner(System.in)).nextLine();
+                    System.out.println("Digite o nome para a consulta");
+                    nome = (new Scanner(System.in)).nextLine();
                     professorView.consultarPorNome(nome);
                     break;
                 case 3:
-                    //disciplinaView.cadastrar();
+                   // disciplinaView.consultar();
                     break;
                 case 4:
-                    //turmaView.cadastrar();
+                    turmaView.consultar();
                     break;
                 case 5:
                    // atividadeView.cadastrar();

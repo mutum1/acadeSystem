@@ -152,5 +152,45 @@ public class TurmaView {
         
     }
     
+    public void consultar(){
+        Scanner input = new Scanner(System.in);
+        String codigo;
+        String ano;
+        String periodo;
+        Disciplina disciplina;
+        Turma turma;
+        List<Turma> listaTurmas;
+        float nota;
+        int faltas;
+        SituacaoAluno situacaoAluno;
+        
+        System.out.println("Digite o codigo da disciplina");
+        codigo = input.nextLine();
+        disciplina = new Disciplina(null, null, null, Integer.parseInt(codigo));
+        disciplina = disciplinaDao.buscar(disciplina);
+        
+        System.out.println("Digite o ano");
+        ano = input.nextLine();
+        System.out.println("Digite o periodo");
+        periodo = input.nextLine();
+        
+        turma = new Turma(ano, periodo, null, null, 0, null, disciplinaDao.buscar(disciplina), 0);
+        listaTurmas = buscarPorDisicplina(turma);
+        
+         for(Turma turmaTemp : listaTurmas){
+             System.out.println(turmaTemp);
+
+             for(Aluno alunotemp : turmaTemp.getListaAlunos()){
+                 situacaoAluno = alunotemp.getSituacaoAluno(turma);
+                 System.out.println(situacaoAluno);
+             
+             }
+             
+        }
+        
+        
+        
+    
+    }
     
 }
