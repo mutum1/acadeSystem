@@ -139,5 +139,18 @@ public class TurmaView {
     
     }
     
+    public void cadastrarAlunos(){
+        Scanner input = new Scanner(System.in);
+        String id;
+        Turma turma;
+        System.out.println("Cadastros de alunos na turma");
+        System.out.println("Digite o ID da turma");
+        id = input.nextLine();
+        turma = turmaDao.buscar(new Turma(null, null, null, null, 0, null, null,Integer.parseInt(id)));
+        
+        if(turma.getHorario() != null)cadastrarAlunos(turma);
+        
+    }
+    
     
 }

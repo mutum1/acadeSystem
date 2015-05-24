@@ -135,6 +135,7 @@ public class Turma {
                "\nPeríodo:   "+ano+"/"+periodo+
                "\nHorário:   "+horario+
                "\nLocal:     "+local+
+               "\nID:        "+id+
                "\nQuantidade de vagas: "+nVagas;        
     }
 
