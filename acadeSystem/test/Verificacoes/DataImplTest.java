@@ -14,13 +14,12 @@ import static org.junit.Assert.*;
  */
 public class DataImplTest {
     
-  
     /**
-     * Verifica se a data é valida dentro co contexto real.
+     * Verifica se a data é valida dentro do contexto real.
      */
     @Test
     public void testVerificaData() {
-        System.out.println("verificaData");
+        System.out.println("Verifica a Data");
         String data = "29/02/2015";
         DataImpl instance = new DataImpl();
         boolean expResult = false;

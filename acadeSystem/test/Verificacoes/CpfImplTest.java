@@ -13,10 +13,6 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class CpfImplTest {
-    
-    public CpfImplTest() {
-    }
-
     /**
      * Verifica se o CPF é valido.
      */
@@ -35,7 +31,7 @@ public class CpfImplTest {
      */
     @Test
     public void testRemoveInvalidsCharacters() {
-        System.out.println("131.700.947-93");
+        System.out.println("Remove Caracteres");
         String cpf = "13170094793";
         CpfImpl instance = new CpfImpl();
         String expResult = "13170094793";
@@ -61,7 +57,7 @@ public class CpfImplTest {
      */
     @Test
     public void testIsValidDigits() {
-        System.out.println("Verifica se a entrada n e Zero");
+        System.out.println("Verifica se a entrada não é Zero");
         String cpf = "00000000000";
         CpfImpl instance = new CpfImpl();
         boolean expResult = true;
@@ -70,11 +66,11 @@ public class CpfImplTest {
     }
 
     /**
-     * Realiza io calculo do Cpf.
+     * Realiza o calculo do Cpf.
      */
     @Test
     public void testCalculoComCpf() {
-        System.out.println("calculoComCpf");
+        System.out.println("Efetua o Calculo de Validade de CPF");
         String cpf = "782.249.187-34";
         CpfImpl instance = new CpfImpl();
         String expResult = "0";
