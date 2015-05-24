@@ -20,7 +20,7 @@ public interface AlunoDao {
     void carregar();
     void salvar(Aluno aluno);
     Aluno buscar(Aluno aluno);
-    Aluno buscarPorNome(Aluno aluno);
     Aluno buscarPorCpf(Aluno aluno);
+    List buscarPorNome(Aluno aluno);
    
 }

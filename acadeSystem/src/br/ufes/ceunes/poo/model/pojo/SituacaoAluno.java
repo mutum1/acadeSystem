@@ -29,16 +29,6 @@ public class SituacaoAluno {
         this.id = id;
     }
     
-    
-    // Retorna a taxa de presenca do aluno
-    public float getPresenca() {
-        return faltas;
-    }
-
-    // Modifica a taxa de presenta do aluno
-    public void setPresenca(float presenca) {
-        this.faltas = faltas;
-    }
 
     // Retorna todas as caracteristicas do aluno
     public Aluno getAluno() {
