@@ -1,9 +1,5 @@
-2
+1
 leonardo
-5
+1
 dcel
 1
-paulo
-6
-dcel
-2
