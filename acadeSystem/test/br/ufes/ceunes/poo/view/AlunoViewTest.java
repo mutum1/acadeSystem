@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,61 +15,56 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class AlunoViewTest {
-    
-    public AlunoViewTest() {
-    }
-
+   
     /**
-     * Test of cadastrar method, of class AlunoView.
+     * Cadastra o aluno.
      */
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        AlunoView instance = null;
+        //Aluno aluno = new Aluno("Felipe", "024.024.024-24", 1);
+        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
+        AlunoView instance = new AlunoView(alunoTest);
         instance.cadastrar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getInfo method, of class AlunoView.
+     * Pega a informação do alunoView.
      */
     @Test
     public void testGetInfo() {
-        System.out.println("getInfo");
-        AlunoView instance = null;
+        System.out.println("get Info");
+        //Aluno aluno = new Aluno("Felipe", "024.024.024-24", 1);
+        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
+        AlunoView instance = new AlunoView(alunoTest);
         Aluno expResult = null;
         Aluno result = instance.getInfo();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of existe method, of class AlunoView.
+     * Verifica se o aluno existe.
      */
     @Test
     public void testExiste() {
         System.out.println("existe");
-        Aluno aluno = null;
-        AlunoView instance = null;
+        Aluno aluno = new Aluno("Felipe", "024.024.024-24", 1);
+        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
+        AlunoView instance = new AlunoView(alunoTest);
         boolean expResult = false;
         boolean result = instance.existe(aluno);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of listar method, of class AlunoView.
+     * lista todos os alunos
      */
     @Test
     public void testListar() {
         System.out.println("listar");
-        AlunoView instance = null;
+        AlunoDaoImpl alunoTest = new AlunoDaoImpl();
+        AlunoView instance = new AlunoView(alunoTest);
         instance.listar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
