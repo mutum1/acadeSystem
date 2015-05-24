@@ -160,6 +160,13 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }
         return disciplina;
     }
+    /**
+     * Método que busca as disciplinas por nome na lista.
+     * @param aluno
+     * @return a disciplina com seus dados preenchidos caso ele exista, caso contrário
+     * retorna a disciplina com dados pendentes, sendo assim possivel indentificar
+     * se ele existe ou não.
+     */
     @Override
     public Disciplina buscarPorNome(Disciplina disciplinaTemp) {
         
