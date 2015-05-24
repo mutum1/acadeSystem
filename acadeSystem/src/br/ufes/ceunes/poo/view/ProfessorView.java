@@ -71,7 +71,7 @@ public class ProfessorView {
      */
     
     public boolean existe(Professor professor){
-        Professor professorTemp = professorDao.buscar(new Professor(null,null,null,professor.getId()));
+        Professor professorTemp = professorDao.buscarPorCpf(new Professor(null,null,professor.getCpf(),0));
         if(professorTemp.getNome() == null){
             return false;
         }

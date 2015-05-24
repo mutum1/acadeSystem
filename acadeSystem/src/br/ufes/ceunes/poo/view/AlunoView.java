@@ -59,13 +59,13 @@ public class AlunoView {
      * @return True/False
      */
     public boolean existe(Aluno aluno){
-        Aluno alunoTemp = alunoDao.buscar(new Aluno(null,null,aluno.getId()));
+        Aluno alunoTemp = alunoDao.buscarPorCpf(new Aluno(null,aluno.getCpf(),0));
         if(alunoTemp.getNome() == null){
             return false;
         }
         return true;
     }  
-    
+        
     /**
      * Imprime todos os alunos por nome e cpf.
      */

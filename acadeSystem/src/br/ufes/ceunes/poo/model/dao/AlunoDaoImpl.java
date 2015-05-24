@@ -159,7 +159,7 @@ public class AlunoDaoImpl implements AlunoDao {
     public Aluno buscarPorNome(Aluno alunoTemp) {
         
         for(Aluno aluno : listaAlunos){
-            if(alunoTemp.getNome().equals(aluno.getNome())){
+            if(alunoTemp.getNome().contains(aluno.getNome())){
                 return aluno;
             }
         }
