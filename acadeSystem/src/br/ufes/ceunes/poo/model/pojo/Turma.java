@@ -125,6 +125,10 @@ public class Turma {
         return id;
     }
     public void addAtividade(Atividade atividade){
+        for(Aluno aluno:listAlunos){
+            Atividade atividadeCpy=atividade.copiaComNota(0);
+            aluno.getSituacaoAluno(this).addAtividade(atividadeCpy);
+        }
         this.listAtividades.add(atividade);
     }
     

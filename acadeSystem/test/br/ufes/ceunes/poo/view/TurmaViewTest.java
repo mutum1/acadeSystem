@@ -21,29 +21,7 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class TurmaViewTest {
-    
-    /**
-     * testa a função cadastrar turma.
-     */
-    @Test
-    public void testCadastrar() {
-        System.out.println("cadastrar");
-        TurmaView instance = new TurmaView(null, null, null);
-        instance.cadastrar();
-    }
-
-    /**
-     * Testa a função que captura a informação da classe turmas.
-     */
-    @Test
-    public void testGetInfo() {
-        System.out.println("getInfo");
-        TurmaView instance = new TurmaView(null, null, null);
-        Turma expResult = null;
-        Turma result = instance.getInfo();
-        assertEquals(expResult, result);
-    }
-
+   
     /**
      * Testa a função que verifica se o local estava disponível.
      */
@@ -57,7 +35,7 @@ public class TurmaViewTest {
         ProfessorDaoImpl professorTest = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplinaTest = new DisciplinaDaoImpl(professorTest);
         TurmaDaoImpl turmaTest = new TurmaDaoImpl(professorTest, disciplinaTest, alunoTest);
-        TurmaView instance = new TurmaView(turmaTest, professorTest, disciplinaTest);
+        TurmaView instance = new TurmaView(turmaTest, alunoTest, professorTest, disciplinaTest, null);
         boolean expResult = true;
         boolean result = instance.localDisponivel(turma);
         assertEquals(expResult, result);
@@ -73,7 +51,7 @@ public class TurmaViewTest {
         ProfessorDaoImpl professor = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         TurmaDaoImpl turma = new TurmaDaoImpl(professor, disciplina, aluno);
-        TurmaView instance = new TurmaView(turma, professor, disciplina);
+        TurmaView instance = new TurmaView(turma, aluno, professor, disciplina, null);
         instance.listar();
     }
     
