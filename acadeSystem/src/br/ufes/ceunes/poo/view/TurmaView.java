@@ -127,14 +127,15 @@ public class TurmaView {
         cpf = input.nextLine();
         aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
         if(aluno.getNome() == null) System.out.println("Não existe aluno");
+        
+        
         while(!cpf.equals("0") && aluno.getNome() != null){
             situacaoAluno = new SituacaoAluno(aluno, turma, situacaoAlunoDao.gerarProximoId());
             turma.addAluno(situacaoAluno);
             situacaoAlunoDao.salvar(situacaoAluno);
-        System.out.println("Digite o cpf do aluno,(Digite '0' para sair)");
-        cpf = input.nextLine();
-        aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
-                
+            System.out.println("Digite o cpf do aluno,(Digite '0' para sair)");
+            cpf = input.nextLine();
+            aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
         }
     
     }
@@ -175,22 +176,18 @@ public class TurmaView {
         periodo = input.nextLine();
         
         turma = new Turma(ano, periodo, null, null, 0, null, disciplinaDao.buscar(disciplina), 0);
-        listaTurmas = buscarPorDisicplina(turma);
+        listaTurmas = turmaDao.buscarPorDisciplina(turma);
         
          for(Turma turmaTemp : listaTurmas){
              System.out.println(turmaTemp);
 
-             for(Aluno alunotemp : turmaTemp.getListaAlunos()){
-                 situacaoAluno = alunotemp.getSituacaoAluno(turma);
-                 System.out.println(situacaoAluno);
+             for(Aluno alunoTemp : turmaTemp.getListaAlunos()){
+                 situacaoAluno = alunoTemp.getSituacaoAluno(turma);
+                 System.out.println(alunoTemp);
              
              }
              
         }
-        
-        
-        
-    
     }
     
 }

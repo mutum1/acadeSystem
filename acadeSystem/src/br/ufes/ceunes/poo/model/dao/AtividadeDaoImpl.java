@@ -35,16 +35,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
         carregar();
         
     }
-    /**
-     * 
-     * @param atividade
-     * @param turma 
-     */
-    private void aplicaAtividade(Atividade atividade, Turma turma){
-        for(Aluno aluno : turma.getListaAlunos()){
-            
-        }
-    }
+
     /**
      * Carrega todos as atividades do arquivo na lista de atividades
      * os dados são pegos no arquivo "Atividades.txt".
@@ -101,8 +92,13 @@ public class AtividadeDaoImpl implements AtividadeDao {
         listaAtividades.add(atividadeTemp);
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {
+            System.out.println("SDFLAJFG");
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
+            
+            salvar.write(Integer.toString(id));
+            salvar.newLine();
+            
             for(Atividade atividade : listaAtividades){//percorre a lista
                 salvar.write(atividade.getNome());//salva nome
                 salvar.newLine();

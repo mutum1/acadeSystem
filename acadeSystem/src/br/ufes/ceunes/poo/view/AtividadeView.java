@@ -24,10 +24,11 @@ public class AtividadeView {
     
     public void cadastrar(){    
         Atividade atividade = getInfo();
-            atividadeDao.salvar(atividade);
+        System.out.println(atividade);
+        atividadeDao.salvar(atividade);
     } 
     
-    public AtividadeView(AtividadeDao atividade,TurmaDao turmaDao){
+    public AtividadeView(AtividadeDao atividadeDao,TurmaDao turmaDao){
         this.atividadeDao = atividadeDao;
         this.turmaDao = turmaDao;
     }
@@ -57,8 +58,8 @@ public class AtividadeView {
         
         System.out.println("Digite a data da atividade");
         data = input.nextLine();
-
-        Atividade atividade1 = new Atividade(nome,tipo,data,turma,Float.parseFloat(valor),atividadeDao.gerarProximoId());
+        float valorTemp = Float.parseFloat(valor);
+        Atividade atividade1 = new Atividade(nome,tipo,data,turma,valorTemp,atividadeDao.gerarProximoId());
         return atividade1;
     }    
     
