@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -14,61 +15,52 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class ProfessorViewTest {
-    
-    public ProfessorViewTest() {
-    }
-
+  
     /**
-     * Test of cadastrar method, of class ProfessorView.
+     * Cadastra o professor.
      */
     @Test
     public void testCadastrar() {
         System.out.println("cadastrar");
-        ProfessorView instance = null;
+        ProfessorView instance = new ProfessorView(null);
         instance.cadastrar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getInfo method, of class ProfessorView.
+     * Captura a informação
      */
     @Test
     public void testGetInfo() {
-        System.out.println("getInfo");
-        ProfessorView instance = null;
+        System.out.println("get Info");
+        ProfessorView instance = new ProfessorView(null);
         Professor expResult = null;
         Professor result = instance.getInfo();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of existe method, of class ProfessorView.
+     * Verifica se exite tal professor.
      */
     @Test
     public void testExiste() {
         System.out.println("existe");
-        Professor professor = null;
-        ProfessorView instance = null;
+        Professor professor = new Professor("Jesus", "132.323.342-12", "Heaven", 34);
+        ProfessorDaoImpl professorTemp = new ProfessorDaoImpl();
+        ProfessorView instance = new ProfessorView(professorTemp);
         boolean expResult = false;
         boolean result = instance.existe(professor);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
-     * Test of listar method, of class ProfessorView.
+     * Lista os professores cadastrados.
      */
     @Test
     public void testListar() {
         System.out.println("listar");
-        ProfessorView instance = null;
+        ProfessorDaoImpl professor = new ProfessorDaoImpl();
+        ProfessorView instance = new ProfessorView(professor);
         instance.listar();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+     }
     
 }
