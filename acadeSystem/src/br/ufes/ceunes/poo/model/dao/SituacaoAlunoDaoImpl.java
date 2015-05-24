@@ -186,6 +186,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         return nota;
     }
     /**
+     * procura nas situações do aluno a relação de presenta do mesmo.
      * @throws Operação não suportada ao solicitar as presenças do aluno.
      */
     @Override
@@ -193,13 +194,22 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
         return situacaoAluno.getFaltas();
     }
-
+    /**
+     * Gera o proximo id da situação do aluno.
+     * @return o id.
+     */
     @Override
     public int gerarProximoId() {
         this.id++;
         return id-1;
     }
-    
+    /**
+     * 
+     * @param idTurma
+     * @param idAluno
+     * @param idAtividade
+     * @return 
+     */
     public Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade){
         for(SituacaoAluno situacaoAluno : listaSituacoes){
             if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
