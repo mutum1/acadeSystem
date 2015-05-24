@@ -45,7 +45,7 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testSalvar() {
         System.out.println("salvar");
-        Disciplina disciplinaTemp = new Disciplina("Prog III", "Programacao POO", "75hrs", 3);
+        Disciplina disciplinaTemp = new Disciplina("Prog III", "Programacao POO", "75hrs", 1);
         DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
         instance.salvar(disciplinaTemp);
     }
@@ -56,7 +56,7 @@ public class DisciplinaDaoImplTest {
     @Test
     public void testBuscar() {
         System.out.println("buscar");
-        Disciplina disciplina = new Disciplina("Calculo 3", "morte", "90hrs", 4);
+        Disciplina disciplina = new Disciplina("Calculo 3", "matematica aplicada", "90hrs", 4);
         DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
         DisciplinaDaoImpl compara = instance;
         Disciplina expResult = compara.buscar(disciplina);

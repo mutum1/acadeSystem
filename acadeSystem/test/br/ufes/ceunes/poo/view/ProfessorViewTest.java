@@ -15,28 +15,6 @@ import static org.junit.Assert.*;
  * @author Rhaister
  */
 public class ProfessorViewTest {
-  
-    /**
-     * Cadastra o professor.
-     */
-    @Test
-    public void testCadastrar() {
-        System.out.println("cadastrar");
-        ProfessorView instance = new ProfessorView(null);
-        instance.cadastrar();
-    }
-
-    /**
-     * Captura a informação
-     */
-    @Test
-    public void testGetInfo() {
-        System.out.println("get Info");
-        ProfessorView instance = new ProfessorView(null);
-        Professor expResult = null;
-        Professor result = instance.getInfo();
-        assertEquals(expResult, result);
-    }
 
     /**
      * Verifica se exite tal professor.
