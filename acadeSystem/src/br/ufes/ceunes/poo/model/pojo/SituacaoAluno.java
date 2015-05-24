@@ -71,10 +71,19 @@ public class SituacaoAluno {
     public void setFaltas(int faltas) {
         this.faltas = faltas;
     }
+    public String status(){
+        int cargaHoraria =Integer.parseInt(turma.getHorario());
+        
+        if((getNotaFinal()>=6) &&(this.faltas/cargaHoraria)<=0.25 )
+            return "APROVADO";
+        
+        return "REPROVADO";
+    }
     
     public String toString(){
         return "Nome do aluno: "+aluno.getNome()+"\nNota: "+getNotaFinal()+
                 "   Faltas: "
-                + this.faltas;                
+                + this.faltas+" status:"+status();
+        
     }
 }
