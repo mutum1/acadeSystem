@@ -53,6 +53,10 @@ public class Turma {
         this.ano = ano;
     }
 
+    public void setListAlunos(List<Aluno> listAlunos) {
+        this.listAlunos = listAlunos;
+    }
+
     // Retorna o periodo da turma
     public String getPeriodo() {
         return periodo;

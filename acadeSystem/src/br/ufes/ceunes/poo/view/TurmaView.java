@@ -182,8 +182,8 @@ public class TurmaView {
              System.out.println(turmaTemp);
 
              for(Aluno alunoTemp : turmaTemp.getListaAlunos()){
-                 situacaoAluno = alunoTemp.getSituacaoAluno(turma);
-                 System.out.println(alunoTemp);
+                 situacaoAluno = alunoTemp.getSituacaoAluno(turmaTemp);
+                 System.out.println(situacaoAluno);
                  
              }
         }

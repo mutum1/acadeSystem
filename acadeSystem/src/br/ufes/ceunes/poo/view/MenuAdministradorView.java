@@ -6,6 +6,8 @@
 
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
+
 /**
  *
  * @author paulo
@@ -16,14 +18,16 @@ public class MenuAdministradorView {
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
     private AtividadeView atividadeView;
+    private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
     
     
-    public MenuAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public MenuAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
+        this.situacaoAlunoDao = situacaoAlunoDao;
         this.atividadeView = atividadeView;
         this.menu = new Menu();
     }
@@ -41,7 +45,7 @@ public class MenuAdministradorView {
           
             switch(opcao){
                 case 1:
-                    (new CadastroAdministradorView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
+                    (new CadastroAdministradorView(alunoView,professorView,disciplinaView,turmaView,atividadeView,situacaoAlunoDao)).abrir();
                     break;  
                 case 2:
                     (new ListagemView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();

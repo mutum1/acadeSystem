@@ -56,8 +56,8 @@ public class AcadeSystem {
         menuPrincipal.addOption("Fechar");
         
         
-        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
-        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
+        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
+        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
         
         
         menuPrincipal.showOptions();
@@ -70,7 +70,7 @@ public class AcadeSystem {
                 case 2:
                     
                     System.out.println("Digite a senha");
-                    String senha = "admin";
+                    String senha = "";
                     if(senha.equals(( new Scanner(System.in)).nextLine())){
                         menuAdministrador.open();
                     }

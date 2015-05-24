@@ -72,7 +72,7 @@ public class SituacaoAluno {
         this.faltas = faltas;
     }
     public String status(){
-        int cargaHoraria =Integer.parseInt(turma.getHorario());
+        int cargaHoraria =Integer.parseInt(turma.getDisciplina().getCargaHoraria());
         
         if((getNotaFinal()>=6) &&(this.faltas/cargaHoraria)<=0.25 )
             return "APROVADO";

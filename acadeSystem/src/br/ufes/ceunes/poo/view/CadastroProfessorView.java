@@ -6,6 +6,7 @@
 
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 
 /**
@@ -19,14 +20,16 @@ public class CadastroProfessorView{
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
     private AtividadeView atividadeView;
+    private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
 
-    public CadastroProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView ){
+    public CadastroProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao ){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
         this.atividadeView = atividadeView;
+        this.situacaoAlunoDao = situacaoAlunoDao;
 
         this.menu = new Menu();
     }
@@ -43,6 +46,7 @@ public class CadastroProfessorView{
             switch(opcao){
                 case 1:
                     atividadeView.cadastrar();
+                    situacaoAlunoDao.salvar();
                     break;
             }
             this.menu.showOptions();

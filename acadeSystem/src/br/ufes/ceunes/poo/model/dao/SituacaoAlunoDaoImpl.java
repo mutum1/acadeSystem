@@ -40,6 +40,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         this.atividadeAcoes=atividadeDao;
         turmaAcoes=turmaDao;
         id=0;
+        carregar();
     }
     /**
      * Método responsavel por carregar os dados do arquivo ("Situacoes.txt") para
@@ -49,6 +50,11 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     @Override
     public void carregar() {
         listaSituacoes = new ArrayList<>();
+        List<Turma> listaTurmas = turmaAcoes.getAll();
+        for (Turma turma : listaTurmas){
+            turma.setListAlunos(new ArrayList<Aluno>());
+        }
+        
         String nomeArquivo = "Situacoes.txt";//nome do arquivo
         FileReader file;
         try {
@@ -73,10 +79,13 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 
                 Turma turma = turmaAcoes.buscar(new Turma(null, null, null, null, 0, null, null, idUser));
                 
+                
                 sId = ler.readLine();//Pega id da situação
                 idUser = Integer.parseInt(sId);
                                             
                 SituacaoAluno situacaoAluno = new SituacaoAluno(aluno, turma, idUser);
+                
+                turma.addAluno(situacaoAluno);
                 
                 Integer nIds;
                 String nIdTemp = ler.readLine();
