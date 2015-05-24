@@ -186,6 +186,17 @@ public class TurmaDaoImpl implements TurmaDao {
         return turma;
     }
 
+    @Override
+    public List buscarPorDisciplina(Turma turma) {
+        List<Turma> tempList = new ArrayList<>();
+        for(Turma turmaTemp : listaTurma){
+            if(turmaTemp.getDisciplina().equals(turma.getDisciplina())){
+                tempList.add(turmaTemp);
+            }
+        }
+        return tempList;
+    }
+
 
         
 

@@ -23,4 +23,11 @@ public class Aluno extends Pessoa {
     public void addSituacao (SituacaoAluno situacaoAluno){
         situacao.add(situacaoAluno);
     }
+    public  SituacaoAluno getSituacaoAluno(Turma turma){
+        for(SituacaoAluno situacaoAluno : situacao){
+            if(situacaoAluno.getTurma().equals(turma))
+                return situacaoAluno;
+        }
+        return null;
+    }
 }

@@ -29,7 +29,16 @@ public class SituacaoAluno {
         this.id = id;
     }
     
-
+    public float getNotaFinal() {
+        float nota=0;
+        int numeroAtividades=0;
+        numeroAtividades=atividade.size();
+        for(Atividade atividade : atividade){
+            nota = nota+atividade.getNota();
+        }
+        nota=nota/numeroAtividades;
+        return nota;
+    }
     // Retorna todas as caracteristicas do aluno
     public Aluno getAluno() {
         return aluno;
@@ -62,5 +71,10 @@ public class SituacaoAluno {
     public void setFaltas(int faltas) {
         this.faltas = faltas;
     }
-   
+    
+    public String toString(){
+        return "Nome do aluno: "+aluno.getNome()+"\nNota: "+getNotaFinal()+
+                "   Faltas: "
+                + this.faltas;                
+    }
 }
