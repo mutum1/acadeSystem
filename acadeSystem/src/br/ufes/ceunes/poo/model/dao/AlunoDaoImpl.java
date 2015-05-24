@@ -155,21 +155,7 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return alunoTemp;
     }
-    /**
-     * Busca o aluno na lista, utilizando o nome como chave.
-     * @param alunoTemp
-     * @return retorna aluno caso exista ou retorna um aluno com campos vazios
-     */
-    @Override
-    public Aluno buscarPorNome(Aluno alunoTemp) {
-        
-        for(Aluno aluno : listaAlunos){
-            if(alunoTemp.getNome().contains(aluno.getNome())){
-                return aluno;
-            }
-        }
-        return alunoTemp;
-    }
+
     /**
      * Busca aluno na lista, utilizando como chave o id
      * @param alunoTemp
@@ -184,5 +170,19 @@ public class AlunoDaoImpl implements AlunoDao {
             }
         }
         return alunoTemp;
+    }
+    
+
+
+    @Override
+    public List buscarPorNome(Aluno aluno) {
+        List<Aluno> tempList = new ArrayList<>();
+        for(Aluno alunoTemp : listaAlunos){
+            if(alunoTemp.getNome().contains(aluno.getNome())){
+                tempList.add(alunoTemp);
+            }
+        }
+        return tempList;
+        
     }
 }
