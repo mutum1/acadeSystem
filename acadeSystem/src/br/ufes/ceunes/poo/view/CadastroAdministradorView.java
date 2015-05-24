@@ -13,6 +13,7 @@ import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
+import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 
 /**
@@ -29,7 +30,7 @@ public class CadastroAdministradorView {
     private AtividadeView atividadeView;
     private Menu menu;
 
-    public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView ){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
@@ -67,6 +68,7 @@ public class CadastroAdministradorView {
                     break;
                 case 5:
                     atividadeView.cadastrar();
+                    
                     break;
                 case 6:
                     turmaView.cadastrarAlunos();

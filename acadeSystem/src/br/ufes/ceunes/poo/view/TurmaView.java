@@ -186,8 +186,6 @@ public class TurmaView {
                  System.out.println(alunoTemp);
                  
              }
-             
         }
     }
-    
 }

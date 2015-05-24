@@ -25,7 +25,9 @@ public class AtividadeView {
     public void cadastrar(){    
         Atividade atividade = getInfo();
         System.out.println(atividade);
+        atividade.getTurma().addAtividade(atividade);
         atividadeDao.salvar(atividade);
+        
     } 
     
     public AtividadeView(AtividadeDao atividadeDao,TurmaDao turmaDao){

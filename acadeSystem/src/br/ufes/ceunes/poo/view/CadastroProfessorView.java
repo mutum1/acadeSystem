@@ -6,6 +6,8 @@
 
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
+
 /**
  *
  * @author paulo
@@ -19,12 +21,13 @@ public class CadastroProfessorView{
     private AtividadeView atividadeView;
     private Menu menu;
 
-    public CadastroProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
+    public CadastroProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView ){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
         this.atividadeView = atividadeView;
+
         this.menu = new Menu();
     }
     
