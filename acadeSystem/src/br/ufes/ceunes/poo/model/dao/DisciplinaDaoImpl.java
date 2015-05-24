@@ -43,7 +43,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         listaDisciplina.add(disciplina);
     }
     /*
-    retorna a lista de disciplinas
+    @return retorna a lista de disciplinas.
     */
     @Override
     public List getAll(){//retorna a lista de disciplina
@@ -54,7 +54,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         return this.id;
     }
     /**
-     * Carrega do arquivo todas as disciplinas e coloca em uma lista.
+     * Carrega do arquivo todas as disciplinas e coloca em uma lista 
+     * "Disciplina.txt".
+     * @throws FileNotFoundException, IOException, NumberFormatException.
      */
     @Override
     public void carregar(){
@@ -101,8 +103,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         }     
     }
     /**
-     * Salva todas as disciplinas de uma lista em um arquivo.
-     * @param disciplinaTemp 
+     * Salva todas as disciplinas de uma lista em um arquivo Disciplina.txt.
+     * @param disciplinaTemp
+     * @throws FileNotFoundException, IOException.
      */
     @Override
     public void salvar(Disciplina disciplinaAdd){
