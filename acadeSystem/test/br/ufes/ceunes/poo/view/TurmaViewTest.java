@@ -35,7 +35,7 @@ public class TurmaViewTest {
         ProfessorDaoImpl professorTest = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplinaTest = new DisciplinaDaoImpl(professorTest);
         TurmaDaoImpl turmaTest = new TurmaDaoImpl(professorTest, disciplinaTest, alunoTest);
-        TurmaView instance = new TurmaView(turmaTest, alunoTest, professorTest, disciplinaTest, null);
+        TurmaView instance = new TurmaView(turmaTest, alunoTest, professorTest, disciplinaTest, null, null);
         boolean expResult = true;
         boolean result = instance.localDisponivel(turma);
         assertEquals(expResult, result);
@@ -51,7 +51,7 @@ public class TurmaViewTest {
         ProfessorDaoImpl professor = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         TurmaDaoImpl turma = new TurmaDaoImpl(professor, disciplina, aluno);
-        TurmaView instance = new TurmaView(turma, aluno, professor, disciplina, null);
+        TurmaView instance = new TurmaView(turma, aluno, professor, disciplina, null, null);
         instance.listar();
     }
     
