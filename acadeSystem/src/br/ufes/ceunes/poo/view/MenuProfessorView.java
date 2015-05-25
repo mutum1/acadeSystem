@@ -21,7 +21,15 @@ public class MenuProfessorView {
     private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
     
-    
+    /**
+     * Contrutor do Menu do professor, com os dados para serem utilizados.
+     * @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas.
+     * @param turmaView dados das turmas.
+     * @param atividadeView dados das atividades.
+     * @param situacaoAlunoDao dados da situação dos alunos.
+     */
     public MenuProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -31,6 +39,10 @@ public class MenuProfessorView {
         this.situacaoAlunoDao = situacaoAlunoDao;
         this.menu = new Menu();
     }
+    /**
+     * Menu do professor.
+     * Cadastros, Listagens, COnsultas, Lanças notas, Lançar Faltas.
+     */
     public void open(){
         menu.setTitle("ACADEsYSTEM - Menu principal (PROF)");
         menu.addOption("Cadastros");//adiciona opçoes no menu

@@ -185,7 +185,11 @@ public class TurmaDaoImpl implements TurmaDao {
         }
         return turma;
     }
-
+    /**
+     * Busca turmas que tenham a disciplina.
+     * @param turma lista de turma desejada.
+     * @return lista de turmas.
+     */
     @Override
     public List buscarPorDisciplina(Turma turma) {
         List<Turma> tempList = new ArrayList<>();

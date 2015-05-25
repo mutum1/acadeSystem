@@ -154,7 +154,7 @@ public class TurmaView {
     
     }
     /**
-     * 
+     * Cadastra um aluno na turma dado um id.
      */
     public void cadastrarAlunos(){
         Scanner input = new Scanner(System.in);
@@ -207,7 +207,9 @@ public class TurmaView {
         }
     }
     
-    
+    /**
+     * Consulta aluno, buscando pelas especificações da turma e seu cpf.
+     */
     public void consultarUmAluno(){
         Scanner input = new Scanner(System.in);
         String codigo;
@@ -253,7 +255,9 @@ public class TurmaView {
         System.out.println("Aluno não cadastrado na turma");
     }
     
-    
+    /**
+     * Consulta os dados de uma disciplina, a chave é o codigo da disciplina.
+     */
     public void consultarUmaDisciplina(){
         Scanner input = new Scanner(System.in);
         String codigo;
@@ -275,7 +279,9 @@ public class TurmaView {
         
     
     }
-    
+    /**
+     * Consulta os dados de um professor pelo cpf.
+     */
     public void consultarPorProfessor(){
         Scanner input = new Scanner(System.in);
         String cpf;
@@ -303,7 +309,9 @@ public class TurmaView {
         System.out.println("A quantidade de disicplinas é "+listaDisciplinas.size());
 
     }
-    
+    /**
+     * Lança as notas dado um id da turma e o id da atividade.
+     */
     public void lancarNotas(){
         Scanner input = new Scanner(System.in);
         String id;
@@ -342,7 +350,9 @@ public class TurmaView {
         
     
     }
-    
+    /**
+     * Lança as faltas dos alunos dada a turma pelo id.
+     */
     public void lancarFaltas(){
        Scanner input = new Scanner(System.in);
         String id;
