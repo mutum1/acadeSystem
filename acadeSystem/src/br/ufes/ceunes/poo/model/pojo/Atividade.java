@@ -24,7 +24,7 @@ public class Atividade {
       
     /**
      * Converte todos os valores da turma para string.
-     * @return 
+     * @return string concatenada
      */
     @Override
     public String toString(){

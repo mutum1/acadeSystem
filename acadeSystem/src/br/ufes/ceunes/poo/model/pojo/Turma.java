@@ -74,7 +74,7 @@ public class Turma {
 
     /**
      * Pega o periodo da turma
-     * @return o periodo da turma.
+     * retorna o periodo da turma.
      */
     
     public void setListAlunos(List<Aluno> listAlunos) {
@@ -135,7 +135,7 @@ public class Turma {
 
     /**
      * Modofica o numero de vagas.
-     * @param nVagas 
+     * @param nVagas numero de vagas
      */
     public void setnVagas(int nVagas) {
         this.nVagas = nVagas;

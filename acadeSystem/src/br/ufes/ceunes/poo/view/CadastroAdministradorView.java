@@ -33,12 +33,12 @@ public class CadastroAdministradorView {
     private Menu menu;
     /**
      * Contrutor do cadastro de tudo feito pelo admin.
-     * @param alunoView
-     * @param professorView
-     * @param disciplinaView
-     * @param turmaView
-     * @param atividadeView
-     * @param situacaoAlunoDao 
+     * @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas
+     * @param turmaView dados das turmas
+     * @param atividadeView dados das atividades
+     * @param situacaoAlunoDao dados das situações
      */
     public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;

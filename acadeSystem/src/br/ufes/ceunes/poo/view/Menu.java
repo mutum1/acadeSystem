@@ -29,7 +29,7 @@ public class Menu {
     }
     /**
      * adiciona um opção na lista de opções.
-     * @param optionsList 
+     * @param optionsList lista de opções.
      */
     public Menu(List<String> optionsList){
         this.optionsList = optionsList;
