@@ -6,11 +6,13 @@
 package br.ufes.ceunes.poo.view;
 
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
+import br.ufes.ceunes.poo.model.dao.AtividadeDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
@@ -30,14 +32,16 @@ public class TurmaView {
     DisciplinaDao disciplinaDao;
     AlunoDao alunoDao;
     SituacaoAlunoDao situacaoAlunoDao;
+    AtividadeDao atividadeDao;
     
     
-    public TurmaView(TurmaDao turma,AlunoDao alunoDao,ProfessorDao professor,DisciplinaDao disciplina,SituacaoAlunoDao situacaoAlunoDao){
+    public TurmaView(TurmaDao turma,AlunoDao alunoDao,ProfessorDao professor,DisciplinaDao disciplina,SituacaoAlunoDao situacaoAlunoDao,AtividadeDao atividadeDao){
         this.turmaDao = turma;
         this.alunoDao = alunoDao;
         this.professorDao = professor;
         this.disciplinaDao = disciplina;
         this.situacaoAlunoDao = situacaoAlunoDao;
+        this.atividadeDao = atividadeDao;
     }
     
     /**
@@ -288,5 +292,46 @@ public class TurmaView {
 
     }
     
+    public void lancarNotas(){
+        Scanner input = new Scanner(System.in);
+        String id;
+        Turma turma;
+        Atividade atividade;
+        List<Aluno> listaAlunos;
+        
+        
+        System.out.println("Digite o ID da turma");
+        id = input.nextLine();
+        turma = turmaDao.buscar(new Turma(null,null, null, null, 0, null, null,Integer.parseInt(id)));
+        if(turma.getAno() == null) {
+            System.out.println("Turma não encontrada");
+            return;
+        }
+        System.out.println("Digite o ID da atividade");
+        id = input.nextLine();
+        atividade = atividadeDao.buscar(new Atividade(null, null, null, null, 0,Integer.parseInt(id)));
+        if(atividade.getNome() == null){
+        System.out.println("Turma não tem essa atividade");
+            return;
+        }
+        listaAlunos = alunoDao.getAll();
+        for(Aluno alunoTemp : listaAlunos){
+            //situacaoAlunoDao.
+            
+            alunoTemp.getSituacaoAluno(turma);
+        
+        }
+        
+        
+    
+    }
+    
+    public void lancarFaltas(){
+        Scanner input = new Scanner(System.in);
+        String id;
+        System.out.println("Digite o ID da turma");
+        id = input.nextLine();
+    
+    }
     
 }

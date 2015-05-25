@@ -37,6 +37,7 @@ public class MenuProfessorView {
         menu.addOption("Listagens");
         menu.addOption("Consultas");
         menu.addOption("Lançar notas");
+        menu.addOption("Lançar Faltas");
         //colocar aqui outras opcoes
         menu.addOption("Sair");  
         
@@ -54,6 +55,11 @@ public class MenuProfessorView {
                 case 3:
                     (new ConsultaView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;
+                case 4:
+                    turmaView.lancarNotas();
+                    break;
+                case 5:
+                    turmaView.lancarFaltas();
             }
             menu.showOptions();
             opcao = menu.getOption();//retorna a opçao digitada pelo usuario

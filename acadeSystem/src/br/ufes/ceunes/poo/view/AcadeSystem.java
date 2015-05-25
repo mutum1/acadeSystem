@@ -45,7 +45,7 @@ public class AcadeSystem {
         AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
         DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao,professorDao); // Enviado uma disciplinaDao para disciplinaView
-        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao);// Enviado uma turmaDao para uma turmaView
+        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao,atividadeDao);// Enviado uma turmaDao para uma turmaView
         AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
   
         Menu menuPrincipal = new Menu();
