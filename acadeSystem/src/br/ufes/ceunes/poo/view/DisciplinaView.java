@@ -79,7 +79,9 @@ public class DisciplinaView {
         return true;
     }
     
-    
+    /**
+     * Lista todas as disciplinas da lista.
+     */
     public void Listar(){
         List<Disciplina> listaDisciplina = disciplinaDao.getAll();
          for(Disciplina disciplina : listaDisciplina){

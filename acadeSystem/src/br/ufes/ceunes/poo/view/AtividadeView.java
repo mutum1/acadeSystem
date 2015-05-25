@@ -21,7 +21,9 @@ public class AtividadeView {
     
     AtividadeDao atividadeDao;
     TurmaDao turmaDao;
-    
+    /**
+     * Chama as funções para cadastras uma  atividade.
+     */
     public void cadastrar(){    
         Atividade atividade = getInfo();
         System.out.println(atividade);
@@ -29,12 +31,19 @@ public class AtividadeView {
         atividadeDao.salvar(atividade);
         
     } 
-    
+    /**
+     * Contrutor da atividadeView.
+     * @param atividadeDao dados da atividade.
+     * @param turmaDao dados da turma.
+     */
     public AtividadeView(AtividadeDao atividadeDao,TurmaDao turmaDao){
         this.atividadeDao = atividadeDao;
         this.turmaDao = turmaDao;
     }
-    
+    /**
+     * Cadastra as informações da atividade.
+     * @return a atividade preenchida.
+     */
     public Atividade getInfo(){
         Scanner input = new Scanner(System.in);
         String nome;
@@ -68,7 +77,7 @@ public class AtividadeView {
     /**
      * Imprime todos os atividades
      */
-
+    
     public void listar(){
         List<Atividade> listaAtividades = atividadeDao.getAll();
          for(Atividade atividade : listaAtividades){
@@ -76,6 +85,10 @@ public class AtividadeView {
              System.out.println();
         }
     }
+    /**
+     * Lista as atividades da turma
+     * @param turma turma ao qual se quer as atividades.
+     */
     public void listar(Turma turma){
         List<Atividade> listaAtividades = turma.getListAtividades();
          for(Atividade atividade : listaAtividades){

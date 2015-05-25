@@ -18,7 +18,14 @@ public class ListagemView {
     private AtividadeView atividadeView;
     private Menu menu;
     
-    
+    /**
+     * Contrutor da Listagem, com todos os dados necessarios para listar.
+     * @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas.
+     * @param turmaView dados das turmas.
+     * @param atividadeView dados das atividades.
+     */
     public ListagemView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -28,7 +35,10 @@ public class ListagemView {
         this.menu = new Menu();
     
     }
-    
+    /**
+     * Menu das listagens.
+     * Aluno, professor, disciplinas, turmas, atividades.
+     */
     public void abrir(){
         this.menu.setTitle("Menu Listagens");
         this.menu.addOption("Listar alunos");

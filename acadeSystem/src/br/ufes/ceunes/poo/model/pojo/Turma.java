@@ -84,6 +84,7 @@ public class Turma {
     public String getPeriodo() {
         return periodo;
     }
+    
     /**
      * Modifica o periodo da turma.
      * @param periodo novo periodo.
@@ -91,6 +92,7 @@ public class Turma {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
+    
     /**
      * Pega o local
      * @return o local da turma.

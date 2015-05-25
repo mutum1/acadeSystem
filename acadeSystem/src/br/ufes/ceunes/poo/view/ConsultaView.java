@@ -19,7 +19,14 @@ public class ConsultaView {
     private TurmaView turmaView;
     private AtividadeView atividadeView;
     private Menu menu;
-
+    /**
+     * Contrutor da consulta, com os dados para serem consultados.
+     * @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas.
+     * @param turmaView dados das turmas.
+     * @param atividadeView dados das atividades.
+     */
     public ConsultaView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -28,7 +35,9 @@ public class ConsultaView {
         this.atividadeView = atividadeView;
         this.menu = new Menu();
     }
-    
+    /**
+     * Menu de consultas gerais.
+     */
     public void abrir(){
         
         this.menu.setTitle("Menu Cadastros"); 

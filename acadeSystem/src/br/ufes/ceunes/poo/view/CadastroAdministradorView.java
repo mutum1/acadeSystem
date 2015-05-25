@@ -31,7 +31,15 @@ public class CadastroAdministradorView {
     private AtividadeView atividadeView;
     private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
-
+    /**
+     * Contrutor do cadastro de tudo feito pelo admin.
+     * @param alunoView
+     * @param professorView
+     * @param disciplinaView
+     * @param turmaView
+     * @param atividadeView
+     * @param situacaoAlunoDao 
+     */
     public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -41,7 +49,10 @@ public class CadastroAdministradorView {
         this.situacaoAlunoDao = situacaoAlunoDao;
         this.menu = new Menu();
     }
-    
+    /**
+     * Menu de cadastros do administrador.
+     * Aluno, Professor, disciplina, tuma, alunos em uma turma.
+     */
     public void abrir(){
         
         this.menu.setTitle("Menu Cadastros");

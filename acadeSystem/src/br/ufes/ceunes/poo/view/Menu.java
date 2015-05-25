@@ -21,11 +21,16 @@ public class Menu {
     private List<String> optionsList;
     private String title;
     private int size;
-   
+    /**
+     * instancia a lista de opções.
+     */
     public Menu(){
         this(new ArrayList<String>());
     }
-    
+    /**
+     * adiciona um opção na lista de opções.
+     * @param optionsList 
+     */
     public Menu(List<String> optionsList){
         this.optionsList = optionsList;
         this.title = "AcadeSystem";
@@ -36,24 +41,38 @@ public class Menu {
         this(optionsList);
         this.title = title;
     }
-
+    /**
+     * adiciona um item a lista de opções
+     * @param item novo item a ser adicionado.
+     */
     public void addOption(String item){
         optionsList.add(item);
         this.size = optionsList.size();
     }
-    
+    /**
+     * Modifica o titulo.
+     * @param title novo titulo.
+     */
     public void setTitle(String title){
         this.title = title;
     }
-    
+    /**
+     * Pega o titulo.
+     * @return retorna o titulo.
+     */
     public String getTitle(){
         return this.title;
     }
-    
+    /**
+     * Pega a quantidade de opções.
+     * @return quantidade de opções.
+     */
     public int getSize(){
         return this.size;
     }
-    
+    /**
+     * Mostra as opções
+     */
     public void showOptions(){
 
         System.out.println(this.title);
@@ -62,7 +81,10 @@ public class Menu {
             System.out.println(i+1 +" - " + optionsList.get(i));
         }
     }
-    
+    /**
+     * recebe as opção do usuario, e verifica se é valida.
+     * @return a opção.
+     */
     public int getOption(){//pega opçao do usuario e verifica se a opçao é valida
          Scanner input = new Scanner(System.in);
          int opcao = 0;

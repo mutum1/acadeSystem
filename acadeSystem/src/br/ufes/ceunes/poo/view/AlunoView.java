@@ -76,7 +76,10 @@ public class AlunoView {
              System.out.println();
         }
     }
-    
+    /**
+     * Procura o aluno na lista.
+     * @param nome nome do aluno.
+     */
         public void consultarPorNome(String nome){
         Aluno aluno = new Aluno(nome, null,0);
         List<Aluno> listaAluno = alunoDao.buscarPorNome(aluno);

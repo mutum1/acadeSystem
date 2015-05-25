@@ -22,7 +22,15 @@ public class CadastroProfessorView{
     private AtividadeView atividadeView;
     private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
-
+    /**
+     * Contrutor dos professores, com os dados para serem consultados.
+     @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas.
+     * @param turmaView dados das turmas.
+     * @param atividadeView dados das atividades.
+     * @param situacaoAlunoDao dados da situação dos alunos.
+     */
     public CadastroProfessorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao ){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -33,7 +41,10 @@ public class CadastroProfessorView{
 
         this.menu = new Menu();
     }
-    
+    /**
+     * Menu ao qual os professores tem acesso.
+     * Cadastrar atividades, ou chamar outro menu de cadastro.
+     */
     public void abrir(){
         
         this.menu.setTitle("Menu Cadastros");
