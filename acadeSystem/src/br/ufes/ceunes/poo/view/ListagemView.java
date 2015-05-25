@@ -56,6 +56,8 @@ public class ListagemView {
                 break;
             case 5:
                 atividadeView.listar();
+                System.out.println("___________");
+                atividadeView.listarDeTurma();
                 break;
         }
     }
