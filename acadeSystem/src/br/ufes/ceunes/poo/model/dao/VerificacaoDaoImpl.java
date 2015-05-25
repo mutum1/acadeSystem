@@ -35,7 +35,12 @@ public class VerificacaoDaoImpl implements VerificacaoDao {
     }
     
     @Override
-    // Função principal para verificar se o cpf esta valido (faz a chama das outras funções)
+    /**
+     * Método principal para verificar se o cpf esta valido (faz a chamada das
+     * outras funções)
+     * @param cpf CPF digitado
+     * @return true caso seja valido, false no caso contrario.
+     */
     public boolean isValidCpf(String cpf){
         
         if(cpf == null) return false;
@@ -50,13 +55,22 @@ public class VerificacaoDaoImpl implements VerificacaoDao {
         } 
         return true;
     }
-
+     /**
+     * Remove os caracteres invalidos para que possa ser efetuado as operações com cpf.
+     * @param cpf primeira chamada do cpf digitado para remover os char's invalidos.
+     * @return o cpf sem os caracteres invalidos.
+     */
     @Override
     // Remove os caracteres invalidos para que possa ser efetuado as operações com cpf
     public String removeInvalidsCharacters(String cpf){   
         return cpf.replaceAll( "\\D*", "" );
     } 
-    
+   
+    /**
+     * Verifica se o tamanho do cpf é valido (11).
+     * @param cpf CPF sem os caracteres invalidos.
+     * @return True se for valido/False em caso contrario.
+     */
     @Override
     // Verifica se o tamanho do cpf é valido (11)
     public boolean isValidSize(String cpf){  
@@ -64,7 +78,12 @@ public class VerificacaoDaoImpl implements VerificacaoDao {
             return true;   
         return false;
     } 
-    
+    /**
+     * Verifica se os digitos do cpf sao validos.
+     * @param cpf cpf no formato correto, para que se verifique o digito verificador.
+     * @return True caso os digitos satisfazem a condição de cpf/ False no caso
+     * contrario.
+     */
     @Override
     // Verifica se os digitos do cpf sao validos
     public boolean isValidDigits(String cpf){   
@@ -77,7 +96,11 @@ public class VerificacaoDaoImpl implements VerificacaoDao {
             }    
         return true;
     } 
-
+    /**
+     * Faz o calculo efetivo do cpf (algoritmo).
+     * @param cpf cpf para verificar o digito verificador.
+     * @return digito verificador.
+     */
     @Override
     // Faz o calculo efetivo do cpf (algoritmo)
     public String calculoComCpf(String cpf){   

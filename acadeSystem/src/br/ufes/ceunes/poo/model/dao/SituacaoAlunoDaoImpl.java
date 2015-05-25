@@ -99,10 +99,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                     
                     String notaTemp = ler.readLine();
                     float nota= Float.parseFloat(notaTemp);
-                    atividade = atividade.copiaComNota(nota);
-                    situacaoAluno.addAtividade(atividade);
-                }
-                aluno.addSituacao(situacaoAluno);
+                    atividade.aplicarAosAlunos(nota);
+                }              
                 listaSituacoes.add(situacaoAluno);
                 
             }
@@ -201,6 +199,12 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }
         return null;
     }
+    /**
+     * Busca situação dos aluno dado o id do aluno e da turma
+     * @param idTurma id do turma.
+     * @param idAluno id do aluno.
+     * @return situação do aluno.
+     */
     @Override
     public SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno){
         for(SituacaoAluno situacaoAluno : listaSituacoes){

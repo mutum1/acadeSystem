@@ -21,7 +21,15 @@ public class MenuAdministradorView {
     private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
     
-    
+    /**
+     * Contrutor do Menu do administrador, com os dados para serem utilizados.
+     * @param alunoView dados dos alunos.
+     * @param professorView dados dos professores.
+     * @param disciplinaView dados das disciplinas.
+     * @param turmaView dados das turmas.
+     * @param situacaoAlunoDao dados da situação dos alunos.
+     * @param atividadeView dados das atividades.
+     */
     public MenuAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;
         this.professorView = professorView;
@@ -31,6 +39,10 @@ public class MenuAdministradorView {
         this.atividadeView = atividadeView;
         this.menu = new Menu();
     }
+    /**
+     * Menu da administração.
+     * Cadastros, Listagens e Consultas.
+     */
     public void open(){
         menu.setTitle("ACADEsYSTEM - Menu principal (ADM)");
         menu.addOption("Cadastros");//adiciona opçoes no menu
