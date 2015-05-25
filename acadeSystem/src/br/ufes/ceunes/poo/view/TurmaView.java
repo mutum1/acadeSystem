@@ -300,6 +300,7 @@ public class TurmaView {
         List<Aluno> listaAlunos;
         
         
+        
         System.out.println("Digite o ID da turma");
         id = input.nextLine();
         turma = turmaDao.buscar(new Turma(null,null, null, null, 0, null, null,Integer.parseInt(id)));
@@ -316,9 +317,10 @@ public class TurmaView {
         }
         listaAlunos = alunoDao.getAll();
         for(Aluno alunoTemp : listaAlunos){
-            //situacaoAlunoDao.
-            
-            alunoTemp.getSituacaoAluno(turma);
+            atividade = situacaoAlunoDao.buscarAtividade(turma.getId(), alunoTemp.getId(), atividade.getId());
+            System.out.println(alunoTemp+"\nDigite a nota do aluno");
+            id = input.nextLine();
+            atividade.setNota(Float.parseFloat(id));
         
         }
         
@@ -327,10 +329,29 @@ public class TurmaView {
     }
     
     public void lancarFaltas(){
-        Scanner input = new Scanner(System.in);
+       Scanner input = new Scanner(System.in);
         String id;
+        Turma turma;
+        SituacaoAluno situacaoAluno;
+        List<Aluno> listaAlunos;
+
         System.out.println("Digite o ID da turma");
         id = input.nextLine();
+        turma = turmaDao.buscar(new Turma(null,null, null, null, 0, null, null,Integer.parseInt(id)));
+        if(turma.getAno() == null) {
+            System.out.println("Turma não encontrada");
+            return;
+        }
+   
+        
+        listaAlunos = alunoDao.getAll();
+        for(Aluno alunoTemp : listaAlunos){
+            situacaoAluno = situacaoAlunoDao.buscarSituacaoAluno(turma.getId(), alunoTemp.getId());
+            System.out.println(alunoTemp+"\nDigite a quantidade de faltas do aluno");
+            id = input.nextLine();
+            situacaoAluno.setFaltas(Integer.parseInt(id));
+        
+        }
     
     }
     

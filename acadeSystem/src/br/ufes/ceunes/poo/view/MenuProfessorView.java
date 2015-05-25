@@ -57,9 +57,12 @@ public class MenuProfessorView {
                     break;
                 case 4:
                     turmaView.lancarNotas();
+                    situacaoAlunoDao.salvar();
                     break;
                 case 5:
                     turmaView.lancarFaltas();
+                    situacaoAlunoDao.salvar();
+                    break;
             }
             menu.showOptions();
             opcao = menu.getOption();//retorna a opçao digitada pelo usuario
