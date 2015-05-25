@@ -329,13 +329,20 @@ public class TurmaView {
         }
         listaAlunos = turma.getListaAlunos();
         for(Aluno alunoTemp : listaAlunos){
-            atividade = situacaoAlunoDao.buscarAtividade(turma.getId(), alunoTemp.getId(), atividade.getId());
+            //atividade = situacaoAlunoDao.buscarAtividade(turma.getId(), alunoTemp.getId(), atividade.getId());
+            List<Atividade> listaAtividades =  alunoTemp.getSituacaoAluno(turma).getAtividade();
+           
+            for(Atividade atividadeTemp : listaAtividades){
+             
+                if(atividadeTemp.getId() == atividade.getId()){
+                    
+                    System.out.println(alunoTemp+"\nDigite a nota do aluno");
+                    id = input.nextLine();
+                    atividadeTemp.setNota(Float.parseFloat(id));
+                    
+                }
+            }
             
-            
-            System.out.println(atividade);
-            System.out.println(alunoTemp+"\nDigite a nota do aluno");
-            id = input.nextLine();
-            atividade.setNota(Float.parseFloat(id));
         
         }
         
