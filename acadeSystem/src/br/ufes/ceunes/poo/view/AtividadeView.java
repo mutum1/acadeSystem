@@ -76,5 +76,11 @@ public class AtividadeView {
              System.out.println();
         }
     }
-    
+    public void listar(Turma turma){
+        List<Atividade> listaAtividades = turma.getListAtividades();
+         for(Atividade atividade : listaAtividades){
+             System.out.println(atividade);
+             System.out.println();
+        }
+    }
 }
