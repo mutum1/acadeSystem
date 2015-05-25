@@ -23,11 +23,10 @@ public class DisciplinaViewTest {
     @Test
     public void testExiste() {
         System.out.println("existe");
-        //Disciplina disciplina1 = new Disciplina(null, null, null, 1);
         Disciplina disciplina = new Disciplina("Calculo", "Matematica Aplicada", "90hrs", 6);
         ProfessorDaoImpl professor = new ProfessorDaoImpl();
         DisciplinaDaoImpl disciplinaTest = new DisciplinaDaoImpl(professor);
-        DisciplinaView instance = new DisciplinaView(disciplinaTest);
+        DisciplinaView instance = new DisciplinaView(disciplinaTest, professor);
         boolean expResult = false;
         boolean result = instance.existe(disciplina);
         assertEquals(expResult, result);
@@ -40,7 +39,7 @@ public class DisciplinaViewTest {
     public void testListar() {
         System.out.println("Listar");
         DisciplinaDaoImpl disciplinaTest = new DisciplinaDaoImpl(null);
-        DisciplinaView instance = new DisciplinaView(disciplinaTest);
+        DisciplinaView instance = new DisciplinaView(disciplinaTest, null);
         instance.Listar();
     }
     
