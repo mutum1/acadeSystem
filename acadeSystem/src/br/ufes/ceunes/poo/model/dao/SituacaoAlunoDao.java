@@ -21,4 +21,5 @@ public interface SituacaoAlunoDao {
     int gerarProximoId();
     void salvar();
     Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade);
+    SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno);
 }

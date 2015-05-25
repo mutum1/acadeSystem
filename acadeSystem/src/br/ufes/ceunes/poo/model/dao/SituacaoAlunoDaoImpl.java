@@ -200,7 +200,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }
         return null;
     }
-    
+    @Override
     public SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno){
         for(SituacaoAluno situacaoAluno : listaSituacoes){
             if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
