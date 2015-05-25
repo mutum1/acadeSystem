@@ -201,6 +201,12 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }
         return null;
     }
+    /**
+     * Busca situação dos aluno dado o id do aluno e da turma
+     * @param idTurma id do turma.
+     * @param idAluno id do aluno.
+     * @return situação do aluno.
+     */
     @Override
     public SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno){
         for(SituacaoAluno situacaoAluno : listaSituacoes){

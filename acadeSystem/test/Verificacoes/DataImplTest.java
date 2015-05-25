@@ -5,6 +5,7 @@
  */
 package Verificacoes;
 
+import util.DataImpl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -75,7 +75,9 @@ public class ProfessorView {
         }
         return true;
     }
-    
+    /**
+     * Lista todos os professores.
+     */
     public void listar(){
         List<Professor> listaProfessor = professorDao.getAll();
         for(Professor professor : listaProfessor){
@@ -83,7 +85,10 @@ public class ProfessorView {
              System.out.println();
         }
     }
-    
+    /**
+     * Consulta um professor pelo nome.
+     * @param nome nome do professor a ser consultado.
+     */
     public void consultarPorNome(String nome){
         Professor professor = new Professor(nome, null, null,0);
         List<Professor> listaProfessor = professorDao.buscarPorNome(professor);

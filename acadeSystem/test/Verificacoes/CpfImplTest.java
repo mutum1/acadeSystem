@@ -5,6 +5,7 @@
  */
 package Verificacoes;
 
+import util.CpfImpl;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
