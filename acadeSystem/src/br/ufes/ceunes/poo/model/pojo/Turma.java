@@ -76,10 +76,14 @@ public class Turma {
      * Pega o periodo da turma
      * @return o periodo da turma.
      */
+    
+    public void setListAlunos(List<Aluno> listAlunos) {
+        this.listAlunos = listAlunos;
+    }
+    // Retorna o periodo da turma
     public String getPeriodo() {
         return periodo;
     }
-    
     /**
      * Modifica o periodo da turma.
      * @param periodo novo periodo.
@@ -87,7 +91,6 @@ public class Turma {
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
-
     /**
      * Pega o local
      * @return o local da turma.

@@ -39,12 +39,10 @@ public class SituacaoAluno {
      */
     public float getNotaFinal() {
         float nota=0;
-        int numeroAtividades=0;
-        numeroAtividades=atividade.size();
         for(Atividade atividade : atividade){
             nota = nota+atividade.getNota();
         }
-        nota=nota/numeroAtividades;
+        
         return nota;
     }
     /**
@@ -105,7 +103,7 @@ public class SituacaoAluno {
      * @return uma string APROVADO OU REPROVADO.
      */
     public String status(){
-        int cargaHoraria =Integer.parseInt(turma.getHorario());
+        int cargaHoraria =Integer.parseInt(turma.getDisciplina().getCargaHoraria());
         
         if((getNotaFinal()>=6) &&(this.faltas/cargaHoraria)<=0.25 )
             return "APROVADO";
@@ -119,7 +117,7 @@ public class SituacaoAluno {
     public String toString(){
         return "Nome do aluno: "+aluno.getNome()+"\nNota: "+getNotaFinal()+
                 "   Faltas: "
-                + this.faltas+" status:"+status();
+                + this.faltas;
         
     }
 }

@@ -22,7 +22,6 @@ import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
-import com.sun.org.apache.bcel.internal.generic.SIPUSH;
 import java.util.Scanner;
 
 /**
@@ -45,8 +44,8 @@ public class AcadeSystem {
         
         AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
-        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
-        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao);// Enviado uma turmaDao para uma turmaView
+        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao,professorDao); // Enviado uma disciplinaDao para disciplinaView
+        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao,atividadeDao);// Enviado uma turmaDao para uma turmaView
         AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
   
         Menu menuPrincipal = new Menu();
@@ -56,8 +55,8 @@ public class AcadeSystem {
         menuPrincipal.addOption("Fechar");
         
         
-        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
-        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView);     
+        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
+        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
         
         
         menuPrincipal.showOptions();
@@ -70,7 +69,7 @@ public class AcadeSystem {
                 case 2:
                     
                     System.out.println("Digite a senha");
-                    String senha = "admin";
+                    String senha = "";
                     if(senha.equals(( new Scanner(System.in)).nextLine())){
                         menuAdministrador.open();
                     }

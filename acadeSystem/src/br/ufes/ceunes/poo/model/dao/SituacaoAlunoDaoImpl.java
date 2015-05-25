@@ -40,6 +40,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         this.atividadeAcoes=atividadeDao;
         turmaAcoes=turmaDao;
         id=0;
+        carregar();
     }
     /**
      * Método responsavel por carregar os dados do arquivo ("Situacoes.txt") para
@@ -49,6 +50,11 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     @Override
     public void carregar() {
         listaSituacoes = new ArrayList<>();
+        List<Turma> listaTurmas = turmaAcoes.getAll();
+        for (Turma turma : listaTurmas){
+            turma.setListAlunos(new ArrayList<Aluno>());
+        }
+        
         String nomeArquivo = "Situacoes.txt";//nome do arquivo
         FileReader file;
         try {
@@ -73,10 +79,13 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 
                 Turma turma = turmaAcoes.buscar(new Turma(null, null, null, null, 0, null, null, idUser));
                 
+                
                 sId = ler.readLine();//Pega id da situação
                 idUser = Integer.parseInt(sId);
                                             
                 SituacaoAluno situacaoAluno = new SituacaoAluno(aluno, turma, idUser);
+                
+                turma.addAluno(situacaoAluno);
                 
                 Integer nIds;
                 String nIdTemp = ler.readLine();
@@ -163,45 +172,6 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         carregar();
     }
     /**
-     * Ativa as exceções Operação não suportada ao adicionar uma nota.
-     */
-    @Override
-    public void addNota(Turma turma, Aluno aluno, Atividade atividade, int nota) {
-        Atividade atividadeAdd = buscarAtividade(turma.getId(), aluno.getId(), atividade.getId());
-        atividadeAdd.setNota(nota);
-    }
-    
-    
-    @Override
-    public void addPresenca(Turma turma, Aluno aluno, int fatas) {
-        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
-        situacaoAluno.setFaltas(fatas);
-    }
-    /**
-     * exceção: Operação não suportada ao solicitar a nota final do aluno.
-     */
-    @Override
-    public float getNotaFinal(Turma turma, Aluno aluno) {
-        float nota=0;
-        int numeroAtividades=0;
-        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
-        numeroAtividades=situacaoAluno.getAtividade().size();
-        for(Atividade atividade : situacaoAluno.getAtividade()){
-            nota = nota+atividade.getNota();
-        }
-        nota=nota/numeroAtividades;
-        return nota;
-    }
-    /**
-     * procura nas situações do aluno a relação de presenta do mesmo.
-     * Exceção Operação não suportada ao solicitar as presenças do aluno.
-     */
-    @Override
-    public float getPresenca(Turma turma, Aluno aluno) {
-        SituacaoAluno situacaoAluno = buscarSituacaoAluno(turma.getId(),aluno.getId());
-        return situacaoAluno.getFaltas();
-    }
-    /**
      * Gera o proximo id da situação do aluno.
      * @return o id.
      */
@@ -217,6 +187,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      * @param idAtividade id da respectivda atividade.
      * @return atividade do aluno da turma.
      */
+    @Override
     public Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade){
         for(SituacaoAluno situacaoAluno : listaSituacoes){
             if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
@@ -229,7 +200,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         }
         return null;
     }
-    
+    @Override
     public SituacaoAluno buscarSituacaoAluno (int idTurma, int idAluno){
         for(SituacaoAluno situacaoAluno : listaSituacoes){
             if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
@@ -239,4 +210,6 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
         return null;
         
     }
+
+   
 }

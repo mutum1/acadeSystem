@@ -9,6 +9,7 @@ package br.ufes.ceunes.poo.view;
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
+import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
@@ -28,14 +29,16 @@ public class CadastroAdministradorView {
     private DisciplinaView disciplinaView;
     private TurmaView turmaView;
     private AtividadeView atividadeView;
+    private SituacaoAlunoDao situacaoAlunoDao;
     private Menu menu;
 
-    public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView ){
+    public CadastroAdministradorView(AlunoView alunoView,ProfessorView professorView,DisciplinaView disciplinaView,TurmaView turmaView,AtividadeView atividadeView,SituacaoAlunoDao situacaoAlunoDao){
         this.alunoView = alunoView;
         this.professorView = professorView;
         this.disciplinaView = disciplinaView;
         this.turmaView = turmaView;
         this.atividadeView = atividadeView;
+        this.situacaoAlunoDao = situacaoAlunoDao;
         this.menu = new Menu();
     }
     
@@ -46,7 +49,6 @@ public class CadastroAdministradorView {
         this.menu.addOption("Cadastrar Profesor");
         this.menu.addOption("Cadastrar Disciplina");
         this.menu.addOption("Cadastrar Turma");
-        this.menu.addOption("Cadastrar Atividade");
         this.menu.addOption("Cadastrar alunos em uma turma");
         this.menu.addOption("Voltar");
         
@@ -67,10 +69,6 @@ public class CadastroAdministradorView {
                     turmaView.cadastrar();
                     break;
                 case 5:
-                    atividadeView.cadastrar();
-                    
-                    break;
-                case 6:
                     turmaView.cadastrarAlunos();
                     break;
             }
