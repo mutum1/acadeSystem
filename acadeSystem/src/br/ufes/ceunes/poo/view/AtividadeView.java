@@ -29,6 +29,7 @@ public class AtividadeView {
         System.out.println(atividade);
         atividade.getTurma().addAtividade(atividade);
         atividadeDao.salvar(atividade);
+        atividade.aplicarAosAlunos();
         
     } 
     /**
@@ -94,6 +95,25 @@ public class AtividadeView {
          for(Atividade atividade : listaAtividades){
              System.out.println(atividade);
              System.out.println();
+        }
+    }
+    
+    public void listarDeTurma(){
+        Scanner input = new Scanner(System.in);
+        String id;
+        Turma turma;
+        System.out.println("Digite o ID da turma");
+        id = input.nextLine();
+        try{
+            turma = turmaDao.buscar(new Turma(null, null, null, null, 0, null, null,Integer.parseInt(id)));
+            if(turma.getAno() == null){
+                System.out.println("Turma não encontrada");
+            }else{
+                listar(turma);
+            }
+        
+        }catch(NumberFormatException ex){
+            System.out.println("Valor inválido");
         }
     }
 }

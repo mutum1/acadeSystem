@@ -147,7 +147,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 salvar.newLine();
                 salvar.write(Integer.toString(situacoes.getTurma().getId()));//salva carga horaria
                 salvar.newLine();
-                salvar.write(Integer.toString(situacoes.getId()));//salva o id da disciplina
+                salvar.write(Integer.toString(situacoes.getId()));//salva o id da situacao
                 salvar.newLine();
                 String numerosDeAtividades=""+situacoes.getAtividade().size();
                 
@@ -190,7 +190,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
     @Override
     public Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade){
         for(SituacaoAluno situacaoAluno : listaSituacoes){
-            if(idTurma==situacaoAluno.getTurma().getId() && idAluno==situacaoAluno.getAluno().getId()){
+            if((idTurma==situacaoAluno.getTurma().getId()) && (idAluno==situacaoAluno.getAluno().getId())){
+                
                 for(Atividade atividade : situacaoAluno.getAtividade()){
                     if(atividade.getId()==idAtividade){
                         return atividade;

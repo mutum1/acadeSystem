@@ -6,6 +6,8 @@
 
 package br.ufes.ceunes.poo.model.pojo;
 
+import java.util.List;
+
 /**
  *
  * @author paulo
@@ -130,5 +132,12 @@ public class Atividade {
     public void setNota(float nota) {
         this.nota = nota;
     }
-    
+    public void aplicarAosAlunos(){
+        List<Aluno> alunos = turma.getListaAlunos();
+        for(Aluno aluno : alunos){
+            SituacaoAluno situacaoAluno = aluno.getSituacaoAluno(turma);
+            situacaoAluno.addAtividade(this.copiaComNota(0));
+        }
+    }
+        
 }

@@ -46,7 +46,6 @@ public class ConsultaView {
         this.menu.addOption("Consultar Profesor"); //2
         this.menu.addOption("Consultar Disciplina"); //3
         this.menu.addOption("Consultar Turma"); //4
-        this.menu.addOption("Consultar Atividade"); //5
         this.menu.addOption("Consultar Situação de um aluno"); //6
         this.menu.addOption("Consultar número de turmas de uma disicplina");//7
         this.menu.addOption("Consultar número de disciplinas já lecionadas de um professor"); //8
@@ -75,15 +74,12 @@ public class ConsultaView {
                     turmaView.consultar();
                     break;
                 case 5:
-                   // atividadeView.consultar();
-                    break;
-                case 6:
                     turmaView.consultarUmAluno();
                     break;
-                case 7:
+                case 6:
                     turmaView.consultarUmaDisciplina();
                     break;
-                case 8:
+                case 7:
                     turmaView.consultarPorProfessor();
                     break;
                     
