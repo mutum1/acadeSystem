@@ -51,8 +51,8 @@ public class TurmaView {
     } 
     
     /**
-     * 
-     * @return 
+     * Método responsavel por preencher a turma com todos os dados.
+     * @return Truma com todos os dados preenchidos
      */
     
     public Turma getInfo(){
@@ -95,7 +95,11 @@ public class TurmaView {
         
         return new Turma(ano,periodo,local,horario,Integer.parseInt(numeroVagas),professor,disciplina,turmaDao.gerarProximoId());
     }    
-    
+    /**
+     * Método utilizado para busca se o local esta disponivel para a turma.
+     * @param turma copia da turma, para ver se há local disponivel.
+     * @return true para quando é disponivel e false no caso contrario.
+     */
     public boolean localDisponivel(Turma turma){
         Turma turmaTemp = new Turma(null,null,turma.getLocal(),turma.getHorario(),0,null,null,0);
         turmaTemp = turmaDao.disponibilidadeLocal(turmaTemp);
@@ -105,7 +109,9 @@ public class TurmaView {
 
         return false;
     }
-
+    /**
+     * Método utilizado para lista todas as turmas.
+     */
     public void listar(){
         List<Turma> listaTurma = turmaDao.getAll();
          for(Turma turma : listaTurma){
@@ -114,7 +120,10 @@ public class TurmaView {
         }
     }
     
-    
+    /**
+     * Método responsavel por cadastras os alunos pelo cpf em uma turma
+     * @param turma referencia da turma ao quao os alunos vão ser matriculados.
+     */
     public void cadastrarAlunos(Turma turma){
         Scanner input = new Scanner(System.in);
         String cpf;
@@ -139,7 +148,9 @@ public class TurmaView {
         }
     
     }
-    
+    /**
+     * 
+     */
     public void cadastrarAlunos(){
         Scanner input = new Scanner(System.in);
         String id;
@@ -152,7 +163,9 @@ public class TurmaView {
         if(turma.getHorario() != null)cadastrarAlunos(turma);
         
     }
-    
+    /**
+     * Método que mostra todos os alunos de uma determinada turma.
+     */
     public void consultar(){
         Scanner input = new Scanner(System.in);
         String codigo;

@@ -26,7 +26,17 @@ public class Turma {
     private int id;
 
     
-    // Construtor com 7 parametros exceto lista de alunos
+    /**
+     * Construtor com 7 parametros exceto lista de alunos
+     * @param ano ano da turma.
+     * @param periodo periodo da turma.
+     * @param local local da turma.
+     * @param horario horario da aula.
+     * @param nVagas numero de vagas da turma.
+     * @param professor obejo professor com os dados dele.
+     * @param disciplina objeto disciplina, com todos os dados.
+     * @param id id da turma.
+     */
     public Turma(String ano, String periodo, String local, String horario, int nVagas, Professor professor, Disciplina disciplina, int id) {
         this.ano = ano;
         this.periodo = periodo;
@@ -39,91 +49,147 @@ public class Turma {
         this.listAtividades = new ArrayList<>();
         this.id = id;
     }
-    
+    /**
+     * Pega o nome da turma
+     * @return nome da disciplina o ano e o periodo.
+     */
     public String getNomeTurma(){
         return disciplina.getNome()+" "+this.ano+"/"+this.periodo;
     }
-    // Retorna o ano da turma
+    /**
+     * Pegao ano da turma
+     * @return o ano da turma
+     */
     public String getAno() {
         return ano;
     }
 
-    // Modifica o ano da turma
+    /**
+     * Modifica o ano da turma
+     * @param ano novo ano.
+     */
     public void setAno(String ano) {
         this.ano = ano;
     }
 
-    // Retorna o periodo da turma
+    /**
+     * Pega o periodo da turma
+     * @return o periodo da turma.
+     */
     public String getPeriodo() {
         return periodo;
     }
     
-    // Modifica o periodo da turma
+    /**
+     * Modifica o periodo da turma.
+     * @param periodo novo periodo.
+     */
     public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
 
-    // Retorna o local
+    /**
+     * Pega o local
+     * @return o local da turma.
+     */
     public String getLocal() {
         return local;
     }
 
-    // Modifica o local da turma
+    /**
+     * Modifica o local da turma.
+     * @param local novo local.
+     */
     public void setLocal(String local) {
         this.local = local;
     }
 
-    // Retorna o horario da turma
+    /**
+     * Pega o horario da turma.
+     * @return o horario.
+     */
     public String getHorario() {
         return horario;
     }
 
-    // Modifica o horario da turma
+    /**
+     * Modifica o horario da turma.
+     * @param horario novo horario.
+     */
     public void setHorario(String horario) {
         this.horario = horario;
     }
 
-    // Retorna numero de vagas
+    /**
+     * Pega numero de vagas.
+     * @return o numero de vagas da turma.
+     */
     public int getnVagas() {
         return nVagas;
     }
 
-    // Modofica o numero de vagas
+    /**
+     * Modofica o numero de vagas.
+     * @param nVagas 
+     */
     public void setnVagas(int nVagas) {
         this.nVagas = nVagas;
     }
 
-    // Retorna os dados do professor da turma
+    /**
+     * Pega os dados do professor da turma
+     * @return o professor da turma.
+     */
     public Professor getProfessor() {
         return professor;
     }
 
-    // Retorna a disciplina da turma
+    /**
+     * Pega a disciplina da turma.
+     * @return disciplina da turma.
+     */
     public Disciplina getDisciplina() {
         return disciplina;
     }
     
-    // retorna a lista de alunos da turma
+    /**
+     * Pega a lista de alunos da turma
+     * @return lista de alunos da turma.
+     */
     public List<Aluno> getListaAlunos(){
         return listAlunos;
     }
     
-    // Adiciona um aluno na turma
+    /**
+     * Adiciona um aluno e sua situação na turma.
+     * @param situacaoAluno nova situação de aluno a ser adicionada.
+     */
     public void addAluno(SituacaoAluno situacaoAluno){ 
         situacaoAluno.getAluno().addSituacao(situacaoAluno);
         listAlunos.add(situacaoAluno.getAluno());
         
     }
 
+    /**
+     * Pega a lista de atividades da turma.
+     * @return a lista de atividades.
+     */
     public List<Atividade> getListAtividades() {
         return listAtividades;
     }
     
     
-        // Retorna o ID da Turma
+     /**
+     * Pega o ID da Turma
+     * @return o id da turma.
+     */
     public int getId() {
         return id;
     }
+    /**
+     * Adiciona uma atividade na turma.
+     * @param atividade nova atividade a ser inserida.
+     */
     public void addAtividade(Atividade atividade){
         for(Aluno aluno:listAlunos){
             Atividade atividadeCpy=atividade.copiaComNota(0);
@@ -131,7 +197,10 @@ public class Turma {
         }
         this.listAtividades.add(atividade);
     }
-    
+    /**
+     * Converte todos os dados da turma para string.
+     * @return todos os dados concatenados de turma.
+     */
     @Override
     public String toString(){
         return "Turma de : "+disciplina.getNome()+
@@ -142,7 +211,10 @@ public class Turma {
                "\nID:        "+id+
                "\nQuantidade de vagas: "+nVagas;        
     }
-
+    /**
+     * Aplica uma atividade para cada aluno na turma.
+     * @param novaAtividade nova atividade a ser aplicada aos alunos.
+     */
     public void aplicarAtividade(Atividade novaAtividade) {
         for(Aluno aluno : listAlunos){
         

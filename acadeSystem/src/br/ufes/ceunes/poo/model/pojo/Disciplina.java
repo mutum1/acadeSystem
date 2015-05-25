@@ -20,7 +20,10 @@ public class Disciplina {
     private List<Professor> listaProfessor;
     private int id;
 
-    
+    /**
+     * transforma os valores da disciplina em string.
+     * @return uma string com todas as informações separadas.
+     */
     @Override
     public String toString(){
         return "Nome:          "+this.nome+
@@ -29,7 +32,13 @@ public class Disciplina {
                "\nID:            "+this.id;
     }
     
-    // Construtor (4 parametros)
+    /**
+     * Inicializa a disciplina com nome a ementa cargahoraria e o id.
+     * @param nome nome da disciplina.
+     * @param ementa ementa da disciplina.
+     * @param cargaHoraria carga horaria da disciplina.
+     * @param id id da disciplina.
+     */
     public Disciplina(String nome, String ementa, String cargaHoraria, int id) {
         this.nome = nome;
         this.ementa = ementa;
@@ -38,34 +47,51 @@ public class Disciplina {
         this.id= id;
     }
     
-    
-    // Retorna nome da disciplina
+    /**
+     * pega o nome da disciplina
+     * @return nome da disciplina.
+     */
     public String getNome() {
         return nome;
     }
 
-    // Retorna a ementa da disciplina
+    /**
+     * pega a ementa da disciplina
+     * @return a ementa.
+     */
     public String getEmenta() {
         return ementa;
     }
 
-    // Retorna a cargahoraria da disciplina
+    /**
+     * pega a carga horária da disciplina
+     * @return a carga horária da disciplina.
+     */
     public String getCargaHoraria() {
         return cargaHoraria;
     }
     
-    // Adiciona uma disciplina 
+    /**
+     * Adiciona um professor a uma disciplina.
+     * @param professor professor que dará disciplina.
+     */
     public void addProfessor(Professor professor){
         this.listaProfessor.add(professor);
 
     }
     
-    // Retorna a lista de professores
+    /**
+     * pega a lista de professores.
+     * @return lista de professores que pode dar a disciplina.
+     */
     public List<Professor> listaProfessor() {
         return listaProfessor;
     }
     
-        // Retorna o ID da Disciplina
+    /**
+     * pega o ID da Disciplina
+     * @return o id da disciplina.
+     */
     public int getId() {
         return id;
     }

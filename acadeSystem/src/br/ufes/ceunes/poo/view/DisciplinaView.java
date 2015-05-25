@@ -63,7 +63,7 @@ public class DisciplinaView {
     
     /**
      * Métodos responsavel por não permitir duplicatas de disciplina na lista.
-     * @param disciplina
+     * @param disciplina disciplina ao quer se quer saber se já existe na lista.
      * @return True se existe na alista/ False caso não exista.
      */
     
