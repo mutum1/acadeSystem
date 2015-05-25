@@ -27,6 +27,7 @@ public class AtividadeView {
         System.out.println(atividade);
         atividade.getTurma().addAtividade(atividade);
         atividadeDao.salvar(atividade);
+        atividade.aplicarAosAlunos();
         
     } 
     

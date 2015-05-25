@@ -327,9 +327,12 @@ public class TurmaView {
         System.out.println("Turma não tem essa atividade");
             return;
         }
-        listaAlunos = alunoDao.getAll();
+        listaAlunos = turma.getListaAlunos();
         for(Aluno alunoTemp : listaAlunos){
             atividade = situacaoAlunoDao.buscarAtividade(turma.getId(), alunoTemp.getId(), atividade.getId());
+            
+            
+            System.out.println(atividade);
             System.out.println(alunoTemp+"\nDigite a nota do aluno");
             id = input.nextLine();
             atividade.setNota(Float.parseFloat(id));
@@ -356,11 +359,13 @@ public class TurmaView {
         }
    
         
-        listaAlunos = alunoDao.getAll();
+        listaAlunos = turma.getListaAlunos();
         for(Aluno alunoTemp : listaAlunos){
             situacaoAluno = situacaoAlunoDao.buscarSituacaoAluno(turma.getId(), alunoTemp.getId());
+            System.out.println(situacaoAluno);
             System.out.println(alunoTemp+"\nDigite a quantidade de faltas do aluno");
             id = input.nextLine();
+            
             situacaoAluno.setFaltas(Integer.parseInt(id));
         
         }
