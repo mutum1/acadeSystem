@@ -64,8 +64,9 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 String valor = ler.readLine(); 
                 idTemp = ler.readLine(); 
                 
-                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Integer.parseInt(valor), Integer.parseInt(idTemp));
+                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Float.parseFloat(valor), Integer.parseInt(idTemp));
                 turma.addAtividade(novaAtividade);
+                listaAtividades.add(novaAtividade);
             }
             
             file.close();//Fecho o arquivo
