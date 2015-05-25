@@ -31,12 +31,10 @@ public class SituacaoAluno {
     
     public float getNotaFinal() {
         float nota=0;
-        int numeroAtividades=0;
-        numeroAtividades=atividade.size();
         for(Atividade atividade : atividade){
             nota = nota+atividade.getNota();
         }
-        nota=nota/numeroAtividades;
+        
         return nota;
     }
     // Retorna todas as caracteristicas do aluno
@@ -83,7 +81,7 @@ public class SituacaoAluno {
     public String toString(){
         return "Nome do aluno: "+aluno.getNome()+"\nNota: "+getNotaFinal()+
                 "   Faltas: "
-                + this.faltas+" status:"+status();
+                + this.faltas;
         
     }
 }

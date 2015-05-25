@@ -36,6 +36,7 @@ public class MenuProfessorView {
         menu.addOption("Cadastros");//adiciona opçoes no menu
         menu.addOption("Listagens");
         menu.addOption("Consultas");
+        menu.addOption("Lançar notas");
         //colocar aqui outras opcoes
         menu.addOption("Sair");  
         

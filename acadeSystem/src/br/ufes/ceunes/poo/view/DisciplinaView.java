@@ -7,7 +7,9 @@ package br.ufes.ceunes.poo.view;
 
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
+import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
+import br.ufes.ceunes.poo.model.pojo.Professor;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,9 +20,11 @@ import java.util.Scanner;
 public class DisciplinaView {
     
     DisciplinaDao disciplinaDao;
+    ProfessorDao professorDao;
     
-    public DisciplinaView(DisciplinaDao disciplina){
+    public DisciplinaView(DisciplinaDao disciplina,ProfessorDao professorDao){
         this.disciplinaDao = disciplina;
+        this.professorDao = professorDao;
     }
     
     /**
@@ -84,5 +88,6 @@ public class DisciplinaView {
         }
     
     }
+    
     
 }

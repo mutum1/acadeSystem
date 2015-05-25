@@ -22,7 +22,6 @@ import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
-import com.sun.org.apache.bcel.internal.generic.SIPUSH;
 import java.util.Scanner;
 
 /**
@@ -45,7 +44,7 @@ public class AcadeSystem {
         
         AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
         ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
-        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao); // Enviado uma disciplinaDao para disciplinaView
+        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao,professorDao); // Enviado uma disciplinaDao para disciplinaView
         TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao);// Enviado uma turmaDao para uma turmaView
         AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
   

@@ -31,28 +31,33 @@ public class ConsultaView {
     
     public void abrir(){
         
-        this.menu.setTitle("Menu Cadastros");
-        this.menu.addOption("Consultar Aluno");
-        this.menu.addOption("Consultar Profesor");
-        this.menu.addOption("Consultar Disciplina");
-        this.menu.addOption("Consultar Turma");
-        this.menu.addOption("Consultar Atividade");
-        this.menu.addOption("Voltar");
+        this.menu.setTitle("Menu Cadastros"); 
+        
+        this.menu.addOption("Consultar Aluno"); //1
+        this.menu.addOption("Consultar Profesor"); //2
+        this.menu.addOption("Consultar Disciplina"); //3
+        this.menu.addOption("Consultar Turma"); //4
+        this.menu.addOption("Consultar Atividade"); //5
+        this.menu.addOption("Consultar Situação de um aluno"); //6
+        this.menu.addOption("Consultar número de turmas de uma disicplina");//7
+        this.menu.addOption("Consultar número de disciplinas já lecionadas de um professor"); //8
+        this.menu.addOption("Voltar"); 
         
         this.menu.showOptions();
         int opcao = menu.getOption();
-        String nome;
+        String temp;
+        
         while(opcao != menu.getSize()){
             switch(opcao){
                 case 1:
                     System.out.println("Digite o nome para a consulta");
-                    nome = (new Scanner(System.in)).nextLine();
-                    alunoView.consultarPorNome(nome);
+                    temp = (new Scanner(System.in)).nextLine();
+                    alunoView.consultarPorNome(temp);
                     break;
                 case 2:
                     System.out.println("Digite o nome para a consulta");
-                    nome = (new Scanner(System.in)).nextLine();
-                    professorView.consultarPorNome(nome);
+                    temp = (new Scanner(System.in)).nextLine();
+                    professorView.consultarPorNome(temp);
                     break;
                 case 3:
                    // disciplinaView.consultar();
@@ -61,8 +66,18 @@ public class ConsultaView {
                     turmaView.consultar();
                     break;
                 case 5:
-                   // atividadeView.cadastrar();
+                   // atividadeView.consultar();
                     break;
+                case 6:
+                    turmaView.consultarUmAluno();
+                    break;
+                case 7:
+                    turmaView.consultarUmaDisciplina();
+                    break;
+                case 8:
+                    turmaView.consultarPorProfessor();
+                    break;
+                    
                     
             }
             this.menu.showOptions();

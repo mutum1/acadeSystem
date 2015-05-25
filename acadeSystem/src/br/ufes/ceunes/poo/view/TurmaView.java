@@ -15,6 +15,7 @@ import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -153,6 +154,7 @@ public class TurmaView {
         
     }
     
+    
     public void consultar(){
         Scanner input = new Scanner(System.in);
         String codigo;
@@ -188,4 +190,103 @@ public class TurmaView {
              }
         }
     }
+    
+    
+    public void consultarUmAluno(){
+        Scanner input = new Scanner(System.in);
+        String codigo;
+        String ano;
+        String periodo;
+        Disciplina disciplina;
+        Turma turma;
+        List<Turma> listaTurmas;
+        float nota;
+        int faltas;
+        SituacaoAluno situacaoAluno;
+        
+        System.out.println("Digite o codigo da disciplina");
+        codigo = input.nextLine();
+        disciplina = new Disciplina(null, null, null, Integer.parseInt(codigo));
+        disciplina = disciplinaDao.buscar(disciplina);
+        
+        System.out.println("Digite o ano");
+        ano = input.nextLine();
+        System.out.println("Digite o periodo");
+        periodo = input.nextLine();
+        
+        turma = new Turma(ano, periodo, null, null, 0, null, disciplinaDao.buscar(disciplina), 0);
+        listaTurmas = turmaDao.buscarPorDisciplina(turma);
+        
+        System.out.println("Digite o cpf do aluno");
+        String cpf = input.nextLine();
+        Aluno aluno = alunoDao.buscarPorCpf(new Aluno(null,cpf,0));
+        System.out.println(aluno);
+       
+        
+        for(Turma turmaTemp : listaTurmas){
+            for(Aluno alunoTemp: turmaTemp.getListaAlunos()){
+                if(aluno.equals(alunoTemp)){
+                    situacaoAluno = aluno.getSituacaoAluno(turmaTemp);
+                    System.out.println(situacaoAluno+" "+situacaoAluno.status());
+                    return;
+                }
+            }        
+        }
+        
+    
+        System.out.println("Aluno não cadastrado na turma");
+    }
+    
+    
+    public void consultarUmaDisciplina(){
+        Scanner input = new Scanner(System.in);
+        String codigo;
+        Disciplina disciplina;
+        System.out.println("Digite o código da disciplina");
+        codigo = input.nextLine();
+        disciplina = disciplinaDao.buscar(new Disciplina(null, null, null, Integer.parseInt(codigo)));
+        if(disciplina.getNome() == null){
+            System.out.println("Disciplina não encontrada");
+            return;
+        }
+        Turma turma = new Turma(null, null, null, null, 0, null, disciplina, 0);
+        List <Turma> listaTurmas = turmaDao.buscarPorDisciplina(turma);
+        for(Turma turmaTemp: listaTurmas){
+            System.out.println(turmaTemp);
+            System.out.println();
+        }
+        System.out.println("A quantidade de turmas é "+listaTurmas.size());
+        
+    
+    }
+    
+    public void consultarPorProfessor(){
+        Scanner input = new Scanner(System.in);
+        String cpf;
+        Professor professor;
+        List<Disciplina> listaDisciplinas;
+        listaDisciplinas = new ArrayList<>();
+        
+        
+        
+        System.out.println("Digite o cpf do professor");
+        cpf = input.nextLine();
+        professor = professorDao.buscarPorCpf(new Professor(null, cpf, null, 0));
+        List<Turma> listaTurmas = turmaDao.getAll();
+        for(Turma turma : listaTurmas){
+            if(turma.getProfessor().equals(professor) && !listaDisciplinas.contains(turma.getDisciplina())){
+                listaDisciplinas.add(turma.getDisciplina());
+            }
+        }
+        
+        for(Disciplina disciplinaTemp: listaDisciplinas){
+            System.out.println(disciplinaTemp);
+            System.out.println("");
+        }
+        
+        System.out.println("A quantidade de disicplinas é "+listaDisciplinas.size());
+
+    }
+    
+    
 }
