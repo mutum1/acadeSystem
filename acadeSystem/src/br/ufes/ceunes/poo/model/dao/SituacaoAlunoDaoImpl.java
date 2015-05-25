@@ -99,10 +99,8 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                     
                     String notaTemp = ler.readLine();
                     float nota= Float.parseFloat(notaTemp);
-                    atividade = atividade.copiaComNota(nota);
-                    situacaoAluno.addAtividade(atividade);
-                }
-                aluno.addSituacao(situacaoAluno);
+                    atividade.aplicarAosAlunos(nota);
+                }              
                 listaSituacoes.add(situacaoAluno);
                 
             }
