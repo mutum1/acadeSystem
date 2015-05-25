@@ -56,8 +56,8 @@ public class AtividadeDaoImpl implements AtividadeDao {
             
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
                 String nome = ler.readLine();//Pega nome
-                String tipo = ler.readLine();//Pega ementa
-                String data = ler.readLine(); //cargaHoraria
+                String tipo = ler.readLine();//Pega tipo
+                String data = ler.readLine(); //data
                 idTemp = ler.readLine(); 
                 int idInt = Integer.parseInt(idTemp);
                 Turma turma = turmaAcoes.buscar(new Turma(null,null,null,null,0,null,null,idInt));
@@ -106,11 +106,11 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 salvar.newLine();
                 salvar.write(atividade.getData());//salva carga horaria
                 salvar.newLine();
-                salvar.write(atividade.getTurma().getId());//salva id da turma
+                salvar.write(Integer.toString(atividade.getTurma().getId()));//salva id da turma
                 salvar.newLine();
                 salvar.write(Float.toString(atividade.getValor()));//valor
                 salvar.newLine();
-                salvar.write(atividade.getId());//id
+                salvar.write(Integer.toString(atividade.getId()));//id
                 salvar.newLine();
             }
             salvar.close();
