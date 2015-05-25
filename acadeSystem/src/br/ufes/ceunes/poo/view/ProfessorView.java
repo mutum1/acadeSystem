@@ -64,7 +64,7 @@ public class ProfessorView {
     }    
     /**
      * Método responsavel por verifica se o professor já existe na lista.
-     * @param professor
+     * @param professor professor ao quer se quer saber se já existe na lista.
      * @return True se existe na lista/ False caso não exista.
      */
     

@@ -17,7 +17,12 @@ public class Pessoa  implements java.io.Serializable {
      private int id;
      
      
-    // Construtor com os dados
+    /**
+     * Contrutor para pessoas. (professores e alunos)
+     * @param nome nome da pessoa.
+     * @param cpf cpf da pessoa.
+     * @param id id da pessoa.
+     */
     public Pessoa(String nome, String cpf, int id) {
        this.nome = nome;
        this.cpf = cpf;
@@ -25,31 +30,49 @@ public class Pessoa  implements java.io.Serializable {
 
     }
    
-    // Retorna o nome da pessoa
+    /**
+     * Pega o nome da pessoa
+     * @return nome da pessoa.
+     */
     public String getNome() {
         return this.nome;
     }
     
-    // Retorna o cpf da pessoa
+    /**
+     * Pega o cpf da pessoa
+     * @return o cpf da pessoa.
+     */
     public String getCpf() {
         return this.cpf;
     }
 
-    // Modifica o nome da pessoa
+    /**
+     * Modifica o nome da pessoa.
+     * @param nome nome da pessoa.
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    // Modifica o cpf da pessoa
+    /**
+     * Modifica o cpf da pessoa.
+     * @param cpf cpf da pessoa.
+     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
     
-    // Retorna o ID da Pessoa
+    /**
+     * Pega o ID da Pessoa
+     * @return id da pessoa.
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * Converte os dados da pessoa para string.
+     * @return uma string com todos os dados concatenados.
+     */
     @Override
     public String toString(){
         return "Nome: "+this.nome+
