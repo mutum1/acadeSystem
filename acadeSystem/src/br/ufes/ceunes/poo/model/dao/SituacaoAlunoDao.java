@@ -18,11 +18,7 @@ public interface SituacaoAlunoDao {
     
     void carregar();
     void salvar(SituacaoAluno situacao);
-    void addNota(Turma turma,Aluno aluno,Atividade atividade, int nota);
-    void addPresenca(Turma turma, Aluno aluno,int presenca);
-    float getNotaFinal(Turma turma, Aluno aluno);
-    float getPresenca(Turma turma, Aluno aluno);
     int gerarProximoId();
     void salvar();
-    
+    Atividade buscarAtividade(int idTurma, int idAluno, int idAtividade);
 }
