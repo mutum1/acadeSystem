@@ -139,5 +139,11 @@ public class Atividade {
             situacaoAluno.addAtividade(this.copiaComNota(0));
         }
     }
-        
+    public void aplicarAosAlunos(float nota){
+        List<Aluno> alunos = turma.getListaAlunos();
+        for(Aluno aluno : alunos){
+            SituacaoAluno situacaoAluno = aluno.getSituacaoAluno(turma);
+            situacaoAluno.addAtividade(this.copiaComNota(nota));
+        }
+    }    
 }
