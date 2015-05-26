@@ -48,8 +48,8 @@ public class MenuProfessorView {
         menu.addOption("Cadastros");//adiciona opçoes no menu
         menu.addOption("Listagens");
         menu.addOption("Consultas");
-        menu.addOption("Lançar notas");
         menu.addOption("Lançar Faltas");
+        // menu.addOption("Lançar notas");
         //colocar aqui outras opcoes
         menu.addOption("Sair");  
         
@@ -68,11 +68,10 @@ public class MenuProfessorView {
                     (new ConsultaView(alunoView,professorView,disciplinaView,turmaView,atividadeView)).abrir();
                     break;
                 case 4:
-                    turmaView.lancarNotas();
-                    situacaoAlunoDao.salvar();
+                    turmaView.lancarFaltas();
                     break;
                 case 5:
-                    turmaView.lancarFaltas();
+                    turmaView.lancarNotas();
                     situacaoAlunoDao.salvar();
                     break;
             }

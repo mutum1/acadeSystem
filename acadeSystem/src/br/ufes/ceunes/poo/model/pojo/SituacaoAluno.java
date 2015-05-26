@@ -120,4 +120,9 @@ public class SituacaoAluno {
                 + this.faltas;
         
     }
+
+    public void setAtividade(List<Atividade> atividade) {
+        this.atividade = atividade;
+    }
+    
 }

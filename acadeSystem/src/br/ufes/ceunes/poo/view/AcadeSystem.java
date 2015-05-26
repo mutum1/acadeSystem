@@ -65,14 +65,11 @@ public class AcadeSystem {
             switch(opcao){
                 case 1:
                     menuProfessor.open();
-                    return;
+                    break;
                 case 2:
+                                    
+                    menuAdministrador.open();
                     
-                    System.out.println("Digite a senha");
-                    String senha = "";
-                    if(senha.equals(( new Scanner(System.in)).nextLine())){
-                        menuAdministrador.open();
-                    }
                     break;                    
             }
             menuPrincipal.showOptions();

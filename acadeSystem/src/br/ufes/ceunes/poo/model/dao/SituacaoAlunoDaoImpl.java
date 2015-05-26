@@ -92,15 +92,20 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
                 nIds = Integer.parseInt(nIdTemp);
                 
                 int i;
+                situacaoAluno.setAtividade(new ArrayList<Atividade>());
                 for(i=0;i<nIds;i++){
+                    
                     nIdTemp = ler.readLine();
                     int idsTemp= Integer.parseInt(nIdTemp);
                     Atividade atividade =atividadeAcoes.buscar(new Atividade(null, null, null, null, 0, idsTemp));
                     
                     String notaTemp = ler.readLine();
                     float nota= Float.parseFloat(notaTemp);
-                    atividade.aplicarAosAlunos(nota);
-                }              
+                    situacaoAluno.addAtividade(atividade.copiaComNota(nota));
+                    //atividade.aplicarAosAlunos(nota);
+                    
+                }  
+                situacaoAluno.setFaltas(falta);
                 listaSituacoes.add(situacaoAluno);
                 
             }
@@ -175,8 +180,7 @@ public class SituacaoAlunoDaoImpl implements SituacaoAlunoDao {
      */
     @Override
     public int gerarProximoId() {
-        this.id++;
-        return id-1;
+        return id;
     }
     /**
      * 

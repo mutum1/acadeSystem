@@ -140,6 +140,7 @@ public class TurmaView {
         System.out.println("Digite o cpf do aluno,(Digite '0' para sair)");
         cpf = input.nextLine();
         aluno = alunoDao.buscarPorCpf(new Aluno(null, cpf, 0));
+        
         if(aluno.getNome() == null) System.out.println("Não existe aluno");
         
         
@@ -197,12 +198,13 @@ public class TurmaView {
         listaTurmas = turmaDao.buscarPorDisciplina(turma);
         
          for(Turma turmaTemp : listaTurmas){
-             System.out.println(turmaTemp);
+             if(turmaTemp.getAno().equals(ano) && turmaTemp.getPeriodo().equals(periodo)){
+                              
+                for(Aluno alunoTemp : turmaTemp.getListaAlunos()){
+                    situacaoAluno = alunoTemp.getSituacaoAluno(turmaTemp);
+                    System.out.println(situacaoAluno);
 
-             for(Aluno alunoTemp : turmaTemp.getListaAlunos()){
-                 situacaoAluno = alunoTemp.getSituacaoAluno(turmaTemp);
-                 System.out.println(situacaoAluno);
-                 
+                }
              }
         }
     }
@@ -211,6 +213,7 @@ public class TurmaView {
      * Consulta aluno, buscando pelas especificações da turma e seu cpf.
      */
     public void consultarUmAluno(){
+        //situacaoAlunoDao.carregar();
         Scanner input = new Scanner(System.in);
         String codigo;
         String ano;
@@ -339,8 +342,9 @@ public class TurmaView {
         for(Aluno alunoTemp : listaAlunos){
             //atividade = situacaoAlunoDao.buscarAtividade(turma.getId(), alunoTemp.getId(), atividade.getId());
             List<Atividade> listaAtividades =  alunoTemp.getSituacaoAluno(turma).getAtividade();
-           
+            
             for(Atividade atividadeTemp : listaAtividades){
+                
              
                 if(atividadeTemp.getId() == atividade.getId()){
                     
@@ -353,7 +357,7 @@ public class TurmaView {
             
         
         }
-        
+        situacaoAlunoDao.salvar();
         
     
     }
@@ -380,10 +384,10 @@ public class TurmaView {
         for(Aluno alunoTemp : listaAlunos){
             situacaoAluno = situacaoAlunoDao.buscarSituacaoAluno(turma.getId(), alunoTemp.getId());
             System.out.println(situacaoAluno);
-            System.out.println(alunoTemp+"\nDigite a quantidade de faltas do aluno");
             id = input.nextLine();
             
             situacaoAluno.setFaltas(Integer.parseInt(id));
+            situacaoAlunoDao.salvar();
         
         }
     

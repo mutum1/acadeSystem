@@ -65,8 +65,9 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 idTemp = ler.readLine(); 
                 
                 Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Float.parseFloat(valor), Integer.parseInt(idTemp));
-                turma.addAtividade(novaAtividade);
+                novaAtividade.getTurma().addAtividade(novaAtividade);
                 listaAtividades.add(novaAtividade);
+                
             }
             
             file.close();//Fecho o arquivo
@@ -93,7 +94,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
         listaAtividades.add(atividadeTemp);
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {
-            System.out.println("SDFLAJFG");
+
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             

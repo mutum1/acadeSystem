@@ -171,7 +171,7 @@ public class Turma {
      */
     public void addAluno(SituacaoAluno situacaoAluno){ 
         situacaoAluno.getAluno().addSituacao(situacaoAluno);
-        listAlunos.add(situacaoAluno.getAluno());
+        this.listAlunos.add(situacaoAluno.getAluno());
         
     }
 
@@ -195,11 +195,7 @@ public class Turma {
      * Adiciona uma atividade na turma.
      * @param atividade nova atividade a ser inserida.
      */
-    public void addAtividade(Atividade atividade){
-        for(Aluno aluno:listAlunos){
-            Atividade atividadeCpy=atividade.copiaComNota(0);
-            aluno.getSituacaoAluno(this).addAtividade(atividadeCpy);
-        }
+    public void addAtividade(Atividade atividade){      
         this.listAtividades.add(atividade);
     }
     /**
@@ -216,15 +212,5 @@ public class Turma {
                "\nID:        "+id+
                "\nQuantidade de vagas: "+nVagas;        
     }
-    /**
-     * Aplica uma atividade para cada aluno na turma.
-     * @param novaAtividade nova atividade a ser aplicada aos alunos.
-     */
-    public void aplicarAtividade(Atividade novaAtividade) {
-        for(Aluno aluno : listAlunos){
-        
-        }
-    }
-    
-    
+
 }
