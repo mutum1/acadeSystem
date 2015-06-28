@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
+
 /**
  *
  * @author Ayer
@@ -14,8 +16,15 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
     /**
      * Creates new form CadastroAlunosEmTurma
      */
+    private Pt2MenuCadastroAdministradorView menuAnterior;
     public CadastroAlunosEmTurma() {
         initComponents();
+    }
+
+    public CadastroAlunosEmTurma(Pt2MenuCadastroAdministradorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
+        
     }
 
     /**
@@ -43,6 +52,11 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
         jList2 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +66,11 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
         });
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Turma*:");
 
@@ -65,6 +84,7 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
 
         jLabel3.setText("Nome do aluno:");
 
+        jTextField1.setToolTipText("Digite o nome do aluno.");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -183,6 +203,16 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
         // TODO add your handling code here:
         //buscar ALUNOS !!!!!!!!!!!!!!!!!
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

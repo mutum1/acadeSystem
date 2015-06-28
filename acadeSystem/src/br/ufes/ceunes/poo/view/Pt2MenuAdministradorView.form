@@ -36,7 +36,7 @@
                   <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton4" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="164" max="32767" attributes="0"/>
+              <EmptySpace pref="245" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,7 +69,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ACADEsYSTEM - Menu Principal (Administrador)"/>
+        <Property name="text" type="java.lang.String" value="Menu Principal (Administrador)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">

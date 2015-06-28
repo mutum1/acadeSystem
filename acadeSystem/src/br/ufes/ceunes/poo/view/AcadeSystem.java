@@ -41,6 +41,8 @@ public class AcadeSystem {
         TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
         AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
         */
+        
+        /*
         Aluno aluno= new Aluno("paulo", "123456", 1);
         
         Session session = DAOHibernateUtil.getSessionFactory().getCurrentSession();
@@ -49,7 +51,7 @@ public class AcadeSystem {
         session.save(aluno);
         session.getTransaction().commit();
         
-
+*/
         /*
         menuPrincipal.showOptions();
         int opcao = menuPrincipal.getOption();

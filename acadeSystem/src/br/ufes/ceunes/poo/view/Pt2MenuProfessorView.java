@@ -83,7 +83,7 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("ACADEsYSTEM - Menu principal (Professor)");
+        jLabel1.setText("Menu principal (Professor)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +99,7 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton6)
                     .addComponent(jLabel1))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

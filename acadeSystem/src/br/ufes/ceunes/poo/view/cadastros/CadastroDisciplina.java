@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
+
 /**
  *
  * @author Ayer
@@ -14,8 +16,15 @@ public class CadastroDisciplina extends javax.swing.JFrame {
     /**
      * Creates new form CadastroDisciplina
      */
+    private Pt2MenuCadastroAdministradorView menuAnterior;
     public CadastroDisciplina() {
         initComponents();
+    }
+
+    public CadastroDisciplina(Pt2MenuCadastroAdministradorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
+        
     }
 
     /**
@@ -39,19 +48,29 @@ public class CadastroDisciplina extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de disciplinas");
+        setTitle("ACADEsYSTEM - Cadastro de disciplinas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Nome*:");
 
         jLabel3.setText("Ementa*:");
 
-        jTextField1.setToolTipText("Insira o nome do professor");
+        jTextField1.setToolTipText("Insira o nome da disciplina.");
 
         jLabel5.setText("Carga horária*:");
 
         jLabel4.setText("Todos os campos com (*) devem ser preenchidos");
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +79,9 @@ public class CadastroDisciplina extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setToolTipText("Insira o CPF do professor");
+        jTextField2.setToolTipText("Insira a ementa da disciplina.");
 
-        jTextField3.setToolTipText("Insira o departamento do professor");
+        jTextField3.setToolTipText("Insira a cargo horária.");
 
         jLabel2.setText("Cadastro de disciplinas");
 
@@ -130,6 +149,16 @@ public class CadastroDisciplina extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

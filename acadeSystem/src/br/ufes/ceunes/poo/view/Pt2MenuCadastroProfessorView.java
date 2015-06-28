@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import br.ufes.ceunes.poo.view.cadastros.CadastroAtividade;
+
 /**
  *
  * @author Rhaister
@@ -53,9 +55,14 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("ACADEsYSTEM - Menu Cadastros (Professor)");
+        jLabel3.setText("Menu Cadastros (Professor)");
 
         jButton1.setText("Cadastrar atividade");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,7 +74,7 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,6 +100,12 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.menuAnterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new CadastroAtividade(this).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
