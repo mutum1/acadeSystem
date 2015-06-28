@@ -164,16 +164,7 @@ public class Turma {
     public List<Aluno> getListaAlunos(){
         return listAlunos;
     }
-    
-    /**
-     * Adiciona um aluno e sua situação na turma.
-     * @param situacaoAluno nova situação de aluno a ser adicionada.
-     */
-    public void addAluno(SituacaoAluno situacaoAluno){ 
-        situacaoAluno.getAluno().addSituacao(situacaoAluno);
-        this.listAlunos.add(situacaoAluno.getAluno());
-        
-    }
+
 
     /**
      * Pega a lista de atividades da turma.
