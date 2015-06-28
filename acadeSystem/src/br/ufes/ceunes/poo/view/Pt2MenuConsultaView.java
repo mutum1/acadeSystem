@@ -37,7 +37,8 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Menu Consultas");
 
         jLabel1.setText("ACADEsYSTEM - Menu Consultas");
 

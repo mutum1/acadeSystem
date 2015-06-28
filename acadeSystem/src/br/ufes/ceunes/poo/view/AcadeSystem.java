@@ -58,7 +58,7 @@ public class AcadeSystem {
         MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
         MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
         
-        
+        /*
         menuPrincipal.showOptions();
         int opcao = menuPrincipal.getOption();
         while(opcao != menuPrincipal.getSize()){
@@ -75,6 +75,7 @@ public class AcadeSystem {
             menuPrincipal.showOptions();
             opcao = menuPrincipal.getOption();
         }
-        
+        */
+        (new Pt2MenuPrincipal()).setVisible(true);
     }
 }

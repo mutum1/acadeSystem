@@ -31,7 +31,8 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Menu Cadastros (Professor)");
 
         jButton2.setText("Sair");
 

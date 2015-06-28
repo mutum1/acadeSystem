@@ -35,7 +35,8 @@ public class Pt2MenuListagem extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Menu Listagens");
 
         jLabel1.setText("ACADEsYSTEM - Menu Listagens");
 

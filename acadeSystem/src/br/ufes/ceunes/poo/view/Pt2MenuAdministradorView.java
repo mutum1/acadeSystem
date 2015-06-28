@@ -10,12 +10,18 @@ package br.ufes.ceunes.poo.view;
  * @author Rhaister
  */
 public class Pt2MenuAdministradorView extends javax.swing.JFrame {
-
+    private Pt2MenuPrincipal menuAnterior;
     /**
      * Creates new form pt2MenuAdministrador
      */
     public Pt2MenuAdministradorView() {
         initComponents();
+    }
+
+    public Pt2MenuAdministradorView(Pt2MenuPrincipal menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
+        
     }
 
     /**
@@ -33,9 +39,20 @@ public class Pt2MenuAdministradorView extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Menu Principal (Administrador)");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("ACADEsYSTEM - Menu Principal (Administrador)");
 
@@ -86,6 +103,17 @@ public class Pt2MenuAdministradorView extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
