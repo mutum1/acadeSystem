@@ -10,12 +10,18 @@ package br.ufes.ceunes.poo.view;
  * @author Rhaister
  */
 public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
-
+    Pt2MenuAdministradorView menuAnterior;
     /**
      * Creates new form Pt2CadastroAdministradorView
      */
     public Pt2MenuCadastroAdministradorView() {
         initComponents();
+    }
+
+    Pt2MenuCadastroAdministradorView(Pt2MenuAdministradorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
+        
     }
 
     /**
@@ -35,7 +41,7 @@ public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu Cadastros (Administrador)");
 
         jLabel3.setText("ACADEsYSTEM - Menu Cadastros (Administrador)");
@@ -51,6 +57,11 @@ public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
         jButton5.setText("Cadastrar alunos em uma turma");
 
         jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,6 +101,13 @@ public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

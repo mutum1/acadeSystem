@@ -10,12 +10,27 @@ package br.ufes.ceunes.poo.view;
  * @author Rhaister
  */
 public class Pt2MenuConsultaView extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Pt2MenuConsultaView
      */
+    private Pt2MenuAdministradorView menuAnteriorAdm;
+    private Pt2MenuProfessorView menuAnteriorProf;
+    
     public Pt2MenuConsultaView() {
         initComponents();
+    }
+
+    Pt2MenuConsultaView(Pt2MenuAdministradorView menuAnterior) {
+        this();
+        this.menuAnteriorAdm = menuAnterior;
+        this.menuAnteriorProf = null;
+    }
+    
+    Pt2MenuConsultaView(Pt2MenuProfessorView menuAnterior) {
+        this();
+        this.menuAnteriorProf = menuAnterior;
+        this.menuAnteriorAdm = null;
     }
 
     /**
@@ -37,8 +52,13 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu Consultas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("ACADEsYSTEM - Menu Consultas");
 
@@ -57,6 +77,11 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
         jButton7.setText("Consultar número de disciplinas já lecionadas por um professor");
 
         jButton8.setText("Voltar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,6 +127,21 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        if(this.menuAnteriorAdm != null){
+            this.menuAnteriorAdm.setVisible(true);
+        }else{
+            this.menuAnteriorProf.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

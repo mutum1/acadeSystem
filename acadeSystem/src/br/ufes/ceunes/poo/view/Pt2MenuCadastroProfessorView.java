@@ -14,8 +14,15 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
     /**
      * Creates new form Pt2CadastroProfessorView
      */
+    Pt2MenuProfessorView menuAnterior;
+    
     public Pt2MenuCadastroProfessorView() {
         initComponents();
+    }
+
+    Pt2MenuCadastroProfessorView(Pt2MenuProfessorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
     }
 
     /**
@@ -31,10 +38,20 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu Cadastros (Professor)");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("ACADEsYSTEM - Menu Cadastros (Professor)");
 
@@ -66,6 +83,16 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
