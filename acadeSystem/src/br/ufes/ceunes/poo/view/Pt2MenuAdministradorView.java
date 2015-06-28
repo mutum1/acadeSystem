@@ -10,10 +10,11 @@ package br.ufes.ceunes.poo.view;
  * @author Rhaister
  */
 public class Pt2MenuAdministradorView extends javax.swing.JFrame {
-    private Pt2MenuPrincipal menuAnterior;
     /**
      * Creates new form pt2MenuAdministrador
      */
+    private Pt2MenuPrincipal menuAnterior;
+    
     public Pt2MenuAdministradorView() {
         initComponents();
     }

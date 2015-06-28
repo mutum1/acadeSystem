@@ -10,12 +10,20 @@ package br.ufes.ceunes.poo.view;
  * @author Rhaister
  */
 public class Pt2MenuProfessorView extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form pt2MenuProfessorView
      */
+    
+    private Pt2MenuPrincipal menuAnterior;
+    
     public Pt2MenuProfessorView() {
         initComponents();
+    }
+
+    Pt2MenuProfessorView(Pt2MenuPrincipal menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;        
     }
 
     /**
@@ -37,6 +45,11 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu principal (Professor)");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButton3.setText("Cadastros");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +67,11 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
         jButton1.setText("Lançar faltas");
 
         jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("ACADEsYSTEM - Menu principal (Professor)");
 
@@ -99,6 +117,17 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
