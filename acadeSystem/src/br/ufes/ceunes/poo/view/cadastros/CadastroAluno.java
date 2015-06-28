@@ -5,17 +5,24 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
+
 /**
  *
  * @author Ayer
  */
 public class CadastroAluno extends javax.swing.JFrame {
-
+    private Pt2MenuCadastroAdministradorView menuAnterior;
     /**
      * Creates new form CadastroAluno
      */
     public CadastroAluno() {
         initComponents();
+    }
+
+    public CadastroAluno(Pt2MenuCadastroAdministradorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
     }
 
     /**
@@ -38,6 +45,11 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Cadastro de aluno");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Nome*:");
 
@@ -55,6 +67,11 @@ public class CadastroAluno extends javax.swing.JFrame {
         });
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +142,16 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
