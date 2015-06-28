@@ -29,7 +29,6 @@ public class AlunoDaoImpl implements AlunoDao {
     public AlunoDaoImpl(){
         this.listaAlunos =new ArrayList<>();
         id=1;
-        carregar();
     }
     /**
      * Adiciona um aluno na lista de alunos.
@@ -61,7 +60,7 @@ public class AlunoDaoImpl implements AlunoDao {
      * Ativa exeções quando o arquivo não é encontrado, e quando o
      * id está fora do formato.
      */
-    @Override
+    /*@Override
     public void carregar(){
         String nomeArquivo = "Alunos.txt";//nome do arquivo
         FileReader file;
@@ -103,7 +102,7 @@ public class AlunoDaoImpl implements AlunoDao {
      * @param alunoAdd 
      * Os dados são salvos em um arquivo "Alunos.txt", percorrendo a lista
      * Ativa as exeções FileNotFoundException e IOException.
-     */
+     
     
     @Override
     public void salvar(Aluno alunoAdd){

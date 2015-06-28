@@ -31,7 +31,6 @@ public class ProfessorDaoImpl implements ProfessorDao {
     public ProfessorDaoImpl(){
         this.listaProfessor =new ArrayList<>();
         id=1;
-        carregar();
     }
     /**
      * Adiciona um professor na lista de professores.
@@ -55,14 +54,13 @@ public class ProfessorDaoImpl implements ProfessorDao {
     @Override
     public List getAll(){//retorna a lista de professor
         if(listaProfessor == null){
-            carregar();
         }
         return listaProfessor;   
     }
     /**
      * Carrega todos os professores do arquivo (Professores.txt) em uma lista.
      * Ativda exceções FileNotFoundException, IOException, NumberFormatException.
-     */
+     
     @Override
     public void carregar(){
         listaProfessor = new ArrayList<>();
@@ -100,7 +98,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Pega todos os professores na lista e salva em um arquivo.
      * @param professorAdd lista de professores.
-     */
+     
     @Override
     public void salvar(Professor professorAdd){
         
@@ -130,7 +128,10 @@ public class ProfessorDaoImpl implements ProfessorDao {
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         carregar();
-    }
+    }*/
+    
+    
+    
     /**
      * Busca na lista professores, utilizando como chave o cpf
      * @param professor Uma cópia de professor apenas com o cpf.

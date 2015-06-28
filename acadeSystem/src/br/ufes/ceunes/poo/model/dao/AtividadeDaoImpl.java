@@ -32,7 +32,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
         listaAtividades = new ArrayList<>();
         this.turmaAcoes = turmaAcoes;
         id=0;
-        carregar();
         
     }
 
@@ -40,7 +39,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
      * Carrega todos as atividades do arquivo na lista de atividades
      * os dados são pegos no arquivo "Atividades.txt".
      * Ativa as exceções FileNotFoundException, IOException, NumberFormatException.
-     */
+     
     @Override
     public void carregar() {
         listaAtividades = new ArrayList<>();
@@ -87,7 +86,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
      * "Atividades.txt".
      * @param atividadeTemp.
      * Ativa as exceções FileNotFoundException, IOException.
-     */
+     
     @Override
     public void salvar(Atividade atividadeTemp) {
         
@@ -124,6 +123,8 @@ public class AtividadeDaoImpl implements AtividadeDao {
         }
         carregar();
     }
+    * /
+    
     /**
      * Busca a atividade utilizando como chave o id.
      * @param atividade Uma cópia da atividade apenas com o id.

@@ -17,8 +17,8 @@ public interface AlunoDao {
     
     List getAll();
     int gerarProximoId();
-    void carregar();
-    void salvar(Aluno aluno);
+    //void carregar();
+    //void salvar(Aluno aluno);
     Aluno buscar(Aluno aluno);
     Aluno buscarPorCpf(Aluno aluno);
     List buscarPorNome(Aluno aluno);
