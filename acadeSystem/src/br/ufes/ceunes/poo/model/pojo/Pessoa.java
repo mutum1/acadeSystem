@@ -12,23 +12,21 @@ package br.ufes.ceunes.poo.model.pojo;
 public class Pessoa  implements java.io.Serializable {
 
     //ATRIBUTOS
-    private int id;
     private String nome;
     private String cpf;
-    
-     
      
     /**
      * Contrutor para pessoas. (professores e alunos)
-     * @param nome nome da pessoa.
-     * @param cpf cpf da pessoa.
-     * @param id id da pessoa.
+     * @para nome nome da pessoa.
+     * @para cpf cpf da pessoa.
      */
-    public Pessoa(String nome, String cpf, int id) {
+    public Pessoa(){
+        
+    }
+    public Pessoa(String nome, String cpf) {
        this.nome = nome;
        this.cpf = cpf;
-       this.id = id;
-
+      
     }
    
     /**
@@ -62,14 +60,6 @@ public class Pessoa  implements java.io.Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
-    /**
-     * Pega o ID da Pessoa
-     * @return id da pessoa.
-     */
-    public int getId() {
-        return id;
-    }
     /**
      * Converte os dados da pessoa para string.
      * @return uma string com todos os dados concatenados.
@@ -78,6 +68,6 @@ public class Pessoa  implements java.io.Serializable {
     public String toString(){
         return "Nome: "+this.nome+
                "\nCPF:  "+this.cpf+
-               "\nID:   "+this.id;                
+               "\nID:   ";                
     }
   }
