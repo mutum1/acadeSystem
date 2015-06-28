@@ -113,7 +113,7 @@ public class Pt2MenuAdministradorView extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(true);
+        this.setVisible(false);
         new Pt2MenuCadastroAdministradorView(this).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
