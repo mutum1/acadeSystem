@@ -36,7 +36,7 @@ public class DisciplinaDaoImplTest {
     public void testCarregar() {
         System.out.println("carregar");
         DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
-        instance.carregar();
+      //  instance.carregar();
     }
 
     /**
@@ -47,7 +47,7 @@ public class DisciplinaDaoImplTest {
         System.out.println("salvar");
         Disciplina disciplinaTemp = new Disciplina("Prog III", "Programacao POO", "75hrs", 1);
         DisciplinaDaoImpl instance = new DisciplinaDaoImpl(null);
-        instance.salvar(disciplinaTemp);
+     //   instance.salvar(disciplinaTemp);
     }
 
     /**

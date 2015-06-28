@@ -30,7 +30,7 @@ public class AtividadeDaoImplTest {
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         TurmaDaoImpl turma = new TurmaDaoImpl(professor, disciplina, aluno);
         AtividadeDaoImpl instance = new AtividadeDaoImpl(turma);
-        instance.carregar();
+      //  instance.carregar();
     }
 
     /**
@@ -48,7 +48,7 @@ public class AtividadeDaoImplTest {
         DisciplinaDaoImpl disciplinaTest = new DisciplinaDaoImpl(professorTest);
         TurmaDaoImpl turmaTest = new TurmaDaoImpl(professorTest, disciplinaTest, aluno);
         AtividadeDaoImpl instance = new AtividadeDaoImpl(turmaTest);
-        instance.salvar(atividadeTemp);
+     //   instance.salvar(atividadeTemp);
     }
 
     /**

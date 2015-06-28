@@ -36,7 +36,7 @@ public class AlunoDaoImplTest {
     public void testCarregar() {
         System.out.println("carregar");
         AlunoDaoImpl instance = new AlunoDaoImpl();
-        instance.carregar();
+     //   instance.carregar();
     }
 
     /**
@@ -47,7 +47,7 @@ public class AlunoDaoImplTest {
         System.out.println("salvar");
         AlunoDaoImpl instance = new AlunoDaoImpl();
         Aluno aluno = new Aluno("Ayer", "123.123.123-34", 3);
-        instance.salvar(aluno);
+      //  instance.salvar(aluno);
     }
 
     /**

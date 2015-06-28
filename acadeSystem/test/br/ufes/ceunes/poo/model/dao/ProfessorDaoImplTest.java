@@ -36,7 +36,7 @@ public class ProfessorDaoImplTest {
     public void testCarregar() {
         System.out.println("carregar");
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        instance.carregar();
+      //  instance.carregar();
     }
 
     /**
@@ -47,7 +47,7 @@ public class ProfessorDaoImplTest {
         System.out.println("salvar");
         Professor professorTemp = new Professor("Joel", "123.321.231-34", "NASUS", 242);
         ProfessorDaoImpl instance = new ProfessorDaoImpl();
-        instance.salvar(professorTemp);
+      //  instance.salvar(professorTemp);
     }
 
     /**
