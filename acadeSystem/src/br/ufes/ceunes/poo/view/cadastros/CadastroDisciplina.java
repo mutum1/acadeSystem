@@ -16,12 +16,15 @@ public class CadastroDisciplina extends javax.swing.JFrame {
     /**
      * Creates new form CadastroDisciplina
      */
+    private Pt2MenuCadastroAdministradorView menuAnterior;
     public CadastroDisciplina() {
         initComponents();
     }
 
-    public CadastroDisciplina(Pt2MenuCadastroAdministradorView aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public CadastroDisciplina(Pt2MenuCadastroAdministradorView menuAnterior) {
+        this();
+        this.menuAnterior = menuAnterior;
+        
     }
 
     /**
@@ -46,6 +49,11 @@ public class CadastroDisciplina extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Cadastro de disciplinas");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Nome*:");
 
@@ -58,6 +66,11 @@ public class CadastroDisciplina extends javax.swing.JFrame {
         jLabel4.setText("Todos os campos com (*) devem ser preenchidos");
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +149,16 @@ public class CadastroDisciplina extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.menuAnterior.setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
