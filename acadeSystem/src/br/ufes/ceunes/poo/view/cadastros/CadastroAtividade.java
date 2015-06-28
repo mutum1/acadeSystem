@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.view.Pt2MenuCadastroProfessorView;
+
 /**
  *
  * @author Ayer
@@ -16,6 +18,10 @@ public class CadastroAtividade extends javax.swing.JFrame {
      */
     public CadastroAtividade() {
         initComponents();
+    }
+
+    public CadastroAtividade(Pt2MenuCadastroProfessorView aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

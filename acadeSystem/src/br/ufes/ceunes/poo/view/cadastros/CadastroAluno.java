@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
+
 /**
  *
  * @author Ayer
@@ -16,6 +18,10 @@ public class CadastroAluno extends javax.swing.JFrame {
      */
     public CadastroAluno() {
         initComponents();
+    }
+
+    public CadastroAluno(Pt2MenuCadastroAdministradorView aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
