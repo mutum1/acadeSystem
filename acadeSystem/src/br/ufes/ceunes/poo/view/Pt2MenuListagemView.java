@@ -9,14 +9,30 @@ package br.ufes.ceunes.poo.view;
  *
  * @author Rhaister
  */
-public class Pt2MenuListagem extends javax.swing.JFrame {
-
+public class Pt2MenuListagemView extends javax.swing.JFrame {
+    
     /**
      * Creates new form Pt2MenuListagem
      */
-    public Pt2MenuListagem() {
+    private Pt2MenuAdministradorView menuAnteriorAdm;
+    private Pt2MenuProfessorView menuAnteriorProf;
+    
+    public Pt2MenuListagemView() {
         initComponents();
     }
+
+    Pt2MenuListagemView(Pt2MenuAdministradorView menuAnterior) {
+        this();
+        this.menuAnteriorAdm = menuAnterior;
+        this.menuAnteriorProf = null;
+        
+    }
+    
+   Pt2MenuListagemView(Pt2MenuProfessorView menuAnterior) {
+       this();
+       this.menuAnteriorAdm = null;
+       this.menuAnteriorProf = menuAnterior;
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,8 +51,13 @@ public class Pt2MenuListagem extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu Listagens");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("ACADEsYSTEM - Menu Listagens");
 
@@ -51,6 +72,11 @@ public class Pt2MenuListagem extends javax.swing.JFrame {
         jButton5.setText("Listar atividades");
 
         jButton6.setText("Voltar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +117,21 @@ public class Pt2MenuListagem extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        if(this.menuAnteriorAdm != null){
+            this.menuAnteriorAdm.setVisible(true);
+        }else{
+            this.menuAnteriorProf.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_formWindowClosed
+
     /**
      * @param args the command line arguments
      */
@@ -108,20 +149,21 @@ public class Pt2MenuListagem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pt2MenuListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pt2MenuListagemView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pt2MenuListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pt2MenuListagemView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pt2MenuListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pt2MenuListagemView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pt2MenuListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pt2MenuListagemView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pt2MenuListagem().setVisible(true);
+                new Pt2MenuListagemView().setVisible(true);
             }
         });
     }
