@@ -45,7 +45,7 @@ public class TurmaDaoImplTest {
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         AlunoDaoImpl aluno = new AlunoDaoImpl();
         TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
-        instance.carregar();
+      // instance.carregar();
     }
 
     /**
@@ -61,7 +61,7 @@ public class TurmaDaoImplTest {
         DisciplinaDaoImpl disciplina = new DisciplinaDaoImpl(professor);
         AlunoDaoImpl aluno = new AlunoDaoImpl();
         TurmaDaoImpl instance = new TurmaDaoImpl(professor, disciplina, aluno);
-        instance.salvar(turmaTemp);
+      //  instance.salvar(turmaTemp);
     }
 
     /**
