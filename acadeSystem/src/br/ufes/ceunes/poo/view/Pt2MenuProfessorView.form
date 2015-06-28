@@ -38,7 +38,7 @@
                   <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="184" max="32767" attributes="0"/>
+              <EmptySpace pref="265" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -109,7 +109,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ACADEsYSTEM - Menu principal (Professor)"/>
+        <Property name="text" type="java.lang.String" value="Menu principal (Professor)"/>
       </Properties>
     </Component>
   </SubComponents>

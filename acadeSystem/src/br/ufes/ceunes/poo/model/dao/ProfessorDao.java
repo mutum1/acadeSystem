@@ -20,4 +20,5 @@ public interface ProfessorDao {
     Professor buscarPorCpf(Professor professor);
     Professor buscar(Professor professor);
     List buscarPorNome(Professor professor);
+    
 }

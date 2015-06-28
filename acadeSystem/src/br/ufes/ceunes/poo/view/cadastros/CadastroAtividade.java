@@ -47,6 +47,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Cadastro de atividades");
 
         jLabel4.setText("Todos os campos com (*) devem ser preenchidos");
 
@@ -59,7 +60,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
         jButton1.setText("Cancelar");
 
-        jTextField1.setToolTipText("Insira o nome do aluno");
+        jTextField1.setToolTipText("Insira o nome da atividade.");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -70,7 +71,7 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
         jLabel3.setText("Valor*:");
 
-        jTextField2.setToolTipText("Insira o CPF do aluno");
+        jTextField2.setToolTipText("Insira o tipo da atividade.");
 
         jLabel2.setText("Cadastro de atividade");
 
@@ -79,6 +80,8 @@ public class CadastroAtividade extends javax.swing.JFrame {
         jLabel5.setText("Turma*:");
 
         jLabel6.setText("Tipo*:");
+
+        jTextField3.setToolTipText("Insira o valor da atividade.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

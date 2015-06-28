@@ -53,16 +53,17 @@ public class CadastroTurma extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ACADEsYSTEM - Cadastro de turma");
 
         jLabel3.setText("Local*:");
 
-        jTextField1.setToolTipText("Insira o nome do professor");
+        jTextField1.setToolTipText("Insira o ano da turma.");
 
-        jTextField2.setToolTipText("Insira o CPF do professor");
+        jTextField2.setToolTipText("Insira local da turma.");
 
         jLabel1.setText("Ano*:");
 
-        jTextField3.setToolTipText("Insira o departamento do professor");
+        jTextField3.setToolTipText("Insira o horário da turma.");
 
         jLabel2.setText("Cadastro de turma");
 
@@ -81,9 +82,11 @@ public class CadastroTurma extends javax.swing.JFrame {
 
         jLabel6.setText("Período*:");
 
-        jTextField4.setToolTipText("");
+        jTextField4.setToolTipText("Insira o periodo da turma.");
 
         jLabel7.setText("Número de vagas*:");
+
+        jTextField5.setToolTipText("Insira o numero de vagas.");
 
         jLabel8.setText("Professor*: ");
 

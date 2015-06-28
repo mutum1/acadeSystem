@@ -50,7 +50,7 @@ public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu Cadastros (Administrador)");
 
-        jLabel3.setText("ACADEsYSTEM - Menu Cadastros (Administrador)");
+        jLabel3.setText("Menu Cadastros (Administrador)");
 
         jButton1.setText("Cadastrar aluno");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class Pt2MenuCadastroAdministradorView extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
