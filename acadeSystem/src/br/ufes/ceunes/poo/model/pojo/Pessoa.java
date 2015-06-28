@@ -5,6 +5,8 @@
  */
 package br.ufes.ceunes.poo.model.pojo;
 
+import javax.persistence.Column;
+
 /**
  *
  * @author paulo
@@ -12,7 +14,10 @@ package br.ufes.ceunes.poo.model.pojo;
 public class Pessoa  implements java.io.Serializable {
 
     //ATRIBUTOS
+    @Column
     private String nome;
+    
+    @Column
     private String cpf;
      
     /**

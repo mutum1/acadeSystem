@@ -6,6 +6,7 @@
 
 package br.ufes.ceunes.poo.model.pojo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +18,30 @@ import javax.persistence.Table;
  * @author paulo
  */
 @Entity
-@Table(name = "Aluno")
-public class Aluno extends Pessoa {
+@Table(name="aluno")
+
+public class Aluno{
    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @Column
+    private String nome;
+    
+    @Column
+    private String cpf;
 
     public Aluno() {
     }
+
+    public Aluno(String nome, String cpf, long id) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+    
+    
     /**
      * Contrutor que usa o contrutor da classe Pessoa.(super)
      * instancia a situação do aluno como uma nova lista.
@@ -34,15 +50,21 @@ public class Aluno extends Pessoa {
      * @param id id do aluno.
      */
    
-    public Aluno(String nome, String cpf, long id) { // Chama o construtor da classe de cima.
-        super(nome, cpf);
-        this.id = id;
-        
-    }
+    
     public long getId() {
         return this.id;
     }
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+    
+    
 }
