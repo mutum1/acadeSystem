@@ -65,6 +65,7 @@ public class CadastroAlunosEmTurma extends javax.swing.JFrame {
 
         jLabel3.setText("Nome do aluno:");
 
+        jTextField1.setToolTipText("Digite o nome do aluno.");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
