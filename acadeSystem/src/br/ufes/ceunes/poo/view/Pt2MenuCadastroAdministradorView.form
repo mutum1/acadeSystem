@@ -35,7 +35,7 @@
                   <Component id="jButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="154" max="32767" attributes="0"/>
+              <EmptySpace pref="205" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +64,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ACADEsYSTEM - Menu Cadastros (Administrador)"/>
+        <Property name="text" type="java.lang.String" value="Menu Cadastros (Administrador)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">

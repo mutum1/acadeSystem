@@ -59,7 +59,7 @@ public class Pt2MenuListagemView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("ACADEsYSTEM - Menu Listagens");
+        jLabel1.setText("Menu Listagens");
 
         jButton1.setText("Listar alunos");
 
@@ -92,7 +92,7 @@ public class Pt2MenuListagemView extends javax.swing.JFrame {
                     .addComponent(jButton4)
                     .addComponent(jButton5)
                     .addComponent(jButton6))
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

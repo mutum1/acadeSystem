@@ -39,13 +39,13 @@ public class CadastroDisciplina extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de disciplinas");
+        setTitle("ACADEsYSTEM - Cadastro de disciplinas");
 
         jLabel1.setText("Nome*:");
 
         jLabel3.setText("Ementa*:");
 
-        jTextField1.setToolTipText("Insira o nome do professor");
+        jTextField1.setToolTipText("Insira o nome da disciplina.");
 
         jLabel5.setText("Carga horária*:");
 
@@ -60,9 +60,9 @@ public class CadastroDisciplina extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setToolTipText("Insira o CPF do professor");
+        jTextField2.setToolTipText("Insira a ementa da disciplina.");
 
-        jTextField3.setToolTipText("Insira o departamento do professor");
+        jTextField3.setToolTipText("Insira a cargo horária.");
 
         jLabel2.setText("Cadastro de disciplinas");
 

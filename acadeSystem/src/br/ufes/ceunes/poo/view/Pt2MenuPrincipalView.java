@@ -33,7 +33,7 @@ public class Pt2MenuPrincipalView extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ACADEsYSTEM");
+        setTitle("ACADEsYSTEM - Menu Principal");
 
         jLabel2.setText("Você é um administrador ou professsor?");
 

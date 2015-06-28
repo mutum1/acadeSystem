@@ -55,7 +55,7 @@ public class Pt2MenuAdministradorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("ACADEsYSTEM - Menu Principal (Administrador)");
+        jLabel3.setText("Menu Principal (Administrador)");
 
         jButton3.setText("Cadastros");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +90,7 @@ public class Pt2MenuAdministradorView extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(jButton2)
                     .addComponent(jButton4))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

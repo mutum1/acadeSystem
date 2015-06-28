@@ -53,7 +53,7 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("ACADEsYSTEM - Menu Cadastros (Professor)");
+        jLabel3.setText("Menu Cadastros (Professor)");
 
         jButton1.setText("Cadastrar atividade");
 
@@ -67,7 +67,7 @@ public class Pt2MenuCadastroProfessorView extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

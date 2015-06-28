@@ -60,7 +60,7 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("ACADEsYSTEM - Menu Consultas");
+        jLabel1.setText("Menu Consultas");
 
         jButton1.setText("Consultar Aluno");
 
@@ -105,7 +105,7 @@ public class Pt2MenuConsultaView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
