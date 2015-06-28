@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view;
 
+import DAO.DAOHibernateUtil;
 import br.ufes.ceunes.poo.model.dao.AlunoDao;
 import br.ufes.ceunes.poo.model.dao.AlunoDaoImpl;
 import br.ufes.ceunes.poo.model.dao.AtividadeDao;
@@ -20,6 +21,7 @@ import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.Scanner;
+import org.hibernate.Session;
 
 /**
  *
@@ -32,11 +34,19 @@ public class AcadeSystem {
     public static void main(String[] args){
         
         //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
-        AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
+       /* AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
         ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
         TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
         AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
+        */
+        Aluno aluno= new Aluno("paulo", "123456", 1);
+        
+        Session session = DAOHibernateUtil.getSessionFactory().getCurrentSession();
+        
+        session.beginTransaction();
+        session.save(aluno);
+        session.getTransaction().commit();
         
 
         /*
