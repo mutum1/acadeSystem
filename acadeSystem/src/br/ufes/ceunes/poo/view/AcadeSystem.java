@@ -20,6 +20,8 @@ import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.Scanner;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -30,7 +32,7 @@ public class AcadeSystem {
     public static final int flagCpfVerify = 0; // 1 ativa verificação de cpfSS
     
     public static void main(String[] args){
-        
+           
         //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
         AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
         ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
