@@ -40,7 +40,6 @@ public class TurmaDaoImpl implements TurmaDao {
         this.disciplinaAcoes = disciplinaAcoes;
         this.alunoAcoes = alunoAcoes;
         this.id = 1;
-        carregar();
     }
 
     @Override
@@ -61,7 +60,7 @@ public class TurmaDaoImpl implements TurmaDao {
     }
     /**
      * Carrega todas as turmas que estão no arquivo em uma lista.
-     */
+     
    
     @Override
     public void carregar(){
@@ -114,7 +113,7 @@ public class TurmaDaoImpl implements TurmaDao {
     /**
      * Salva todas as turmas que estão numa lista em um arquivo.
      * @param turmaAdd lista de turmas para que seja salva no arquivo.
-     */
+     
     @Override
     public void salvar(Turma turmaAdd){
         
@@ -154,7 +153,9 @@ public class TurmaDaoImpl implements TurmaDao {
             Logger.getLogger(TurmaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         carregar();
-    }
+    }*/
+    
+    
     /**
      * Busca na lista turmas, utilizando como chave o id
      * @param turma Uma cópia de turma apenas com o id.
