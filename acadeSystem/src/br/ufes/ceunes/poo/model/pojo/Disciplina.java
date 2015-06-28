@@ -14,11 +14,12 @@ import java.util.List;
  */
 public class Disciplina {
     // ATRIBUTOS
+    private int id;
     private String nome;
     private String ementa;
     private String cargaHoraria;
     private List<Professor> listaProfessor;
-    private int id;
+
 
     /**
      * transforma os valores da disciplina em string.

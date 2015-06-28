@@ -12,9 +12,10 @@ package br.ufes.ceunes.poo.model.pojo;
 public class Pessoa  implements java.io.Serializable {
 
     //ATRIBUTOS
-     private String nome;
-     private String cpf;
-     private int id;
+    private int id;
+    private String nome;
+    private String cpf;
+    
      
      
     /**
