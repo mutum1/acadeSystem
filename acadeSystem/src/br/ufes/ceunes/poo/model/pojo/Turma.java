@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Turma {
     // ATRIBUTOS
+    private int id;
     private String ano;
     private String periodo;
     private String local;
@@ -22,8 +23,6 @@ public class Turma {
     private Professor professor;
     private Disciplina disciplina;
     private List<Aluno> listAlunos;
-    private List<Atividade> listAtividades;
-    private int id;
 
     
     /**
@@ -46,7 +45,6 @@ public class Turma {
         this.professor = professor;
         this.disciplina = disciplina;
         this.listAlunos = new ArrayList<>();
-        this.listAtividades = new ArrayList<>();
         this.id = id;
     }
     /**
@@ -164,25 +162,8 @@ public class Turma {
     public List<Aluno> getListaAlunos(){
         return listAlunos;
     }
-    
-    /**
-     * Adiciona um aluno e sua situação na turma.
-     * @param situacaoAluno nova situação de aluno a ser adicionada.
-     */
-    public void addAluno(SituacaoAluno situacaoAluno){ 
-        situacaoAluno.getAluno().addSituacao(situacaoAluno);
-        this.listAlunos.add(situacaoAluno.getAluno());
-        
-    }
 
-    /**
-     * Pega a lista de atividades da turma.
-     * @return a lista de atividades.
-     */
-    public List<Atividade> getListAtividades() {
-        return listAtividades;
-    }
-    
+
     
      /**
      * Pega o ID da Turma
@@ -191,13 +172,7 @@ public class Turma {
     public int getId() {
         return id;
     }
-    /**
-     * Adiciona uma atividade na turma.
-     * @param atividade nova atividade a ser inserida.
-     */
-    public void addAtividade(Atividade atividade){      
-        this.listAtividades.add(atividade);
-    }
+
     /**
      * Converte todos os dados da turma para string.
      * @return todos os dados concatenados de turma.

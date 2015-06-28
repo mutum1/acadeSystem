@@ -13,14 +13,16 @@ import java.util.List;
  * @author paulo
  */
 public class Atividade {
+    
     // ATRIBUTOS
+    private int id;
     private String nome;
     private String tipo;
     private String data;
-    private Turma turma;
     private float valor;
     private float nota;
-    private int id;
+    private Turma turma;
+    private Aluno aluno;
       
     /**
      * Converte todos os valores da turma para string.
@@ -40,20 +42,6 @@ public class Atividade {
      * Contrutor de atividade, que instancia a atividade e atribui a nota.
      * @param nota nota da atividade.
      * @return a atividade com a nota.
-     */
-    public Atividade copiaComNota(float nota){
-        Atividade atividade = new Atividade(this.nome, this.tipo, this.data, this.turma, this.valor, this.id);
-        atividade.nota=nota;
-        return atividade;
-    }
-    /**
-     * Construtor da atividade, inicializa todos os valores.
-     * @param nome nome da atividade.
-     * @param tipo tipo da atividade.
-     * @param data a data que foi passada.
-     * @param turma turma ao qual se refere.
-     * @param valor o quanto vale a atividade.
-     * @param id o id da atividade.
      */
     public Atividade(String nome, String tipo, String data,Turma turma ,float valor, int id) {
         this.turma =turma;
@@ -132,18 +120,13 @@ public class Atividade {
     public void setNota(float nota) {
         this.nota = nota;
     }
-    public void aplicarAosAlunos(){
-        List<Aluno> alunos = turma.getListaAlunos();
-        for(Aluno aluno : alunos){
-            SituacaoAluno situacaoAluno = aluno.getSituacaoAluno(turma);
-            situacaoAluno.addAtividade(this.copiaComNota(0));
-        }
+
+    public Aluno getAluno() {
+        return aluno;
     }
-    public void aplicarAosAlunos(float nota){
-        List<Aluno> alunos = turma.getListaAlunos();
-        for(Aluno aluno : alunos){
-            SituacaoAluno situacaoAluno = aluno.getSituacaoAluno(turma);
-            situacaoAluno.addAtividade(this.copiaComNota(nota));
-        }
-    }    
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+    
 }
