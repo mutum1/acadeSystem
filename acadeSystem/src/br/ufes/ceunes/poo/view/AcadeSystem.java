@@ -13,14 +13,11 @@ import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDaoImpl;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
 import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
-import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDao;
-import br.ufes.ceunes.poo.model.dao.SituacaoAlunoDaoImpl;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.model.pojo.Professor;
-import br.ufes.ceunes.poo.model.pojo.SituacaoAluno;
 import br.ufes.ceunes.poo.model.pojo.Turma;
 import java.util.Scanner;
 
@@ -40,24 +37,8 @@ public class AcadeSystem {
         DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
         TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
         AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
-        SituacaoAlunoDao situacaoAlunoDao = new SituacaoAlunoDaoImpl(alunoDao, atividadeDao, turmaDao);
         
-        AlunoView alunoView = new AlunoView(alunoDao); // Enviado um alunoDoa para um alunoView
-        ProfessorView professorView = new ProfessorView(professorDao); // Enviado um professorDao para professorView
-        DisciplinaView disciplinaView = new DisciplinaView(disciplinaDao,professorDao); // Enviado uma disciplinaDao para disciplinaView
-        TurmaView turmaView = new TurmaView(turmaDao, alunoDao, professorDao, disciplinaDao, situacaoAlunoDao,atividadeDao);// Enviado uma turmaDao para uma turmaView
-        AtividadeView atividadeView = new AtividadeView(atividadeDao, turmaDao);
-  
-        Menu menuPrincipal = new Menu();
-        menuPrincipal.setTitle("ACADEsYSTEM\n\nVocê é uma administrador ou um professor?");
-        menuPrincipal.addOption("Professor");
-        menuPrincipal.addOption("Administrador");
-        menuPrincipal.addOption("Fechar");
-        
-        
-        MenuAdministradorView menuAdministrador = new MenuAdministradorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
-        MenuProfessorView menuProfessor = new MenuProfessorView(alunoView, professorView, disciplinaView, turmaView, atividadeView,situacaoAlunoDao);     
-        
+
         /*
         menuPrincipal.showOptions();
         int opcao = menuPrincipal.getOption();
