@@ -15,13 +15,13 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
      * Creates new form pt2MenuProfessorView
      */
     
-    private Pt2MenuPrincipal menuAnterior;
+    private Pt2MenuPrincipalView menuAnterior;
     
     public Pt2MenuProfessorView() {
         initComponents();
     }
 
-    Pt2MenuProfessorView(Pt2MenuPrincipal menuAnterior) {
+    Pt2MenuProfessorView(Pt2MenuPrincipalView menuAnterior) {
         this();
         this.menuAnterior = menuAnterior;        
     }
@@ -43,7 +43,7 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Menu principal (Professor)");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -59,8 +59,18 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
         });
 
         jButton4.setText("Listagens");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Consultas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Lançar Notas");
 
@@ -116,6 +126,8 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new Pt2MenuCadastroProfessorView(this).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -128,6 +140,18 @@ public class Pt2MenuProfessorView extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuAnterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Pt2MenuListagemView(this).setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Pt2MenuConsultaView(this).setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

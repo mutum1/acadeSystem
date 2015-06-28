@@ -57,6 +57,6 @@ public class AcadeSystem {
             opcao = menuPrincipal.getOption();
         }
         */
-        (new Pt2MenuPrincipal()).setVisible(true);
+        (new Pt2MenuPrincipalView()).setVisible(true);
     }
 }
