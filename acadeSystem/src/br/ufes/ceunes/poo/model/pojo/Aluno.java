@@ -15,7 +15,6 @@ import java.util.List;
  * @author paulo
  */
 public class Aluno extends Pessoa {
-    List<Atividade> atividade;
     /**
      * Contrutor que usa o contrutor da classe Pessoa.(super)
      * instancia a situação do aluno como uma nova lista.
@@ -26,18 +25,8 @@ public class Aluno extends Pessoa {
     
     public Aluno(String nome, String cpf, int id) { // Chama o construtor da classe de cima.
         super(nome, cpf, id);
-        atividade = new ArrayList<>();
+
     }
-    /**
-     * Adiciona uma situação ao aluno.
-     * @param atividade lista da situação atual do aluno.
-     */
- 
-    public  Atividade getAtividade(Turma turma){
-        for(Atividade atividade : atividade){
-            if(atividade.getTurma().equals(turma))
-                return atividade;
-        }
-        return null;
-    }
+
+    
 }
