@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class Professor extends Pessoa {
     // ATRIBUTOS
-    private long id;
     private String departamento;
     private List<Disciplina> discliplinas;
    
@@ -26,9 +25,8 @@ public class Professor extends Pessoa {
      * @param departamento departamento do professor.
      * @param id id do professor.
      */
-    public Professor(String nome, String cpf, String departamento, long id) {
-        super(nome, cpf);
-        this.id = id;
+    public Professor(String nome, String cpf, String departamento, int id) {
+        super(nome, cpf, id);
         this.departamento = departamento;
         this.discliplinas = new ArrayList<>();
     }
@@ -65,13 +63,7 @@ public class Professor extends Pessoa {
         return "\nNome:         "+super.getNome()+
                "\nCPF:          "+super.getCpf()+
                "\nDepartamento: "+this.departamento+
-               "\nID:           ";                
-    }
-      public long getId() {
-        return this.id;
-    }
-       public void setId(Long id) {
-        this.id = id;
+               "\nID:           "+super.getId();                
     }
     
 }
