@@ -28,6 +28,12 @@ public class AtividadeDaoImpl implements AtividadeDao {
     private TurmaDao turmaAcoes;
     int id;
 
+    public AtividadeDaoImpl( ) {
+        listaAtividades = new ArrayList<>();
+        this.turmaAcoes = new TurmaDaoImpl(null, null, null);
+        id=0;
+        
+    }
     public AtividadeDaoImpl(TurmaDao turmaAcoes) {
         listaAtividades = new ArrayList<>();
         this.turmaAcoes = turmaAcoes;
