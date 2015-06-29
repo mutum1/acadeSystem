@@ -79,6 +79,7 @@ public class TurmaDaoImpl implements TurmaDao {
             int nVagas;
             int nAlunos;
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
+                
                 String ano = ler.readLine();//Pega ano
                 String periodo = ler.readLine();//Pega periodo
                 String local = ler.readLine(); //pega o local

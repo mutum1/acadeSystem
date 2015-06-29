@@ -97,6 +97,8 @@ public class AlunoDaoImpl implements AlunoDao {
     @Override
     public void salvar(Aluno alunoAdd){
         
+        alunoAdd.setId(id);
+        
         listaAlunos.add(alunoAdd);
         
         String nomeArquivo = "Alunos.txt";//Nome do arquivo

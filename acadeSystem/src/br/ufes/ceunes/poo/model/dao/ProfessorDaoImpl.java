@@ -31,14 +31,13 @@ public class ProfessorDaoImpl implements ProfessorDao {
     public ProfessorDaoImpl(){
         this.listaProfessor =new ArrayList<>();
         id=1;
+        carregar();
     }
     /**
      * Adiciona um professor na lista de professores.
      * @param professor 
      */
-    private void adicionar(Professor professor){
-        listaProfessor.add(professor);
-    }
+
     /**
      * Método responsavel por gerar o proximo id do professor.
      * @return retorna o id do respectivo professor que chamou.
@@ -83,7 +82,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
                 idUser = Integer.parseInt(idTemp);
                 
                 Professor novo = new Professor(nome,cpf,departamento,idUser);
-                adicionar(novo);//Adiciona na lista
+                listaProfessor.add(novo);//Adiciona na lista
             }
            
         } catch (FileNotFoundException ex) {//Coisa do NetBeans
@@ -104,7 +103,9 @@ public class ProfessorDaoImpl implements ProfessorDao {
     @Override
     public void salvar(Professor professorAdd){
         
-        adicionar(professorAdd);
+        professorAdd.setId(id);
+        
+        listaProfessor.add(professorAdd);
         
         String nomeArquivo = "Professores.txt";//Nome do arquivo
         try {
@@ -175,6 +176,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
      * se ele existe ou não.
      */
    @Override
+   
     public List buscarPorNome(Professor professor) {
         List<Professor> tempList = new ArrayList<>();
         for(Professor prof : listaProfessor){
