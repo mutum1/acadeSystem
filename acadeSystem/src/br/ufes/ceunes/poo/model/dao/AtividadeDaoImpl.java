@@ -65,7 +65,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
                 String valor = ler.readLine(); //valor 
                 String nota = ler.readLine(); //nota
                 
-                String idBusca =ler.readLine(); //pega id da turma
+                String idBusca = ler.readLine(); //pega id da turma
                 int idBusc = Integer.parseInt(idBusca);
                 
                 Turma turma = turmaAcoes.buscar(new Turma(null,null,null,null,0,null,null,idBusc));
