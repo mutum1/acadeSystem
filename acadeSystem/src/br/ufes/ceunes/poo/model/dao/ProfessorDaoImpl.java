@@ -60,7 +60,8 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Carrega todos os professores do arquivo (Professores.txt) em uma lista.
      * Ativda exceções FileNotFoundException, IOException, NumberFormatException.
-     
+     *
+     */
     @Override
     public void carregar(){
         listaProfessor = new ArrayList<>();
@@ -98,7 +99,8 @@ public class ProfessorDaoImpl implements ProfessorDao {
     /**
      * Pega todos os professores na lista e salva em um arquivo.
      * @param professorAdd lista de professores.
-     
+     * 
+     */
     @Override
     public void salvar(Professor professorAdd){
         
@@ -128,7 +130,7 @@ public class ProfessorDaoImpl implements ProfessorDao {
             Logger.getLogger(ProfessorDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
         carregar();
-    }*/
+    }
     
     
     

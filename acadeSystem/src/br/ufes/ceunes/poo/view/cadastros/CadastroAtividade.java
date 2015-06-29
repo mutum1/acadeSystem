@@ -5,8 +5,14 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
+import br.ufes.ceunes.poo.model.dao.AlunoDaoImpl;
 import br.ufes.ceunes.poo.model.dao.AtividadeDao;
 import br.ufes.ceunes.poo.model.dao.AtividadeDaoImpl;
+import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
+import br.ufes.ceunes.poo.model.dao.DisciplinaDaoImpl;
+import br.ufes.ceunes.poo.model.dao.ProfessorDao;
+import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.dao.TurmaDao;
 import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Atividade;
@@ -25,10 +31,13 @@ public class CadastroAtividade extends javax.swing.JFrame {
      */
     private AtividadeDao atividadeDao;
     private TurmaDao turmaDao;
+    
     private Pt2MenuCadastroProfessorView menuAnterior;
     public CadastroAtividade() {
-        this.atividadeDao = new AtividadeDaoImpl();
-        this.turmaDao = new TurmaDaoImpl();
+        
+        this.turmaDao = new TurmaDaoImpl(new ProfessorDaoImpl() ,new DisciplinaDaoImpl(new ProfessorDaoImpl()), new AlunoDaoImpl());
+        this.atividadeDao = new AtividadeDaoImpl(turmaDao, new AlunoDaoImpl());
+        this.turmaDao = new TurmaDaoImpl(new ProfessorDaoImpl() ,new DisciplinaDaoImpl(new ProfessorDaoImpl()), new AlunoDaoImpl());
         this.jComboBox1.removeAll();
         List<Turma> listaTemp = turmaDao.getAll();
         for(Turma turmaTemp : listaTemp){
@@ -211,8 +220,9 @@ public class CadastroAtividade extends javax.swing.JFrame {
         data = jTextField4.getText();
         int posicao = jComboBox1.getSelectedIndex();
         Turma turma = (Turma) turmaDao.getAll().get(posicao);
-        Atividade atividade = new Atividade(nome,tipo,data,turma,valor,0);
-        //AtividadeDao.salvar(atividade);
+        Atividade atividade;
+        atividade = new Atividade(nome,tipo,data,turma,null,valor,0);
+        this.atividadeDao.salvar(atividade);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

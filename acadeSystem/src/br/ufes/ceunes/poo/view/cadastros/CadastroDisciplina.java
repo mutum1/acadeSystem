@@ -6,6 +6,7 @@
 package br.ufes.ceunes.poo.view.cadastros;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDaoImpl;
+import br.ufes.ceunes.poo.model.dao.ProfessorDaoImpl;
 import br.ufes.ceunes.poo.model.pojo.Disciplina;
 import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
 
@@ -21,7 +22,7 @@ public class CadastroDisciplina extends javax.swing.JFrame {
     private DisciplinaDao disciplinaDao;
     private Pt2MenuCadastroAdministradorView menuAnterior;
     public CadastroDisciplina() {
-        this.disciplinaDao = new DisciplinaDaoImpl();
+        this.disciplinaDao = new DisciplinaDaoImpl(new ProfessorDaoImpl());
         initComponents();
     }
 
@@ -159,7 +160,7 @@ public class CadastroDisciplina extends javax.swing.JFrame {
         ementa = jTextField2.getText();
         cargaHoraria = jTextField3.getText();
         Disciplina disciplina = new Disciplina(nome,ementa,cargaHoraria,0);
-        //disciplinaDao.salvar(disciplina);
+        disciplinaDao.salvar(disciplina);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

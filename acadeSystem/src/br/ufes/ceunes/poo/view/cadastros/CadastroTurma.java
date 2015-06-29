@@ -5,6 +5,7 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDaoImpl;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDao;
 import br.ufes.ceunes.poo.model.dao.DisciplinaDaoImpl;
 import br.ufes.ceunes.poo.model.dao.ProfessorDao;
@@ -34,9 +35,11 @@ public class CadastroTurma extends javax.swing.JFrame {
     private ProfessorDao professorDao;
     public CadastroTurma() {
         initComponents();
-        this.turmaDao = new TurmaDaoImpl();
-        this.disciplinaDao = new DisciplinaDaoImpl();
         this.professorDao = new ProfessorDaoImpl();
+        this.disciplinaDao = new DisciplinaDaoImpl(professorDao);
+        this.turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, new AlunoDaoImpl());
+        
+        
         
         this.jComboBox2.removeAll();
         List<Disciplina> listaTemp = disciplinaDao.getAll();
@@ -240,22 +243,25 @@ public class CadastroTurma extends javax.swing.JFrame {
         Disciplina disciplina;
         Professor professor;
         
-        if(jTextField1.getText() == "" ||jTextField2.getText() == ""||jTextField3.getText() == ""||jTextField4.getText() == ""||jTextField5.getText() == ""){
-            JOptionPane.showMessageDialog(null,"Faltando dados");
+        try{
+            ano = jTextField1.getText();
+            local = jTextField2.getText();
+            horario = jTextField3.getText();
+            periodo = jTextField4.getText();
+            nVagas = Integer.parseInt(jTextField5.getText());
+
+            int posicaoProf = jComboBox1.getSelectedIndex();
+            int posicaoDisciplina = jComboBox2.getSelectedIndex();
+            System.out.println(posicaoDisciplina);
+            professor = (Professor) professorDao.getAll().get(posicaoProf);
+            disciplina = (Disciplina)disciplinaDao.getAll().get(posicaoDisciplina);
+
+            Turma turma = new Turma(ano, periodo, local, horario, nVagas, professor, disciplina, 0);
+        }catch(NullPointerException e){
+            JOptionPane.showMessageDialog(null,"Dados errados");
+            return;
         }
-        ano = jTextField1.getText();
-        local = jTextField2.getText();
-        horario = jTextField3.getText();
-        periodo = jTextField4.getText();
-        nVagas = Integer.parseInt(jTextField5.getText());
-        
-        int posicaoProf = jComboBox1.getSelectedIndex();
-        int posicaoDisciplina = jComboBox2.getSelectedIndex();
-        
-        professor = (Professor) professorDao.getAll().get(posicaoProf);
-        disciplina = (Disciplina)disciplinaDao.getAll().get(posicaoDisciplina);
-        
-        Turma turma = new Turma(ano, periodo, local, horario, nVagas, professor, disciplina, 0);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

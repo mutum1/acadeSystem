@@ -153,7 +153,8 @@ public class CadastroAluno extends javax.swing.JFrame {
         nome = jTextField1.getText();
         cpf = jTextField2.getText();
         Aluno aluno = new Aluno(nome,cpf,0);
-        //this.alunoDao.salvar(aluno);
+        this.alunoDao.salvar(aluno);
+        this.dispose();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

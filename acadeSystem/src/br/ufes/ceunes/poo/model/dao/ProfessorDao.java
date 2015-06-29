@@ -15,8 +15,8 @@ import java.util.List;
 public interface ProfessorDao {
     List getAll();
     int gerarProximoId();
-   // void carregar();
-    //void salvar(Professor professor);
+    void carregar();
+    void salvar(Professor professor);
     Professor buscarPorCpf(Professor professor);
     Professor buscar(Professor professor);
     List buscarPorNome(Professor professor);
