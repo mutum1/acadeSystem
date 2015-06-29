@@ -26,21 +26,22 @@ import java.util.logging.Logger;
 public class AtividadeDaoImpl implements AtividadeDao {
     List<Atividade> listaAtividades;
     private TurmaDao turmaAcoes;
+    private AlunoDao alunoAcoes;
     int id;
 
-    public AtividadeDaoImpl(TurmaDao turmaAcoes) {
+    public AtividadeDaoImpl(TurmaDao turmaAcoes, AlunoDao alunoAcoes) {
         listaAtividades = new ArrayList<>();
+        this.alunoAcoes = alunoAcoes;
         this.turmaAcoes = turmaAcoes;
         id=0;
-        
+        carregar();
     }
 
     /**
      * Carrega todos as atividades do arquivo na lista de atividades
      * os dados são pegos no arquivo "Atividades.txt".
      * Ativa as exceções FileNotFoundException, IOException, NumberFormatException.
-     
-    @Override
+     */
     public void carregar() {
         listaAtividades = new ArrayList<>();
         String nomeArquivo = "Atividades.txt";//nome do arquivo
@@ -54,17 +55,28 @@ public class AtividadeDaoImpl implements AtividadeDao {
             id = Integer.parseInt(idTemp)+1;
             
             while(ler.ready()){//Equando nao chegar no final do arquivo, while continua
+                idTemp = ler.readLine(); 
+                int idInt = Integer.parseInt(idTemp);
+                
                 String nome = ler.readLine();//Pega nome
                 String tipo = ler.readLine();//Pega tipo
                 String data = ler.readLine(); //data
-                idTemp = ler.readLine(); 
-                int idInt = Integer.parseInt(idTemp);
-                Turma turma = turmaAcoes.buscar(new Turma(null,null,null,null,0,null,null,idInt));
-                String valor = ler.readLine(); 
-                idTemp = ler.readLine(); 
+              
+                String valor = ler.readLine(); //valor 
+                String nota = ler.readLine(); //nota
                 
-                Atividade novaAtividade = new Atividade(nome, tipo, data, turma, Float.parseFloat(valor), Integer.parseInt(idTemp));
-                novaAtividade.getTurma().addAtividade(novaAtividade);
+                String idBusca =ler.readLine(); //pega id da turma
+                int idBusc = Integer.parseInt(idBusca);
+                
+                Turma turma = turmaAcoes.buscar(new Turma(null,null,null,null,0,null,null,idBusc));
+                
+                idBusca =ler.readLine();
+                idBusc = Integer.parseInt(idBusca);
+                
+                Aluno aluno = alunoAcoes.buscar(new Aluno(null,null,idBusc));
+                
+                Atividade novaAtividade = new Atividade(nome, tipo, data, turma,aluno, Float.parseFloat(valor),Float.parseFloat(nota), Integer.parseInt(idTemp));      
+                
                 listaAtividades.add(novaAtividade);
                 
             }
@@ -86,14 +98,15 @@ public class AtividadeDaoImpl implements AtividadeDao {
      * "Atividades.txt".
      * @param atividadeTemp.
      * Ativa as exceções FileNotFoundException, IOException.
-     
+     */
+    
     @Override
     public void salvar(Atividade atividadeTemp) {
         
         listaAtividades.add(atividadeTemp);
+        
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {
-
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             
@@ -101,18 +114,24 @@ public class AtividadeDaoImpl implements AtividadeDao {
             salvar.newLine();
             
             for(Atividade atividade : listaAtividades){//percorre a lista
+                
+                salvar.write(Integer.toString(atividade.getId()));//id
+                salvar.newLine();
                 salvar.write(atividade.getNome());//salva nome
                 salvar.newLine();
-                salvar.write(atividade.getTipo());//salva a ementa
+                salvar.write(atividade.getTipo());//salva a tipo
                 salvar.newLine();
-                salvar.write(atividade.getData());//salva carga horaria
-                salvar.newLine();
-                salvar.write(Integer.toString(atividade.getTurma().getId()));//salva id da turma
+                salvar.write(atividade.getData());//salva data
                 salvar.newLine();
                 salvar.write(Float.toString(atividade.getValor()));//valor
                 salvar.newLine();
-                salvar.write(Integer.toString(atividade.getId()));//id
+                salvar.write(Float.toString(atividade.getNota()));//nota
                 salvar.newLine();
+                salvar.write(Integer.toString(atividade.getTurma().getId()));//salva id da turma
+                salvar.newLine();
+                salvar.write(Integer.toString(atividade.getAluno().getId()));//salva id do aluno
+                salvar.newLine();
+
             }
             salvar.close();
             file.close();            
@@ -123,7 +142,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
         }
         carregar();
     }
-    * /
     
     /**
      * Busca a atividade utilizando como chave o id.
@@ -139,14 +157,7 @@ public class AtividadeDaoImpl implements AtividadeDao {
         }
         return atividade;
     }
-    /**
-     * Método que gera um id para o respectivo objeto.
-     * @return o id gerado.
-     */
-    @Override
-    public int gerarProximoId() {
-        return this.id;
-    }
+
     /**
      * @return retorna a lista de todas as atividades.
      */

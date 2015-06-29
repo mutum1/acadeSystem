@@ -5,8 +5,6 @@
  */
 package br.ufes.ceunes.poo.model.pojo;
 
-import javax.persistence.Column;
-
 /**
  *
  * @author paulo
@@ -14,24 +12,22 @@ import javax.persistence.Column;
 public class Pessoa  implements java.io.Serializable {
 
     //ATRIBUTOS
-    @Column
-    private String nome;
-    
-    @Column
-    private String cpf;
+     private String nome;
+     private String cpf;
+     private int id;
+     
      
     /**
      * Contrutor para pessoas. (professores e alunos)
-     * @para nome nome da pessoa.
-     * @para cpf cpf da pessoa.
+     * @param nome nome da pessoa.
+     * @param cpf cpf da pessoa.
+     * @param id id da pessoa.
      */
-    public Pessoa(){
-        
-    }
-    public Pessoa(String nome, String cpf) {
+    public Pessoa(String nome, String cpf, int id) {
        this.nome = nome;
        this.cpf = cpf;
-      
+       this.id = id;
+
     }
    
     /**
@@ -65,6 +61,14 @@ public class Pessoa  implements java.io.Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    
+    /**
+     * Pega o ID da Pessoa
+     * @return id da pessoa.
+     */
+    public int getId() {
+        return id;
+    }
     /**
      * Converte os dados da pessoa para string.
      * @return uma string com todos os dados concatenados.
@@ -73,6 +77,6 @@ public class Pessoa  implements java.io.Serializable {
     public String toString(){
         return "Nome: "+this.nome+
                "\nCPF:  "+this.cpf+
-               "\nID:   ";                
+               "\nID:   "+this.id;                
     }
   }

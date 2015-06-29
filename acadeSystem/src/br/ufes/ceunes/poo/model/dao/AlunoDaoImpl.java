@@ -29,15 +29,13 @@ public class AlunoDaoImpl implements AlunoDao {
     public AlunoDaoImpl(){
         this.listaAlunos =new ArrayList<>();
         id=1;
+        carregar();
     }
     /**
      * Adiciona um aluno na lista de alunos.
      * @param aluno 
      */
     
-    private void adicionar(Aluno aluno){
-        listaAlunos.add(aluno);
-    }
     /**
      * retorna a lista dos alunos
      * @return uma lista de alunos.
@@ -46,21 +44,13 @@ public class AlunoDaoImpl implements AlunoDao {
     public List getAll(){
          return listaAlunos;   
     }
-    /**
-     * Método responsavel por gerar o proximo id.
-     * @return um id.
-     */
-    @Override
-    public int gerarProximoId(){
-        return this.id;
-    }
+
     /**
      * Métodos responsavel por carregar o arquivo para as listas.
      * Os dados estão salvos em um arquivo "Alunos.txt", percorrendo o arquivo
      * Ativa exeções quando o arquivo não é encontrado, e quando o
      * id está fora do formato.
      */
-    /*@Override
     public void carregar(){
         String nomeArquivo = "Alunos.txt";//nome do arquivo
         FileReader file;
@@ -81,7 +71,7 @@ public class AlunoDaoImpl implements AlunoDao {
                 idUser = Integer.parseInt(idTemp);
                 
                 Aluno novo = new Aluno(nome,cpf,idUser);
-                adicionar(novo);//Adiciona na lista
+                listaAlunos.add(novo);//Adiciona na lista
             }
                         
             
@@ -103,11 +93,11 @@ public class AlunoDaoImpl implements AlunoDao {
      * Os dados são salvos em um arquivo "Alunos.txt", percorrendo a lista
      * Ativa as exeções FileNotFoundException e IOException.
      
-    
+    */
     @Override
     public void salvar(Aluno alunoAdd){
         
-        adicionar(alunoAdd);
+        listaAlunos.add(alunoAdd);
         
         String nomeArquivo = "Alunos.txt";//Nome do arquivo
         try {
