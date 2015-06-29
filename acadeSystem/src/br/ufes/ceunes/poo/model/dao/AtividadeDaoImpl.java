@@ -28,12 +28,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
     private TurmaDao turmaAcoes;
     int id;
 
-    public AtividadeDaoImpl( ) {
-        listaAtividades = new ArrayList<>();
-        this.turmaAcoes = new TurmaDaoImpl(null, null, null);
-        id=0;
-        
-    }
     public AtividadeDaoImpl(TurmaDao turmaAcoes) {
         listaAtividades = new ArrayList<>();
         this.turmaAcoes = turmaAcoes;
@@ -99,7 +93,6 @@ public class AtividadeDaoImpl implements AtividadeDao {
         listaAtividades.add(atividadeTemp);
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {
-
             FileWriter file = new FileWriter(nomeArquivo,false);//Abro o arquivo para salvar
             BufferedWriter salvar = new BufferedWriter(file);//Estacio o arquivo para salvar
             
