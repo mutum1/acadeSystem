@@ -38,18 +38,35 @@ public class Atividade {
                "\nID:    "+this.id; 
                
     }
+
     /**
      * Contrutor de atividade, que instancia a atividade e atribui a nota.
      * @param nota nota da atividade.
      * @return a atividade com a nota.
      */
-    public Atividade(String nome, String tipo, String data,Turma turma ,float valor, int id) {
+    public Atividade() {
+    }
+
+    
+    public Atividade(String nome, String tipo, String data,Turma turma, Aluno aluno ,float valor, int id) {
         this.turma =turma;
         this.nome = nome;
         this.tipo = tipo;
         this.data = data;
         this.valor = valor;
         this.nota = 0;
+        this.aluno=aluno;
+        this.id = id;
+    }
+    
+    public Atividade(String nome, String tipo, String data,Turma turma, Aluno aluno ,float valor, float nota, int id) {
+        this.turma =turma;
+        this.aluno=aluno;
+        this.nome = nome;
+        this.tipo = tipo;
+        this.data = data;
+        this.valor = valor;
+        this.nota = nota;
         this.id = id;
     }
     /**
