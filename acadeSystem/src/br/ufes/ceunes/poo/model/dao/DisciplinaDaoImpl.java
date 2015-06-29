@@ -27,6 +27,12 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
     private List<Disciplina> listaDisciplina;
     private ProfessorDao professorDao;
     int id;
+    
+    public DisciplinaDaoImpl() {
+        id=0;
+        this.listaDisciplina = new ArrayList<>();
+        this.professorDao = new ProfessorDaoImpl();
+    }
 
     public DisciplinaDaoImpl(ProfessorDao professorDao) {
         id=0;
