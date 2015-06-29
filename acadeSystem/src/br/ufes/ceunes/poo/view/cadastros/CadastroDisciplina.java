@@ -161,6 +161,7 @@ public class CadastroDisciplina extends javax.swing.JFrame {
         cargaHoraria = jTextField3.getText();
         Disciplina disciplina = new Disciplina(nome,ementa,cargaHoraria,0);
         disciplinaDao.salvar(disciplina);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
