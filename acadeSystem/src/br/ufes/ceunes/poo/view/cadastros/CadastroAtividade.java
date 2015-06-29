@@ -5,7 +5,14 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.model.dao.AtividadeDao;
+import br.ufes.ceunes.poo.model.dao.AtividadeDaoImpl;
+import br.ufes.ceunes.poo.model.dao.TurmaDao;
+import br.ufes.ceunes.poo.model.dao.TurmaDaoImpl;
+import br.ufes.ceunes.poo.model.pojo.Atividade;
+import br.ufes.ceunes.poo.model.pojo.Turma;
 import br.ufes.ceunes.poo.view.Pt2MenuCadastroProfessorView;
+import java.util.List;
 
 /**
  *
@@ -16,8 +23,17 @@ public class CadastroAtividade extends javax.swing.JFrame {
     /**
      * Creates new form CadastroAtividade
      */
+    private AtividadeDao atividadeDao;
+    private TurmaDao turmaDao;
     private Pt2MenuCadastroProfessorView menuAnterior;
     public CadastroAtividade() {
+        this.atividadeDao = new AtividadeDaoImpl();
+        this.turmaDao = new TurmaDaoImpl();
+        this.jComboBox1.removeAll();
+        List<Turma> listaTemp = turmaDao.getAll();
+        for(Turma turmaTemp : listaTemp){
+            this.jComboBox1.addItem(turmaTemp.getNomeTurma());
+        }
         initComponents();
     }
 
@@ -48,6 +64,8 @@ public class CadastroAtividade extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ACADEsYSTEM - Cadastro de atividades");
@@ -89,12 +107,21 @@ public class CadastroAtividade extends javax.swing.JFrame {
         jLabel2.setText("Cadastro de atividade");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Turma*:");
 
         jLabel6.setText("Tipo*:");
 
         jTextField3.setToolTipText("Insira o valor da atividade.");
+
+        jLabel7.setText("Data*:");
+
+        jTextField4.setToolTipText("Insira o valor da atividade.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,7 +155,11 @@ public class CadastroAtividade extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField2))))
+                            .addComponent(jTextField2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField4)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -152,7 +183,11 @@ public class CadastroAtividade extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -166,6 +201,18 @@ public class CadastroAtividade extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String nome;
+        String tipo;
+        int valor;
+        String data;
+        nome = jTextField1.getText();
+        tipo = jTextField2.getText();
+        valor = Integer.parseInt(jTextField3.getText());
+        data = jTextField4.getText();
+        int posicao = jComboBox1.getSelectedIndex();
+        Turma turma = (Turma) turmaDao.getAll().get(posicao);
+        Atividade atividade = new Atividade(nome,tipo,data,turma,valor,0);
+        //AtividadeDao.salvar(atividade);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -181,6 +228,11 @@ public class CadastroAtividade extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.menuAnterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,8 +279,10 @@ public class CadastroAtividade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }

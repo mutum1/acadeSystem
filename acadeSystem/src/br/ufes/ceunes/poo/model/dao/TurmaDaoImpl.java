@@ -43,7 +43,6 @@ public class TurmaDaoImpl implements TurmaDao {
         carregar();
     }
 
-    @Override
     public int gerarProximoId(){
         return this.id;
     }
@@ -63,7 +62,6 @@ public class TurmaDaoImpl implements TurmaDao {
      * Carrega todas as turmas que estão no arquivo em uma lista.
      */
    
-    @Override
     public void carregar(){
         listaTurma = new ArrayList<>();
         String nomeArquivo = "Turmas.txt";//nome do arquivo
