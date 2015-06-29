@@ -40,16 +40,16 @@ public class CadastroTurma extends javax.swing.JFrame {
         this.turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, new AlunoDaoImpl());
         
         
-        
-        this.jComboBox2.removeAll();
+        this.jComboBox2.removeAllItems();
         List<Disciplina> listaTemp = disciplinaDao.getAll();
         for(Disciplina disciplinaTemp : listaTemp){
             this.jComboBox2.addItem(disciplinaTemp.getNome());
         }
         
-        this.jComboBox1.removeAll();
+        this.jComboBox1.removeAllItems();
         List<Professor> listaProfTemp = professorDao.getAll();
         for(Professor professorTemp : listaProfTemp){
+            System.out.println(professorTemp);
             this.jComboBox1.addItem(professorTemp.getNome());
         }
     }
