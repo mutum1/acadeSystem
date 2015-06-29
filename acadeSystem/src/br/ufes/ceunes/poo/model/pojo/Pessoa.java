@@ -79,4 +79,9 @@ public class Pessoa  implements java.io.Serializable {
                "\nCPF:  "+this.cpf+
                "\nID:   "+this.id;                
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
   }

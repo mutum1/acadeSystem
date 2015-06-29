@@ -32,6 +32,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
         id=0;
         this.listaDisciplina = new ArrayList<>();
         this.professorDao = professorDao;
+        carregar();
     }
     /**
      * Adiciona uma disciplina a lista de disciplinas
@@ -108,6 +109,9 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      */
     @Override
     public void salvar(Disciplina disciplinaAdd){
+        
+        disciplinaAdd.setId(id);
+        
         adicionar(disciplinaAdd);
         
         String nomeArquivo = "Disciplinas.txt";//Nome do arquivo
