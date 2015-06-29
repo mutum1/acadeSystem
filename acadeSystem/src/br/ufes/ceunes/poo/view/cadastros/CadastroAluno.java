@@ -5,6 +5,9 @@
  */
 package br.ufes.ceunes.poo.view.cadastros;
 
+import br.ufes.ceunes.poo.model.dao.AlunoDao;
+import br.ufes.ceunes.poo.model.dao.AlunoDaoImpl;
+import br.ufes.ceunes.poo.model.pojo.Aluno;
 import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
 
 /**
@@ -12,11 +15,13 @@ import br.ufes.ceunes.poo.view.Pt2MenuCadastroAdministradorView;
  * @author Ayer
  */
 public class CadastroAluno extends javax.swing.JFrame {
+    private AlunoDao alunoDao;
     private Pt2MenuCadastroAdministradorView menuAnterior;
     /**
      * Creates new form CadastroAluno
      */
     public CadastroAluno() {
+        this.alunoDao = new AlunoDaoImpl();
         initComponents();
     }
 
@@ -54,6 +59,12 @@ public class CadastroAluno extends javax.swing.JFrame {
         jLabel1.setText("Nome*:");
 
         jTextField1.setToolTipText("Insira o nome do aluno");
+        jTextField1.setName(""); // NOI18N
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Cadastro de alunos");
 
@@ -137,6 +148,13 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String nome;
+        String cpf;
+        nome = jTextField1.getText();
+        cpf = jTextField2.getText();
+        Aluno aluno = new Aluno(nome,cpf,0);
+        //this.alunoDao.salvar(aluno);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -152,6 +170,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.menuAnterior.setVisible(true);
     }//GEN-LAST:event_formWindowClosed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
