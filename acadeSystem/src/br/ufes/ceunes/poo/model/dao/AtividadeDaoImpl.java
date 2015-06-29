@@ -100,10 +100,22 @@ public class AtividadeDaoImpl implements AtividadeDao {
      * Ativa as exceções FileNotFoundException, IOException.
      */
     
+    void aplicaAtividade(Atividade atividade){
+        List<Aluno> alunos = atividade.getTurma().getListaAlunos();
+        
+        for(Aluno aluno : alunos){
+            Atividade newAtividade = new Atividade(atividade.getNome(), atividade.getTipo(),atividade.getData(), atividade.getTurma(), aluno, atividade.getValor(), id);
+            listaAtividades.add(newAtividade);
+            id++;
+        }
+        
+    }
+    
     @Override
     public void salvar(Atividade atividadeTemp) {
         
-        listaAtividades.add(atividadeTemp);
+        
+        aplicaAtividade(atividadeTemp);
         
         String nomeArquivo = "Atividades.txt";//Nome do arquivo
         try {

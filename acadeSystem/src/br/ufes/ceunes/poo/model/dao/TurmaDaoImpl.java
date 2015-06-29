@@ -94,6 +94,7 @@ public class TurmaDaoImpl implements TurmaDao {
                 
                 Disciplina disciplina = new Disciplina(null,null,null,Integer.parseInt(idDisciplina));// cria um objeto do tipo disciplina e coloca so o codigo no objeto
                 disciplina = disciplinaAcoes.buscar(disciplina);//busca a disciplina com aquele codigo e completa as informaçoes do objeto
+                
                 Turma novaTurma = new Turma(ano, periodo, local, horario,nVagas,professor,disciplina,Integer.parseInt(idTemp));//cria a turma e salva as informaçoes no objeto
                 
                 adicionar(novaTurma);//Adiciona na lista
