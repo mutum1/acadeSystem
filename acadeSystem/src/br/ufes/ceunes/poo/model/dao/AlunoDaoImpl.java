@@ -50,7 +50,6 @@ public class AlunoDaoImpl implements AlunoDao {
      * Método responsavel por gerar o proximo id.
      * @return um id.
      */
-    @Override
     public int gerarProximoId(){
         return this.id;
     }

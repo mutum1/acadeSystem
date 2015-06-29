@@ -6,10 +6,6 @@ package DAO;
  * and open the template in the editor.
  */
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -22,7 +18,6 @@ import org.hibernate.SessionFactory;
 public class DAOHibernateUtil {
 
     private static final SessionFactory sessionFactory;
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
     
     static {
         try {
@@ -39,15 +34,4 @@ public class DAOHibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
-    public EntityManager getEntityManager() {
-        EntityManager em = emf.createEntityManager();
-        return em;
-    }
-    
-    public EntityTransaction getTransaction(EntityManager em) {
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        return tx;
-    }
-
 }

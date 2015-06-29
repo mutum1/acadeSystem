@@ -34,15 +34,11 @@ public class AcadeSystem {
     
     public static void main(String[] args){
            
-        //Criando e instanciando os Objetos Daos e as Views, para mandar como parametro
-       /* AlunoDao alunoDao = new AlunoDaoImpl(); // Objeto Aluno Criado
-        ProfessorDao professorDao = new ProfessorDaoImpl(); // Objeto Professor Criado
-        DisciplinaDao disciplinaDao = new DisciplinaDaoImpl(professorDao); // Objeto Disciplina Criado
-        TurmaDao turmaDao = new TurmaDaoImpl(professorDao, disciplinaDao, alunoDao); // Objeto Turma Criado
-        AtividadeDao atividadeDao = new AtividadeDaoImpl(turmaDao);
-        */
+
         
-        /*
+        /* eu consigo gerar as tabelas mas nao consigo acessar acess
+        
+        
         Aluno aluno= new Aluno("paulo", "123456", 1);
         
         Session session = DAOHibernateUtil.getSessionFactory().getCurrentSession();
@@ -50,25 +46,6 @@ public class AcadeSystem {
         session.beginTransaction();
         session.save(aluno);
         session.getTransaction().commit();
-        
-*/
-        /*
-        menuPrincipal.showOptions();
-        int opcao = menuPrincipal.getOption();
-        while(opcao != menuPrincipal.getSize()){
-            switch(opcao){
-                case 1:
-                    menuProfessor.open();
-                    break;
-                case 2:
-                                    
-                    menuAdministrador.open();
-                    
-                    break;                    
-            }
-            menuPrincipal.showOptions();
-            opcao = menuPrincipal.getOption();
-        }
         */
         (new Pt2MenuPrincipalView()).setVisible(true);
     }
