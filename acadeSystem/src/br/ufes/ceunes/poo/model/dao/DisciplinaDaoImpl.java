@@ -56,7 +56,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      * Carrega do arquivo todas as disciplinas e coloca em uma lista 
      * "Disciplina.txt".
      * Ativas as exceções FileNotFoundException, IOException, NumberFormatException.
-     
+     */
     @Override
     public void carregar(){
         listaDisciplina = new ArrayList<>();
@@ -105,7 +105,7 @@ public class DisciplinaDaoImpl implements DisciplinaDao {
      * Salva todas as disciplinas de uma lista em um arquivo Disciplina.txt.
      * @param disciplinaAdd lista de disciplinas.
      * Ativda exceções FileNotFoundException, IOException.
-     
+     */
     @Override
     public void salvar(Disciplina disciplinaAdd){
         adicionar(disciplinaAdd);
